@@ -81,7 +81,7 @@ const FungicidesScreen = ({ onBack }) => {
       onPress={() => setSelectedProduct(product)}
     >
       <Image 
-            source={product.image_url ? { uri: `http://192.168.0.100:3002${product.image_url}` } : require('../assets/fungicides.png')}
+            source={product.image_url ? { uri: `http://192.168.1.15:3001${product.image_url}` } : require('../assets/fungicides.png')}
         style={styles.productImage}
         resizeMode="cover"
         fadeDuration={0}

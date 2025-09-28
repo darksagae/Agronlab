@@ -120,7 +120,7 @@ const CartScreen = ({ onBack }) => {
   const renderCartItem = ({ item }) => (
     <View style={styles.cartItem}>
       <Image 
-        source={item.image_url ? { uri: `http://192.168.0.100:3002${item.image_url}` } : require('../assets/fertilizers.png')} 
+        source={item.image_url ? { uri: `http://192.168.1.15:3001${item.image_url}` } : require('../assets/fertilizers.png')} 
         style={styles.itemImage} 
       />
       <View style={styles.itemDetails}>

@@ -15,7 +15,7 @@ const FertilizerProductsScreen = ({ onBack }) => {
   // Get image source from API data
   const getImageSource = (product) => {
     return product.image_url 
-      ? { uri: `http://192.168.0.100:3002${product.image_url}` }
+      ? { uri: `http://192.168.1.15:3001${product.image_url}` }
       : require('../assets/fertilizers.png');
   };
 

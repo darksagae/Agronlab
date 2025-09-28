@@ -300,7 +300,7 @@ const StoreScreen = () => {
                 onPress={() => setSelectedProduct(item)}
               >
                 <Image 
-                  source={item.image_url ? { uri: `http://192.168.0.100:3002${item.image_url}` } : getCategoryImage(item.category_name)} 
+                  source={item.image_url ? { uri: `http://192.168.1.15:3001${item.image_url}` } : getCategoryImage(item.category_name)} 
                   style={styles.searchResultImage} 
                 />
                 <View style={styles.searchResultContent}>
