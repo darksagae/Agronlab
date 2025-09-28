@@ -2,7 +2,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Backend API configuration - Single local address
-const API_BASE_URL = 'http://192.168.1.15:3003/api'; // Host machine IP address
+const API_BASE_URL = 'http://192.168.1.15:3001/api'; // Store backend API
 let currentApiUrl = API_BASE_URL;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes cache
 
