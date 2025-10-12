@@ -19,20 +19,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mix 150-200ml of Butanil-S in 20L of water**
-**Application:** Apply immediately after planting
-**Timing:** For better results, apply when soil is moist
-**Tank mixing:** Butanil-S can be tank mixed with other herbicides such as 2,4-D, to give pre-emergence control of grasses, sedges and broadleaves
+- **Mixing ratio**: 150-200ml of Butanil-S in 20L of water
+- **Application method**: Selective pre-emergence herbicide
+- **Target crops**: Rice, maize, groundnuts, wheat, soy bean and beans
+- **Application timing**: Apply immediately after planting
+- **Soil conditions**: For better results, apply when soil is moist
+- **Tank mixing**: Can be tank mixed with other herbicides such as 2,4-D, to give pre-emergence control of grasses, sedges and broadleaves
 
 ## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
+- **Method**: Pre-emergence spray application
+- **Target**: Apply to soil before crop emergence
+- **Timing**: Apply immediately after planting
+- **Soil preparation**: Ensure soil is moist for better results
+- **Multi-crop use**: Suitable for rice, maize, groundnuts, wheat, soy bean and beans
 
 ## Benefits
-Effective control of weeds in multiple crops
-Pre-emergence protection
-Selective action on target crops
-Cost-effective solution
-Easy to use
+- **Multi-crop control**: Effective control of weeds in rice, maize, groundnuts, wheat, soy bean and beans
+- **Pre-emergence protection**: Prevents weed emergence before crop
+- **Selective action**: Safe for target crops
+- **Protein synthesis inhibition**: Works by inhibiting protein synthesis and growth of weed seed
+- **Tank mixing**: Compatible with other herbicides for enhanced control
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 1L: UGX 30,000

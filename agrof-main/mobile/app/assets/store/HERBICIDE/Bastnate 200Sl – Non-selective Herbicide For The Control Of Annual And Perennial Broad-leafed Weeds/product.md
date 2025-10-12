@@ -21,25 +21,29 @@ Easy to apply
 Long-lasting control
 
 ## Usage Instructions
-Mixing: Mix 200-300ml per 20 liters of water
-Application: Apply as a foliar spray to actively growing weeds
-Timing: Best applied when weeds are young and actively growing
-Avoid Drift: Do not apply when windy to prevent drift
-Re-entry Period: 12 hours after application
+- **Mixing ratio**: 200-300ml per 20L of water
+- **Application method**: Non-selective herbicide
+- **Target weeds**: Annual and perennial broad-leafed weeds
+- **Application timing**: Best applied when weeds are young and actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Avoid drift**: Do not apply when windy to prevent drift
+- **Re-entry period**: 12 hours after application
 
 ## Application Method
-Foliar Spray: Apply to weed foliage
-Boom Sprayer: For large areas
-Knapsack Sprayer: For small areas
-Timing: Early morning or late evening
+- **Method**: Foliar spray application
+- **Target**: Direct application to weed foliage
+- **Equipment**: Boom sprayer for large areas, knapsack sprayer for small areas
+- **Timing**: Early morning or late evening
+- **Use areas**: Non-crop land, industrial areas, rights of way
 
 ## Benefits
-Non-Selective: Kills all vegetation
-Broad-leafed Control: Excellent broadleaf weed control
-Long-lasting: Provides extended weed control
-Cost Effective: Reduces manual weeding
-Time Saving: Quick and efficient application
-Wide Application: Suitable for many uses
+- **Broad-leafed control**: Excellent control of annual and perennial broad-leafed weeds
+- **Non-selective action**: Kills all vegetation it contacts
+- **Long-lasting control**: Provides extended weed control
+- **Cost-effective**: Reduces manual weeding costs
+- **Time saving**: Quick and efficient application
+- **Versatile use**: Suitable for non-crop land, industrial areas, and rights of way
+- **Reliable results**: Proven effectiveness against tough broad-leafed weeds
 
 ## Price Information
 Per 1L container: UGX 40,000

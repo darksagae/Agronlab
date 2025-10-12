@@ -10,22 +10,26 @@ N-21%: S-24%. Contains two nutrients (Nitrogen and Sulphur). It is used for grow
 50 Kg: UGX 140,000
 
 ## Key Features
+- Contains two essential nutrients: Nitrogen (21%) and Sulphur (24%)
+- Suitable for ground plants and cereals
 - High quality agricultural fertilizer
-- Suitable for various crop types
 - Easy to apply and use
-- Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application rate**: 50-75 kg per acre depending on crop
+- **Best for**: Ground plants and cereals
+- **Application timing**: Apply during planting or early growth stages
+- **Method**: Broadcast or band application
+- **Soil conditions**: Works well in neutral to slightly acidic soils
+- **Water management**: Water after application for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Dual nutrient supply**: Provides both Nitrogen (21%) and Sulphur (24%)
+- **Improved crop yield**: Enhanced growth and development
+- **Better nutrient uptake**: Sulphur improves nitrogen utilization
+- **Cost-effective**: Single fertilizer provides two essential nutrients
+- **Versatile application**: Suitable for various crop types
+- **Soil improvement**: Sulphur helps with protein synthesis and oil production
 
 ## Storage Instructions
 - Store in cool, dry place

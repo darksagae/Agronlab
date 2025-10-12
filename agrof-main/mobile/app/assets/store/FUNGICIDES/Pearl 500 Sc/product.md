@@ -20,20 +20,30 @@ Effective against multiple diseases
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 20mls per 20 ltrs of water
-**Application rate:** 200mls per acre
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Mixing ratio**: 20mls per 20L of water
+- **Application rate**: 200mls per acre
+- **Application method**: Systemic, broad-spectrum fungicide with protective and curative action
+- **Target diseases**: Anthracnose, white mould, Fusarium wilt, Damping off, leaf spot, Botrytis, Ascochyta, Powdery Mildew, Stem rot, Alternaria blight and fruit rot
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredient**: Carbendazim
+- **Formulation**: Suspension Concentrate (SC)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed through the green tissues and roots, with translocation acropetally
+- **Protective action**: Provides protection before disease infection
+- **Curative action**: Can control diseases after infection has occurred
+- **Broad-spectrum**: Effective against multiple diseases
 
 ## Benefits
-Systemic protection throughout the plant
-Broad spectrum disease control
-Protective and curative action
-Easy to use
-Cost-effective solution
+- **Broad spectrum control**: Can be used to control Anthracnose, white mould, Fusarium wilt, Damping off, leaf spot, Botrytis, Ascochyta, Powdery Mildew, Stem rot, Alternaria blight and fruit rot
+- **Systemic protection**: Systemic, broad-spectrum fungicide with protective and curative action
+- **Dual action**: Both protective and curative properties
+- **Systemic translocation**: Absorbed through the green tissues and roots, with translocation acropetally
+- **Multi-disease control**: Effective against multiple diseases including anthracnose, white mould, fusarium wilt, damping off, leaf spot, botrytis, ascochyta, powdery mildew, stem rot, alternaria blight and fruit rot
+- **Easy application**: Simple mixing and spray application
+- **Cost-effective**: Single application for comprehensive disease control
 
 ## Price Information
 Per 50ml: UGX 6,100

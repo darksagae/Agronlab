@@ -7,9 +7,9 @@ Grain Pulse Ltd
 Blended Fertilizer for Maize, used at planting to improve soil fertility and increase maize productivity. Application rate: 100kg per acre.
 
 ## Price Information
-50 Kg: UGX 150,000
-10 Kg: UGX 37,000
-25 Kg: UGX 77,000
+- 50 Kg: UGX 150,000
+- 10 Kg: UGX 37,000
+- 25 Kg: UGX 77,000
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -18,16 +18,22 @@ Blended Fertilizer for Maize, used at planting to improve soil fertility and inc
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Soil application at planting
+- **Application rate**: 100kg per acre
+- **Timing**: Apply at planting to improve soil fertility
+- **Target crops**: Maize
+- **Frequency**: Apply at planting
+- **Method**: Broadcast or band application
+- **Water management**: Water after application for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Maize-specific**: Blended specifically for maize production
+- **Soil fertility**: Improves soil fertility for maize
+- **Productivity boost**: Increases maize productivity
+- **Balanced nutrition**: NPK 20:20:18 for maize nutritional needs
+- **Planting support**: Ideal for planting applications
+- **Yield improvement**: Significantly boosts maize yields
+- **Cost-effective**: Tailored nutrition for maize farmers
 
 ## Storage Instructions
 - Store in cool, dry place

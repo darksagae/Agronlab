@@ -31,23 +31,32 @@ Water: Regular irrigation needed
 Spacing: 2m x 2m between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 24 hours
-Planting Depth: 2-3 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 7-10 days
-Transplanting: When seedlings have 2-3 true leaves
+- **Variety type**: Excellent oval to oblong stripped type hybrid
+- **Fruit characteristics**: Glossy attractive high quality fruits with deep crimson red flesh
+- **Fruit texture**: The fruit texture is very crispy with a sweetness of 12-13% TSS
+- **Transport quality**: The fruits have excellent transport quality fit for long distance transport
+- **Fruit average weight**: 8-10kg under good farming practice
+- **Maturity**: 80-85 days after sowing
+- **Yield potential**: 32 –40tons/acre
+- **Disease resistance**: Field observable tolerance to Anthracnose caused by Colletotrichum orbiculare and Fusarium wilt
+- **Spacing**: 60cm x 45cm
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 2m x 2m spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Excellent oval to oblong stripped type hybrid watermelon
+- **Spacing**: 60cm x 45cm between plants
+- **Fruit quality**: Glossy attractive high quality fruits with deep crimson red flesh
+- **Transport quality**: Excellent transport quality fit for long distance transport
+- **Disease resistance**: Field observable tolerance to Anthracnose and Fusarium wilt
 
 ## Benefits
-High Yield: 40-50 tons per hectare
-Excellent Quality: Sweet, flavorful fruits
-Disease Resistance: Reduces crop losses
-Market Demand: High demand in local and export markets
-Profit Potential: Excellent return on investment
+- **High yield potential**: 32 –40tons/acre under good farming practice
+- **Excellent fruit quality**: Glossy attractive high quality fruits with deep crimson red flesh
+- **Sweet flavor**: The fruit texture is very crispy with a sweetness of 12-13% TSS
+- **Transport quality**: Excellent transport quality fit for long distance transport
+- **Disease resistance**: Field observable tolerance to Anthracnose and Fusarium wilt
+- **Market demand**: High demand due to excellent fruit quality and transport quality
+- **Profit potential**: Excellent return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 25,000

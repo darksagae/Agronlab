@@ -8,9 +8,11 @@ import {
   Modal,
   TextInput,
   Alert,
-  Dimensions
+  Dimensions,
+  Platform
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const { width } = Dimensions.get('window');
 
@@ -27,6 +29,11 @@ const CropCalendar = ({ savedAnalyses, onSavePlan }) => {
     budget: '',
     notes: ''
   });
+  const [editingPlanId, setEditingPlanId] = useState(null);
+  const [showStartDatePicker, setShowStartDatePicker] = useState(false);
+  const [showEndDatePicker, setShowEndDatePicker] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   // Convert USD to Ugandan Shillings (UGX)
   const convertToUGX = (usdAmount) => {
@@ -75,14 +82,10 @@ const CropCalendar = ({ savedAnalyses, onSavePlan }) => {
     return days;
   };
 
-  // Get crop rotation recommendations based on saved analyses
+  // Get crop rotation recommendations based on saved analyses (only if user has analyses)
   const getCropRotationRecommendations = () => {
     if (!savedAnalyses || savedAnalyses.length === 0) {
-      return [
-        { crop: 'Maize', season: 'Spring', duration: '90 days', budget: formatUGX(convertToUGX(800)) + '/acre' },
-        { crop: 'Beans', season: 'Summer', duration: '60 days', budget: formatUGX(convertToUGX(400)) + '/acre' },
-        { crop: 'Wheat', season: 'Fall', duration: '120 days', budget: formatUGX(convertToUGX(600)) + '/acre' }
-      ];
+      return []; // No mocked data - return empty array
     }
 
     const cropTypes = [...new Set(savedAnalyses.map(analysis => analysis.crop))];
@@ -99,6 +102,32 @@ const CropCalendar = ({ savedAnalyses, onSavePlan }) => {
     });
     
     return recommendations;
+  };
+
+  // Format date to YYYY-MM-DD
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  // Handle start date change
+  const onStartDateChange = (event, selectedDate) => {
+    setShowStartDatePicker(Platform.OS === 'ios');
+    if (selectedDate) {
+      setStartDate(selectedDate);
+      setCurrentPlan({...currentPlan, startDate: formatDate(selectedDate)});
+    }
+  };
+
+  // Handle end date change
+  const onEndDateChange = (event, selectedDate) => {
+    setShowEndDatePicker(Platform.OS === 'ios');
+    if (selectedDate) {
+      setEndDate(selectedDate);
+      setCurrentPlan({...currentPlan, endDate: formatDate(selectedDate)});
+    }
   };
 
   // Calculate budget based on crop type and area
@@ -124,26 +153,58 @@ const CropCalendar = ({ savedAnalyses, onSavePlan }) => {
     }
 
     const budget = calculateBudget(currentPlan.crop, currentPlan.area);
-    const newPlan = {
-      ...currentPlan,
-      id: Date.now(),
-      budget,
-      createdAt: new Date().toISOString()
-    };
 
-    setCropPlans([...cropPlans, newPlan]);
-    
-    // Add to budget plans
-    const budgetPlan = {
-      id: Date.now(),
-      crop: currentPlan.crop,
-      area: currentPlan.area,
-      budget: parseFloat(budget),
-      date: newPlan.startDate,
-      type: 'expense'
-    };
-    
-    setBudgetPlans([...budgetPlans, budgetPlan]);
+    if (editingPlanId) {
+      // Update existing plan
+      const updatedPlans = cropPlans.map(plan => 
+        plan.id === editingPlanId 
+          ? { ...currentPlan, id: editingPlanId, budget, createdAt: plan.createdAt }
+          : plan
+      );
+      setCropPlans(updatedPlans);
+
+      // Update budget plans
+      const updatedBudgetPlans = budgetPlans.map(plan =>
+        plan.id === editingPlanId
+          ? {
+              id: editingPlanId,
+              crop: currentPlan.crop,
+              area: currentPlan.area,
+              budget: parseFloat(budget),
+              date: currentPlan.startDate,
+              type: 'expense'
+            }
+          : plan
+      );
+      setBudgetPlans(updatedBudgetPlans);
+
+      Alert.alert('Success', 'Crop plan updated successfully!');
+      setEditingPlanId(null);
+    } else {
+      // Add new plan
+      const newPlan = {
+        ...currentPlan,
+        id: Date.now(),
+        budget,
+        createdAt: new Date().toISOString()
+      };
+
+      setCropPlans([...cropPlans, newPlan]);
+      
+      // Add to budget plans
+      const budgetPlan = {
+        id: newPlan.id,
+        crop: currentPlan.crop,
+        area: currentPlan.area,
+        budget: parseFloat(budget),
+        date: newPlan.startDate,
+        type: 'expense'
+      };
+      
+      setBudgetPlans([...budgetPlans, budgetPlan]);
+      
+      Alert.alert('Success', 'Crop plan added successfully!');
+    }
     
     // Reset form
     setCurrentPlan({
@@ -156,7 +217,46 @@ const CropCalendar = ({ savedAnalyses, onSavePlan }) => {
     });
     
     setShowPlanModal(false);
-    Alert.alert('Success', 'Crop plan added successfully!');
+  };
+
+  // Delete crop plan
+  const deleteCropPlan = (planId) => {
+    Alert.alert(
+      'Delete Plan',
+      'Are you sure you want to delete this crop plan?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: () => {
+            setCropPlans(cropPlans.filter(plan => plan.id !== planId));
+            setBudgetPlans(budgetPlans.filter(plan => plan.id !== planId));
+            Alert.alert('Success', 'Crop plan deleted successfully!');
+          }
+        }
+      ]
+    );
+  };
+
+  // Edit crop plan
+  const editCropPlan = (plan) => {
+    setCurrentPlan({
+      crop: plan.crop,
+      area: plan.area,
+      startDate: plan.startDate,
+      endDate: plan.endDate,
+      notes: plan.notes || ''
+    });
+    // Parse dates for date pickers
+    if (plan.startDate) {
+      setStartDate(new Date(plan.startDate));
+    }
+    if (plan.endDate) {
+      setEndDate(new Date(plan.endDate));
+    }
+    setEditingPlanId(plan.id);
+    setShowPlanModal(true);
   };
 
   // Get month name
@@ -226,26 +326,28 @@ const CropCalendar = ({ savedAnalyses, onSavePlan }) => {
         </View>
       </View>
 
-      {/* Crop Rotation Recommendations */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Crop Rotation Strategy</Text>
-        <Text style={styles.sectionSubtitle}>
-          Based on your {savedAnalyses?.length || 0} crop analyses
-        </Text>
-        {recommendations.map((rec, index) => (
-          <View key={index} style={styles.recommendationCard}>
-            <View style={styles.recommendationHeader}>
-              <MaterialIcons name="agriculture" size={24} color="#4CAF50" />
-              <Text style={styles.recommendationCrop}>{rec.crop}</Text>
+      {/* Crop Rotation Recommendations - Only show if user has analyses */}
+      {recommendations.length > 0 && (
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Crop Rotation Strategy</Text>
+          <Text style={styles.sectionSubtitle}>
+            Based on your {savedAnalyses?.length || 0} crop analyses
+          </Text>
+          {recommendations.map((rec, index) => (
+            <View key={index} style={styles.recommendationCard}>
+              <View style={styles.recommendationHeader}>
+                <MaterialIcons name="agriculture" size={24} color="#4CAF50" />
+                <Text style={styles.recommendationCrop}>{rec.crop}</Text>
+              </View>
+              <View style={styles.recommendationDetails}>
+                <Text style={styles.recommendationText}>Season: {rec.season}</Text>
+                <Text style={styles.recommendationText}>Duration: {rec.duration}</Text>
+                <Text style={styles.recommendationText}>Budget: {rec.budget}</Text>
+              </View>
             </View>
-            <View style={styles.recommendationDetails}>
-              <Text style={styles.recommendationText}>Season: {rec.season}</Text>
-              <Text style={styles.recommendationText}>Duration: {rec.duration}</Text>
-              <Text style={styles.recommendationText}>Budget: {rec.budget}</Text>
-            </View>
-          </View>
-        ))}
-      </View>
+          ))}
+        </View>
+      )}
 
       {/* Budget Overview */}
       <View style={styles.section}>
@@ -279,6 +381,24 @@ const CropCalendar = ({ savedAnalyses, onSavePlan }) => {
                 Area: {plan.area} acres | {plan.startDate} to {plan.endDate}
               </Text>
               {plan.notes && <Text style={styles.planNotes}>{plan.notes}</Text>}
+              
+              {/* Action Buttons */}
+              <View style={styles.planActions}>
+                <TouchableOpacity
+                  style={styles.editButton}
+                  onPress={() => editCropPlan(plan)}
+                >
+                  <MaterialIcons name="edit" size={18} color="#4CAF50" />
+                  <Text style={styles.editButtonText}>Edit</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.deleteButton}
+                  onPress={() => deleteCropPlan(plan.id)}
+                >
+                  <MaterialIcons name="delete" size={18} color="#f44336" />
+                  <Text style={styles.deleteButtonText}>Delete</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           ))}
         </View>
@@ -294,8 +414,21 @@ const CropCalendar = ({ savedAnalyses, onSavePlan }) => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Add Crop Plan</Text>
-              <TouchableOpacity onPress={() => setShowPlanModal(false)}>
+              <Text style={styles.modalTitle}>
+                {editingPlanId ? 'Edit Crop Plan' : 'Add Crop Plan'}
+              </Text>
+              <TouchableOpacity onPress={() => {
+                setShowPlanModal(false);
+                setEditingPlanId(null);
+                setCurrentPlan({
+                  crop: '',
+                  area: '',
+                  startDate: '',
+                  endDate: '',
+                  budget: '',
+                  notes: ''
+                });
+              }}>
                 <MaterialIcons name="close" size={24} color="#666" />
               </TouchableOpacity>
             </View>
@@ -314,18 +447,50 @@ const CropCalendar = ({ savedAnalyses, onSavePlan }) => {
                 onChangeText={(text) => setCurrentPlan({...currentPlan, area: text})}
                 keyboardType="numeric"
               />
-              <TextInput
-                style={styles.input}
-                placeholder="Start Date (YYYY-MM-DD)"
-                value={currentPlan.startDate}
-                onChangeText={(text) => setCurrentPlan({...currentPlan, startDate: text})}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="End Date (YYYY-MM-DD)"
-                value={currentPlan.endDate}
-                onChangeText={(text) => setCurrentPlan({...currentPlan, endDate: text})}
-              />
+              
+              {/* Start Date Picker */}
+              <Text style={styles.dateLabel}>Start Date</Text>
+              <TouchableOpacity
+                style={styles.dateButton}
+                onPress={() => setShowStartDatePicker(true)}
+              >
+                <MaterialIcons name="event" size={20} color="#4CAF50" />
+                <Text style={styles.dateButtonText}>
+                  {currentPlan.startDate || 'Select Start Date'}
+                </Text>
+              </TouchableOpacity>
+              
+              {showStartDatePicker && (
+                <DateTimePicker
+                  value={startDate}
+                  mode="date"
+                  display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                  onChange={onStartDateChange}
+                />
+              )}
+              
+              {/* End Date Picker */}
+              <Text style={styles.dateLabel}>End Date</Text>
+              <TouchableOpacity
+                style={styles.dateButton}
+                onPress={() => setShowEndDatePicker(true)}
+              >
+                <MaterialIcons name="event" size={20} color="#4CAF50" />
+                <Text style={styles.dateButtonText}>
+                  {currentPlan.endDate || 'Select End Date'}
+                </Text>
+              </TouchableOpacity>
+              
+              {showEndDatePicker && (
+                <DateTimePicker
+                  value={endDate}
+                  mode="date"
+                  display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                  onChange={onEndDateChange}
+                  minimumDate={startDate}
+                />
+              )}
+              
               <TextInput
                 style={styles.input}
                 placeholder="Notes (optional)"
@@ -546,6 +711,44 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#888',
     fontStyle: 'italic',
+    marginBottom: 8,
+  },
+  planActions: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
+  },
+  editButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#e8f5e9',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 6,
+    marginRight: 8,
+  },
+  editButtonText: {
+    color: '#4CAF50',
+    fontWeight: '600',
+    marginLeft: 4,
+    fontSize: 14,
+  },
+  deleteButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#ffebee',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 6,
+  },
+  deleteButtonText: {
+    color: '#f44336',
+    fontWeight: '600',
+    marginLeft: 4,
+    fontSize: 14,
   },
   modalOverlay: {
     flex: 1,
@@ -582,6 +785,29 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 16,
     fontSize: 16,
+  },
+  dateLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 8,
+    marginTop: 4,
+  },
+  dateButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 16,
+    backgroundColor: '#f8f9fa',
+  },
+  dateButtonText: {
+    fontSize: 16,
+    color: '#333',
+    marginLeft: 8,
+    flex: 1,
   },
   modalFooter: {
     flexDirection: 'row',

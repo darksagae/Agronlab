@@ -4,10 +4,10 @@
 Yara East Africa Ltd
 
 ## Overview
-YaraMila JAVA is a high-quality compound NPK, specifically designed for coffee in most situations. The balanced nutrients mean the crop gets a good support for development.
+YaraMila JAVA is a high-quality compound NPK, specifically designed for coffee in most situations. The balanced nutrients mean the crop gets a good support for development. Every prill of YaraMila™️ JAVA™️ contains balanced NPK nutrients. The YaraMila™️ JAVA™️ also contains Magnesium, Sulphur and Boron. It is a balanced source of nitrogen: YaraMila™️ JAVA™️ include a balance of nitrate and ammonium nitrogen, making the product significantly more effective with the combination of immediate plant available Nitrate N-content and slower release of N-content from Ammonium. Unique phosphate: Water soluble P (orthophosphate) is immediately available for uptake into the plant. form is not immediately fixed in the soil, and so maintains P availability for a sustained period of time.
 
 ## Price Information
-50kg: UGX 162,000
+- 50kg: UGX 162,000
 
 ## Key Features
 - High quality agricultural fertilizer

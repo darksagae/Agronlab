@@ -6,9 +6,23 @@ Uganda Crop Care Limited
 ## Overview
 Wuxal Macromix is a foliar fertilizer containing high amounts chelated macro nutrients as well as all necessary trace elements. It's a premium quality suspension concentrate, formulated using quality nutrient sources that is very safe to use.
 
+## Composition
+NPK 24:24:18 + TE
+
+## Recommended Rates
+- **Coffee**: Use 1-1.5 ltr/Ha in 1000 litres water (start before flowering and continue over flowering at 2-3 weeks interval)
+- **Tea**: Use 1-1.5 ltr/Ha in 1000 litres water (after bud swelling and repeat after 14 days interval)
+- **Cereals** (Wheat, Rice, Barley): Use 1-1.5 ltr/Ha in 200 litres water (during stem elongation)
+- **Maize**: Use 1-1.5 ltr/Ha in 200 litres water (when plants are 15-25cm high, repeat at 14 days interval)
+- **Vegetables**: 1-1.5 ltr/Ha in 600-800 litres water (in conjunction with pesticides during periods of high nutrient demand)
+- **Ornamental**: Use 100-150ml/100 litres water (during the vegetative stages, do not spray directly on flowers)
+
+## Compatibility
+Compatible with most fungicides, pesticides and herbicides.
+
 ## Price Information
-500 mls: UGX 40,000
-10 Ltr: UGX 532,500
+- 500 mls: UGX 40,000
+- 10 Ltr: UGX 532,500
 
 ## Key Features
 - High quality agricultural fertilizer

@@ -7,7 +7,7 @@ Mabugu Farm Supply
 YaraBela CAN (26% N) is high quality nitrate fertilizer. An excellent option for top dressing on many crops, including cereals.
 
 ## Price Information
-50 Kg: UGX 110,000
+- 50 Kg: UGX 110,000
 
 ## Key Features
 - High quality agricultural fertilizer

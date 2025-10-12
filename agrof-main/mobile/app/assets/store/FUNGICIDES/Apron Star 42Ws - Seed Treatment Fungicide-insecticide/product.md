@@ -21,20 +21,29 @@ Broad spectrum of activity
 Stimulates root development
 
 ## Usage Instructions
-**Application:** Seed treatment before planting
-**Compatibility:** APRON STAR has a broad spectrum of activity and is not expected to be mixed with other products
-**Target Crops:** French beans, Runner beans, Snow peas, Sugar snaps, Garden peas, Baby corn
+- **Application method**: Seed treatment fungicide-insecticide mixture
+- **Target pests**: Wireworms, whiteflies, aphids, jassids, beanfly, thrips, termites
+- **Target diseases**: Downy mildew, damping-off diseases, soil borne diseases
+- **Target crops**: Beans, sorghum, maize, cotton and vegetables
+- **Active ingredients**: Thiamethoxam 20% + Metalaxyl-M 20% + Difenoconazole 2%
+- **Compatibility**: APRON STAR has a broad spectrum of activity and is not expected to be mixed with other products
+- **Application timing**: Apply to seeds before planting
 
 ## Application Method
-Seed Treatment: Apply to seeds before planting
+- **Method**: Seed treatment application
+- **Target**: Apply to seeds before planting
+- **Systemic activity**: Root, leaf and stem systemic activity
+- **Triple action**: Insecticide, fungicide, and systemic protection
+- **Target crops**: French beans, Runner beans, Snow peas, Sugar snaps, Garden peas, Baby corn
 
 ## Benefits
-Triple power seedling protection
-Strong against critical early season diseases
-Controls sucking pests for about 21 days/3 weeks after planting
-Stimulates root development leading to vigorous starts
-Uniform growth and higher yields
-Modern chemistry-based protection
+- **Triple power protection**: Three-way powered seedling protection based on modern chemistry
+- **Early season control**: Strong against critical early season diseases - Pythium, Fusarium and early seasons pests - Bean Fly, Termites, Thrips, Jassids, Whiteflies etc.
+- **Pest control**: Controls sucking pests for about 21 days/3 weeks after planting
+- **Root development**: Stimulates root development leading to vigorous starts, uniform growth and higher yields
+- **Systemic protection**: Root, leaf and stem systemic activity
+- **Disease control**: Provides protection from pre-emergence damping-off caused by pythium spp. and good protection from soil and airborne downy mildews
+- **Cost-effective**: Single application for comprehensive protection
 
 ## Price Information
 Per 1kg: UGX 438,300

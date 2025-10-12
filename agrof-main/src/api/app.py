@@ -11,6 +11,8 @@ import logging
 import base64
 import requests
 from datetime import datetime
+from advanced_training_api import init_advanced_training
+from ai_command_api import setup_ai_command_routes
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -226,10 +228,16 @@ def connection_test():
         'ai_status': 'AI services removed'
     })
 
+# Initialize advanced training API
+advanced_training = init_advanced_training(app)
+
+# Setup AI command routes
+setup_ai_command_routes(app)
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    logger.info("🚀 Starting AGROF Backend (AI Removed)...")
+    logger.info("🚀 Starting AGROF Backend with Advanced Training...")
     logger.info(f"   Port: {port}")
     logger.info("   CORS: ENABLED")
-    logger.info("   AI Services: REMOVED")
+    logger.info("   AI Services: ADVANCED TRAINING ENABLED")
     app.run(host='0.0.0.0', port=port, debug=False)

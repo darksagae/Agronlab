@@ -1,0 +1,364 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "continue": "Continue",
+    "close": "Close"
+  },
+  "navigation": {
+    "home": "Home",
+    "store": "Store",
+    "care": "AI Care",
+    "plan": "AI Plan",
+    "account": "Account",
+    "cart": "Cart"
+  },
+  "welcome": {
+    "title": "AGROF",
+    "subtitle": "Your AI Powered Crop Health Companion",
+    "continueButton": "Continue to AGROF →",
+    "watchIntro": "Watch Introduction",
+    "startUsing": "Start Using App"
+  },
+  "categories": {
+    "question": "Which of the following best describes you?",
+    "subtitle": "Choose your role to personalize your experience",
+    "farmer": "Farmer",
+    "researcher": "Researcher",
+    "farmerDescription": "I grow crops and need disease detection",
+    "researcherDescription": "I conduct agricultural research"
+  },
+  "diseaseDetection": {
+    "title": "Disease Detection",
+    "takePhoto": "Take or Select Photo",
+    "analyze": "Analyze",
+    "results": "Analysis Results",
+    "healthStatus": "Health Status",
+    "diseaseType": "Disease Type",
+    "severity": "Severity",
+    "confidence": "Confidence",
+    "treatment": "Treatment Recommendations",
+    "prevention": "Prevention Tips"
+  },
+  "store": {
+    "title": "AGROF Store",
+    "subtitle": "Quality agricultural products for your farm",
+    "search": "Search products...",
+    "categories": "Categories",
+    "featured": "Featured Products",
+    "addToCart": "Add to Cart",
+    "price": "Price",
+    "description": "Description",
+    "specifications": "Specifications",
+    "features": "Features"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "quantity": "Quantity"
+  },
+  "account": {
+    "title": "My Account",
+    "welcome": "Welcome back!",
+    "balance": "AGROF Balance",
+    "settings": "Settings",
+    "help": "Help & Support",
+    "logout": "Logout"
+  },
+  "ai": {
+    "assistant": "AGROF AI Assistant",
+    "askQuestion": "Ask me anything about farming...",
+    "send": "Send",
+    "clear": "Clear Chat"
+  },
+  "common": {
+    "selectLanguage": "Select Language"
+  },
+  "errors": {
+    "networkError": "Network connection error",
+    "apiError": "API request failed",
+    "imageError": "Image processing error",
+    "generalError": "Something went wrong"
+  },
+  "manual": {
+    "title": "How to Use AGROF AI",
+    "step1": "Take or Select Photo",
+    "step1Description": "Disease detection functionality has been removed from this application",
+    "step2": "AI Analysis",
+    "step2Description": "Our AI will analyze the image and identify any diseases or health issues",
+    "step3": "Detailed Results",
+    "step3Description": "Get comprehensive information including disease identification, treatment options, and care instructions",
+    "startUsing": "Start Using App"
+  },
+  "form": {
+    "cropType": "Crop Type (e.g., Maize, Coffee)",
+    "area": "Area (acres)",
+    "startDate": "Start Date (YYYY-MM-DD)",
+    "endDate": "End Date (YYYY-MM-DD)",
+    "notes": "Notes (optional)"
+  },
+  "analysis": {
+    "title": "AI-Powered Crop Analysis Report",
+    "subtitle": "Comprehensive Disease Detection & Treatment Plan",
+    "cropIdentification": "Crop Identification",
+    "healthStatus": "Health Status",
+    "diseaseDetection": "Disease Detection",
+    "businessAnalysis": "Business Analysis",
+    "economicImpact": "💰 Economic Impact",
+    "riskAssessment": "⚠️ Risk Assessment",
+    "immediateTreatments": "💊 Immediate Treatments",
+    "businessRecommendations": "🏢 Business Recommendations",
+    "analysisDetails": "Analysis Details",
+    "aiAnalysisResults": "AI Analysis Results",
+    "symptoms": "🔍 Symptoms",
+    "longTermStrategies": "🌱 Long-term Strategies",
+    "prevention": "🛡️ Prevention",
+    "newAnalysis": "New Analysis",
+    "shareResults": "Share Results"
+  },
+  "care": {
+    "title": "AGROF AI",
+    "subtitle": "AI-Powered Crop Management",
+    "smartFarming": "Smart Farming",
+    "smartFarmingSubtitle": "AI-powered crop management and monitoring",
+    "diseaseDetection": "Disease Detection",
+    "marketConnect": "Market Connect"
+  },
+  "plan": {
+    "title": "AI Farm Planning",
+    "subtitle": "AI-powered agricultural planning",
+    "calendar": "Calendar",
+    "rotation": "Rotation",
+    "budget": "Budget",
+    "cropCalendarPlanning": "Crop Calendar Planning",
+    "addPlan": "Add Plan",
+    "noPlans": "No crop plans yet. Add your first plan!",
+    "cropRotationStrategy": "Crop Rotation Strategy",
+    "budgetPlanning": "Budget Planning",
+    "totalPlanned": "Total Planned",
+    "activePlans": "Active Plans"
+  },
+  "chatbot": {
+    "welcome": "Hello! I'm AgrofBot. I can help with:\n\n• Crop diseases\n• Farming tips\n• Pest control\n• Weather advice\n• Market info\n\nWhat do you need?",
+    "greetings": [
+      "Hello! How can I help with your farming today?",
+      "Hi there! What agricultural question do you have?",
+      "Welcome! I'm here to help with your crops and farming needs.",
+      "Greetings! Ready to help you grow better crops today!"
+    ]
+  },
+  "productDetails": {
+    "title": "Product Details",
+    "description": "Description",
+    "specifications": "Specifications",
+    "keyFeatures": "Key Features",
+    "availability": "Availability",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "viewPackages": "View Packages & Pricing",
+    "callForInquiry": "Call for Inquiry",
+    "addToCart": "Add to Cart",
+    "quantity": "Quantity",
+    "price": "Price",
+    "manufacturer": "Manufacturer",
+    "category": "Category",
+    "usageInstructions": "Usage Instructions",
+    "benefits": "Benefits"
+  },
+  "cart": {
+    "fullName": "Full Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "deliveryAddress": "Delivery Address"
+  },
+  "search": {
+    "placeholder": "Search products...",
+    "messagePlaceholder": "Type your message..."
+  },
+  "help": {
+    "regularMonitoring": "Regular Monitoring",
+    "regularMonitoringDesc": "Check your crops regularly for early signs of disease.",
+    "consultExperts": "Consult Experts",
+    "consultExpertsDesc": "Always consult with local agricultural experts for treatment decisions.",
+    "keepRecords": "Keep Records",
+    "keepRecordsDesc": "Maintain records of detected diseases and treatments applied."
+  },
+  "products": {
+    "categories": {
+      "cereals": "Cereals",
+      "cash_crops": "Cash Crops",
+      "fruits": "Fruits",
+      "vegetables": "Vegetables",
+      "legumes": "Legumes",
+      "fertilizers": "Fertilizers",
+      "seeds": "Seeds",
+      "fungicides": "Fungicides",
+      "herbicides": "Herbicides",
+      "nursery_bed": "Nursery Bed",
+      "organic_chemicals": "Organic Chemicals",
+      "pesticides": "Pesticides",
+      "tools": "Tools & Equipment"
+    },
+    "descriptions": {
+      "stapleCerealCrop": "Staple cereal crop",
+      "premiumCoffeeBeans": "Premium coffee beans",
+      "essentialGrainCrop": "Essential grain crop",
+      "nutritiousFruitCrop": "Nutritious fruit crop",
+      "versatileVegetableCrop": "Versatile vegetable crop",
+      "proteinRichLegume": "Protein-rich legume",
+      "healthyFruitCrop": "Healthy fruit crop"
+    },
+    "names": {
+      "maize": "Maize",
+      "coffee": "Coffee",
+      "rice": "Rice",
+      "banana": "Banana",
+      "tomatoes": "Tomatoes",
+      "beans": "Beans",
+      "avocados": "Avocados"
+    }
+  },
+  "fertilizers": {
+    "agriGold": {
+      "name": "Agri Gold Foliar Fertilizer",
+      "description": "Agri Gold is a wonder product that prevents flower shedding, promotes more flower formation and bumper yield while enhancing healthy fruit formation and vegetative growth.",
+      "usage": "Foliar application: Mix 2-3mls of Agri Gold per 1ltrs of water (60mls/20ltrs). Drip Irrigation: Mix 5mls of Agri Gold per 1ltr of water",
+      "benefits": "Prevents flower shedding, promotes flower formation, enhances fruit formation, improves vegetative growth",
+      "price": "1ltr: UGX 30,000, 500ml: UGX 15,000"
+    },
+    "omniK": {
+      "name": "Omni K - Potassium Nitrate Fertilizer",
+      "description": "Omni K is a water-soluble fertilizer for fertigation or foliar application, supplying nitrate, nitrogen and chlorine free potassium to plants for enhanced growth and higher yields.",
+      "content": "130g/kg N – 380g/kg K, 130g/kg N – 460g/kg K2O",
+      "price": "Retail: UGX 366,000, Wholesale: UGX 357,500"
+    },
+    "magnesiumNitrate": {
+      "name": "Magnesium Nitrate - Hexahydrate Fertilizer",
+      "description": "Magnesium Nitrate is recommended for vegetative growth and during production stages. The high level of Magnesium contributes to the production of chlorophyll.",
+      "content": "Water soluble Mg: 9.4% MIN, Nitrogen N: 10.5% MIN",
+      "price": "25 Kg: UGX 158,800"
+    },
+    "elfertF": {
+      "name": "Elfert F - Trace Element Mix",
+      "description": "Elfert F is an effective foliar spray to correct trace element deficiency. Application of Trace elements is most often ignored by farmers and yet they are vital to balance the uptake of Major nutrients.",
+      "content": "Fe EDDHA 5.345%, Zn EDTA 2.672%, Mn EDTA 2.672%, Cu EDTA 0.540%, B 1.088%, MnO 0.0533%",
+      "price": "UGX 779,600"
+    },
+    "novaPeak": {
+      "name": "Nova Peak 0-52-34 - Monopotassium Phosphate",
+      "description": "Nova Peak MKP fertilizer is a high purity product that dissolves completely and quickly in water. Thanks to its very low sodium content, Nova Peak is recommended for use in any type of crop.",
+      "usage": "Recommended dilution rate = 10-15 kg / 100liters water",
+      "price": "25kg: UGX 315,500"
+    },
+    "calciumNitrate": {
+      "name": "Calcium Nitrate - Nitrogen Calcium Compound",
+      "description": "Calcium Nitrate helps with cell formation but it also neutralizes acids to detoxify the plant. The nitrogen component is also responsible for fuelling protein production and essentially leafy growth.",
+      "content": "Nitrogen (N): 15.5%, Nitrate Nitrogen (N): 14.4%, Ammonical Nitrogen (N): 1.1%, Calcium Oxide: 26%",
+      "price": "25 Kg: UGX 170,400"
+    },
+    "yaravitaCropBoost": {
+      "name": "Yaravita Crop Boost",
+      "description": "YaraVita CROP BOOST is a concentrated phosphorous foliar fertilizer that provides balanced nutrients that help your crop to unlock its hidden yield potential.",
+      "price": "1 Ltr: UGX 38,500"
+    },
+    "novaMap": {
+      "name": "Nova Map 12-61-0 - Soluble Fertilizer",
+      "description": "Nova MAP 12-61-0, Monoammonium Phosphate is ideal for use in the initial growth phase of all crops, immediately before and after seeding and planting/transplanting.",
+      "usage": "Recommended dilution rate, for stock solutions = 15 kg / 100liter water",
+      "price": "25kg: UGX 314,200"
+    },
+    "nutriplantOrganic": {
+      "name": "Nutriplant Organic Plus Fertilizer",
+      "description": "Nutriplant organicplus fertilizer (NOPF) is composed of both micro and macro nutrients containing multiple small molecules of amino acids, peptides, chitosan chelate.",
+      "usage": "Seasonal Crops: Mix 5-10 mls of NOPF in 20 litres of Water, Perennial Crops: Mix 10-20 mls of NOPF in 20 litres of water",
+      "price": "1 Ltr: UGX 117,150, 100 mls: UGX 15,000"
+    },
+    "yaraVeraAmidas": {
+      "name": "Yara Vera Amidas",
+      "description": "It is a granular, white coloured, highly soluble fertilizer and contains the highest nitrogen among all nitrogenous fertilizers.",
+      "content": "Chemical formula is CO(NH2)2 and contains 46% N (nitrogen)",
+      "price": "50kg: UGX 146,000"
+    }
+  },
+  "chatbot": {
+    "knowledgeBase": {
+      "maizeRust": {
+        "symptoms": "Reddish-brown pustules on leaves, stems, and husks. Leaves may turn yellow and die prematurely.",
+        "treatment": "Apply fungicides containing azoxystrobin or pyraclostrobin. Remove infected plant debris. Plant resistant varieties like DK777 or SC719.",
+        "prevention": "Ensure proper spacing (75cm between rows), avoid overhead irrigation, rotate crops annually, and use certified seeds.",
+        "severity": "High - Can reduce yield by 30-50% if not controlled early"
+      },
+      "coffeeLeafRust": {
+        "symptoms": "Yellow-orange spots on leaves that turn brown, premature leaf drop, reduced photosynthesis.",
+        "treatment": "Apply copper-based fungicides or systemic fungicides. Prune infected branches. Maintain good air circulation.",
+        "prevention": "Plant resistant varieties like Catimor, avoid dense planting, monitor regularly, and maintain proper shade.",
+        "severity": "Critical - Can destroy entire plantations if not managed"
+      },
+      "tomatoBlight": {
+        "symptoms": "Dark brown lesions on leaves, stems, and fruits. White fungal growth in humid conditions.",
+        "treatment": "Remove infected plants immediately. Apply copper fungicides or chlorothalonil. Improve air circulation.",
+        "prevention": "Water at soil level, avoid overhead irrigation, use resistant varieties, and maintain proper spacing.",
+        "severity": "High - Can spread rapidly in wet conditions"
+      },
+      "bananaWilt": {
+        "symptoms": "Yellowing leaves, wilting, internal vascular discoloration, plant death.",
+        "treatment": "Remove and destroy infected plants. Apply systemic fungicides. Use clean planting material.",
+        "prevention": "Use disease-free suckers, avoid waterlogging, maintain good drainage, and rotate crops.",
+        "severity": "Critical - Can wipe out entire plantations"
+      },
+      "cassavaMosaic": {
+        "symptoms": "Yellow mosaic patterns on leaves, stunted growth, reduced tuber yield.",
+        "treatment": "Remove infected plants. Use virus-free cuttings. Control whitefly vectors.",
+        "prevention": "Use certified disease-free cuttings, control whiteflies, and practice crop rotation.",
+        "severity": "Medium - Reduces yield but plants may survive"
+      }
+    },
+    "crops": {
+      "maize": {
+        "planting": "Plant 2-3 seeds per hole, 5cm deep, 75cm between rows, 25cm within rows.",
+        "season": "Plant at onset of rains (March-April in Uganda).",
+        "fertilizer": "Apply NPK 17:17:17 at planting, top-dress with CAN at 6 weeks.",
+        "harvesting": "Harvest when kernels are hard and moisture is 20-25%."
+      },
+      "coffee": {
+        "planting": "Plant 2.5m x 2.5m spacing, 30cm deep holes.",
+        "season": "Plant at onset of long rains (March-May).",
+        "fertilizer": "Apply NPK 20:10:10 annually, organic matter every 2 years.",
+        "harvesting": "Harvest red ripe cherries, process within 24 hours."
+      },
+      "beans": {
+        "planting": "Plant 2-3 seeds per hole, 3cm deep, 50cm between rows.",
+        "season": "Plant in both short and long rains.",
+        "fertilizer": "Apply DAP at planting, top-dress with CAN.",
+        "harvesting": "Harvest when pods are dry and seeds rattle."
+      }
+    },
+    "general": {
+      "fertilizer": "Use organic fertilizers like compost, manure, or NPK fertilizers based on soil test results. Apply during planting and growing seasons. Organic options improve soil health long-term.",
+      "irrigation": "Water deeply but less frequently. Early morning watering reduces evaporation. Use drip irrigation for efficiency. Monitor soil moisture regularly.",
+      "pestControl": "Use integrated pest management: natural predators, crop rotation, resistant varieties, and minimal chemical use. Start with cultural practices.",
+      "soilHealth": "Test soil pH annually, add organic matter, practice crop rotation, and avoid over-tilling. Healthy soil = healthy crops.",
+      "weather": "Monitor weather forecasts regularly. Adjust planting times based on rainfall patterns. Protect crops during extreme weather events.",
+      "market": "Research market prices before planting. Consider contract farming. Diversify crops to spread risk. Store properly to sell during off-season."
+    },
+    "responses": {
+      "planting": "Planting:\n\n• Choose right season\n• Prepare soil\n• Plant at proper depth\n• Water after planting",
+      "watering": "Watering:\n\n• Water deeply, less frequently\n• Water early morning\n• Check soil moisture\n• Use drip irrigation",
+      "harvesting": "Harvesting:\n\n• Harvest at peak ripeness\n• Use clean tools\n• Handle gently\n• Store properly",
+      "fertilization": "Fertilization:\n\n• Test soil first\n• Use organic when possible\n• Apply at right stages\n• Don't over-fertilize",
+      "weather": "Weather & Farming:\n\n• Monitor forecasts\n• Adjust planting times\n• Use irrigation when needed\n• Protect from extreme weather",
+      "market": "Market & Sales:\n\n• Research prices first\n• Consider contract farming\n• Diversify crops\n• Store for off-season"
+    }
+  }
+}

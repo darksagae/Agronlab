@@ -32,23 +32,31 @@ Water: 500-600mm rainfall or irrigation
 Spacing: 75cm x 25cm between plants
 
 ## Usage Instructions
-Seed Preparation: No special treatment required
-Planting Depth: 3-5 cm deep
-Planting Time: At onset of rains or when soil temperature is 15°C+
-Germination: 5-7 days
-Planting Rate: 20-25kg seeds per hectare
+- **Days to maturity**: 92 days
+- **Yield potential**: 1.6 - 2.3tons
+- **Seed rate**: 30-40kg/acre
+- **Special attributes**: High yielding and excellent milling ability
+- **Planting depth**: 3-5 cm deep
+- **Planting time**: At onset of rains or when soil temperature is 15°C+
+- **Germination**: 5-7 days
+- **Planting rate**: 30-40kg seeds per acre
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Row Planting: Maintain 75cm between rows, 25cm between plants
-Dibbling: Make holes 3-5cm deep, place 2-3 seeds per hole
+- **Method**: Direct seeding recommended
+- **Target**: High yielding and excellent milling ability
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Row planting**: Maintain proper spacing between rows and plants
+- **Dibbling**: Make holes 3-5cm deep, place 2-3 seeds per hole
+- **Milling quality**: Excellent milling ability
 
 ## Benefits
-High Yield: 6-8 tons per hectare
-Drought Tolerance: Performs well in dry conditions
-Disease Resistance: Reduces crop losses
-Good Quality: Excellent grain quality for both food and feed
-Profit Potential: High return on investment
+- **High yield potential**: 1.6 - 2.3tons under good management
+- **Excellent milling ability**: High yielding and excellent milling ability
+- **Early maturity**: 92 days to maturity
+- **High yielding**: High yielding variety with excellent performance
+- **Milling quality**: Excellent milling ability for food processing
+- **Profit potential**: High return on investment
+- **Market demand**: High demand due to excellent milling quality
 
 ## Price Information
 Per 1000 seeds: UGX 25,000

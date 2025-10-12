@@ -4,11 +4,18 @@
 Bukoola Chemical Industries (U) Ltd
 
 ## Overview
-Super green is a complete and balanced water-soluble fertilizer containing both Major and micro nutrients required by any crop for healthy establishment, growth and optimum yield.
+Super green is a complete and balanced water-soluble fertilizer containing both Major and micro nutrients required by any crop for healthy establishment, growth and optimum yield. This booster gives exceptional results when applied during nutrient deficiency spells since it has been specially formulated for rapid absorption and response.
+
+## Formulation
+NPK (10.10.7.5) + trace elements like Mg, B, Fe, Zn etc.
+
+## Directions for Use
+- **Mixing**: 60-80ml per 20L of water and apply on foliage. Utilize Super green during early establishment and through vegetative growth of the crop for optimum results
+- **Application interval**: 14-21 days
 
 ## Price Information
-1 Ltr: UGX 11,000
-500 ml: UGX 7,000
+- 1 Ltr: UGX 11,000
+- 500 ml: UGX 7,000
 
 ## Key Features
 - High quality agricultural fertilizer

@@ -20,20 +20,30 @@ Cost-effective solution
 Compatible with most pesticides
 
 ## Usage Instructions
-**Dosage:** 10-15ml/20Ltrs of water
-**Re-Entry interval:** 6 days
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Dosage**: 10-15ml/20L of water
+- **Re-entry interval**: 6 days
+- **Application method**: Systemic / Curative fungicide with Tebuconazole 250g/L active ingredient
+- **Target diseases**: Leaf Rust, Net Blotch, Helminthosporium spots/ Blight, Septoria Leaf Spot
+- **Target crops**: Various crops
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredient**: Tebuconazole 250g/L
+- **Formulation**: Emulsifiable Concentrate (EW)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed by plant tissues and translocated throughout the plant
+- **Curative action**: Effective against existing fungal infections
+- **Multi-disease control**: Used to control fungal infections such as Leaf Rust, Net Blotch, Helminthosporium spots/ Blight, Septoria Leaf Spot
+- **Multi-crop use**: Suitable for various crops
 
 ## Benefits
-Systemic / Curative protection
-Effective against multiple diseases
-Long-lasting protection
-Cost-effective solution
-Easy to use
+- **Systemic curative protection**: Systemic / Curative fungicide with Tebuconazole 250g/L active ingredient
+- **Multi-disease control**: Used to control fungal infections such as Leaf Rust, Net Blotch, Helminthosporium spots/ Blight, Septoria Leaf Spot
+- **Multi-crop use**: Suitable for various crops
+- **Long-lasting protection**: Provides extended disease control
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 1L: UGX 75,000

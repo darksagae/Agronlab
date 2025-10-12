@@ -20,20 +20,28 @@ Inhibits acetyl-CoA carboxylase (ACCase)
 Optimal penetration for immediate kill
 
 ## Usage Instructions
-**Rates of application:** Apply at a recommended rate of 150ml/20L of water, 1.5l/Ha or 600ml per Acre
-**Application:** Apply when weeds are between 2-8 leaf stage
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application rate**: 150ml/20L of water, 1.5L/Ha or 600ml per Acre
+- **Target weeds**: Grass weeds between 2-8 leaf stage
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Crop safety**: Safe for snow peas, French beans, fruits, and vegetables
+- **WHO classification**: Class III (slightly hazardous)
+- **Registration**: UgC/2018/001804/He/RRRRR
 
 ## Application Method
-Foliar Spray: Direct application to weed foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to grass weed foliage
+- **Timing**: Apply when grass weeds are at 2-8 leaf stage
+- **Coverage**: Ensure complete coverage of target weeds
 
 ## Benefits
-Optimal penetration hence giving immediate kill of all grass weeds
-Economical - gives all season grass weed control eliminating the need for manual weeding
-Eliminates competition hence higher yields
-Systemic action throughout the plant
-Effective against all germinated grass weeds
+- **Optimal penetration**: Immediate kill of all grass weeds
+- **Economical control**: All-season grass weed control eliminating manual weeding
+- **Yield improvement**: Eliminates competition for higher yields
+- **Systemic action**: Moves throughout the plant for complete control
+- **Selective control**: Safe for vegetables and fruits
+- **Cost-effective**: Reduces labor costs for weed control
+- **Reliable results**: Proven effectiveness against grass weeds
 
 ## Price Information
 Per 1L: UGX 153,600

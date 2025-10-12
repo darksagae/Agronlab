@@ -32,24 +32,34 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 12 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 15°C+
-Germination: 7-10 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Variety type**: Compact and determinate variety suitable for processing
+- **Plant characteristics**: Vigorous and highly productive
+- **Fruit characteristics**: Medium sized, square with apple-green back, very firm, smooth, intense red in colour with excellent flavour
+- **Processing quality**: Stands high undesirable processing characteristics and has excellent potential as a peeling tomato
+- **Disease resistance**: Resistant to verticillium and fusarium wilts
+- **Spacing**: 60cm*45cm
+- **Seed rate**: 80grams/acre
+- **Maturity period**: 100-120 days
+- **Yield potential**: 20-45mt/acre
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 15°C+
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Compact and determinate variety suitable for processing and fresh market
+- **Spacing**: 60cm*45cm between plants
+- **Processing suitability**: Ideal for canning and sauces
+- **Fresh market**: Excellent for direct sales
+- **Disease resistance**: Resistant to verticillium and fusarium wilts
 
 ## Benefits
-Compact Growth: Suitable for small spaces
-Determinate: Predictable harvest time
-Processing Quality: Ideal for canning and sauces
-Fresh Market: Excellent for direct sales
-Uniform Fruits: Consistent size and shape
-Container Friendly: Can be grown in pots
+- **Processing quality**: Stands high undesirable processing characteristics and has excellent potential as a peeling tomato
+- **Disease resistance**: Resistant to verticillium and fusarium wilts
+- **High yield**: 20-45mt/acre under good management
+- **Compact growth**: Suitable for small spaces
+- **Determinate**: Predictable harvest time
+- **Uniform fruits**: Medium sized, square with consistent quality
+- **Excellent flavor**: Intense red colour with excellent flavour
 
 ## Price Information
 Per 1000 seeds: UGX 28,000

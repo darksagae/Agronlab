@@ -33,24 +33,32 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 12 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 15°C+
-Germination: 7-10 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Variety type**: High yielding determinate oval shape tomato for use in a variety of dishes
+- **Key attributes**: Roma VFN is a Popular processing variety, Good dry matter content, Fruits weigh about 70g
+- **High yielding**: High yielding tomato, Determinate variety (has definite flowering and fruiting)
+- **Fruit characteristics**: Fruits mature at the same time and thus can be harvested at once, Fruits ripen uniformly for mechanical harvesting
+- **Disease resistance**: It's resistant to Verticillium and Fusarium wilts, and nematodes
+- **Maturity**: 90 – 100 days
+- **Yield potential**: 15,000 – 20,000 kg/acre
+- **Spacing**: 35 cm x 100 cm
+- **Seed rate**: 400 grams per acre direct seeding/80grams transplant
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: High yielding determinate oval shape tomato for processing
+- **Spacing**: 35 cm x 100 cm between plants
+- **Processing suitability**: Popular processing variety with good dry matter content
+- **Mechanical harvesting**: Fruits ripen uniformly for mechanical harvesting
+- **Disease resistance**: Resistant to Verticillium and Fusarium wilts, and nematodes
 
 ## Benefits
-High Yield: Excellent production per plant
-Processing Quality: Perfect for canning and sauces
-Disease Resistance: VFN resistance reduces crop losses
-Uniform Fruits: Consistent size and shape
-Market Demand: Popular processing variety
-Easy Growing: Suitable for beginners
+- **High yield potential**: 15,000 – 20,000 kg/acre under good management
+- **Processing quality**: Popular processing variety with good dry matter content
+- **Disease resistance**: Resistant to Verticillium and Fusarium wilts, and nematodes
+- **Uniform ripening**: Fruits ripen uniformly for mechanical harvesting
+- **Determinate variety**: Has definite flowering and fruiting
+- **Mechanical harvesting**: Suitable for mechanical harvesting
+- **Market demand**: Popular processing variety with excellent market acceptance
 
 ## Price Information
 Per 1000 seeds: UGX 32,000

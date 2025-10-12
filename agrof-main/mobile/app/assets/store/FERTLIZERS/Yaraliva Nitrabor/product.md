@@ -4,10 +4,10 @@
 Yara East Africa Ltd
 
 ## Overview
-YaraLiva™️ NITRABOR™️ is a unique field grade calcium nitrate, with additional boron for responsive crops. Especially suite to give quality benefits to vegetables, including potatoes.
+YaraLiva™️ NITRABOR™️ is a unique field grade calcium nitrate, with additional boron for responsive crops. Especially suited to give quality benefits to vegetables, including potatoes, boron and calcium work in tandem to deliver quality crops. It provides fast acting nitrate-N alongside strength building calcium and boron. Immediately available nitrate nitrogen is quickly taken up by the plants and triggers a fast growth response.
 
 ## Price Information
-25 Kg: UGX 100,000
+- 25 Kg: UGX 100,000
 
 ## Key Features
 - High quality agricultural fertilizer

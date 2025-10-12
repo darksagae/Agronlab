@@ -20,20 +20,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Dosage:** 150mls-200mls/20L (1.5L-2L/Acre)
-**Application:** Apply as a post-emerge herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Dosage**: 150mls-200mls/20L (1.5L-2L/Acre)
+- **Application method**: Non-selective, post-emerge herbicide
+- **Target weeds**: Annual, biennial, and perennial grasses & broadleaf weeds
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Use areas**: Non-crop areas and land preparation
+- **Active ingredient**: Glyphosate IPA (Isopropyl-amine salt 480g/L)
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Non-selective**: Controls all vegetation it contacts
+- **Systemic action**: Moves throughout the plant for complete control
+- **Complete kill**: No part of the plant survives
 
 ## Benefits
-Effective control of all weed types
-Broad spectrum control
-Long-lasting control
-Cost-effective solution
-Easy to use
+- **Broad spectrum control**: Effective against all weed types
+- **Non-selective action**: Controls all vegetation it contacts
+- **Long-lasting control**: Provides extended weed control
+- **Systemic action**: Moves throughout the plant for complete control
+- **Cost-effective**: Single application for complete control
+- **Easy application**: Simple mixing and spray application
+- **Reliable results**: Proven effectiveness against all weed types
 
 ## Price Information
 Per 1L: UGX 13,750

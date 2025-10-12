@@ -20,29 +20,30 @@ Controls annual grasses and broad leaf weeds
 Capsule suspension formulation
 
 ## Usage Instructions
-**Preparation:**
-- Half fill the spray tank with clean water and start agitation
-- Shake the product before opening and measure the required amount
-- Add into the spray tank and add clean water
-- Continue agitation or recirculation to the recommended volume
-- Homogenize the spray wash by agitation during spraying
+- **Preparation**: Half fill the spray tank with clean water and start agitation
+- **Product handling**: Shake the product before opening and measure the required amount
+- **Mixing**: Add into the spray tank and add clean water, continue agitation or recirculation
+- **Application**: Homogenize the spray wash by agitation during spraying
+- **Timing**: Apply as soon as possible after sowing for best results
+- **Soil conditions**: Can be applied on dry soils, but some moisture needed for activation
+- **Rainfall**: Best results if rainfall or irrigation occurs within 7 days of application
 
-**Mixing and rate of application:**
-- **Barley, wheat, maize:** 3.0ltrs/ha or 300 ml in 20ltrs of water
-- **Sugarcane:** 3.5ltrs/ha or 350 ml in 20ltrs of water
-- **Spray volume:** 200ltrs/ha
-- **Application:** Pre-emergence of the crop
-- **Timing:** Apply as soon as possible after sowing
-
-## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
+## Application Rates
+- **Barley, wheat, maize**: 3.0ltrs/ha or 300 ml in 20ltrs of water
+- **Sugarcane**: 3.5ltrs/ha or 350 ml in 20ltrs of water
+- **Spray volume**: 200ltrs/ha
+- **Application timing**: Pre-emergence of the crop
+- **PHI**: 90 days
+- **Re-entry interval**: 24 hours unless wearing protective clothing
 
 ## Benefits
-Pre-emergent weed control
-Effective against Setaria spp.
-Controls annual grasses and broad leaf weeds
-Capsule suspension for better performance
-Cost-effective solution
+- **Pre-emergent control**: Effective weed control before crop emergence
+- **Setaria control**: Specifically targets Setaria spp. and annual grasses
+- **Broad spectrum**: Controls annual grasses and broad leaf weeds
+- **Capsule suspension**: Enhanced performance and stability
+- **Flexible application**: Can be applied on dry soils
+- **Cost-effective**: Provides season-long weed control
+- **Crop safety**: Safe for barley, wheat, sugarcane, and maize
 
 ## Price Information
 Per 10L: UGX 523,700

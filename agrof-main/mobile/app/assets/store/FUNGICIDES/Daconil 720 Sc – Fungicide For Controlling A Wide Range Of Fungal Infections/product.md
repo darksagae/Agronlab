@@ -21,25 +21,30 @@ Compatible with most pesticides
 Cost-effective disease control
 
 ## Usage Instructions
-Mixing: Mix 15-25ml per 20 liters of water
-Application: Apply as a foliar spray, ensuring thorough coverage
-Timing: Apply preventatively or at first sign of disease
-Frequency: Repeat every 7-14 days, depending on disease pressure
-Pre-Harvest Interval: 7 days for most crops
+- **Application rate**: Apply at 2 L/ha in Vegetables, Apply at 2.2L/ha in Coffee
+- **Application method**: Contact fungicide for control of Coffee Berry diseases in coffee; bean rust, angular leaf spot, anthracnose & botrytis on French beans; Aschochytes and botrytis on snow peas and botrytis on roses and early and late blight on Potatoes
+- **Target diseases**: Coffee Berry Disease (CBD) in coffee and vegetable diseases, Fungal Diseases in wheat
+- **Target crops**: Coffee, Cereals, Ornamentals, potatoes and vegetables
+- **Active ingredient**: 720g/L Chlorothalonil
+- **Formulation**: Soluble concentrate (SC)
+- **WHO classification**: III
 
 ## Application Method
-Foliar Spray: Apply to all plant surfaces
-High Volume Spray: 200-400 liters per hectare
-Low Volume Spray: 50-100 liters per hectare
-Timing: Early morning or late evening for best results
+- **Method**: Foliar spray application
+- **Target**: Apply to all plant surfaces
+- **Built-in surfactant**: Makes the active ingredient cover and stick to the leaves and berries for unsurpassed protection
+- **Rain protection**: Even after heavy rain or watering, the surfactant prolongs the anti-fungal effect
+- **Long-lasting**: Up to 21 days when used at recommended rates
+- **Multi-site action**: Attacks the disease cells from multiple sites
 
 ## Benefits
-Broad Spectrum: Controls multiple diseases
-Protective Action: Prevents disease establishment
-Long-lasting: Provides extended protection
-Cost Effective: Reduces need for multiple applications
-Safe Use: Low toxicity to beneficial insects
-High Efficacy: Excellent disease control
+- **Coffee berry disease control**: Effective control of Coffee Berry Disease (CBD) in coffee
+- **Vegetable disease control**: Controls bean rust, angular leaf spot, anthracnose & botrytis on French beans; Aschochytes and botrytis on snow peas and botrytis on roses and early and late blight on Potatoes
+- **Built-in surfactant**: Does not wash off and sticks and stays where it is needed to control plant diseases
+- **Rain protection**: Even after heavy rain or watering, the surfactant prolongs the anti-fungal effect up to 21 days
+- **Multi-site action**: Stops spread of many fungal diseases and attacks the disease cells from multiple sites
+- **Resistance management**: The broad-spectrum contact control with a multi-site mode of action minimizes the development of fungicide resistance
+- **Easy mixing**: Mixes quickly and completely into suspension for up to six hours
 
 ## Price Information
 Per 100ml container: UGX 40,000

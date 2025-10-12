@@ -4,10 +4,10 @@
 Mabugu Farm Supply
 
 ## Overview
-This is an inorganic fertilizer made of Nitrogen 25%, Phosphorous 5%, Potassium 5% and Sulphur 5%.the percentages represent the total weight of these elements in the fertilizer.
+This is an inorganic fertilizer made of Nitrogen 25%, Phosphorous 5%, Potassium 5% and Sulphur 5%. The percentages represent the total weight of these elements in the fertilizer. The remaining percentages represent the inert material (carrier).
 
 ## Price Information
-50 Kgs: UGX 125,000
+- 50 Kgs: UGX 125,000
 
 ## Key Features
 - High quality agricultural fertilizer

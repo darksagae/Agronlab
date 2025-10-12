@@ -4,10 +4,10 @@
 Grain Pulse Ltd
 
 ## Overview
-This is the most concentrated phosphorous-based fertilizer perfect for any agriculture crop. This can be applied as top-dressing during planting and at seeding level as well as cultivating period.
+This is the most concentrated phosphorous-based fertilizer perfect for any agriculture crop. This can be applied as top-dressing during planting and at seeding level as well as cultivating period. This dissolves faster improving better uptake of phosphorous from the fertilizer on acid soils and contributes to better in take of nitrogen, this makes the plant stronger and much healthier from common pests and diseases as it leads to stronger root development and increase flowering of the crop, improving yield potential, high crop page. Application: broadcast, / during planting 10kg/ha or put 4-6 granules per plant.
 
 ## Price Information
-50 Kg: UGX 175,000
+- 50 Kg: UGX 175,000
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -16,16 +16,21 @@ This is the most concentrated phosphorous-based fertilizer perfect for any agric
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Broadcast or band application
+- **Application rate**: 10kg/ha or 4-6 granules per plant
+- **Timing**: Apply during planting, seeding, or cultivation period
+- **Soil conditions**: Works well in acid soils
+- **Method**: Can be applied as top-dressing or incorporated
+- **Water management**: Water after application for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **High phosphorus content**: Most concentrated phosphorus fertilizer
+- **Quick dissolution**: Dissolves faster for better uptake
+- **Root development**: Promotes stronger root development
+- **Disease resistance**: Makes plants healthier and more resistant to pests and diseases
+- **Flowering enhancement**: Increases flowering and yield potential
+- **Nitrogen synergy**: Improves nitrogen uptake and utilization
+- **Versatile application**: Suitable for all agricultural crops
 
 ## Storage Instructions
 - Store in cool, dry place

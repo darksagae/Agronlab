@@ -17,16 +17,21 @@ Ag Lime ,or agricultural lime, is a soil conditioner made from crushed lime ston
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application timing**: Apply before planting or during fallow periods
+- **Soil testing**: Test soil pH first to determine application rate
+- **Application rate**: 1-2 tons per acre depending on soil acidity
+- **Method**: Broadcast evenly and incorporate into soil
+- **Timing**: Apply 2-4 weeks before planting for best results
+- **Water management**: Water after application to help dissolution
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Soil pH correction**: Raises soil pH to optimal levels (6.0-7.0)
+- **Improved fertilizer efficiency**: Makes other nutrients more available
+- **Better crop productivity**: Increases yield potential
+- **Nutrient availability**: Enhances uptake of phosphorus and micronutrients
+- **Soil structure**: Improves soil tilth and water infiltration
+- **Cost-effective**: Long-term soil improvement investment
+- **Organic matter**: Helps break down organic matter in soil
 
 ## Storage Instructions
 - Store in cool, dry place

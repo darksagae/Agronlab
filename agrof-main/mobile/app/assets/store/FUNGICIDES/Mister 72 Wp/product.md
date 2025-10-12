@@ -20,20 +20,30 @@ Cost-effective solution
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 50grams per 20 ltrs of water
-**Application rate:** 500grams per acre
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Mixing ratio**: 50grams per 20L of water
+- **Application rate**: 500grams per acre
+- **Application method**: Systemic and contact, broad spectrum, protective and curative fungicide
+- **Target diseases**: Late blight, downy mildew, Anthracnose, cercospora leaf spot and botrytis
+- **Target crops**: Various crops
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Formulation**: Wettable Powder (WP)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed by plant tissues and translocated throughout the plant
+- **Contact action**: Provides immediate protection on plant surfaces
+- **Dual action**: Combines systemic and contact fungicide properties
+- **Broad spectrum**: Effective against multiple diseases
 
 ## Benefits
-Systemic and contact protection
-Broad spectrum disease control
-Protective and curative action
-Effective against multiple diseases
-Cost-effective solution
+- **Broad spectrum control**: Used to control late blight, downy mildew, Anthracnose, cercospora leaf spot and botrytis
+- **Dual action**: Systemic and contact, broad spectrum, protective and curative fungicide
+- **Protective and curative**: Both protective and curative properties
+- **Multi-disease control**: Effective against late blight, downy mildew, Anthracnose, cercospora leaf spot, botrytis
+- **Multi-crop use**: Suitable for various crops
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 100g: UGX 4,500

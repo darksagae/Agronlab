@@ -19,18 +19,27 @@ Easy to apply
 Safe for target crops
 
 ## Usage Instructions
-**Application:** Apply as directed on the label
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application method**: Selective weed killer for beans and soya
+- **Target crops**: Beans and soya
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Selective action**: Safe for beans and soya crops
+- **Application**: Follow label directions carefully
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Selective control**: Targets weeds while protecting beans and soya
+- **Crop safety**: Safe for target crops
 
 ## Benefits
-Effective control of weeds in beans and soya
-Selective action on target crops
-Cost-effective solution
-Easy to use
+- **Selective control**: Effective against weeds in beans and soya
+- **Crop safety**: Safe for beans and soya crops
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple spray application method
+- **Targeted action**: Specifically designed for beans and soya
+- **Reliable results**: Proven effectiveness in legume crops
+- **Yield protection**: Protects crop yield by controlling weeds
 
 ## Price Information
 Per 1L: UGX 43,600

@@ -32,24 +32,33 @@ Water: Regular irrigation needed
 Spacing: 45cm x 45cm between plants
 
 ## Usage Instructions
-Seed Preparation: No special treatment required
-Planting Depth: 1-2 cm deep
-Planting Time: 6-8 weeks before last frost
-Germination: 7-10 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Variety type**: The most popular amongst the ball-headed cabbages
+- **Head characteristics**: The heads are uniform round, firm, medium sized and weigh about 2-3kg
+- **Plant characteristics**: The plant is short stemmed and rather small and can be spaced closer
+- **Maturity**: Early maturing, approximately 8-10 weeks
+- **Sensitivity**: Sensitive to splitting and should not be left in the field for too long after maturity
+- **Dependability**: It is a highly dependable and productive variety
+- **Spacing**: 45cm*45cm
+- **Seed rate**: 123grams/acre
+- **Maturity days from transplanting**: 75-90 days
+- **Yield potential**: 16-32mt/acre
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 45cm x 45cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: The most popular amongst the ball-headed cabbages
+- **Spacing**: 45cm*45cm between plants
+- **Head characteristics**: Uniform round, firm, medium sized and weigh about 2-3kg
+- **Plant characteristics**: Short stemmed and rather small and can be spaced closer
+- **Yield potential**: 16-32mt/acre
 
 ## Benefits
-Early Maturity: Quick harvest
-Excellent Quality: Uniform, round heads
-High Yield: Good production per plant
-Market Demand: Popular variety
-Easy Growing: Suitable for beginners
-Compact Growth: Suitable for small spaces
+- **Popular variety**: The most popular amongst the ball-headed cabbages
+- **Uniform heads**: The heads are uniform round, firm, medium sized and weigh about 2-3kg
+- **Early maturity**: Early maturing, approximately 8-10 weeks
+- **Compact growth**: The plant is short stemmed and rather small and can be spaced closer
+- **High dependability**: It is a highly dependable and productive variety
+- **Market demand**: Popular variety with excellent market acceptance
+- **Profit potential**: High return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 25,000

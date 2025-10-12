@@ -21,25 +21,30 @@ Easy to apply
 Wide crop compatibility
 
 ## Usage Instructions
-Mixing: Mix 100-150ml per 20 liters of water
-Application: Apply as a foliar spray or soil treatment
-Timing: Best applied pre-emergence or early post-emergence
-Avoid Drift: Do not apply when windy to prevent drift
-Re-entry Period: 12 hours after application
+- **Mixing ratio**: 100-150ml per 20L of water
+- **Application method**: Selective herbicide
+- **Target weeds**: Annual grasses and some broadleaf weeds
+- **Target crops**: Rice, maize, soybeans, cotton crops
+- **Application timing**: Best applied pre-emergence or early post-emergence
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Avoid drift**: Do not apply when windy to prevent drift
+- **Re-entry period**: 12 hours after application
 
 ## Application Method
-Foliar Spray: Apply to weed foliage
-Soil Treatment: Apply to soil surface
-Boom Sprayer: For large areas
-Knapsack Sprayer: For small areas
+- **Method**: Foliar spray or soil treatment
+- **Target**: Apply to weed foliage or soil surface
+- **Equipment**: Boom sprayer for large areas, knapsack sprayer for small areas
+- **Timing**: Pre-emergence or early post-emergence
+- **Selective control**: Targets weeds while protecting crops
 
 ## Benefits
-Selective Control: Kills grass weeds, spares crops
-Pre-emergence: Controls weeds before they emerge
-Cost Effective: Reduces manual weeding
-Time Saving: Quick and efficient application
-Wide Application: Suitable for many crops
-Easy Use: Simple application method
+- **Grass weed control**: Effective control of annual grasses and some broadleaf weeds
+- **Selective action**: Kills grass weeds, spares crops
+- **Dual application**: Pre-emergence and early post-emergence options
+- **Multi-crop use**: Suitable for rice, maize, soybeans, cotton crops
+- **Cost-effective**: Reduces manual weeding costs
+- **Time saving**: Quick and efficient application
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 1L container: UGX 38,000

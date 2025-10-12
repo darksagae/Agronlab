@@ -31,24 +31,33 @@ Water: Regular irrigation needed
 Spacing: 45cm x 45cm between plants
 
 ## Usage Instructions
-Seed Preparation: No special treatment required
-Planting Depth: 1-2 cm deep
-Planting Time: Early spring or fall
-Germination: 7-10 days
-Direct seeding recommended
+- **Variety type**: Vigorous and hardy variety
+- **Growing characteristics**: Tolerant to adverse weather and soil conditions
+- **Plant characteristics**: The plant has spreading habit with large, tender, crumpled/waxy bluish-green leaves on long petioles forming a loose rosette or cluster
+- **Disease resistance**: Fairly tolerant to black rot and downy mildew
+- **Harvesting**: You can keep harvesting for a long time
+- **Nutritional value**: Rich in carbohydrates, proteins and vitamins, has very low cholesterol level and saturated fats
+- **Spacing**: 60cm*60cm
+- **Seed rate**: 100grams/acre
+- **Maturity period from transplanting**: 60 days
+- **Yield potential**: 70-100mt/acre
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 45cm x 45cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Vigorous and hardy collard variety
+- **Spacing**: 60cm*60cm between plants
+- **Growing characteristics**: Tolerant to adverse weather and soil conditions
+- **Plant characteristics**: Spreading habit with large, tender, crumpled/waxy bluish-green leaves
+- **Yield potential**: 70-100mt/acre
 
 ## Benefits
-Vigorous Growth: Strong, healthy plants
-Hardy Variety: Tolerates various conditions
-High Nutrition: Rich in vitamins and minerals
-Abundant Leaves: High leaf production
-Disease Resistance: Reduces crop losses
-Easy Growing: Suitable for beginners
+- **Vigorous variety**: Vigorous and hardy variety
+- **Weather tolerance**: Tolerant to adverse weather and soil conditions
+- **Large leaves**: Large, tender, crumpled/waxy bluish-green leaves on long petioles
+- **Disease resistance**: Fairly tolerant to black rot and downy mildew
+- **Long harvesting**: You can keep harvesting for a long time
+- **High nutrition**: Rich in carbohydrates, proteins and vitamins, has very low cholesterol level and saturated fats
+- **High yield**: 70-100mt/acre under good management
 
 ## Price Information
 Per 1000 seeds: UGX 18,000

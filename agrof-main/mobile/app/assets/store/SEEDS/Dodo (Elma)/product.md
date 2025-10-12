@@ -31,25 +31,31 @@ Water: Regular irrigation needed
 Spacing: 30cm x 30cm between plants
 
 ## Usage Instructions
-Seed Preparation: No special treatment required
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 15°C+
-Germination: 5-7 days
-Direct seeding recommended
+- **Variety type**: Highly nutritious vegetable
+- **Growing characteristics**: Easy to grow, Fast maturing, has very vigorous growth
+- **Transport quality**: Transports well
+- **Cooking quality**: Quick to cook
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 15°C+
+- **Germination**: 5-7 days
+- **Direct seeding**: Recommended for optimal results
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Broadcast Seeding: For large areas
-Container Growing: Suitable for pots
-Spacing: Maintain 30cm x 30cm spacing between plants
+- **Method**: Direct seeding recommended
+- **Target**: Highly nutritious vegetable with vigorous growth
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Growing characteristics**: Easy to grow, Fast maturing, has very vigorous growth
+- **Transport quality**: Transports well
+- **Cooking quality**: Quick to cook
 
 ## Benefits
-High Nutrition: Rich in vitamins and minerals
-Abundant Leaves: High leaf production
-Fast Growing: Quick harvest
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
-Versatile Use: Fresh consumption and cooking
+- **Highly nutritious**: Highly nutritious vegetable with excellent nutritional value
+- **Easy to grow**: Easy to grow, Fast maturing, has very vigorous growth
+- **Fast maturing**: Fast maturing variety with quick harvest
+- **Vigorous growth**: Has very vigorous growth characteristics
+- **Transport quality**: Transports well for market
+- **Quick cooking**: Quick to cook for consumption
+- **High demand**: Popular variety with excellent market acceptance
 
 ## Price Information
 Per 1000 seeds: UGX 12,000

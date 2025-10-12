@@ -19,19 +19,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 100mls/20ltr
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 100mls/20L of water
+- **Application method**: Selective post-emergence herbicide
+- **Target crops**: Carrots
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Selective action**: Safe for carrot crops
+- **Packaging**: Available in 100ml container
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Selective control**: Targets weeds while protecting carrot crops
+- **Crop safety**: Safe for carrot plants
 
 ## Benefits
-Effective control of weeds in carrots
-Selective action on carrot crop
-Cost-effective solution
-Easy to use
+- **Carrot weed control**: Effective control of weeds in carrot fields
+- **Selective action**: Safe for carrot crops
+- **Post-emergence application**: Can be applied after weed emergence
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Crop safety**: No harmful effects on carrot plants
+- **Reliable results**: Proven effectiveness in carrot cultivation
 
 ## Price Information
 Per 100ml: UGX 13,000

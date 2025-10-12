@@ -32,24 +32,32 @@ Water: Regular irrigation needed
 Spacing: 90cm x 90cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 24 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 10-14 days
-Transplanting: When seedlings have 2-3 true leaves
+- **Variety type**: High-yielding, hybrid seeds that produce vigorous plants with uniform, slender, dark green fruits
+- **Plant characteristics**: Vigorous plants with uniform, slender, dark green fruits ideal for culinary and medicinal use
+- **Growing conditions**: Thrive in warm Ugandan climates with well-drained, fertile soils
+- **Planting method**: Require planting in raised beds or ridges, spaced 60-90 cm apart
+- **Watering**: Regular watering to maintain soil moisture
+- **Maturity period**: 50-60 days from planting
+- **Disease resistance**: Resistant to common pests and diseases
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 20°C+
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 90cm x 90cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: High-yielding, hybrid bitter gourd for culinary and medicinal use
+- **Spacing**: 60-90 cm apart in raised beds or ridges
+- **Soil requirements**: Well-drained, fertile soils
+- **Watering**: Regular watering to maintain soil moisture
+- **Disease resistance**: Resistant to common pests and diseases
 
 ## Benefits
-High Yield: Excellent production per plant
-Uniform Fruits: Consistent size and shape
-Excellent Quality: Tender, flavorful fruits
-Disease Resistance: Reduces crop losses
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
+- **High-yielding hybrid**: High-yielding, hybrid seeds that produce vigorous plants
+- **Uniform fruits**: Uniform, slender, dark green fruits ideal for culinary and medicinal use
+- **Warm climate adaptation**: Thrive in warm Ugandan climates
+- **Disease resistance**: Resistant to common pests and diseases
+- **Early maturity**: 50-60 days from planting
+- **Versatile use**: Ideal for both commercial and home farming
+- **Profit potential**: High return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 32,000

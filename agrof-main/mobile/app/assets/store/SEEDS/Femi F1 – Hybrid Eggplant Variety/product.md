@@ -32,24 +32,32 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 24 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 10-14 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Variety type**: Improved Eggplant hybrid in terms of yield, shelf life and bacterial wilt resistance
+- **Fruit characteristics**: The Fruits are very glossy day violet with a smooth skin and excellent firmness
+- **Flesh color**: Flesh color is white
+- **Adaptability**: Widely adaptable to a range of growing conditions
+- **Disease resistance**: Ideal for areas where bacterial wilt occurs
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 20°C+
+- **Germination**: 10-14 days
+- **Transplanting**: When seedlings have 4-6 true leaves
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Improved Eggplant hybrid with excellent yield and shelf life
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Growing conditions**: Widely adaptable to a range of growing conditions
+- **Disease resistance**: Ideal for areas where bacterial wilt occurs
+- **Fruit quality**: Very glossy day violet with a smooth skin and excellent firmness
 
 ## Benefits
-High Yield: Excellent production per plant
-Uniform Fruits: Consistent size and shape
-Excellent Quality: Market-preferred variety
-Disease Resistance: Reduces crop losses
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
+- **Improved hybrid**: Improved Eggplant hybrid in terms of yield, shelf life and bacterial wilt resistance
+- **Excellent fruit quality**: Very glossy day violet with a smooth skin and excellent firmness
+- **White flesh**: Flesh color is white
+- **Wide adaptability**: Widely adaptable to a range of growing conditions
+- **Disease resistance**: Ideal for areas where bacterial wilt occurs
+- **Market quality**: Excellent for both local and commercial markets
+- **Profit potential**: High return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 38,000

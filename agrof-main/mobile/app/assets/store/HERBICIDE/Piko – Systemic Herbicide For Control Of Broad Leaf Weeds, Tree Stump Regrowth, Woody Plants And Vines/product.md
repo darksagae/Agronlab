@@ -19,20 +19,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 2 ltrs per 20 ltrs of water
-**Application:** Apply as directed on the label
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 2L per 20L of water
+- **Application method**: Systemic, persistent herbicide
+- **Target weeds**: Broad leaf weeds, tree stump regrowth, woody plants and vines
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Use areas**: Forest planting sites and non-agricultural sites
+- **Tree stump control**: Effective for controlling regrowth of tree stumps
 
 ## Application Method
-Foliar Spray: Direct application to weed foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to weed foliage, woody plants, and vines
+- **Systemic action**: Moves throughout the plant for complete control
+- **Persistent control**: Long-lasting weed control
+- **Tree stump treatment**: Can be applied to tree stumps for regrowth control
 
 ## Benefits
-Effective control of woody plants
-Systemic action
-Cost-effective solution
-Easy to use
-Persistent control
+- **Woody plant control**: Effective control of unwanted woody plants and vines
+- **Tree stump control**: Prevents regrowth of tree stumps
+- **Systemic action**: Moves throughout the plant for complete control
+- **Persistent control**: Long-lasting weed control
+- **Versatile use**: Suitable for forest planting sites and non-agricultural areas
+- **Cost-effective**: Single application for extended control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 500ml: UGX 32,000

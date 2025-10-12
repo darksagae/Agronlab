@@ -32,24 +32,31 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 24 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 10-14 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Variety type**: Classic eggplant variety valued for its large, glossy, deep purple fruits and tender, flavorful flesh
+- **Plant characteristics**: The plants are sturdy and productive, thriving in warm climates
+- **Maturity period**: Matures in 70-80 days
+- **Fruit characteristics**: Large, glossy, deep purple fruits and tender, flavorful flesh
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 20°C+
+- **Germination**: 10-14 days
+- **Transplanting**: When seedlings have 4-6 true leaves
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Classic eggplant variety with large, glossy fruits
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Growing conditions**: Thriving in warm climates
+- **Fruit quality**: Large, glossy, deep purple fruits and tender, flavorful flesh
+- **Plant vigor**: Sturdy and productive plants
 
 ## Benefits
-Excellent Quality: Large, glossy fruits
-High Yield: Good production per plant
-Versatile Use: Fresh consumption and processing
-Market Demand: Popular variety
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
+- **Classic variety**: Classic eggplant variety valued for its large, glossy, deep purple fruits
+- **Excellent quality**: Large, glossy, deep purple fruits and tender, flavorful flesh
+- **Sturdy plants**: The plants are sturdy and productive
+- **Warm climate adaptation**: Thriving in warm climates
+- **Market demand**: Popular variety with excellent market acceptance
+- **Easy growing**: Suitable for beginners and experienced farmers
+- **Profit potential**: High return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 28,000

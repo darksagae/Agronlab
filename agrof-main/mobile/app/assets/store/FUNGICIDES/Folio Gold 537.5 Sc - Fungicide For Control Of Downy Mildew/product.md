@@ -20,22 +20,30 @@ Protective film over plant surfaces
 Innovative fungicide mix
 
 ## Usage Instructions
-**Roses:**
-- Apply a maximum of 3 Folio Gold®️ 537.5 SC sprays per season
-- Downy mildew: Apply at 2.0-2.5 lt./ha (200-250 g/100litres water or 40-50g/20ltr Knapsack sprayer)
-- Do not exceed the recommended rate per hectare when using the hector-liter recommendations
-- Begin applications when conditions are favorable for disease, but before infection
-- Continue at 10–14-day intervals
+- **Roses**: Apply a maximum of 3 Folio Gold®️ 537.5 SC sprays per season
+- **Downy mildew**: Apply at 2.0-2.5 L/ha (200-250 g/100L water or 40-50g/20L Knapsack sprayer)
+- **Application method**: Systemic and residual fungicide for control of Downy Mildew and white rust
+- **Target diseases**: Downy Mildew, white rust
+- **Target crops**: Ornamentals/flowers
+- **Application timing**: Begin applications when conditions are favorable for disease, but before infection
+- **Spray interval**: Continue at 10–14-day intervals
+- **Active ingredients**: 37.5g/L Metalaxyl-M + 500g/L Chlorothalonil
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Metalaxyl-M is rapidly taken up by green plant parts (within 30 min.) and transported upwards in the sap stream
+- **Contact action**: Chlorothalonil provides a protective film over plant surfaces
+- **Dual action**: Combines systemic and contact fungicide properties
 
 ## Benefits
-Systemic protection throughout the plant
-Residual activity for long-lasting protection
-Effective against key plant diseases
-Innovative dual-action formulation
-Rapid uptake and distribution
+- **Downy mildew control**: Effective control of Downy Mildew and white rust in ornamentals/flowers
+- **Systemic protection**: Metalaxyl-M provides systemic control from within the plant
+- **Residual activity**: Chlorothalonil provides long-lasting protective film
+- **Dual active ingredients**: Innovative fungicide mix with two complementary modes of action
+- **Rapid uptake**: Metalaxyl-M is rapidly taken up by green plant parts within 30 minutes
+- **Protective film**: Chlorothalonil inhibits spore germination
+- **Cost-effective**: Maximum 3 sprays per season for comprehensive control
 
 ## Price Information
 Per 1L: UGX 153,600

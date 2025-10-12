@@ -20,20 +20,31 @@ Compatible with most pesticides
 Long-lasting protection
 
 ## Usage Instructions
-**Mixing:** 50grams per 20ltrs of water
-**Application rate:** 500grams per acre
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Mixing ratio**: 50grams per 20L of water
+- **Application rate**: 500grams per acre
+- **Application method**: Broad-spectrum protective fungicide that controls a wide range of fungal diseases
+- **Target diseases**: Early and late blight, Downy mildew, Anthracnose, leaf spots and botrytis
+- **Target crops**: Various crops
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredient**: Mancozeb
+- **Formulation**: Wettable Powder (WP)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Protective action**: Provides protection before disease infection
+- **Broad-spectrum**: Controls a wide range of fungal diseases on a variety of crops
+- **Coverage**: Ensure thorough coverage for effective protection
+- **Multi-disease control**: Effective against early and late blight, Downy mildew, Anthracnose, leaf spots and botrytis
 
 ## Benefits
-Broad spectrum disease control
-Protective action
-Cost-effective solution
-Easy to use
-Compatible with other pesticides
+- **Broad spectrum control**: Controls a wide range of fungal diseases on a variety of crops including early and late blight, Downy mildew, Anthracnose, leaf spots and botrytis
+- **Protective action**: Broad-spectrum protective fungicide that provides protection before disease infection
+- **Multi-crop use**: Suitable for various crops
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
+- **Compatible**: Compatible with other pesticides
+- **Long-lasting protection**: Provides extended disease control
 
 ## Price Information
 Per 1kg: UGX 22,000

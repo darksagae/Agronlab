@@ -33,24 +33,34 @@ Water: Regular irrigation needed
 Spacing: 45cm x 45cm between plants
 
 ## Usage Instructions
-Seed Preparation: No special treatment required
-Planting Depth: 1-2 cm deep
-Planting Time: When soil temperature is 15°C+
-Germination: 7-10 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Variety type**: Hybrid F1 cabbage with Excellent heat tolerance and high adaptability
+- **Growing characteristics**: Good field holding capacity and intermediate resistance to fusarium yellows
+- **Yield potential**: High yielding, Good for both fresh markets and processing
+- **Maturity days from transplanting**: 75-80
+- **Seed rate**: 100grams/acre
+- **Average head weight**: 4-5kgs
+- **Spacing**: 60cm*60cm or 60cm*45cm
+- **Head shape**: Firm round heads
+- **Head color**: Blue green
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: When soil temperature is 15°C+
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 45cm x 45cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Hybrid F1 cabbage with excellent heat tolerance and high adaptability
+- **Spacing**: 60cm*60cm or 60cm*45cm between plants
+- **Growing characteristics**: Good field holding capacity and intermediate resistance to fusarium yellows
+- **Head characteristics**: Firm round heads with blue green color
+- **Yield potential**: High yielding, Good for both fresh markets and processing
 
 ## Benefits
-Heat Tolerant: Suitable for hot climates
-High Adaptability: Grows in various conditions
-Uniform Heads: Consistent size and shape
-Disease Resistance: Reduces crop losses
-Easy Growing: Suitable for beginners
-Tropical Climate: Ideal for local conditions
+- **Heat tolerance**: Excellent heat tolerance and high adaptability
+- **Field holding**: Good field holding capacity and intermediate resistance to fusarium yellows
+- **High yielding**: High yielding, Good for both fresh markets and processing
+- **Firm heads**: Firm round heads with blue green color
+- **Market versatility**: Good for both fresh markets and processing
+- **Disease resistance**: Intermediate resistance to fusarium yellows
+- **Profit potential**: High return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 35,000

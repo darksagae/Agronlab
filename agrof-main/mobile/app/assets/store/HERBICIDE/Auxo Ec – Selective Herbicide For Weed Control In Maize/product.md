@@ -20,20 +20,21 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
-**Crop Stage:** Apply when maize is at appropriate growth stage
-
-## Application Method
-Foliar Spray: Direct application to weed foliage
+- **Application method**: Post-emergence herbicide application
+- **Target weeds**: Grasses and broadleaf weeds in maize
+- **Altitude requirements**: Only for mid and high altitude maize varieties
+- **Timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Crop stage**: Apply when maize is at appropriate growth stage
+- **Safety**: Follow all safety guidelines and protective measures
 
 ## Benefits
-Effective control of grasses and broadleaf weeds
-Selective action on maize
-Suitable for mid and high altitude conditions
-Cost-effective solution
-Easy to use
+- **Selective control**: Effective against grasses and broadleaf weeds while protecting maize
+- **Altitude specific**: Formulated for mid and high altitude maize growing conditions
+- **Post-emergence action**: Can be applied after crop emergence
+- **Cost-effective**: Provides efficient weed control solution
+- **Easy application**: Simple foliar spray application method
+- **Reliable results**: Proven effectiveness in target conditions
 
 ## Price Information
 Per 1L: UGX 126,500

@@ -19,19 +19,28 @@ Easy to apply
 Safe for maize crop
 
 ## Usage Instructions
-**Mixing:** 200mls per 20ltr
-**Application:** Apply as directed on the label
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 200mls per 20L of water
+- **Application method**: Selective herbicide for maize
+- **Target crops**: Maize
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Selective action**: Safe for maize crops
+- **Packaging**: Available in 1L and 20L containers
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Selective control**: Targets weeds while protecting maize crops
+- **Crop safety**: Safe for maize plants
 
 ## Benefits
-Effective control of weeds in maize
-Selective action on maize crop
-Cost-effective solution
-Easy to use
+- **Maize weed control**: Effective control of weeds in maize fields
+- **Selective action**: Safe for maize crops
+- **Post-emergence application**: Can be applied after weed emergence
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Crop safety**: No harmful effects on maize plants
+- **Reliable results**: Proven effectiveness in maize cultivation
 
 ## Price Information
 Per 1L: UGX 31,000

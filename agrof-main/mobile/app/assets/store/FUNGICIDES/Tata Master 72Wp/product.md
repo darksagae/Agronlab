@@ -20,21 +20,29 @@ Broad spectrum disease control
 Easy to apply
 
 ## Usage Instructions
-**Dosage:** Use 50g of Tata Master 72WP per 20 Ltrs water
-**Application Rate:** Ensure 2.5kg per Ha is used for thorough coverage
-**PHI:** 14 days
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Dosage**: Use 50g of Tata Master 72WP per 20L of water
+- **Application rate**: Ensure 2.5kg per Ha is used for thorough coverage
+- **Application method**: Systemic and contact fungicide
+- **Target diseases**: Early and late blight on potatoes, tomatoes, grapes; downy mildew in all crops including roses; fungal leaf spot diseases and damping off in vegetables
+- **Target crops**: Potatoes, tomatoes, grapes, roses, vegetables
+- **Application timing**: Apply at first sign of disease or preventatively
+- **PHI**: 14 days
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed by plant tissues and translocated throughout the plant
+- **Contact action**: Provides immediate protection on plant surfaces
+- **Coverage**: Ensure thorough coverage for effective control
 
 ## Benefits
-Fast action on downy mildew
-Effective against damping off
-Systemic and contact protection
-Trusted by farmers
-Broad spectrum control
+- **Fast action**: Fast action on downy mildew disease
+- **Damping off control**: Effective in preventing damping off invading young tomatoes, potatoes, and other vegetables
+- **Blight control**: Effective control of early and late blight on potatoes, tomatoes, grapes
+- **Downy mildew control**: Effective control of downy mildew in all crops including roses
+- **Systemic and contact protection**: Dual action for comprehensive disease control
+- **Trusted by farmers**: Tata Master 72WP is a fungicide trusted by farmers for control of diseases
+- **Broad spectrum control**: Controls fungal leaf spot diseases and damping off in vegetables
 
 ## Price Information
 Per 100g: UGX 5,300

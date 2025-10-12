@@ -20,13 +20,17 @@ Easy to apply
 Compatible with most pesticides
 
 ## Usage Instructions
-**Dosage:**
-- **Chilies (Against Damping off):** 50g/20ltrs of water
-- **Tomatoes (Against early and late blight):** 50g/20ltrs of water
-- **Coffee and cotton:** 70g/20ltrs of water
-
-**Application Timing:** Apply when the first signs of the disease are observed on the crop. Repeat at a 10 days interval for effective control.
-**Application technique:** Apply using enough water and ensure adequate coverage of the crop foliage.
+- **Dosage**:
+  - **Chilies (Against Damping off)**: 50g/20L of water
+  - **Tomatoes (Against early and late blight)**: 50g/20L of water
+  - **Coffee and cotton**: 70g/20L of water
+- **Application method**: Copper-based fungicide for control of Damping off in Chilies, Bud rot and leaf rot in Coconuts, Blackarm in Cotton, Blister blight in Coffee, Downy mildew and Anthracnose in Peas, Early and late blight in Potatoes, Damping off and black shank in Tobacco
+- **Target diseases**: Damping off, Bud rot, leaf rot, Blackarm, Blister blight, Downy mildew, Anthracnose, Early and late blight, Damping off, black shank
+- **Target crops**: Chilies, Coconuts, Cotton, Coffee, Peas, Potatoes, Tobacco
+- **Application timing**: Apply when the first signs of the disease are observed on the crop. Repeat at a 10 days interval for effective control
+- **Application technique**: Apply using enough water and ensure adequate coverage of the crop foliage
+- **Active ingredient**: Copper Oxychloride 500g/Kg
+- **Formulation**: Wettable Powder (WP)
 
 **Pre-Harvest Interval (PHI):**
 - Chilies: 7 days
@@ -34,14 +38,19 @@ Compatible with most pesticides
 - Coffee & cotton: 14 days
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Copper-based**: Copper-based fungicide for comprehensive disease control
+- **Multi-disease control**: Control of Damping off in Chilies, Bud rot and leaf rot in Coconuts, Blackarm in Cotton, Blister blight in Coffee, Downy mildew and Anthracnose in Peas, Early and late blight in Potatoes, Damping off and black shank in Tobacco
+- **Multi-crop use**: Suitable for chilies, coconuts, cotton, coffee, peas, potatoes, tobacco
 
 ## Benefits
-Effective against multiple diseases
-Broad spectrum disease control
-Cost-effective solution
-Easy to use
-Compatible with other pesticides
+- **Multi-disease control**: Control of Damping off in Chilies, Bud rot and leaf rot in Coconuts, Blackarm in Cotton, Blister blight in Coffee, Downy mildew and Anthracnose in Peas, Early and late blight in Potatoes, Damping off and black shank in Tobacco
+- **Copper-based**: Copper-based fungicide for comprehensive disease control
+- **Multi-crop use**: Suitable for chilies, coconuts, cotton, coffee, peas, potatoes, tobacco
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
+- **Compatible**: Compatible with other pesticides
 
 ## Price Information
 Per 500g: UGX 15,000

@@ -7,8 +7,8 @@ Faith Agro Inputs
 Amino acids, boron and molybdenum-based bio stimulant that stimulates the flowering, pollination, setting and development of fruit processes
 
 ## Price Information
-1ltr: UGX 35,000
-500mls: UGX 25,000
+- 1ltr: UGX 35,000
+- 500mls: UGX 25,000
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -17,16 +17,22 @@ Amino acids, boron and molybdenum-based bio stimulant that stimulates the flower
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Foliar spray
+- **Timing**: Apply during flowering and fruit development stages
+- **Frequency**: Every 2-3 weeks during flowering and fruiting
+- **Best time**: Early morning or late afternoon
+- **Target stages**: Flowering, pollination, fruit setting, and development
+- **Coverage**: Ensure complete leaf coverage for maximum absorption
+- **Compatibility**: Can be mixed with most foliar fertilizers
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Flowering stimulation**: Promotes abundant and healthy flowering
+- **Pollination enhancement**: Improves pollination processes
+- **Fruit setting**: Enhances fruit setting and development
+- **Amino acids**: Provides essential amino acids for plant growth
+- **Boron and molybdenum**: Essential micronutrients for flowering and fruiting
+- **Biostimulant action**: Natural plant growth enhancement
+- **Yield improvement**: Significantly increases fruit production and quality
 
 ## Storage Instructions
 - Store in cool, dry place

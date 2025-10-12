@@ -29,7 +29,7 @@ const ChatBotButton = ({ onPress, style, size = 60 }) => {
 const styles = StyleSheet.create({
   chatbotButton: {
     position: 'absolute',
-    bottom: 80, // Position where the original bot image was
+    bottom: 150, // Moved up further from 120 to 150 for better positioning
     right: 20,
     backgroundColor: 'transparent',
     borderRadius: 30,

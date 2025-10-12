@@ -10,129 +10,369 @@ import {
   Animated,
   FlatList,
   Alert,
+  Image,
+  ActivityIndicator,
+  Platform,
+  Linking,
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useSafeTranslation } from '../i18n';
+import { useUser } from '../contexts/UserContext';
+import { supabase } from '../config/supabaseConfig';
 
 const { width, height } = Dimensions.get('window');
 
-// Mock candlestick data for different products
-const candlestickData = {
-  'Maize': [
-    { date: '2024-01-01', open: 2500, high: 2600, low: 2400, close: 2550, volume: 1000 },
-    { date: '2024-01-02', open: 2550, high: 2700, low: 2500, close: 2650, volume: 1200 },
-    { date: '2024-01-03', open: 2650, high: 2750, low: 2600, close: 2700, volume: 1500 },
-    { date: '2024-01-04', open: 2700, high: 2800, low: 2650, close: 2750, volume: 1800 },
-    { date: '2024-01-05', open: 2750, high: 2850, low: 2700, close: 2800, volume: 2000 },
-    { date: '2024-01-06', open: 2800, high: 2900, low: 2750, close: 2850, volume: 2200 },
-    { date: '2024-01-07', open: 2850, high: 2950, low: 2800, close: 2900, volume: 2500 },
-  ],
-  'Beans': [
-    { date: '2024-01-01', open: 3800, high: 3900, low: 3700, close: 3850, volume: 800 },
-    { date: '2024-01-02', open: 3850, high: 4000, low: 3800, close: 3950, volume: 900 },
-    { date: '2024-01-03', open: 3950, high: 4100, low: 3900, close: 4050, volume: 1100 },
-    { date: '2024-01-04', open: 4050, high: 4200, low: 4000, close: 4150, volume: 1300 },
-    { date: '2024-01-05', open: 4150, high: 4300, low: 4100, close: 4250, volume: 1500 },
-    { date: '2024-01-06', open: 4250, high: 4400, low: 4200, close: 4350, volume: 1700 },
-    { date: '2024-01-07', open: 4350, high: 4500, low: 4300, close: 4450, volume: 1900 },
-  ],
-  'Coffee': [
-    { date: '2024-01-01', open: 8500, high: 8700, low: 8300, close: 8600, volume: 500 },
-    { date: '2024-01-02', open: 8600, high: 8900, low: 8500, close: 8800, volume: 600 },
-    { date: '2024-01-03', open: 8800, high: 9100, low: 8700, close: 9000, volume: 700 },
-    { date: '2024-01-04', open: 9000, high: 9300, low: 8900, close: 9200, volume: 800 },
-    { date: '2024-01-05', open: 9200, high: 9500, low: 9100, close: 9400, volume: 900 },
-    { date: '2024-01-06', open: 9400, high: 9700, low: 9300, close: 9600, volume: 1000 },
-    { date: '2024-01-07', open: 9600, high: 9900, low: 9500, close: 9800, volume: 1100 },
-  ],
-};
-
-// Mock buyers and sellers data
-const tradingData = {
-  'Maize': {
-    buyers: [
-      { id: 1, name: 'John Kato', location: 'Kampala', price: 2800, quantity: 1000, rating: 4.8, avatar: '👨‍🌾' },
-      { id: 2, name: 'Sarah Nalubega', location: 'Jinja', price: 2750, quantity: 500, rating: 4.9, avatar: '👩‍🌾' },
-      { id: 3, name: 'Peter Mwesigwa', location: 'Masaka', price: 2700, quantity: 800, rating: 4.7, avatar: '👨‍💼' },
-      { id: 4, name: 'Grace Nakato', location: 'Mukono', price: 2650, quantity: 1200, rating: 4.6, avatar: '👩‍💼' },
-    ],
-    sellers: [
-      { id: 1, name: 'Farmers Co-op', location: 'Luweero', price: 2900, quantity: 2000, rating: 4.9, avatar: '🏢' },
-      { id: 2, name: 'Green Valley Farms', location: 'Mbarara', price: 2850, quantity: 1500, rating: 4.8, avatar: '🌾' },
-      { id: 3, name: 'Agro Solutions', location: 'Gulu', price: 2800, quantity: 1000, rating: 4.7, avatar: '🚜' },
-      { id: 4, name: 'Local Farmers', location: 'Mbale', price: 2750, quantity: 800, rating: 4.5, avatar: '👨‍🌾' },
-    ]
-  },
-  'Beans': {
-    buyers: [
-      { id: 1, name: 'Market Traders', location: 'Kampala', price: 4500, quantity: 500, rating: 4.8, avatar: '🏪' },
-      { id: 2, name: 'Restaurant Chain', location: 'Jinja', price: 4400, quantity: 300, rating: 4.9, avatar: '🍽️' },
-      { id: 3, name: 'Export Company', location: 'Entebbe', price: 4300, quantity: 1000, rating: 4.7, avatar: '🚢' },
-    ],
-    sellers: [
-      { id: 1, name: 'Bean Farmers', location: 'Masaka', price: 4600, quantity: 800, rating: 4.8, avatar: '🌱' },
-      { id: 2, name: 'Cooperative Union', location: 'Mukono', price: 4500, quantity: 1200, rating: 4.9, avatar: '🤝' },
-    ]
-  },
-  'Coffee': {
-    buyers: [
-      { id: 1, name: 'Coffee Exporters', location: 'Kampala', price: 10000, quantity: 200, rating: 4.9, avatar: '☕' },
-      { id: 2, name: 'International Buyers', location: 'Entebbe', price: 9800, quantity: 500, rating: 4.8, avatar: '🌍' },
-    ],
-    sellers: [
-      { id: 1, name: 'Coffee Farmers', location: 'Jinja', price: 10200, quantity: 300, rating: 4.9, avatar: '☕' },
-      { id: 2, name: 'Mountain Coffee Co.', location: 'Fort Portal', price: 10100, quantity: 400, rating: 4.8, avatar: '🏔️' },
-    ]
-  }
-};
+// Price history data will come from Supabase price_history table
+// For now, empty until real data exists
 
 const ProductTradingScreen = ({ route, navigation }) => {
-  const { product } = route.params;
-  const [activeTab, setActiveTab] = useState('buyers');
+  const { product, p2pProduct, fromP2PMarket } = route.params;
+  
+  // Use p2pProduct if coming from P2P Market, otherwise use product
+  const displayProduct = p2pProduct || product;
+  
+  const [activeTab, setActiveTab] = useState('sellers'); // Default to sellers for P2P
   const [selectedTrader, setSelectedTrader] = useState(null);
   const [chatMessage, setChatMessage] = useState('');
   const [chatMessages, setChatMessages] = useState([]);
+  
+  // Get current user from UserContext (real data from Firebase/Supabase)
+  const { user: currentUser, isAuthenticated, refreshUserData } = useUser();
+  const [realBuyers, setRealBuyers] = useState([]);
+  const [realSellers, setRealSellers] = useState([]);
+  const [loadingUsers, setLoadingUsers] = useState(false);
+  
+  // Load real users on component mount and when currentUser changes
+  useEffect(() => {
+    loadRealUsers();
+  }, [currentUser]); // Re-load when user data updates
+  
+  const loadRealUsers = async () => {
+    setLoadingUsers(true);
+    
+    try {
+      console.log('👥 ProductTradingScreen: Fetching real buyers and sellers from Supabase...');
+      
+      // Fetch real BUYERS from Supabase
+      const { data: buyersData, error: buyersError } = await supabase
+        .from('buyers')
+        .select(`
+          id,
+          location,
+          users!inner (
+            id,
+            full_name,
+            phone,
+            email,
+            profile_photo,
+            user_type
+          )
+        `)
+        .in('users.user_type', ['buyer', 'both']);
+      
+      // Fetch real SELLERS from Supabase  
+      const { data: sellersData, error: sellersError } = await supabase
+        .from('sellers')
+        .select(`
+          id,
+          business_name,
+          rating,
+          total_sales,
+          users!inner (
+            id,
+            full_name,
+            phone,
+            email,
+            profile_photo,
+            user_type
+          )
+        `)
+        .in('users.user_type', ['seller', 'both']);
+      
+      if (buyersError) {
+        console.error('❌ Error fetching buyers:', buyersError);
+      }
+      
+      if (sellersError) {
+        console.error('❌ Error fetching sellers:', sellersError);
+      }
+      
+      // Process BUYERS
+      const buyers = (buyersData || []).map((buyer) => ({
+        id: buyer.users.id,
+        name: buyer.users.full_name || buyer.users.email,
+        location: buyer.location || 'Uganda',
+        price: 0, // Will be set based on actual orders
+        quantity: 0, // Will be set based on actual orders
+        rating: 0, // Buyers don't have ratings yet
+        avatar: buyer.users.profile_photo,
+        phone: buyer.users.phone,
+        email: buyer.users.email,
+        uid: buyer.users.id,
+        isCurrentUser: buyer.users.id === currentUser?.uid,
+        userType: 'buyer'
+      }));
+      
+      // Process SELLERS with their P2P listings
+      console.log('💰 Fetching P2P listings for sellers...');
+      
+      // If we're coming from P2P Market with a specific product, filter by that product
+      const isP2PFiltered = fromP2PMarket && p2pProduct;
+      console.log('🔍 P2P Product Filter:', isP2PFiltered ? p2pProduct.name : 'None (showing all)');
+      
+      const sellersWithListings = await Promise.all(
+        (sellersData || []).map(async (seller) => {
+          // Fetch P2P listings for this seller
+          let query = supabase
+            .from('p2p_listings')
+            .select(`
+              id,
+              asking_price,
+              quantity_available,
+              minimum_order_quantity,
+              location,
+              p2p_product_id,
+              p2p_products (
+                id,
+                name,
+                unit_of_measure
+              )
+            `)
+            .eq('seller_id', seller.id)
+            .eq('is_active', true);
+          
+          // Filter by specific P2P product if provided
+          if (isP2PFiltered) {
+            query = query.eq('p2p_product_id', p2pProduct.id);
+          }
+          
+          const { data: listings } = await query;
 
-  const tradingInfo = tradingData[product.name] || { buyers: [], sellers: [] };
+          console.log(`   Seller ${seller.business_name || seller.users.full_name}:`, listings?.length || 0, 'listings');
+
+          return {
+        id: seller.users.id,
+        name: seller.business_name || seller.users.full_name || seller.users.email,
+            location: listings?.[0]?.location || 'Uganda',
+            price: listings?.[0]?.asking_price || 0,
+            quantity: listings?.[0]?.quantity_available || 0,
+        rating: parseFloat(seller.rating) || 0,
+        avatar: seller.users.profile_photo,
+        phone: seller.users.phone,
+        email: seller.users.email,
+        uid: seller.users.id,
+        isCurrentUser: seller.users.id === currentUser?.uid,
+        userType: 'seller',
+            totalSales: seller.total_sales || 0,
+            listings: listings || [],
+            listingCount: listings?.length || 0,
+            productName: listings?.[0]?.p2p_products?.name || 'No products listed',
+            unit: listings?.[0]?.p2p_products?.unit_of_measure || ''
+          };
+        })
+      );
+
+      // Filter out sellers with no listings (important when filtering by product)
+      const sellers = sellersWithListings.filter(seller => seller.listingCount > 0);
+      
+      console.log('✅ Real data loaded from Supabase:');
+      console.log('   Buyers:', buyers.length);
+      console.log('   Sellers:', sellers.length);
+      if (isP2PFiltered) {
+        console.log(`   📌 Filtered to sellers with ${p2pProduct.name} only`);
+      }
+      
+      if (buyers.length === 0) {
+        console.log('📭 No buyers in database yet');
+      } else {
+        console.log('   Buyer names:', buyers.map(b => b.name));
+      }
+      
+      if (sellers.length === 0) {
+        console.log('📭 No sellers in database yet');
+      } else {
+        console.log('   Seller names:', sellers.map(s => s.name));
+      }
+      
+      // Set state
+      setRealBuyers(buyers);
+      setRealSellers(sellers);
+      
+      console.log('✅ Marketplace data set successfully!');
+      
+    } catch (error) {
+      console.error('❌ Error loading marketplace users:', error);
+      // Set empty lists on error
+      setRealBuyers([]);
+      setRealSellers([]);
+    } finally {
+      setLoadingUsers(false);
+    }
+  };
+
+  const tradingInfo = {
+    buyers: realBuyers,
+    sellers: realSellers
+  };
 
 
   const renderTraderCard = (trader, type) => (
-    <TouchableOpacity
-      key={trader.id}
-      style={styles.traderCard}
-      onPress={() => setSelectedTrader({ ...trader, type })}
-    >
+    <View key={trader.id} style={styles.traderCard}>
       <View style={styles.traderHeader}>
-        <Text style={styles.traderAvatar}>{trader.avatar}</Text>
+        {/* Profile Photo - Real from Supabase or Emoji Fallback */}
+        {trader.avatar && (trader.avatar.startsWith('http') || trader.avatar.startsWith('data:')) ? (
+          <Image 
+            source={{ uri: trader.avatar }}
+            style={styles.traderAvatarImage}
+          />
+        ) : (
+          <Text style={styles.traderAvatar}>{trader.avatar || '👤'}</Text>
+        )}
         <View style={styles.traderInfo}>
           <Text style={styles.traderName}>{trader.name}</Text>
           <Text style={styles.traderLocation}>{trader.location}</Text>
+          {trader.phone && (
+            <View style={styles.contactRow}>
+              <MaterialIcons name="phone" size={12} color="#4CAF50" />
+              <Text style={styles.contactText}>{trader.phone}</Text>
+            </View>
+          )}
           <View style={styles.ratingContainer}>
             <MaterialIcons name="star" size={14} color="#fbbf24" />
-            <Text style={styles.rating}>{trader.rating}</Text>
+            <Text style={styles.rating}>{trader.rating.toFixed(1)}</Text>
+            {trader.uid && (
+              <MaterialIcons name="verified" size={14} color="#4CAF50" style={{ marginLeft: 5 }} />
+            )}
           </View>
         </View>
       </View>
       <View style={styles.traderDetails}>
         <View style={styles.priceContainer}>
           <Text style={styles.priceLabel}>Price</Text>
-          <Text style={styles.priceValue}>UGX {trader.price.toLocaleString()}</Text>
+          <Text style={styles.priceValue}>
+            UGX {parseInt(trader.price || 0).toLocaleString()}
+          </Text>
+          {trader.unit && (
+            <Text style={styles.unitText}>{trader.unit}</Text>
+          )}
         </View>
         <View style={styles.quantityContainer}>
-          <Text style={styles.quantityLabel}>Quantity</Text>
-          <Text style={styles.quantityValue}>{trader.quantity.toLocaleString()} kg</Text>
+          <Text style={styles.quantityLabel}>Available</Text>
+          <Text style={styles.quantityValue}>
+            {trader.quantity || 0} {trader.unit ? trader.unit.replace('per ', '') : 'units'}
+          </Text>
         </View>
       </View>
-      <View style={styles.traderAction}>
-        <MaterialIcons 
-          name={type === 'buyer' ? 'shopping-cart' : 'sell'} 
-          size={20} 
-          color="#4CAF50" 
-        />
-        <Text style={styles.actionText}>
-          {type === 'buyer' ? 'Buy from' : 'Sell to'}
-        </Text>
-      </View>
-    </TouchableOpacity>
+      
+      {/* Show product name for sellers with listings */}
+      {type === 'seller' && trader.listingCount > 0 && (
+        <View style={styles.productBadge}>
+          <MaterialIcons name="local-offer" size={14} color="#4CAF50" />
+          <Text style={styles.productBadgeText}>
+            {trader.productName}
+            {trader.listingCount > 1 && ` +${trader.listingCount - 1} more`}
+          </Text>
+        </View>
+      )}
+      
+      {/* Contact Buttons with Registration Gate */}
+      {!trader.isCurrentUser && trader.uid && (
+        <View style={styles.contactButtons}>
+          <TouchableOpacity 
+            style={styles.messageButton}
+            onPress={() => {
+              // Check if user is logged in and registered as buyer/seller
+              if (!currentUser || !currentUser.uid) {
+                Alert.alert(
+                  '🔒 Login Required',
+                  'Please sign in to contact sellers',
+                  [
+                    { text: 'Cancel', style: 'cancel' },
+                    { 
+                      text: 'Sign In', 
+                      onPress: () => navigation.navigate('Login')
+                    }
+                  ]
+                );
+                return;
+              }
+
+              const userType = currentUser.userType || 'none';
+              if (!['buyer', 'seller', 'both'].includes(userType)) {
+                Alert.alert(
+                  '📋 Registration Required',
+                  'To contact sellers, please register as a buyer or seller',
+                  [
+                    { text: 'Cancel', style: 'cancel' },
+                    { 
+                      text: 'Register', 
+                      onPress: () => navigation.navigate('Account')
+                    }
+                  ]
+                );
+                return;
+              }
+
+              // If coming from P2P Market with a specific product, navigate to inquiry form
+              if (fromP2PMarket && p2pProduct) {
+                // Find the seller's listing for this product
+                const listing = trader.listings?.[0];
+                
+                navigation.navigate('InquiryForm', {
+                  seller: {
+                    uid: trader.uid,
+                    fullName: trader.name,
+                    phone: trader.phone,
+                    email: trader.email,
+                    p2p_rating: trader.rating,
+                    p2p_total_trades: trader.totalSales || 0
+                  },
+                  listing: listing,
+                  p2pProduct: p2pProduct
+                });
+              } else {
+                // Fallback to chat for non-P2P flows
+                navigation.navigate('chat', {
+                  otherUser: {
+                    uid: trader.uid,
+                    name: trader.name,
+                    email: trader.email,
+                    phone: trader.phone,
+                    avatar: trader.avatar
+                  }
+                });
+              }
+            }}
+          >
+            <MaterialIcons name="message" size={18} color="#4CAF50" />
+            <Text style={styles.messageButtonText}>Contact</Text>
+          </TouchableOpacity>
+          
+          {trader.phone && currentUser && ['buyer', 'seller', 'both'].includes(currentUser.userType) && (
+            <TouchableOpacity 
+              style={styles.callButton}
+              onPress={() => {
+                // Open phone dialer (only for registered users)
+                const phoneNumber = trader.phone.replace(/[^0-9+]/g, '');
+                if (Platform.OS === 'android' || Platform.OS === 'ios') {
+                  Linking.openURL(`tel:${phoneNumber}`);
+                }
+              }}
+            >
+              <MaterialIcons name="phone" size={18} color="#fff" />
+              <Text style={styles.callButtonText}>Call</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      )}
+      
+      {trader.isCurrentUser && (
+        <View style={styles.yourListingBadge}>
+          <MaterialIcons name="person" size={16} color="#4CAF50" />
+          <Text style={styles.yourListingText}>Your Listing</Text>
+        </View>
+      )}
+    </View>
   );
 
   const renderChatModal = () => {
@@ -169,7 +409,7 @@ const ProductTradingScreen = ({ route, navigation }) => {
         <View style={styles.chatInput}>
           <TextInput
             style={styles.messageInput}
-            placeholder="Type your message..."
+            placeholder={t('search.messagePlaceholder')}
             value={chatMessage}
             onChangeText={setChatMessage}
             multiline
@@ -201,7 +441,7 @@ const ProductTradingScreen = ({ route, navigation }) => {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <MaterialIcons name="arrow-back" size={24} color="#333" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>{product.name} Trading</Text>
+        <Text style={styles.headerTitle}>{displayProduct?.name || 'Product'} Trading</Text>
         <View style={styles.headerRight}>
           <MaterialIcons name="notifications" size={24} color="#333" />
         </View>
@@ -231,14 +471,40 @@ const ProductTradingScreen = ({ route, navigation }) => {
         {activeTab === 'buyers' && (
           <View style={styles.tradersContainer}>
             <Text style={styles.sectionTitle}>Buyers ({tradingInfo.buyers.length})</Text>
-            {tradingInfo.buyers.map(trader => renderTraderCard(trader, 'buyer'))}
+            {loadingUsers ? (
+              <View style={styles.emptyState}>
+                <ActivityIndicator size="large" color="#4CAF50" />
+                <Text style={styles.emptyText}>Loading buyers...</Text>
+              </View>
+            ) : tradingInfo.buyers.length === 0 ? (
+              <View style={styles.emptyState}>
+                <MaterialIcons name="people-outline" size={64} color="#ccc" />
+                <Text style={styles.emptyText}>No buyers available yet</Text>
+                <Text style={styles.emptySubtext}>Be the first buyer to request this product!</Text>
+              </View>
+            ) : (
+              tradingInfo.buyers.map(trader => renderTraderCard(trader, 'buyer'))
+            )}
           </View>
         )}
         
         {activeTab === 'sellers' && (
           <View style={styles.tradersContainer}>
             <Text style={styles.sectionTitle}>Sellers ({tradingInfo.sellers.length})</Text>
-            {tradingInfo.sellers.map(trader => renderTraderCard(trader, 'seller'))}
+            {loadingUsers ? (
+              <View style={styles.emptyState}>
+                <ActivityIndicator size="large" color="#4CAF50" />
+                <Text style={styles.emptyText}>Loading sellers...</Text>
+              </View>
+            ) : tradingInfo.sellers.length === 0 ? (
+              <View style={styles.emptyState}>
+                <MaterialIcons name="store" size={64} color="#ccc" />
+                <Text style={styles.emptyText}>No sellers available yet</Text>
+                <Text style={styles.emptySubtext}>Be the first seller to list this product!</Text>
+              </View>
+            ) : (
+              tradingInfo.sellers.map(trader => renderTraderCard(trader, 'seller'))
+            )}
           </View>
         )}
       </ScrollView>
@@ -467,6 +733,85 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginRight: 12,
   },
+  traderAvatarImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 12,
+    borderWidth: 2,
+    borderColor: '#4CAF50',
+  },
+  contactRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 2,
+  },
+  contactText: {
+    fontSize: 11,
+    color: '#4CAF50',
+    marginLeft: 4,
+    fontWeight: '500',
+  },
+  contactButtons: {
+    flexDirection: 'row',
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#e5e7eb',
+    gap: 10,
+  },
+  messageButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#e8f5e9',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#4CAF50',
+  },
+  messageButtonText: {
+    marginLeft: 6,
+    color: '#4CAF50',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  callButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#4CAF50',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 8,
+  },
+  callButtonText: {
+    marginLeft: 6,
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  yourListingBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 12,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    backgroundColor: '#e8f5e9',
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#4CAF50',
+  },
+  yourListingText: {
+    marginLeft: 6,
+    color: '#4CAF50',
+    fontSize: 13,
+    fontWeight: '600',
+  },
   traderInfo: {
     flex: 1,
   },
@@ -628,6 +973,55 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  emptyState: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 60,
+    paddingHorizontal: 32,
+  },
+  emptyText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#666',
+    marginTop: 16,
+    textAlign: 'center',
+  },
+  emptySubtext: {
+    fontSize: 14,
+    color: '#999',
+    marginTop: 8,
+    textAlign: 'center',
+  },
+  unitText: {
+    fontSize: 11,
+    color: '#999',
+    fontWeight: '400',
+  },
+  productBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#E8F5E8',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 12,
+    marginTop: 8,
+    gap: 5,
+  },
+  productBadgeText: {
+    fontSize: 12,
+    color: '#2c5530',
+    fontWeight: '500',
+  },
 });
 
 export default ProductTradingScreen;
+
+
+
+
+
+
+
+
+
+

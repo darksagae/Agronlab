@@ -3,7 +3,9 @@
  * Multi-model AI integration with AGROF store products
  */
 
-const API_URL = 'https://loyal-wholeness-production.up.railway.app';
+import { AI_BASE_URL } from '../config/apiConfig';
+
+const API_URL = AI_BASE_URL || 'http://192.168.1.15:5000';
 
 class EnhancedImageAnalysisService {
   constructor() {

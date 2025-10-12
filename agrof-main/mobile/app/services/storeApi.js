@@ -1,30 +1,21 @@
-// AGROF Store API Service
+// AGROF Store API Service  
+// Fetches products from SQLite backend at http://192.168.1.15:3001/api
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { 
+  STORE_API_URL, 
+  CACHE_DURATION, 
+  API_TIMEOUT, 
+  findWorkingApiEndpoint,
+  getCurrentApiConfig,
+  API_CONFIG 
+} from '../config/apiConfig';
 
-// Backend API configuration - Single local address
-const API_BASE_URL = 'http://192.168.1.15:3001/api'; // Store backend API
+// Backend API configuration - Dynamic endpoint discovery
+let API_BASE_URL = 'http://192.168.1.15:3001/api'; // Store backend API - WiFi IP for phone access
 let currentApiUrl = API_BASE_URL;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes cache
+let endpointTested = false;
 
-// Generate a simple session ID for cart management
-const generateSessionId = () => {
-  return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-};
-
-// Get or create session ID
-const getSessionId = async () => {
-  try {
-    let sessionId = await AsyncStorage.getItem('store_session_id');
-    if (!sessionId) {
-      sessionId = generateSessionId();
-      await AsyncStorage.setItem('store_session_id', sessionId);
-    }
-    return sessionId;
-  } catch (error) {
-    console.error('Error getting session ID:', error);
-    return generateSessionId();
-  }
-};
+console.log('🔍 Current API_BASE_URL:', API_BASE_URL);
 
 // Cache management
 const cache = new Map();
@@ -49,13 +40,17 @@ const setCachedData = (key, data) => {
 const testApiConnection = async (baseUrl) => {
   try {
     console.log(`🔍 Testing API connection to: ${baseUrl}/health`);
-    // Test store backend with health endpoint
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // Increased to 15 seconds
+    
     const response = await fetch(`${baseUrl}/health`, {
       method: 'GET',
-      timeout: 5000, // 5 second timeout
+      signal: controller.signal,
     });
+    
+    clearTimeout(timeoutId);
     const isOk = response.ok;
-    console.log(`📊 API test result for ${baseUrl}: ${isOk ? 'SUCCESS' : 'FAILED'} (status: ${response.status})`);
+    console.log(`📊 API test result for ${baseUrl}: ${isOk ? 'SUCCESS ✅' : 'FAILED ❌'} (status: ${response.status})`);
     return isOk;
   } catch (error) {
     console.log(`❌ API test error for ${baseUrl}:`, error.message);
@@ -63,85 +58,71 @@ const testApiConnection = async (baseUrl) => {
   }
 };
 
-// Find working API URL
-const findWorkingApiUrl = async () => {
-  console.log(`🔍 Testing API URL: ${API_BASE_URL}`);
-  const isWorking = await testApiConnection(API_BASE_URL);
-  if (isWorking) {
-    console.log(`✅ Found working API URL: ${API_BASE_URL}`);
-    return API_BASE_URL;
-  }
-  throw new Error('API connection failed');
-};
-
-// Generic API request function
-const apiRequest = async (endpoint, options = {}) => {
+// Health check
+export const healthCheck = async () => {
   try {
-    const url = `${API_BASE_URL}${endpoint}`;
-    console.log(`🌐 API Request: ${url}`);
-    console.log(`🔍 Current API_BASE_URL: ${API_BASE_URL}`);
-    
-    const response = await fetch(url, {
+    console.log('🏥 Health check:', API_BASE_URL);
+    const response = await fetch(`${API_BASE_URL}/health`, {
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        ...options.headers,
+        'Accept': 'application/json',
       },
-      timeout: 10000, // 10 second timeout
-      ...options,
     });
-
-    if (!response.ok) {
-      console.log(`❌ HTTP error! status: ${response.status} for ${url}`);
-      throw new Error(`HTTP error! status: ${response.status}`);
+    
+    if (response.ok) {
+      const data = await response.json();
+      console.log('✅ Backend health:', data);
+      return data;
     }
-
-    const data = await response.json();
-    console.log(`✅ API Response: ${endpoint} - ${data.length || 'N/A'} items`);
-    return data;
+    
+    return { status: 'ERROR', message: 'Backend not responding' };
   } catch (error) {
-    console.error(`❌ API request failed for ${endpoint} with ${API_BASE_URL}:`, error);
-    console.error(`❌ Error details:`, error.message);
-    throw error;
+    console.error('❌ Health check failed:', error);
+    return { status: 'ERROR', message: error.message };
   }
 };
 
 // Categories API
 export const categoriesApi = {
-  // Get all categories
-  getAll: async () => {
-    const cacheKey = 'categories_all';
+  getAll: async (language = 'en') => {
+    const cacheKey = `categories_${language}`;
+    
+    // Check cache first
     const cached = getCachedData(cacheKey);
-    if (cached) return cached;
-
-    try {
-      const data = await apiRequest('/categories');
-      setCachedData(cacheKey, data);
-      return data;
-    } catch (error) {
-      // Return fallback categories if API fails
-      return [
-        { id: 1, name: 'fertilizers', display_name: 'Fertilizers', description: 'Agricultural fertilizers' },
-        { id: 2, name: 'fungicides', display_name: 'Fungicides', description: 'Plant protection' },
-        { id: 3, name: 'herbicides', display_name: 'Herbicides', description: 'Weed control' },
-        { id: 4, name: 'nursery_bed', display_name: 'Nursery Bed', description: 'Seedlings and plantlets' },
-        { id: 5, name: 'organic_chemicals', display_name: 'Organic Chemicals', description: 'Organic solutions' },
-        { id: 6, name: 'seeds', display_name: 'Seeds', description: 'High-quality seeds' }
-      ];
+    if (cached) {
+      console.log('📦 Using cached categories:', cached.length);
+      return cached;
     }
-  },
-
-  // Get products by category
-  getProducts: async (categoryName) => {
-    const cacheKey = `category_products_${categoryName}`;
-    const cached = getCachedData(cacheKey);
-    if (cached) return cached;
-
+    
     try {
-      const data = await apiRequest(`/categories/${categoryName}/products`);
-      setCachedData(cacheKey, data);
-      return data;
+      console.log('📂 Fetching categories from backend...');
+      console.log('   URL:', `${API_BASE_URL}/categories?language=${language}`);
+      
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), API_TIMEOUT);
+      
+      const response = await fetch(`${API_BASE_URL}/categories?language=${language}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        signal: controller.signal,
+      });
+      
+      clearTimeout(timeoutId);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      
+      const categories = await response.json();
+      console.log('✅ Categories loaded from backend:', categories.length);
+      
+      setCachedData(cacheKey, categories);
+      return categories;
     } catch (error) {
-      console.error(`Failed to fetch products for category ${categoryName}:`, error);
+      console.error('❌ Failed to fetch categories:', error);
       return [];
     }
   }
@@ -149,224 +130,227 @@ export const categoriesApi = {
 
 // Products API
 export const productsApi = {
-  // Get all products
-  getAll: async (params = {}) => {
-    const { search, category, limit = 500, offset = 0 } = params;
-    const cacheKey = `products_all_${JSON.stringify(params)}`;
+  getAll: async (options = {}) => {
+    const { limit = 100, language = 'en', category = null } = options;
+    const cacheKey = `products_${language}_${category || 'all'}_${limit}`;
+    
+    // Check cache first
     const cached = getCachedData(cacheKey);
-    if (cached) return cached;
-
+    if (cached) {
+      console.log('📦 Using cached products:', cached.length);
+      return cached;
+    }
+    
     try {
-      const queryParams = new URLSearchParams();
-      if (search) queryParams.append('search', search);
-      if (category) queryParams.append('category', category);
-      if (limit) queryParams.append('limit', limit);
-      if (offset) queryParams.append('offset', offset);
-
-      const endpoint = `/products${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
-      const data = await apiRequest(endpoint);
-      setCachedData(cacheKey, data);
-      return data;
+      let url = `${API_BASE_URL}/products?language=${language}&limit=${limit}`;
+      if (category) {
+        url += `&category=${category}`;
+      }
+      
+      console.log('🛍️ Fetching products from backend...');
+      console.log('   URL:', url);
+      
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), API_TIMEOUT);
+      
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        signal: controller.signal,
+      });
+      
+      clearTimeout(timeoutId);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      
+      const products = await response.json();
+      console.log('✅ Products loaded from backend:', products.length);
+      
+      setCachedData(cacheKey, products);
+      return products;
     } catch (error) {
-      console.error('Failed to fetch all products:', error);
+      console.error('❌ Failed to fetch products:', error);
       return [];
     }
   },
-
-  // Get single product
-  getById: async (id) => {
-    const cacheKey = `product_${id}`;
-    const cached = getCachedData(cacheKey);
-    if (cached) return cached;
-
+  
+  getFeatured: async (options = {}) => {
+    const { limit = 6, language = 'en' } = options;
+    console.log('⭐ Fetching featured products...');
+    // Get all products and filter featured ones
+    const products = await productsApi.getAll({ limit: 20, language });
+    return products.slice(0, limit);
+  },
+  
+  getByCategory: async (categoryName, language = 'en') => {
+    console.log('📂 Fetching products by category:', categoryName);
+    return await productsApi.getAll({ category: categoryName, language, limit: 100 });
+  },
+  
+  search: async (query, language = 'en') => {
     try {
-      const data = await apiRequest(`/products/${id}`);
-      setCachedData(cacheKey, data);
-      return data;
+      console.log('🔍 Searching products:', query);
+      const url = `${API_BASE_URL}/search?query=${encodeURIComponent(query)}&language=${language}`;
+      
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        const products = await response.json();
+        console.log('✅ Search results:', products.length);
+        return products;
+      }
+      
+      return [];
     } catch (error) {
-      console.error(`Failed to fetch product ${id}:`, error);
+      console.error('❌ Search failed:', error);
+      return [];
+    }
+  },
+  
+  getById: async (id) => {
+    try {
+      console.log('🔍 Fetching product by ID:', id);
+      const url = `${API_BASE_URL}/products/${id}`;
+      
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        const product = await response.json();
+        console.log('✅ Product loaded:', product.name);
+        return product;
+      }
+      
+      return null;
+    } catch (error) {
+      console.error('❌ Failed to fetch product:', error);
       return null;
     }
-  },
-
-  // Search products
-  search: async (query, category = null) => {
-    const cacheKey = `search_${query}_${category || 'all'}`;
-    const cached = getCachedData(cacheKey);
-    if (cached) return cached;
-
-    try {
-      const queryParams = new URLSearchParams({ q: query });
-      if (category) queryParams.append('category', category);
-
-      const data = await apiRequest(`/search?${queryParams.toString()}`);
-      setCachedData(cacheKey, data);
-      return data;
-    } catch (error) {
-      console.error(`Failed to search products with query "${query}":`, error);
-      return [];
-    }
   }
 };
 
-// Cart API
-export const cartApi = {
-  // Add item to cart
-  addItem: async (productId, quantity = 1) => {
-    try {
-      const sessionId = await getSessionId();
-      const data = await apiRequest('/cart/add', {
-        method: 'POST',
-        body: JSON.stringify({
-          sessionId,
-          productId,
-          quantity
-        })
-      });
-      return data;
-    } catch (error) {
-      console.error('Failed to add item to cart:', error);
-      throw error;
-    }
-  },
+// Direct exports for backward compatibility
+export const getCategories = categoriesApi.getAll;
+export const getProducts = productsApi.getAll;
+export const getFeaturedProducts = productsApi.getFeatured;
+export const getProduct = productsApi.getById;
+export const getProductsByCategory = productsApi.getByCategory;
+export const searchProducts = productsApi.search;
 
-  // Get cart items
+// Cart API (uses local AsyncStorage for now, will use Supabase cartService later)
+export const cartApi = {
   getItems: async () => {
     try {
-      const sessionId = await getSessionId();
-      const data = await apiRequest(`/cart/${sessionId}`);
-      return data;
+      console.log('🛒 Getting cart items from AsyncStorage...');
+      const cartData = await AsyncStorage.getItem('agrof_cart');
+      const items = cartData ? JSON.parse(cartData) : [];
+      console.log('✅ Cart items loaded:', items.length);
+      return items;
     } catch (error) {
-      console.error('Failed to fetch cart items:', error);
+      console.error('❌ Error getting cart items:', error);
       return [];
     }
   },
 
-  // Update item quantity
-  updateQuantity: async (itemId, quantity) => {
+  addItem: async (productId, quantity = 1) => {
     try {
-      const sessionId = await getSessionId();
-      const data = await apiRequest(`/cart/${sessionId}/item/${itemId}`, {
-        method: 'PUT',
-        body: JSON.stringify({ quantity })
-      });
-      return data;
+      console.log('➕ Adding to cart:', productId);
+      const items = await cartApi.getItems();
+      
+      // Check if item already in cart
+      const existingIndex = items.findIndex(item => item.product_id === productId);
+      
+      if (existingIndex >= 0) {
+        // Update quantity
+        items[existingIndex].quantity += quantity;
+      } else {
+        // Add new item
+        items.push({
+          id: Date.now().toString(),
+          product_id: productId,
+          quantity
+        });
+      }
+      
+      await AsyncStorage.setItem('agrof_cart', JSON.stringify(items));
+      console.log('✅ Item added to cart');
+      return { success: true };
     } catch (error) {
-      console.error('Failed to update cart item quantity:', error);
-      throw error;
+      console.error('❌ Error adding to cart:', error);
+      return { success: false, error: error.message };
     }
   },
 
-  // Remove item from cart
   removeItem: async (itemId) => {
     try {
-      const sessionId = await getSessionId();
-      const data = await apiRequest(`/cart/${sessionId}/item/${itemId}`, {
-        method: 'DELETE'
-      });
-      return data;
+      console.log('➖ Removing from cart:', itemId);
+      const items = await cartApi.getItems();
+      const filtered = items.filter(item => item.id !== itemId);
+      await AsyncStorage.setItem('agrof_cart', JSON.stringify(filtered));
+      console.log('✅ Item removed from cart');
+      return { success: true };
     } catch (error) {
-      console.error('Failed to remove item from cart:', error);
-      throw error;
+      console.error('❌ Error removing from cart:', error);
+      return { success: false, error: error.message };
     }
   },
 
-  // Clear entire cart
+  updateQuantity: async (itemId, quantity) => {
+    try {
+      console.log('📝 Updating cart quantity:', itemId, quantity);
+      const items = await cartApi.getItems();
+      const itemIndex = items.findIndex(item => item.id === itemId);
+      
+      if (itemIndex >= 0) {
+        items[itemIndex].quantity = quantity;
+        await AsyncStorage.setItem('agrof_cart', JSON.stringify(items));
+        console.log('✅ Quantity updated');
+      }
+      
+      return { success: true };
+    } catch (error) {
+      console.error('❌ Error updating quantity:', error);
+      return { success: false, error: error.message };
+    }
+  },
+
   clear: async () => {
     try {
-      const sessionId = await getSessionId();
-      const data = await apiRequest(`/cart/${sessionId}`, {
-        method: 'DELETE'
-      });
-      return data;
-    } catch (error) {
-      console.error('Failed to clear cart:', error);
-      throw error;
-    }
-  }
-};
-
-// Health check
-export const healthCheck = async () => {
-  try {
-    const data = await apiRequest('/health');
-    return data;
-  } catch (error) {
-    console.error('Health check failed:', error);
-    return { status: 'ERROR', message: 'Backend not available' };
-  }
-};
-
-// Clear cache
-export const clearCache = () => {
-  cache.clear();
-  console.log('🗑️ API cache cleared');
-};
-
-// Reset API URL to primary
-export const resetApiUrl = () => {
-  currentApiUrl = API_BASE_URL;
-  console.log(`🔄 API URL reset to: ${currentApiUrl}`);
-};
-
-// Clear cached API URL and force reconnection
-export const clearApiCache = async () => {
-  try {
-    await AsyncStorage.removeItem('store_api_url');
-    currentApiUrl = API_BASE_URL;
-    console.log('🧹 API cache cleared, using:', currentApiUrl);
-    console.log('🔄 Forcing API reconnection...');
-    
-    // Test the connection immediately
-    const isWorking = await testApiConnection(API_BASE_URL);
-    if (isWorking) {
-      console.log('✅ API reconnection successful');
+      console.log('🗑️ Clearing cart');
+      await AsyncStorage.removeItem('agrof_cart');
+      console.log('✅ Cart cleared');
       return { success: true };
-    } else {
-      console.log('❌ API reconnection failed');
-      return { success: false, error: 'Connection failed' };
+    } catch (error) {
+      console.error('❌ Error clearing cart:', error);
+      return { success: false, error: error.message };
     }
-  } catch (error) {
-    console.error('Error clearing API cache:', error);
-    return { success: false, error: error.message };
   }
 };
 
-// Force API URL to specific URL
-export const setApiUrl = (url) => {
-  currentApiUrl = url;
-  console.log(`🔧 API URL manually set to: ${currentApiUrl}`);
-};
-
-// Get current API URL
-export const getCurrentApiUrl = () => {
-  return currentApiUrl;
-};
-
-
-// Test API URL and return working status
-export const testAllApiUrls = async () => {
-  const isWorking = await testApiConnection(API_BASE_URL);
-  return isWorking ? [API_BASE_URL] : [];
-};
-
-// Get cache stats
-export const getCacheStats = () => {
-  return {
-    size: cache.size,
-    keys: Array.from(cache.keys())
-  };
-};
-
+// Default export
 export default {
+  healthCheck,
   categoriesApi,
   productsApi,
   cartApi,
-  healthCheck,
-  clearCache,
-  getCacheStats,
-  resetApiUrl,
-  setApiUrl,
-  getCurrentApiUrl,
-  testAllApiUrls
+  getCategories,
+  getProducts,
+  getFeaturedProducts,
+  getProduct,
+  getProductsByCategory,
+  searchProducts
 };

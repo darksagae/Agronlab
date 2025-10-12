@@ -20,21 +20,32 @@ Cost-effective solution
 Easy to apply
 
 ## Usage Instructions
-**Re-entry interval:** 6 days
-**Rate:** 3.8kg/Ha in coffee and 2.4kg/Ha in other crops
-**Mixing:** 70grams/20ltrs of water
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Re-entry interval**: 6 days
+- **Rate**: 3.8kg/Ha in coffee and 2.4kg/Ha in other crops
+- **Mixing ratio**: 70grams/20L of water
+- **Application method**: Inorganic copper-based fungicide used to control Coffee Berry disease, Bacterial blight of coffee and Leaf rust in vegetables and other crops
+- **Target diseases**: Coffee Berry disease, Bacterial blight of coffee, Leaf rust
+- **Target crops**: Coffee, vegetables, other crops
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredient**: Copper-based fungicide
+- **Formulation**: Wettable Granules (WG)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Copper-based action**: Inorganic copper-based fungicide for effective disease control
+- **Coffee disease control**: Effective against Coffee Berry disease and Bacterial blight of coffee
+- **Vegetable disease control**: Controls Leaf rust in vegetables and other crops
+- **Broad spectrum**: Effective against multiple diseases
 
 ## Benefits
-Effective against Coffee Berry disease
-Controls bacterial blight of coffee
-Controls leaf rust in vegetables
-Cost-effective solution
-Easy to use
+- **Coffee Berry disease control**: Effective against Coffee Berry disease
+- **Bacterial blight control**: Controls bacterial blight of coffee
+- **Leaf rust control**: Controls leaf rust in vegetables and other crops
+- **Copper-based**: Inorganic copper-based fungicide for effective disease control
+- **Multi-crop use**: Suitable for coffee, vegetables, other crops
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 1kg: UGX 70,200

@@ -4,10 +4,10 @@
 Yara East Africa Ltd
 
 ## Overview
-YaraVita CROP BOOST is a concentrated phosphorous foliar fertilizer that provides balanced nutrients that help your crop to unlock its hidden yield potential. It can be applied on maize, rice, wheat, potato among other crops.
+YaraVita CROP BOOST is a concentrated phosphorous foliar fertilizer that provides balanced nutrients that help your crop to unlock its hidden yield potential. It can be applied on maize, rice, wheat, potato among other crops. It is also easy to use, spreads in a uniform way in the tank and is compatible with pesticides.
 
 ## Price Information
-1 Ltr: UGX 38,500
+- 1 Ltr: UGX 38,500
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -16,16 +16,22 @@ YaraVita CROP BOOST is a concentrated phosphorous foliar fertilizer that provide
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Foliar spray
+- **Target crops**: Maize, rice, wheat, potato, and other crops
+- **Timing**: Apply during active growth stages
+- **Frequency**: Every 2-3 weeks during growing season
+- **Best time**: Early morning or late afternoon
+- **Tank mixing**: Spreads uniformly and mixes easily
+- **Compatibility**: Compatible with most pesticides
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Unlocks yield potential**: Helps crops reach maximum productivity
+- **Concentrated phosphorus**: High phosphorus content for better yields
+- **Balanced nutrition**: Provides essential nutrients in right proportions
+- **Easy application**: Simple to use and apply
+- **Uniform spreading**: Even distribution in spray tank
+- **Pesticide compatible**: Can be mixed with most crop protection products
+- **Cost-effective**: High return on investment through increased yields
 
 ## Storage Instructions
 - Store in cool, dry place

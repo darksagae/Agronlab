@@ -32,24 +32,32 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 24 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 10-14 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Variety type**: High-yielding hybrid eggplant variety known for producing uniform, glossy dark purple fruits with a smooth texture
+- **Plant characteristics**: Vigorous, with an erect habit that keeps fruits off the ground even under heavy loads
+- **Disease resistance**: Exhibits intermediate resistance to bacterial wilt
+- **Growing conditions**: Thrives in well-drained, fertile soils
+- **Maturity period**: Matures for harvest in 60-70 days
+- **Watering**: Benefits from consistent watering
+- **Spacing**: Proper spacing to ensure optimal growth and yield
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 20°C+
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: High-yielding hybrid eggplant for local and commercial markets
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Soil requirements**: Well-drained, fertile soils
+- **Watering**: Consistent watering for optimal growth
+- **Disease resistance**: Intermediate resistance to bacterial wilt
 
 ## Benefits
-High Yield: Excellent production per plant
-Uniform Fruits: Consistent size and shape
-Excellent Quality: Market-preferred variety
-Disease Resistance: Reduces crop losses
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
+- **High-yielding hybrid**: High-yielding hybrid eggplant variety with excellent performance
+- **Uniform fruits**: Uniform, glossy dark purple fruits with a smooth texture
+- **Erect habit**: Vigorous, with an erect habit that keeps fruits off the ground even under heavy loads
+- **Disease resistance**: Intermediate resistance to bacterial wilt
+- **Market quality**: Ideal for both local and commercial markets
+- **Easy growing**: Suitable for beginners and experienced farmers
+- **Profit potential**: High return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 35,000

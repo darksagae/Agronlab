@@ -20,20 +20,32 @@ Cost-effective solution
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 30grams per 20ltrs of water
-**Application rate:** 300grams per acre
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Mixing ratio**: 30grams per 20L of water
+- **Application rate**: 300grams per acre
+- **Application method**: Broad-spectrum unique fungicide formulation containing a mixture of both systemic, curative, preventive and contact fungicides
+- **Target diseases**: Blights, leaf spot, Anthracnose, botrytis, downy mildew, purple blotch
+- **Target crops**: Various crops
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredients**: Cymoxanil 8% + Mancozeb 72%
+- **Formulation**: Wettable Powder (WP)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed by plant tissues and translocated throughout the plant
+- **Curative action**: Effective against existing fungal infections
+- **Preventive action**: Provides protection before disease infection
+- **Contact action**: Provides immediate protection on plant surfaces
+- **Multi-crop use**: Suitable for various crops
 
 ## Benefits
-Broad-spectrum disease control
-Systemic, curative, preventive and contact action
-Outstanding control of diseases
-Durable protection during active growth
-Cost-effective solution
+- **Broad-spectrum disease control**: Outstanding control of diseases such as blights, leaf spot, Anthracnose, botrytis, downy mildew, purple blotch
+- **Unique formulation**: Broad-spectrum unique fungicide formulation containing a mixture of both systemic, curative, preventive and contact fungicides
+- **Multi-disease control**: Effective against blights, leaf spot, Anthracnose, botrytis, downy mildew, purple blotch
+- **Multi-crop use**: Suitable for various crops
+- **Durable protection**: Durable protection during active growth
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 120g: UGX 6,600

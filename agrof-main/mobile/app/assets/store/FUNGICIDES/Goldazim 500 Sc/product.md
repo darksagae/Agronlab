@@ -20,21 +20,30 @@ Easy to apply
 Compatible with most pesticides
 
 ## Usage Instructions
-**Dosage:** 20mls/20ltrs of water
-**Spray Interval:** 10-14 days
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
-**Coverage:** Ensure complete coverage of plant foliage
+- **Dosage**: 20mls/20L of water
+- **Application method**: Systemic curative fungicide
+- **Target diseases**: Powdery Mildew, Botrytis blight, Anthracnose spots, Fusarium Root rot, Ascochyta spots, Helminthosporium spots/blight, Septoria leaf spots, Rhizoctonia root
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Coverage**: Ensure complete coverage of plant foliage
+- **Spray interval**: 10-14 days
+- **Active ingredient**: Carbendazim 500g/L
+- **Re-entry interval**: 6 days
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed through plant tissues and translocated throughout the plant
+- **Curative action**: Effective against existing fungal infections
+- **Formulation**: Suspension Concentrate (SC)
 
 ## Benefits
-Systemic protection throughout the plant
-Effective against a wide range of fungal diseases
-Curative action against existing infections
-Long-lasting protection
-Easy to use and apply
+- **Broad spectrum control**: Effective against Powdery Mildew, Botrytis blight, Anthracnose spots, Fusarium Root rot, Ascochyta spots, Helminthosporium spots/blight, Septoria leaf spots, Rhizoctonia root
+- **Systemic action**: Absorbed through plant tissues and translocated throughout the plant
+- **Curative action**: Effective against existing fungal infections
+- **Long-lasting protection**: Provides extended disease control
+- **Easy application**: Simple mixing and spray application
+- **Cost-effective**: Single application for multiple disease control
+- **Reliable results**: Proven effectiveness against various fungal diseases
 
 ## Price Information
 Per 1L: UGX 90,700

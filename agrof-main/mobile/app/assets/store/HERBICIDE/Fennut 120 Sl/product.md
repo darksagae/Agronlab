@@ -19,19 +19,27 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 200mls/20ltr
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 200mls/20L of water
+- **Application method**: Selective post-emergence herbicide
+- **Target crops**: Groundnuts
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: Selective herbicide
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Selective control**: Targets weeds while protecting groundnut crops
+- **Crop safety**: Safe for groundnut plants
 
 ## Benefits
-Effective control of weeds in groundnuts
-Selective action on groundnut crop
-Cost-effective solution
-Easy to use
+- **Groundnut weed control**: Effective control of weeds in groundnut fields
+- **Selective action**: Safe for groundnut crops
+- **Post-emergence application**: Can be applied after weed emergence
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Crop safety**: No harmful effects on groundnut plants
+- **Reliable results**: Proven effectiveness in groundnut cultivation
 
 ## Price Information
 Per 500ml: UGX 31,000

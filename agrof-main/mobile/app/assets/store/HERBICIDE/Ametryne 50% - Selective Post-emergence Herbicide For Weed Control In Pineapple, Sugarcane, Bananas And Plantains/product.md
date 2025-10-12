@@ -21,25 +21,29 @@ Easy to apply
 Suitable for tropical crops
 
 ## Usage Instructions
-Mixing: Mix 20-30g per 20 liters of water
-Application: Apply as a foliar spray to actively growing weeds
-Timing: Best applied post-emergence when weeds are young
-Avoid Drift: Do not apply when windy to prevent drift
-Re-entry Period: 12 hours after application
+- **Mixing ratio**: 20-30g per 20L of water
+- **Application method**: Selective post-emergence herbicide
+- **Target crops**: Pineapple, sugarcane, bananas and plantains
+- **Application timing**: Best applied post-emergence when weeds are young
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Avoid drift**: Do not apply when windy to prevent drift
+- **Re-entry period**: 12 hours after application
 
 ## Application Method
-Foliar Spray: Apply to weed foliage
-Boom Sprayer: For large areas
-Knapsack Sprayer: For small areas
-Timing: Early morning or late evening
+- **Method**: Foliar spray application
+- **Target**: Direct application to weed foliage
+- **Equipment**: Boom sprayer for large areas, knapsack sprayer for small areas
+- **Timing**: Early morning or late evening
+- **Selective control**: Targets weeds while protecting tropical crops
 
 ## Benefits
-Selective Control: Kills broadleaf weeds, spares crops
-Post-emergence: Controls weeds after they emerge
-Cost Effective: Reduces manual weeding
-Time Saving: Quick and efficient application
-Tropical Crops: Suitable for tropical agriculture
-Easy Use: Simple application method
+- **Tropical crop control**: Effective control of weeds in pineapple, sugarcane, bananas and plantains
+- **Selective action**: Kills broadleaf weeds, spares crops
+- **Post-emergence application**: Controls weeds after they emerge
+- **Cost-effective**: Reduces manual weeding costs
+- **Time saving**: Quick and efficient application
+- **Tropical agriculture**: Specifically designed for tropical crop production
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 100g pack: UGX 30,000

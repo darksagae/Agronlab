@@ -20,32 +20,30 @@ Broad spectrum soil pest control
 Safe for subsequent crop planting
 
 ## Usage Instructions
-**Pre-treatment preparations:**
-- Prepare the surface to be treated up to a depth of 40-50 cm
-- Remove undecayed organic matter
-- Bring soil moisture to field capacity at least 14 days before application
-- Keep the soil moist up to application time
-
-**Application:**
-- Do not apply when soil temperature is below 10°C
-- For optimal efficacy, apply when soil temperatures are between 10°C and 25°C
-- Mix 13-18mls/20ltrs of water and apply at a rate of 650-900ltrs/Ha
-
-**Post-treatment procedure:**
-- Seal treated areas with either follow-up irrigation or plastic sheet to prevent excessive evaporation
-- Aerate treated area thoroughly 2-3 weeks after application by cultivating the soil
-- Lower soil temperatures (less than 16°C) and soils with clay and organic matter content will retain more Nemasol and therefore require a longer waiting period
+- **Pre-treatment preparations**: Prepare the surface to be treated up to a depth of 40-50 cm and remove undecayed organic matter. Bring soil moisture to field capacity at least 14 days before application and keep the soil moist up to application time
+- **Application method**: Soil fumigant for control of soil fungi and nematodes
+- **Target pests**: Soil fungi (Fusarium, Pythium, Rhizoctonia, Pyrenochaeta, Sclerotium spp.) and nematodes (Meloidogyne spp, Pratylenchus spp, Trichodorus spp.)
+- **Application timing**: Do not apply when soil temperature is below 10°C. For optimal efficacy, apply when soil temperatures are between 10°C and 25°C
+- **Mixing ratio**: 13-18mls/20L of water
+- **Application rate**: 650-900L/Ha
+- **Re-entry period**: 48 hours
+- **Use limitations**: Do not treat within 5m of existing trees and field crops
 
 ## Application Method
-Soil Drenching: Apply by drenching infected soils with prepared solution
+- **Method**: Soil drenching application
+- **Target**: Apply to infected soils by drenching
+- **Temperature requirements**: Apply when soil temperatures are between 10°C and 25°C
+- **Post-treatment**: Seal treated areas with either follow-up irrigation or plastic sheet to prevent excessive evaporation
+- **Aeration**: Aerate treated area thoroughly 2-3 weeks after application by cultivating the soil
 
 ## Benefits
-Effective control of soil-borne diseases
-Reduces nematode populations
-Improves soil health
-No chemical residues
-Safe for beneficial soil organisms
-Cost-effective soil treatment
+- **Soil fungi control**: Effective control of soil fungi (Fusarium, Pythium, Rhizoctonia, Pyrenochaeta, Sclerotium spp.)
+- **Nematode control**: Controls nematodes (Meloidogyne spp, Pratylenchus spp, Trichodorus spp.)
+- **Quick action**: Acts quickly after application and decomposes without leaving residue
+- **No residue**: Does not damage or leave residue in the planted field
+- **Soil health**: Improves soil health by controlling soil-borne diseases
+- **Cost-effective**: Single application for comprehensive soil treatment
+- **Safe application**: Water miscible formulation for easy application
 
 ## Price Information
 Per 60L: UGX 830,800

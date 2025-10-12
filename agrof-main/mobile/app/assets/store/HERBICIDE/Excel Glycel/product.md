@@ -20,20 +20,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
-**Mode of Action:** Glycel works by being absorbed into the plant mainly through its leaves but also through soft stalk tissue. It is then transported throughout the plant where it acts on various enzyme systems inhibiting amino acid metabolism known as the shikimic acid pathway needed for plant growth.
+- **Application method**: Post-emergence herbicide application
+- **Target weeds**: All weeds including annuals, perennials, grassy, broadleaf weeds and sedges
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Absorption**: Absorbed through leaves and soft stalk tissue
+- **Transport**: Transported throughout the plant systemically
+- **Mode of action**: Inhibits amino acid metabolism (shikimic acid pathway)
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Systemic action**: Moves throughout the entire plant
+- **Complete control**: No part of the plant survives
 
 ## Benefits
-Effective control of all weed types
-Systemic action throughout the plant
-Broad spectrum control
-Cost-effective solution
-Easy to use
+- **Broad spectrum control**: Effective against all weed types
+- **Systemic action**: Moves throughout the entire plant
+- **Complete kill**: No part of the plant survives
+- **Non-selective**: Controls annuals, perennials, grasses, broadleaf weeds, and sedges
+- **Cost-effective**: Single application for complete control
+- **Easy application**: Simple spray application method
+- **Reliable results**: Proven effectiveness against all weed types
 
 ## Price Information
 Per 1L: UGX 29,700

@@ -20,20 +20,30 @@ Easy to apply
 Cost-effective solution
 
 ## Usage Instructions
-**Dosage:** Mix 30-40g of Topilite in 20L of water
-**Application Interval:** 7-10days
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Dosage**: Mix 30-40g of Topilite in 20L of water
+- **Application interval**: 7-10days
+- **Application method**: Systemic broad-spectrum protective and curative fungicide
+- **Target diseases**: Mildew, anthracnose, scabs, rust, early blight, fusarium wilt
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Pre-harvest interval**: 1 day (24hours)
+- **Formulation**: Wettable Powder (WP)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed by plant tissues and translocated throughout the plant
+- **Protective action**: Provides protection before disease infection
+- **Curative action**: Can control diseases after infection has occurred
+- **Broad-spectrum**: Effective against multiple diseases
 
 ## Benefits
-Systemic protection throughout the plant
-Broad spectrum disease control
-Protective and curative action
-Effective against fusarium wilt
-Easy to use
+- **Broad spectrum control**: Very effective against Mildew, anthracnose, scabs, rust, early blight and with a considerable degree of control of fusarium wilt
+- **Systemic protection**: Systemic broad-spectrum protective and curative fungicide that provides protection throughout the plant
+- **Dual action**: Both protective and curative properties
+- **Fusarium wilt control**: Considerable degree of control of fusarium wilt
+- **Multi-disease control**: Effective against multiple diseases including mildew, anthracnose, scabs, rust, early blight
+- **Easy application**: Simple mixing and spray application
+- **Cost-effective**: Single application for comprehensive disease control
 
 ## Price Information
 Per 100g: UGX 6,000

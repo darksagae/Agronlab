@@ -20,32 +20,29 @@ Affects mycelia growth, spore production and germination
 Limited systemic activity when applied to leaves
 
 ## Usage Instructions
-**Roses (Downy Mildew):**
-- Foliar spray: 1.5-3ltrs/Ha, 150-300mls/100ltrs of water or 30-60mls/20ltrs of water
-- Spray interval: 7-10 days
-- Drenching: 3-6ltrs/Ha, apply on moist soil
-
-**Pepper (Damping off):**
-- Foliar spray: 0.8ltrs/Ha, 80mls/100ltrs of water, 15mls/20ltrs of water
-- Application interval: 7-10 days
-- Drenching: 1ltr/Ha, apply on moist soil
-
-**Preparation of spray mixture:**
-- Half fill the spray tank (Knapsack) with water
-- Add the required amount of Proplant then fill water to the required level
-- Mix or agitate thoroughly to uniformity
-- Ensure that the mixture is used the same day
+- **Roses (Downy Mildew)**: Foliar spray - 1.5-3L/Ha, 150-300mls/100L of water or 30-60mls/20L of water at a spray interval of 7-10 days; Drenching - 3-6L/Ha, apply on moist soil
+- **Pepper (Damping off)**: Foliar spray – 0.8L/Ha, 80mls/100L of water, 15mls/20L of water at an application interval of 7-10 days. Drenching – 1L/Ha, apply on moist soil
+- **Application method**: Systemic fungicide for control of downy mildew and damping off
+- **Target diseases**: Downy mildew on Roses, Damping off on Pepper
+- **Active ingredient**: Propamocarb hydrochloride 722g/L
+- **Pre-harvest interval**: Pepper 3 days
+- **Re-entry interval**: 6 hours
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
-Soil Drenching: Application to soil around plant roots
+- **Foliar spray**: Direct application to plant foliage
+- **Soil drenching**: Application to soil around plant roots
+- **Systemic activity**: Absorbed by roots and translocated throughout the plant to aerial parts
+- **Mode of action**: Disrupts the formation of fungal cell walls by interfering with synthesis of phospholipids and fatty acids
+- **Preparation**: Half fill the spray tank with water, add Proplant, fill to required level and mix thoroughly
 
 ## Benefits
-Systemic protection throughout the plant
-Effective against downy mildew and damping off
-Long-lasting protection
-Easy to apply
-Compatible with most spray equipment
+- **Systemic protection**: Absorbed by roots and translocated throughout the plant to aerial parts
+- **Downy mildew control**: Effective control of downy mildew on roses
+- **Damping off control**: Controls damping off on pepper
+- **Cell wall disruption**: Disrupts fungal cell wall formation by interfering with phospholipid and fatty acid synthesis
+- **Mycelia control**: Affects mycelia growth, spore production and germination
+- **Long-lasting protection**: Systemic activity provides extended protection
+- **Easy application**: Compatible with most spray equipment
 
 ## Price Information
 Per 1L: UGX 95,800

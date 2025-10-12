@@ -21,21 +21,31 @@ Cost-effective solution
 Easy to apply
 
 ## Usage Instructions
-**Rate of use:** 
-- 40g/20ltrs of water for vegetables and ornamentals
-- 80-100g/20ltrs of water for citrus and mango trees
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Rate of use**: 40g/20L of water for vegetables and ornamentals; 80-100g/20L of water for citrus and mango trees
+- **Application method**: Broad-spectrum contact fungicide/acaricide for the control of powdery Mildew, Rust, leaf spot in vegetables and fruit trees
+- **Target diseases**: Powdery Mildew, Rust, leaf spot
+- **Target pests**: Mites
+- **Target crops**: Vegetables, fruit trees
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredient**: Sulphur 800g/kg
+- **Formulation**: Water Dispersible Granules (WDG)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Contact action**: Provides immediate protection on plant surfaces
+- **Broad-spectrum**: Effective against powdery mildew, rust, leaf spot
+- **Mite control**: Has an effect of mite control
+- **Water dispersible**: Water dispersible granules for easy mixing
 
 ## Benefits
-Broad spectrum disease control
-Effective against powdery mildew and rust
-Mite control effect
-Cost-effective solution
-Easy to use
+- **Broad spectrum control**: Effective against powdery Mildew, Rust, leaf spot in vegetables and fruit trees
+- **Mite control**: Has an effect of mite control
+- **Sulphur-based**: Sulphur 800g/kg for effective disease and pest control
+- **Multi-crop use**: Suitable for vegetables, fruit trees
+- **Contact action**: Broad-spectrum contact fungicide/acaricide for immediate protection
+- **Cost-effective**: Single application for comprehensive disease and pest control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 100g: UGX 3,400

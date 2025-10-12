@@ -23,8 +23,8 @@ class PredictionRequest:
         if not self.filename:
             errors.append("Filename is required")
         
-        if self.language not in ["en", "lg", "rn"]:
-            errors.append("Language must be one of: en, lg, rn")
+        if self.language not in ["en", "lg", "rn", "sw"]:
+            errors.append("Language must be one of: en, lg, rn, sw")
         
         return errors
 
@@ -118,7 +118,7 @@ def validate_image_file(filename: str, allowed_extensions: set) -> bool:
 
 def validate_language(language: str) -> bool:
     """Validate language code."""
-    return language in ["en", "lg", "rn"]
+    return language in ["en", "lg", "rn", "sw"]
 
 def validate_confidence(confidence: float) -> bool:
     """Validate confidence value."""

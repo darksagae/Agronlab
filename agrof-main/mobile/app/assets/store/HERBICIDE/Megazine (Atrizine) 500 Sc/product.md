@@ -20,23 +20,28 @@ Easy to apply
 Long-lasting control
 
 ## Usage Instructions
-**Maize and Sorghum:** Use 200ml/20 Ltr water (2.5-5 Ltr/Ha). Spray on actively growing broad-leaved weeds when not taller than 10cm, don't apply under wet conditions as crop may be affected
-**Sugarcane:** Use 200ml/20Ltr water (2.5 Ltr/Ha). Apply as a pre-emergence overall spray before irrigation or rain
+- **Maize and Sorghum**: Use 200ml/20L water (2.5-5L/Ha)
+- **Target weeds**: Spray on actively growing broad-leaved weeds when not taller than 10cm
+- **Weather conditions**: Don't apply under wet conditions as crop may be affected
+- **Sugarcane**: Use 200ml/20L water (2.5L/Ha) as pre-emergence overall spray
+- **Timing**: Apply before irrigation or rain for sugarcane
+- **Application method**: Follow label directions carefully
+- **Coverage**: Ensure thorough coverage of target weeds
 
-**Application:** Apply as directed on the label
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
-
-## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
-Post-emergence Spray: Direct application to weed foliage
+## Application Methods
+- **Pre-emergence**: Apply to soil before crop emergence (sugarcane)
+- **Post-emergence**: Direct application to weed foliage (maize, sorghum)
+- **Crop-specific**: Different application methods for different crops
+- **Weather dependent**: Avoid wet conditions for maize and sorghum
 
 ## Benefits
-Effective control of annual broadleaf weeds and grasses
-Suitable for multiple crops
-Cost-effective solution
-Easy to use
-Long-lasting control
+- **Broad spectrum control**: Effective against annual broadleaf weeds and grasses
+- **Multi-crop use**: Suitable for maize, sorghum, and sugarcane
+- **Flexible application**: Pre and post-emergence options
+- **Cost-effective**: Single product for multiple crops
+- **Long-lasting control**: Provides extended weed control
+- **Crop safety**: Safe when applied correctly
+- **Easy application**: Simple spray application method
 
 ## Price Information
 Per 1L: UGX 25,500

@@ -33,24 +33,32 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 12 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 10-14 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Variety type**: Hot pepper ideally suited for home gardens and marker gardens
+- **Maturity**: Plants are very early maturing is approximately 75 days after transplanting
+- **Fruit characteristics**: It bears cylindrical fruits, Fruit colour: medium green turning to medium red
+- **Fruit shape**: The Cayenne Long Slim has wrinkled pods with an unusual shape, often twisted
+- **Plant productivity**: A mature plant can grow up to 40 pods
+- **Fruit dimensions**: The length of the pods is about 12 cm long and 1.5 cm thick
+- **Uses**: They are easy to dry and good in salsas or sauces and perfect to use for making a wreath or rista
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 20°C+
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Hot pepper for home gardens and marker gardens
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Growing characteristics**: Plants are very early maturing is approximately 75 days after transplanting
+- **Fruit quality**: Cylindrical fruits with medium green turning to medium red color
+- **Plant productivity**: A mature plant can grow up to 40 pods
 
 ## Benefits
-Early Maturity: Quick harvest
-High Yield: Excellent production per plant
-Hot Flavor: Perfect for spicy dishes
-Long Fruits: Ideal for drying
-Disease Resistance: Reduces crop losses
-Versatile Use: Fresh, dried, or processed
+- **Early maturity**: Plants are very early maturing is approximately 75 days after transplanting
+- **High productivity**: A mature plant can grow up to 40 pods
+- **Cylindrical fruits**: It bears cylindrical fruits with medium green turning to medium red color
+- **Versatile use**: Easy to dry and good in salsas or sauces and perfect to use for making a wreath or rista
+- **Unique shape**: The Cayenne Long Slim has wrinkled pods with an unusual shape, often twisted
+- **Good dimensions**: The length of the pods is about 12 cm long and 1.5 cm thick
+- **Market demand**: High demand for hot peppers
 
 ## Price Information
 Per 1000 seeds: UGX 25,000

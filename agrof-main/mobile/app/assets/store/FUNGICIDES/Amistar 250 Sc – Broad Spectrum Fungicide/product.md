@@ -21,25 +21,31 @@ Safe for beneficial insects
 Compatible with most pesticides
 
 ## Usage Instructions
-Mixing: Mix 15-25ml per 20 liters of water
-Application: Apply as a foliar spray, ensuring thorough coverage
-Timing: Apply preventatively or at first sign of disease
-Frequency: Repeat every 7-14 days, depending on disease pressure
-Pre-Harvest Interval: 7 days for most crops
+- **Application rate**: Apply at 0.75 L/ha
+- **Application method**: Broad-spectrum fungicide ideally suited for use in IPM programs
+- **Target diseases**: Net blotch, leaf rust, spot blotch and scald
+- **Target crops**: Wide range of crops including wheat and barley
+- **Application timing**: Apply preventatively or at first sign of disease
+- **Active ingredient**: Azoxystrobin (strobilurin fungicide based on naturally occurring substances)
+- **Formulation**: Soluble concentrate (SC)
+- **WHO classification**: III
 
 ## Application Method
-Foliar Spray: Apply to all plant surfaces
-High Volume Spray: 200-400 liters per hectare
-Low Volume Spray: 50-100 liters per hectare
-Timing: Early morning or late evening for best results
+- **Method**: Foliar spray application
+- **Target**: Apply to all plant surfaces
+- **Systemic action**: Controls a very wide spectrum of disease in wheat and barley
+- **IPM compatibility**: Ideally suited for use in IPM programs
+- **Timing**: Early morning or late evening for best results
 
 ## Benefits
-Broad Spectrum: Controls multiple diseases
-Systemic Action: Moves throughout the plant
-Protective and Curative: Prevents and treats diseases
-Long-lasting: Provides extended protection
-Cost Effective: Reduces need for multiple applications
-Safe Use: Low toxicity to beneficial insects
+- **Broad spectrum control**: Controls Net blotch, leaf rust, spot blotch and scald
+- **Late-season protection**: Controls key late-season flag leaf and ear diseases that erode yield and quality
+- **Physiological benefits**: Promotes a range of beneficial physiological and greening effects
+- **Genetic potential**: Helps the crop towards its full genetic potential
+- **Disease prevention**: Stops disease even before it starts
+- **Green leaf area**: Delays onset senescence hence prolonging Green leaf Area (GLA)
+- **Water stress tolerance**: Treated crop able to cope better with water stress (water use efficiency)
+- **Nitrogen efficiency**: Treated crop has improved ability to use nitrogen efficiently and assimilate it into proteins
 
 ## Price Information
 Per 100ml container: UGX 45,000

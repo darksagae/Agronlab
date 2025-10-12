@@ -4,10 +4,10 @@
 Export Trading Group
 
 ## Overview
-UREA 46% N is a white crystalline solid containing 46% of nitrogen.it has the highest nitrogen content of all solid nitrogenous fertilizers making it have the lowest transportation cost per unit nitrogen nutrient.
+UREA 46% N is a white crystalline solid containing 46% of nitrogen. It has the highest nitrogen content of all solid nitrogenous fertilizers making it have the lowest transportation cost per unit nitrogen nutrient. Urea is used for Top dressing in Various crops.
 
 ## Price Information
-50 Kg: UGX 125,000
+- 50 Kg: UGX 125,000
 
 ## Key Features
 - High quality agricultural fertilizer

@@ -20,21 +20,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 300mls/20ltrs of water
-**Rate of use:** 3 L / Ha or 1.2 L / acre
-**Application:** Apply as a pre-emergence herbicide
-**Timing:** Apply at or shortly after planting but before the weeds or crops emerge
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 300mls/20L of water
+- **Application rate**: 3L/Ha or 1.2L/acre
+- **Application method**: Pre-emergence herbicide
+- **Target weeds**: Annual grass weeds in maize
+- **Application timing**: Apply at or shortly after planting but before weeds or crops emerge
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredients**: 290g/L S-metolachlor + 370g/L Atrazine
 
 ## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
+- **Method**: Pre-emergence spray application
+- **Target**: Apply to soil before crop emergence
+- **Timing**: Apply at or shortly after planting
+- **Soil preparation**: Ensure smooth, firm surface free of clods
+- **Rain timing**: Apply shortly before rain or within 48 hours after rain
 
 ## Benefits
-Effective control of annual grass weeds
-Pre-emergence protection
-Broad-spectrum control
-Cost-effective solution
-Easy to use
+- **Annual grass control**: Effective control of annual grass weeds in maize
+- **Pre-emergence protection**: Prevents weed emergence before crop
+- **Broad-spectrum control**: Controls multiple weed types
+- **Dual active ingredients**: S-metolachlor + Atrazine for enhanced control
+- **Cost-effective**: Single application for season-long control
+- **Easy application**: Simple mixing and spray application
+- **Reliable results**: Proven effectiveness in maize cultivation
 
 ## Price Information
 Per 1L: UGX 71,000

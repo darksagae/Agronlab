@@ -20,26 +20,32 @@ Prevents and corrects sulphur deficiency
 Suppresses mite infestation
 
 ## Usage Instructions
-**Rates of Application:**
-- Citrus: 40-160g/20ltrs
-- Coffee: 60-80g/20ltrs
-- Grapes: 80-160g/20ltrs
-- Ornamentals: 40-160g/20ltrs
-- Tea: 60g/20ltrs
-
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Rates of application**: Citrus: 40-160g/20L, Coffee: 60-80g/20L, Grapes: 80-160g/20L, Ornamentals: 40-160g/20L, Tea: 60g/20L
+- **Application method**: Broad spectrum fungicide with contact, fumigant and residual activity
+- **Target pests**: Mites and powdery mildew
+- **Target crops**: Fruits, vegetables, ornamentals, coffee, tea, cashews and field crops
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredient**: 80g/L Sulphur (elemental)
+- **Formulation**: Wettable Granules (WG)
+- **WHO classification**: III
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Contact action**: Provides immediate protection on plant surfaces
+- **Fumigant action**: Vapour action depends upon the surface of contact with the air and the level of sublimation
+- **Residual activity**: Long residual activity for extended protection
+- **Uptake**: Uptake by plants is through roots as sulphate and through roots and leaf cuticle as sulphur dioxide
 
 ## Benefits
-Highly preventive against powdery mildew
-Prevents and corrects sulphur deficiency
-Broad spectrum – one solution for many problems
-Suppresses mites infestation
-Safe to the user because of dustless formulation
-Long residual activity
+- **Powdery mildew control**: Highly preventive against powdery mildew
+- **Mite suppression**: Suppresses mites infestation
+- **Sulphur deficiency**: Prevents and corrects sulphur deficiency
+- **Broad spectrum**: One solution for many problems
+- **Dual action**: Acts by contact and through the vapour phase enhanced by the sublimation of the sulphur
+- **Safety**: Safe to the user because of dustless formulation
+- **Long-lasting**: Long residual activity for extended protection
+- **Multi-crop use**: Used in a wide range of fruits, vegetables, ornamentals, coffee, tea, cashews and field crops
 
 ## Price Information
 Per 1kg: UGX 28,500

@@ -19,20 +19,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Wheat and barley:** 1.1-1.7ltrs/Ha, Mixing: 110mls/20ltrs of water
-**Pastures:** 1.7-3.4ltrs/Ha, Mixing: 110mls/20ltrs of water
-**Application:** Apply as directed on the label
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Wheat and barley**: 1.1-1.7L/Ha, mixing: 110mls/20L of water
+- **Pastures**: 1.7-3.4L/Ha, mixing: 110mls/20L of water
+- **Application method**: Selective herbicide for broadleaf weeds
+- **Target crops**: Cereals and pasture
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Selective action**: Safe for cereals and pasture crops
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to broadleaf weed foliage
+- **Selective control**: Targets broadleaf weeds while protecting cereals and pasture
+- **Crop safety**: Safe for wheat, barley, and pasture crops
 
 ## Benefits
-Effective control of broadleaf weeds
-Selective action on cereals and pasture
-Cost-effective solution
-Easy to use
+- **Broadleaf control**: Effective control of broadleaf weeds in cereals and pasture
+- **Selective action**: Safe for cereals and pasture crops
+- **Flexible rates**: Different application rates for different crops
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Crop safety**: No harmful effects on cereals and pasture
+- **Reliable results**: Proven effectiveness in cereal and pasture systems
 
 ## Price Information
 Per 1L: UGX 14,000

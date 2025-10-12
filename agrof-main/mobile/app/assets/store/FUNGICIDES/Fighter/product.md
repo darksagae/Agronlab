@@ -19,18 +19,28 @@ Easy to apply
 Compatible with most pesticides
 
 ## Usage Instructions
-**Application:** Apply as directed on the label
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application method**: Insecticide formulated to effectively control weeds & certain grasses
+- **Target pests**: Weeds and certain grasses
+- **Target crops**: Various crops
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Application**: Apply as directed on the label
+- **Formulation**: Not specified in details
 
 ## Application Method
-Foliar Spray: Direct application to target weeds
+- **Method**: Foliar spray application
+- **Target**: Direct application to target weeds
+- **Weed control**: Effective control of weeds & certain grasses
+- **Coverage**: Ensure thorough coverage for effective control
+- **Timing**: Apply when weeds are actively growing
 
 ## Benefits
-Effective weed control
-Controls certain grasses
-Cost-effective solution
-Easy to use
+- **Weed control**: Effective control of weeds & certain grasses
+- **Grass control**: Controls certain grasses
+- **Multi-crop use**: Suitable for various crops
+- **Cost-effective**: Single application for comprehensive weed control
+- **Easy application**: Simple application as directed on the label
+- **Compatible**: Compatible with most pesticides
 
 ## Price Information
 Per 250g: UGX 11,250

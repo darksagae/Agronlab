@@ -33,24 +33,33 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 12 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 10-14 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Fruit size**: Fruits measure 12x10cm
+- **Fruit color**: Green to red
+- **Fruit walls**: Thick walls
+- **Plant characteristics**: Strong plant with short internodes and good leaf cover
+- **Disease resistance**: Potato Virus Y (PVY:0,1), Tobamovirus (TM:0-3)
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 20°C+
+- **Germination**: 10-14 days
+- **Transplanting**: When seedlings have 4-6 true leaves
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Versatile hybrid sweet pepper that can be grown outdoors or indoors
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Cultivation**: Open Field, Tunnel
+- **Uniformity**: High uniformity
+- **Maturity**: Early maturity
+- **Hybrid**: F1 hybrid
 
 ## Benefits
-High Yield: Excellent production per plant
-Uniform Fruits: Consistent size and shape
-Sweet Flavor: Perfect for fresh consumption
-Disease Resistance: Reduces crop losses
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
+- **Versatile cultivation**: Can be grown outdoors or indoors based on market demands
+- **Thick walls**: Fruits have thick walls for better storage and transport
+- **Disease resistance**: Resistant to Potato Virus Y (PVY:0,1), Tobamovirus (TM:0-3)
+- **Strong plant**: Strong plant with short internodes and good leaf cover
+- **High uniformity**: High uniformity in fruit size and shape
+- **Early maturity**: Early maturing variety
+- **Market adaptability**: Suitable for various market demands
 
 ## Price Information
 Per 1000 seeds: UGX 32,000

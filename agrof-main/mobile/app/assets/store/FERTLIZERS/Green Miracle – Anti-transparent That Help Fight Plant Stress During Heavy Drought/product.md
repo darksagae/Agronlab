@@ -4,11 +4,15 @@
 Bukoola Chemical Industries (U) Ltd
 
 ## Overview
-Green Miracle is a new-generation, reflective type of anti-transpirant and anti-stress product. Green Miracle functions primarily on the principle of reflecting the sun's rays.
+Green Miracle is a new-generation, reflective type of anti-transpirant and anti-stress product. Green Miracle functions primarily on the principle of reflecting the sun's rays. When applied, it forms a thin glassy film-coat, which reflects light more than it would occur under normal conditions. This prevents the thermic effect of light on plant tissues. It, therefore, prevents water loss from plants, improves drought resistance, and improves product quality and appearance.
+
+## Directions for Use
+- **Dosage**: Foliar spray – Mix 3-5ml of Green miracle per 1L of water (60-100mls per 20ltrs of water). The requirement of the spray fluid volume varies with the crop canopy and the customary local practice
+- **Compatibility**: Green Miracle is compatible with most of the foliar pesticides. However, a jar test and application in a small area is recommended to test for compatibility before tank use
 
 ## Price Information
-1 Ltr: UGX 31,000
-500 ml: UGX 16,000
+- 1 Ltr: UGX 31,000
+- 500 ml: UGX 16,000
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -17,16 +21,22 @@ Green Miracle is a new-generation, reflective type of anti-transpirant and anti-
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Foliar spray
+- **Dosage**: Mix 3-5ml per 1L water (60-100ml per 20L water)
+- **Timing**: Apply during drought and stress conditions
+- **Frequency**: Apply as needed during stress periods
+- **Best time**: Early morning or late afternoon
+- **Coverage**: Ensure complete leaf coverage
+- **Compatibility**: Test with other pesticides before tank mixing
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Anti-transpirant**: Forms protective film to reduce water loss
+- **Drought resistance**: Improves plant survival during water stress
+- **Heat protection**: Reflects sun's rays to prevent tissue damage
+- **Quality improvement**: Enhances product quality and appearance
+- **Stress relief**: Helps plants cope with environmental stress
+- **Water conservation**: Reduces water loss from plant surfaces
+- **Versatile application**: Suitable for various crops and conditions
 
 ## Storage Instructions
 - Store in cool, dry place

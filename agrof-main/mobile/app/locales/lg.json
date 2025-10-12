@@ -1,0 +1,230 @@
+{
+  "common": {
+    "loading": "Okusindika...",
+    "error": "Ekikolwa",
+    "success": "Kukyali",
+    "cancel": "Kukka",
+    "ok": "Kale",
+    "save": "Tereka",
+    "delete": "Sangula",
+    "edit": "Kyusa",
+    "back": "Dda",
+    "next": "Okuddako",
+    "continue": "Okuddayo",
+    "close": "Ggalawo",
+    "selectLanguage": "Londa Olulimi"
+  },
+  "navigation": {
+    "home": "Wano",
+    "store": "Edduuka",
+    "care": "Okulabirira",
+    "plan": "Ekikola",
+    "account": "Akawunti",
+    "cart": "Ekikopo"
+  },
+  "welcome": {
+    "title": "AGROF",
+    "subtitle": "Omukwano gwo gw'omulimi gw'omukwano gw'omulimi",
+    "continueButton": "Ddayo ku AGROF →",
+    "watchIntro": "Labirako",
+    "startUsing": "Tandika Okukozesa"
+  },
+  "categories": {
+    "farmer": "Omulimi",
+    "researcher": "Omukugu",
+    "farmerDescription": "Ndi mulimi era nfuna okulaba obulwadde",
+    "researcherDescription": "Nkola ebikugu mu by'obulimi"
+  },
+  "diseaseDetection": {
+    "title": "Okulaba Obulwadde",
+    "takePhoto": "Funa oba Londa Ekifaananyi",
+    "analyze": "Laba",
+    "results": "Ebyafunibwa",
+    "healthStatus": "Embeera y'omulimi",
+    "diseaseType": "Ekika ky'obulwadde",
+    "severity": "Obunene",
+    "confidence": "Okukkiriza",
+    "treatment": "Eby'okukola",
+    "prevention": "Eby'okukola okutwalira awamu"
+  },
+  "store": {
+    "title": "Edduuka lya AGROF",
+    "subtitle": "Ebintu ebirungi by'obulimi by'omulimi gwo",
+    "search": "Noonya ebintu...",
+    "categories": "Ebika",
+    "featured": "Ebintu Ebirimu",
+    "addToCart": "Ggattako mu Kikopo",
+    "price": "Omutindo",
+    "description": "Eky'okutegeeza",
+    "specifications": "Eby'okutegeeza",
+    "features": "Ebintu Ebirimu"
+  },
+  "cart": {
+    "title": "Ekikopo ky'Okugula",
+    "empty": "Ekikopo kyo kiri mu",
+    "total": "Omugatte",
+    "checkout": "Maliza Okugula",
+    "remove": "Sangula",
+    "quantity": "Obungi"
+  },
+  "account": {
+    "title": "Akawunti yange",
+    "welcome": "Tusanyuse okukulaba!",
+    "balance": "Ssente za AGROF",
+    "settings": "Eby'okukola",
+    "help": "Obuyambi & Okuyamba",
+    "logout": "Fuluma"
+  },
+  "ai": {
+    "assistant": "Omuyambi wa AGROF AI",
+    "askQuestion": "Buuza nkola kyonna ku bulimi...",
+    "send": "Tuma",
+    "clear": "Sangula Amawulire"
+  },
+  "errors": {
+    "networkError": "Ekikolwa mu kukwatagana",
+    "apiError": "Okusaba ku API kukadde",
+    "imageError": "Ekikolwa mu kukozesa ekifaananyi",
+    "generalError": "Ekintu kyakolako"
+  },
+  "manual": {
+    "title": "Okukozesa AGROF AI",
+    "step1": "Funa oba Londa Ekifaananyi",
+    "step1Description": "Okulaba obulwadde kukadde mu pulogulamu eno",
+    "step2": "Okulaba kwa AI",
+    "step2Description": "AI yaffe ejja kulaba ekifaananyi era etegeeza obulwadde oba ebizibu by'obulamu",
+    "step3": "Ebyafunibwa Ebirungi",
+    "step3Description": "Funa amakulu agakulu okusobola okulaba obulwadde, obujanjabi, n'ebikolwa by'okulabirira",
+    "startUsing": "Tandika Okukozesa Pulogulamu"
+  },
+  "form": {
+    "cropType": "Ekika ky'emmere (nga Maize, Coffee)",
+    "area": "Obugazi (ekikumi)",
+    "startDate": "Olunaku lw'okutandikira (YYYY-MM-DD)",
+    "endDate": "Olunaku lw'okumaliriza (YYYY-MM-DD)",
+    "notes": "Amawulire (bikozesa)"
+  },
+  "analysis": {
+    "title": "Omukwano gw'AI gw'okulaba Emmere",
+    "subtitle": "Okulaba Obulwadde n'Entegeka y'Obujanjabi",
+    "cropIdentification": "Okulaba Emmere",
+    "healthStatus": "Embeera y'Obulamu",
+    "diseaseDetection": "Okulaba Obulwadde",
+    "businessAnalysis": "Okulaba Ebizibu by'Obusuubuzi",
+    "economicImpact": "💰 Ekikolwa mu Bufunze",
+    "riskAssessment": "⚠️ Okulaba Ebizibu",
+    "immediateTreatments": "💊 Obujanjabi bw'Okudda",
+    "businessRecommendations": "🏢 Ebikolwa by'Obusuubuzi",
+    "analysisDetails": "Eby'okutegeeza ku Kulaba",
+    "aiAnalysisResults": "Ebyafunibwa mu AI",
+    "symptoms": "🔍 Obubonero",
+    "longTermStrategies": "🌱 Entegeka z'Emisana",
+    "prevention": "🛡️ Okutangira",
+    "newAnalysis": "Okulaba Okupya",
+    "shareResults": "Sangula Ebyafunibwa"
+  },
+  "care": {
+    "title": "AGROF AI",
+    "subtitle": "Okulabirira Emmere mu AI",
+    "smartFarming": "Obulimi bw'Obukugu",
+    "smartFarmingSubtitle": "Okulabirira emmere n'okulaba mu AI",
+    "diseaseDetection": "Okulaba Obulwadde",
+    "marketConnect": "Okukwatagana n'Edduuka"
+  },
+  "plan": {
+    "title": "Okukola Shamba mu AI",
+    "subtitle": "Okukola shamba mu AI",
+    "calendar": "Kalenda",
+    "rotation": "Okukyusa",
+    "budget": "Ssente",
+    "cropCalendarPlanning": "Okukola Kalenda y'Emmere",
+    "addPlan": "Ggattako Ekikola",
+    "noPlans": "Tekiriwo bikola bya mmere. Ggattako ekikola kyo!",
+    "cropRotationStrategy": "Entegeka y'Okukyusa Emmere",
+    "budgetPlanning": "Okukola Ssente",
+    "totalPlanned": "Byona Hamwe",
+    "activePlans": "Ebikola Ebikola"
+  },
+  "chatbot": {
+    "welcome": "Nkulamusizza! Ndi AgrofBot. Nsobola okukuyamba:\n\n• Obulwadde bw'emmere\n• Ebikolwa by'obulimi\n• Okulaba ebisolo\n• Ebikolwa by'embeera y'obudde\n• Amakulu g'edduuka\n\nKiki ky'okwetaaga?",
+    "greetings": [
+      "Nkulamusizza! Nsobola okuyamba ku bulimi bwo leero?",
+      "Nkulamusizza! Kiki ky'obulimi ky'olina?",
+      "Tusanyuse! Ndi wano okukuyamba ku mmere n'obulimi bwo.",
+      "Nkulamusizza! Nteekateeka okukuyamba okukula emmere emirungi leero!"
+    ]
+  },
+  "productDetails": {
+    "title": "Eby'okutegeeza ku Kintu",
+    "description": "Eky'okutegeeza",
+    "specifications": "Eby'okutegeeza",
+    "keyFeatures": "Ebintu Ebirimu",
+    "availability": "Obulamu",
+    "inStock": "Kiri mu",
+    "outOfStock": "Tekiri mu",
+    "viewPackages": "Labirako Ebikopo n'Omutindo",
+    "callForInquiry": "Kola Ennyonyi Okubuza",
+    "addToCart": "Ggattako mu Kikopo",
+    "quantity": "Obungi",
+    "price": "Omutindo",
+    "manufacturer": "Omukola",
+    "category": "Ekika",
+    "usageInstructions": "Eby'okukozesa",
+    "benefits": "Ebintu Ebirimu"
+  },
+  "cart": {
+    "fullName": "Erinnya Lyonna",
+    "email": "Email",
+    "phoneNumber": "Namba y'Essimu",
+    "deliveryAddress": "Waka w'Okutuusa"
+  },
+  "search": {
+    "placeholder": "Noonya ebintu...",
+    "messagePlaceholder": "Wandiika obubaka bwo..."
+  },
+  "help": {
+    "regularMonitoring": "Okulaba Bulijjo",
+    "regularMonitoringDesc": "Labirako emmere yo bulijjo okulaba obubonero bw'obulwadde.",
+    "consultExperts": "Buza Abakugu",
+    "consultExpertsDesc": "Bulijjo buza abakugu b'obulimi okusobola okukola ebikolwa by'obujanjabi.",
+    "keepRecords": "Tereka Ebikolwa",
+    "keepRecordsDesc": "Tereka ebikolwa by'obulwadde obulaba n'ebikolwa by'okukola."
+  },
+  "products": {
+    "categories": {
+      "cereals": "Emmere",
+      "cash_crops": "Emmere y'Omugabo",
+      "fruits": "Ebibala",
+      "vegetables": "Ebibala by'Emmere",
+      "legumes": "Ebinyeebwa",
+      "fertilizers": "Ebikozesa",
+      "seeds": "Embuto",
+      "fungicides": "Ebikozesa by'Obulwadde",
+      "herbicides": "Ebikozesa by'Ebikula",
+      "nursery_bed": "Ekifo ky'Okukula",
+      "organic_chemicals": "Ebikozesa by'Obulimi",
+      "pesticides": "Ebikozesa by'Ebisolo",
+      "tools": "Ebikozesa n'Ebikolwa"
+    },
+    "descriptions": {
+      "stapleCerealCrop": "Emmere ey'okukula",
+      "premiumCoffeeBeans": "Ebinyeebwa bya kawa ey'omutindo",
+      "essentialGrainCrop": "Emmere ey'okukula",
+      "nutritiousFruitCrop": "Ekibala eky'omutindo",
+      "versatileVegetableCrop": "Ekibala ky'emmere eky'omutindo",
+      "proteinRichLegume": "Ekinyeebwa eky'omutindo",
+      "healthyFruitCrop": "Ekibala eky'omutindo"
+    },
+    "names": {
+      "maize": "Emere",
+      "coffee": "Kawa",
+      "rice": "Omucungwa",
+      "banana": "Ntooke",
+      "tomatoes": "Enyanya",
+      "beans": "Ebinyeebwa",
+      "avocados": "Ebibala"
+    }
+  }
+}
+
+

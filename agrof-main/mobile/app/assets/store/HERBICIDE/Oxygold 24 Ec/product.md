@@ -20,21 +20,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 50mls per 20ltrs of water
-**Application rate:** 300-500mls per Acre
-**Application:** Apply as a pre-emergence herbicide
-**Timing:** Apply before weed emergence
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 50mls per 20L of water
+- **Application rate**: 300-500mls per acre
+- **Application method**: Selective pre-emergence herbicide
+- **Target crops**: Tomato, cabbage and onions
+- **Application timing**: Apply before weed emergence
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: Oxyfluorfen 24%
 
 ## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
+- **Method**: Pre-emergence spray application
+- **Target**: Apply to soil before crop emergence
+- **Timing**: Apply before weed emergence
+- **Soil preparation**: Ensure proper soil preparation
+- **Rain timing**: Apply shortly before rain or within 48 hours after rain
 
 ## Benefits
-Effective control of broadleaf weeds and annual grasses
-Pre-emergence protection
-Suitable for multiple crops
-Cost-effective solution
-Easy to use
+- **Broadleaf and grass control**: Effective control of broadleaf weeds and annual grasses
+- **Pre-emergence protection**: Prevents weed emergence before crop
+- **Multi-crop use**: Suitable for tomato, cabbage and onions
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Selective action**: Safe for target crops
+- **Reliable results**: Proven effectiveness in vegetable cultivation
 
 ## Price Information
 Per 1L: UGX 60,000

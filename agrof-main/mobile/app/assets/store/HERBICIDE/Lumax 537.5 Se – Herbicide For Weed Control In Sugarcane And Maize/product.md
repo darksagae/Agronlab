@@ -20,19 +20,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Rate of application:** 1.6ltrs/acre
-**Application:** Apply as a pre- or early post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application rate**: 1.6L/acre
+- **Application method**: Pre- and early post-emergence herbicide
+- **Target weeds**: Grasses and broad leaf weeds
+- **Target crops**: Sugarcane and maize
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Flexibility**: Can be applied up to 10 days pre-planting
 
-## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
-Early Post-emergence Spray: Direct application to weed foliage
+## Application Methods
+- **Pre-emergence**: Apply to soil before crop emergence
+- **Early post-emergence**: Direct application to weed foliage
+- **Pre-planting**: Can be applied up to 10 days before planting
+- **Season-long control**: One application provides control through canopy closure
 
 ## Benefits
-Control of all important annual broadleaf and grass weeds in corn, including weeds resistant to ALS inhibitor, triazine and glyphosate herbicides
-One application, pre-emergence or early post-emergence, will give season-long control through to canopy closure
-Excellent crop tolerance when applied up to 10 days pre-planting, pre-emergence or early post emergence of maize and sugarcane
+- **Resistance management**: Controls weeds resistant to ALS inhibitor, triazine and glyphosate herbicides
+- **Season-long control**: One application provides control through canopy closure
+- **Excellent crop tolerance**: Safe for sugarcane and maize when applied correctly
+- **Multi-active formula**: Three active ingredients for comprehensive control
+- **Flexible timing**: Pre-planting, pre-emergence, or early post-emergence application
+- **Cost-effective**: Single application for season-long control
+- **Advanced technology**: Uses new Syngenta technology for enhanced performance
 
 ## Price Information
 Per 1L: UGX 82,000

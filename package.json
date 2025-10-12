@@ -1,0 +1,24 @@
+{
+  "name": "agrof-project",
+  "version": "1.0.0",
+  "description": "AGROF - AI Powered Crop Health Companion",
+  "main": "agrof-main/mobile/app/index.js",
+  "scripts": {
+    "start": "cd agrof-main/mobile/app && npx expo start",
+    "start:mobile": "cd agrof-main/mobile/app && npx expo start --port 8086",
+    "start:backend": "cd agrof-main/src && python -m flask run --port 5000",
+    "start:store": "cd store-backend && npm start"
+  },
+  "keywords": [
+    "agriculture",
+    "ai",
+    "crop-health",
+    "disease-detection"
+  ],
+  "author": "AGROF Team",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^12.4.0",
+    "firebase-admin": "^13.5.0"
+  }
+}

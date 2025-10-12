@@ -12,12 +12,17 @@ import {
   TextInput
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useSafeTranslation } from '../i18n';
 import { productsApi } from '../services/storeApi';
+import storeImageService from '../services/storeImageService';
 import { useCart } from '../contexts/CartContext';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const { width } = Dimensions.get('window');
 
 const ProductDetailScreen = ({ route, navigation }) => {
+  const { t } = useSafeTranslation();
+  const { currentLanguage } = useLanguage();
   const { productId, product } = route.params;
   const [productData, setProductData] = useState(product || null);
   const [loading, setLoading] = useState(!product);
@@ -31,16 +36,16 @@ const ProductDetailScreen = ({ route, navigation }) => {
     if (!product && productId) {
       loadProduct();
     }
-  }, [productId]);
+  }, [productId, currentLanguage]);
 
   const loadProduct = async () => {
     try {
       setLoading(true);
-      const data = await productsApi.getById(productId);
+      const data = await productsApi.getById(productId, currentLanguage);
       setProductData(data);
     } catch (error) {
       console.error('Failed to load product:', error);
-      Alert.alert('Error', 'Failed to load product details');
+      Alert.alert(t('common.error'), t('common.loading'));
     } finally {
       setLoading(false);
     }
@@ -201,11 +206,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
             </View>
           )}
           <Image
-            source={
-              productData.image_url 
-                ? { uri: `http://192.168.1.15:3001${productData.image_url}` }
-                : getCategoryImage(productData.category_name)
-            }
+            source={storeImageService.getProductImage(productData)}
             style={styles.productImage}
             onLoad={() => setImageLoading(false)}
             onError={() => setImageLoading(false)}
@@ -243,7 +244,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
           {/* Description */}
           {productData.description && (
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Description</Text>
+              <Text style={styles.sectionTitle}>{t('productDetails.description')}</Text>
               <Text style={styles.sectionContent}>{productData.description}</Text>
             </View>
           )}
@@ -251,7 +252,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
           {/* Specifications */}
           {specifications.length > 0 && (
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Specifications</Text>
+              <Text style={styles.sectionTitle}>{t('productDetails.specifications')}</Text>
               <View style={styles.specsContainer}>
                 {specifications.map((spec, index) => (
                   <View key={index} style={styles.specRow}>
@@ -266,7 +267,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
           {/* Key Features */}
           {features.length > 0 && (
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Key Features</Text>
+              <Text style={styles.sectionTitle}>{t('productDetails.keyFeatures')}</Text>
               <View style={styles.featuresContainer}>
                 {features.map((feature, index) => (
                   <View key={index} style={styles.featureRow}>
@@ -281,7 +282,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
           {/* Usage Instructions */}
           {productData.usage_instructions && (
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Usage Instructions</Text>
+              <Text style={styles.sectionTitle}>{t('productDetails.usageInstructions')}</Text>
               <Text style={styles.sectionContent}>
                 {productData.usage_instructions.replace(/\*\*/g, '').replace(/•/g, '• ')}
               </Text>
@@ -291,7 +292,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
           {/* Benefits */}
           {productData.benefits && (
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Benefits</Text>
+              <Text style={styles.sectionTitle}>{t('productDetails.benefits')}</Text>
               <Text style={styles.sectionContent}>
                 {productData.benefits.replace(/\*\*/g, '').replace(/•/g, '• ')}
               </Text>

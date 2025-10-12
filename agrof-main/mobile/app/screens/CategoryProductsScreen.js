@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, ActivityIndicator, Alert } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { productsApi } from '../services/storeApi';
+import storeImageService from '../services/storeImageService';
+import OptimizedImage from '../components/OptimizedImage';
 import ProductDetailScreen from './ProductDetailScreen';
 
 const CategoryProductsScreen = ({ categoryName, categoryDisplayName, onBack }) => {
@@ -14,6 +16,13 @@ const CategoryProductsScreen = ({ categoryName, categoryDisplayName, onBack }) =
   useEffect(() => {
     loadCategoryProducts();
   }, [categoryName]);
+
+  // Preload images when products are loaded
+  useEffect(() => {
+    if (products.length > 0) {
+      storeImageService.preloadImages(products);
+    }
+  }, [products]);
 
   const loadCategoryProducts = async () => {
     try {
@@ -47,8 +56,8 @@ const CategoryProductsScreen = ({ categoryName, categoryDisplayName, onBack }) =
       activeOpacity={0.7}
     >
       <View style={styles.imageContainer}>
-        <Image 
-          source={item.image_url ? { uri: `http://192.168.1.15:3001${item.image_url}` } : require('../assets/fertilizers.png')} 
+        <OptimizedImage 
+          product={item}
           style={styles.productImage}
           resizeMode="cover"
         />

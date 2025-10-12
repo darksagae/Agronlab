@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "firebase-agrof": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-firebase",
+        "--project-id=agrof-ef825",
+        "--service-account-key=./firebase-service-account.json"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "./firebase-service-account.json"
+      }
+    }
+  }
+}

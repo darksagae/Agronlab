@@ -12,9 +12,12 @@ import {
   Modal
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useSafeTranslation } from '../i18n';
 import { useCart } from '../contexts/CartContext';
+import storeImageService from '../services/storeImageService';
 
 const CartScreen = ({ onBack }) => {
+  const { t } = useSafeTranslation();
   const { 
     items, 
     loading, 
@@ -120,7 +123,7 @@ const CartScreen = ({ onBack }) => {
   const renderCartItem = ({ item }) => (
     <View style={styles.cartItem}>
       <Image 
-        source={item.image_url ? { uri: `http://192.168.1.15:3001${item.image_url}` } : require('../assets/fertilizers.png')} 
+        source={storeImageService.getProductImage(item)} 
         style={styles.itemImage} 
       />
       <View style={styles.itemDetails}>
@@ -259,14 +262,14 @@ const CartScreen = ({ onBack }) => {
               
               <TextInput
                 style={styles.input}
-                placeholder="Full Name *"
+                placeholder={t('cart.fullName') + ' *'}
                 value={customerInfo.name}
                 onChangeText={(text) => setCustomerInfo({...customerInfo, name: text})}
               />
               
               <TextInput
                 style={styles.input}
-                placeholder="Email *"
+                placeholder={t('cart.email') + ' *'}
                 value={customerInfo.email}
                 onChangeText={(text) => setCustomerInfo({...customerInfo, email: text})}
                 keyboardType="email-address"
@@ -275,7 +278,7 @@ const CartScreen = ({ onBack }) => {
               
               <TextInput
                 style={styles.input}
-                placeholder="Phone Number *"
+                placeholder={t('cart.phoneNumber') + ' *'}
                 value={customerInfo.phone}
                 onChangeText={(text) => setCustomerInfo({...customerInfo, phone: text})}
                 keyboardType="phone-pad"
@@ -283,7 +286,7 @@ const CartScreen = ({ onBack }) => {
               
               <TextInput
                 style={[styles.input, styles.textArea]}
-                placeholder="Delivery Address"
+                placeholder={t('cart.deliveryAddress')}
                 value={customerInfo.address}
                 onChangeText={(text) => setCustomerInfo({...customerInfo, address: text})}
                 multiline

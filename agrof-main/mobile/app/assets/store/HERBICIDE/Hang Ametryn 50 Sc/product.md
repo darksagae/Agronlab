@@ -19,19 +19,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 200mls/20ltr
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 200mls/20L of water
+- **Application method**: Selective post-emergence herbicide
+- **Target crops**: Pineapples
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Selective action**: Safe for pineapple crops
+- **Formulation**: Suspension Concentrate (SC)
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Selective control**: Targets weeds while protecting pineapple crops
+- **Crop safety**: Safe for pineapple plants
 
 ## Benefits
-Effective control of weeds in pineapples
-Selective action on pineapple crop
-Cost-effective solution
-Easy to use
+- **Pineapple weed control**: Effective control of weeds in pineapple fields
+- **Selective action**: Safe for pineapple crops
+- **Post-emergence application**: Can be applied after weed emergence
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Crop safety**: No harmful effects on pineapple plants
+- **Reliable results**: Proven effectiveness in pineapple cultivation
 
 ## Price Information
 Per 1L: UGX 25,000

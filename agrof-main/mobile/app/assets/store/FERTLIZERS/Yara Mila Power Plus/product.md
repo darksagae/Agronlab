@@ -4,10 +4,10 @@
 Yara East Africa Ltd
 
 ## Overview
-This is a high-quality compound NPK, specifically designed for cereal crops. The balanced nutrients mean the crop get a good typical support for the development phases at base and top dressing.
+This is a high-quality compound NPK, specifically designed for cereal crops. The balanced nutrients mean the crop get a good typical support for the development phases at base and top dressing. Each granule Is a compound fertilizer and contains each nutrient in its formula. A part of the nitrogen is nitrate form which is directly absorbed by the plant. A well-timed application of YaraMila POWER minimizes nitrogen losses compared to other NPK and straight fertilizers. A more efficient nitrogen source also means a lower loss of nutrients to the environment.
 
 ## Price Information
-50 Kg: UGX 190,000
+- 50 Kg: UGX 190,000
 
 ## Key Features
 - High quality agricultural fertilizer

@@ -19,19 +19,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Application:** Apply as an early post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application method**: Early Post-Emergence herbicide
+- **Target weeds**: Broad-leaf and grass weeds
+- **Target crops**: Maize
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Early application**: Apply early in the post-emergence stage
+- **Selective action**: Safe for maize crops
 
 ## Application Method
-Early Post-emergence Spray: Direct application to weed foliage
+- **Method**: Early Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Selective control**: Targets weeds while protecting maize crops
+- **Crop safety**: Safe for maize plants
+- **Timing**: Apply early in the post-emergence stage
 
 ## Benefits
-Effective control of broad-leaf and grass weeds
-Early post-emergence protection
-Selective action on maize
-Cost-effective solution
-Easy to use
+- **Broad spectrum control**: Effective against broad-leaf and grass weeds
+- **Early protection**: Provides early post-emergence weed control
+- **Selective action**: Safe for maize crops
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Crop safety**: No harmful effects on maize plants
+- **Reliable results**: Proven effectiveness in maize cultivation
 
 ## Price Information
 Per 1L: UGX 49,000

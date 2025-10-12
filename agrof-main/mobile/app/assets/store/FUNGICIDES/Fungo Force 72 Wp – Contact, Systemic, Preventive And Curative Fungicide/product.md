@@ -20,26 +20,36 @@ Can be used as seed treatment, foliar spray and nursery drench
 Pre-harvest spray for post-harvest disease management
 
 ## Usage Instructions
-**Calibration:** Calibrate the sprayer before use
-**Mixing:** Half fill the sprayer with clean water and add the recommended quantity of Fungo Force. Agitate during the completion of filling
-**Disposal:** Destroy the container and dispose it off safely
+- **Calibration**: Calibrate the sprayer before use
+- **Mixing**: Half fill the sprayer with clean water and add the recommended quantity of Fungo Force. Agitate during the completion of filling
+- **Disposal**: Destroy the container and dispose it off safely
+- **Application method**: Dual action broad-spectrum Fungicide that controls a wide range of fungal disease by its preventive as well as curative action
+- **Target diseases**: Downey Mildew, Late blight, dumping off, phytophthora rots
+- **Target crops**: Coffee, tobacco, potato, tomato, pepper, onion, carrot, lettuce, cabbage, okra, watermelon, beans, French beans
+- **Active ingredients**: Metalaxyl 8% + Mancozeb 64% WP
+- **Formulation**: Wettable Powder (WP)
 
 **Dosage:**
-- **Coffee and tobacco (Against anthracnose and blue mold):** Mix 50g/20ltrs of water at a rate of 1-2kg per hectare
-- **Potato, tomato, pepper, onion, carrot, lettuce, cabbage, okra, watermelon (Against late blight, early blight, downy mildew and powdery mildew):** Mix 50g/20ltrs of water at a rate of 1-2kg per hectare
-- **Beans, French beans (Against powdery mildew, downy mildew and leaf blight):** Mix 50g/20ltrs of water at a rate of 1-2kg per hectare
+- **Coffee and tobacco (Against anthracnose and blue mold)**: Mix 50g/20L of water at a rate of 1-2kg per hectare
+- **Potato, tomato, pepper, onion, carrot, lettuce, cabbage, okra, watermelon (Against late blight, early blight, downy mildew and powdery mildew)**: Mix 50g/20L of water at a rate of 1-2kg per hectare
+- **Beans, French beans (Against powdery mildew, downy mildew and leaf blight)**: Mix 50g/20L of water at a rate of 1-2kg per hectare
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
-Seed Treatment: Apply to seeds before planting
-Nursery Drench: Apply to soil around seedlings
+- **Method**: Foliar spray, seed treatment, nursery drench
+- **Target**: Direct application to plant foliage, seeds, or soil around seedlings
+- **Dual action**: Both systemic and contact mode of action
+- **Preventive action**: Provides protection before disease infection
+- **Curative action**: Can control diseases after infection has occurred
+- **Versatile application**: Can be used as seed treatment, foliar spray and nursery drench
 
 ## Benefits
-Dual action broad-spectrum control
-Preventive and curative action
-Systemic and contact protection
-Prevents resistance development
-Versatile application methods
+- **Broad spectrum control**: Controls a wide range of fungal disease by its preventive as well as curative action
+- **Dual action**: Both systemic and contact mode of action
+- **Preventive and curative**: Both preventive and curative properties
+- **Resistance management**: Used for preventing or delaying resistance development to Fungi
+- **Multi-crop use**: Suitable for coffee, tobacco, potato, tomato, pepper, onion, carrot, lettuce, cabbage, okra, watermelon, beans, French beans
+- **Versatile application**: Can be used as seed treatment, foliar spray and nursery drench
+- **Cost-effective**: Single application for comprehensive disease control
 
 ## Price Information
 Per 100g: UGX 2,836

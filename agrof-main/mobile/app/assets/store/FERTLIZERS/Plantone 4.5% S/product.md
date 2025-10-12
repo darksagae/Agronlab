@@ -4,11 +4,11 @@
 Osho Chemical Industries Ltd
 
 ## Overview
-Plantone 4.5 SL is a plant growth regulator that can be used on a wide range of crops. It induces flowering, prevents flower abortion and prevents pre-harvest fruit loss.
+Plantone 4.5 SL is a plant growth regulator that can be used on a wide range of crops. It induces flowering, prevents flower abortion and prevents pre-harvest fruit loss. Plantone generally stimulates plant growth. The combined effect increases overall yield, increased fruit size and quality. Mixing: 4mls per 20ltrs of water. Application rate: 40-60mls per acre. Active ingredient: Nepthalene Acetic Acid.
 
 ## Price Information
-30 mls: UGX 7,500
-100 mls: UGX 18,500
+- 30 mls: UGX 7,500
+- 100 mls: UGX 18,500
 
 ## Key Features
 - High quality agricultural fertilizer

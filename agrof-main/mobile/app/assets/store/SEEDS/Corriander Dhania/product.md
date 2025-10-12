@@ -31,25 +31,30 @@ Water: Regular irrigation needed
 Spacing: 20cm x 20cm between plants
 
 ## Usage Instructions
-Seed Preparation: No special treatment required
-Planting Depth: 1-2 cm deep
-Planting Time: Early spring or fall
-Germination: 7-10 days
-Direct seeding recommended
+- **Planting method**: Coriander seeds are planted in drills of 30cm apart at a sowing depth of 2.5cm – 3.5cm
+- **Germination**: You should expect germination to take place 10 days after sowing
+- **Maturity**: Dhania matures for harvesting within 4-6 weeks after planting
+- **Planting depth**: 2.5cm – 3.5cm deep
+- **Planting time**: Early spring or fall
+- **Germination**: 10 days after sowing
+- **Direct seeding**: Recommended for optimal results
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Broadcast Seeding: For large areas
-Container Growing: Suitable for pots
-Spacing: Maintain 20cm x 20cm spacing between plants
+- **Method**: Direct seeding recommended
+- **Target**: Traditional coriander variety with excellent flavor and aroma
+- **Spacing**: Planted in drills of 30cm apart
+- **Sowing depth**: 2.5cm – 3.5cm deep
+- **Harvesting**: Matures for harvesting within 4-6 weeks after planting
+- **Container growing**: Suitable for pots
 
 ## Benefits
-Traditional Variety: Local adaptation
-Excellent Flavor: Superior taste and aroma
-Abundant Foliage: High leaf production
-High Seed Yield: Good seed production
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
+- **Traditional variety**: Local adaptation with excellent flavor and aroma
+- **Quick maturity**: Matures for harvesting within 4-6 weeks after planting
+- **Easy growing**: Suitable for beginners and experienced gardeners
+- **Container friendly**: Can be grown in pots
+- **Versatile use**: Culinary and medicinal purposes
+- **High demand**: Popular variety with excellent market acceptance
+- **Profit potential**: High return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 18,000

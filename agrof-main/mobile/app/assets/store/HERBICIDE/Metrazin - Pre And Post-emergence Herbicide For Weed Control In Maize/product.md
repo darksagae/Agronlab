@@ -19,22 +19,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Pre-emergence application:** Mix 100-200ml of Metrazin per 20L of water
-**Post-emergence application:** Mix 100-150mls of Metrazin per 20L of water
-**Application:** Apply as directed on the label
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Pre-emergence application**: Mix 100-200ml of Metrazin per 20L of water
+- **Post-emergence application**: Mix 100-150mls of Metrazin per 20L of water
+- **Application method**: Pre and post-emergence herbicide
+- **Target weeds**: Broadleaf weeds (black jack, thistle, ergonica and many more)
+- **Target crops**: Maize (corn), sugarcane, turf
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
 
 ## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
-Post-emergence Spray: Direct application to weed foliage
+- **Pre-emergence**: Apply to soil before crop emergence
+- **Post-emergence**: Direct application to weed foliage
+- **Flexible timing**: Can be applied before or after weed emergence
+- **Multi-crop use**: Suitable for maize, sugarcane, and turf
 
 ## Benefits
-Effective control of broadleaf weeds
-Pre and post-emergence flexibility
-Suitable for multiple crops
-Cost-effective solution
-Easy to use
+- **Broadleaf control**: Effective control of broadleaf weeds including black jack, thistle, ergonica
+- **Dual application**: Pre and post-emergence flexibility
+- **Multi-crop use**: Suitable for maize, sugarcane, and turf
+- **Cost-effective**: Single product for multiple applications
+- **Easy application**: Simple mixing and spray application
+- **Long-lasting control**: Provides extended weed control
+- **Reliable results**: Proven effectiveness in various crop systems
 
 ## Price Information
 Per 1L: UGX 30,000

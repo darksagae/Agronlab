@@ -21,25 +21,28 @@ Easy to apply
 Advanced formulation
 
 ## Usage Instructions
-Mixing: Mix 100-150ml per 20 liters of water
-Application: Apply as a foliar spray or soil treatment
-Timing: Best applied pre-emergence or early post-emergence
-Avoid Drift: Do not apply when windy to prevent drift
-Re-entry Period: 12 hours after application
+- **Mixing ratio**: 200mls/20L of water
+- **Application method**: Selective post-emergence herbicide
+- **Target crops**: Beans and soybeans
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Selective action**: Safe for beans and soybeans
+- **Packaging**: Available in 1L and 500ml containers
 
 ## Application Method
-Foliar Spray: Apply to weed foliage
-Soil Treatment: Apply to soil surface
-Boom Sprayer: For large areas
-Knapsack Sprayer: For small areas
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Selective control**: Targets weeds while protecting beans and soybeans
+- **Crop safety**: Safe for bean and soybean crops
 
 ## Benefits
-Superior Control: Enhanced weed control efficacy
-Bean Safe: Advanced bean protection technology
-Long-lasting: Extended weed control period
-Cost Effective: Reduces need for multiple applications
-Time Saving: Quick and efficient application
-High Performance: Superior weed management
+- **Selective control**: Effective against weeds in beans and soybeans
+- **Crop safety**: Safe for beans and soybeans crops
+- **Post-emergence application**: Can be applied after weed emergence
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Targeted action**: Specifically designed for beans and soybeans
+- **Reliable results**: Proven effectiveness in legume crops
 
 ## Price Information
 Per 1L container: UGX 42,000

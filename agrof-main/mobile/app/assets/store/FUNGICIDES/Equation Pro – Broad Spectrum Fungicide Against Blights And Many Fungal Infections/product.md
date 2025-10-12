@@ -20,26 +20,30 @@ Easy to apply
 Compatible with most pesticides
 
 ## Usage Instructions
-**Rate of use:** 400gms/ha
-**Mixing:** 10gms/20ltrs of water
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** In times of serious disease pressure, spraying is recommended every 7-10 days interval
-**Limitation:** Do not exceed 4 applications per growing season
-
-**Pre-Harvest Interval (PHI):**
-- 28 days for vineyard
-- 3 days for vegetables
-- 14 days for potatoes
+- **Rate of use**: 400gms/ha
+- **Mixing ratio**: 10gms/20L of water
+- **Application method**: Broad spectrum contact and systemic fungicide
+- **Target diseases**: Early and late blight on potatoes; late blight on tomatoes; downy mildew on snow peas, onions, and roses; bean rust, bean anthracnose, powdery mildew on cucurbits and angular leaf spot on French beans
+- **Target crops**: Potatoes, tomatoes, snow peas, onions, roses, cucurbits, French beans
+- **Application timing**: In times of serious disease pressure, spraying is recommended every 7-10 days interval
+- **Limitation**: Do not exceed 4 applications per growing season
+- **Active ingredients**: Famoxadone 225g/kg + Cymoxanil 300g/kg
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Contact action**: Provides immediate protection on plant surfaces
+- **Systemic action**: Absorbed by plant tissues and translocated throughout the plant
+- **Dual action**: Combines contact and systemic fungicide properties
 
 ## Benefits
-Broad spectrum disease control
-Contact and systemic action
-Effective against multiple diseases
-Cost-effective solution
-Easy to use
+- **Broad spectrum control**: Effective against early and late blight on potatoes; late blight on tomatoes; downy mildew on snow peas, onions, and roses; bean rust, bean anthracnose, powdery mildew on cucurbits and angular leaf spot on French beans
+- **Dual active ingredients**: Famoxadone 225g/kg + Cymoxanil 300g/kg for enhanced control
+- **Contact and systemic action**: Dual mode of action for comprehensive disease control
+- **Multi-crop use**: Suitable for potatoes, tomatoes, snow peas, onions, roses, cucurbits, French beans
+- **Flexible application**: Can be applied every 7-10 days interval in times of serious disease pressure
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 10g: UGX 6,600

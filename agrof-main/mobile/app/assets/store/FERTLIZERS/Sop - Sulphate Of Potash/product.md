@@ -4,12 +4,12 @@
 Grain Pulse Ltd
 
 ## Overview
-Sulphate of Potash or Potassium Sulphate (K-52% + S 18%). It is considered a premium-quality potash fertilizer containing two key nutrients for growing crops: potassium and sulphur.
+Sulphate of Potash or Potassium Sulphate (K-52% + S 18%). It is considered a premium-quality potash fertilizer containing two key nutrients for growing crops: potassium and sulphur. Most often used on high-value crops like fruits, vegetables, nuts, tea, coffee and tobacco. Application rate: 50-100 kg per acre depending on crop.
 
 ## Price Information
-50 Kg: UGX 170,000
-25 Kg: UGX 94,000
-10 Kg: UGX 33,400
+- 50 Kg: UGX 170,000
+- 25 Kg: UGX 94,000
+- 10 Kg: UGX 33,400
 
 ## Key Features
 - High quality agricultural fertilizer

@@ -1,12 +1,13 @@
+
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Alert } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Alert, Image } from 'react-native';
 import ChatbotWrapper from '../services/chatbotWrapper.js';
 
 const ChatBot = ({ onShowTraining }) => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hello! I'm AgrofBot, your AI agricultural assistant powered by Gemini AI. I can help you with:\n\n🌱 Crop disease identification\n💊 Treatment recommendations\n🌾 Farming best practices\n🌿 Pest control advice\n📚 General agricultural knowledge\n🌤️ Weather-based advice\n💰 Market insights\n🏪 AGROF store product recommendations\n\nWhat would you like to know today?",
+      text: "Hello! I'm AgrofBot. I can help with:\n\n• Crop diseases\n• Farming tips\n• Pest control\n• Weather advice\n• Market info\n\nWhat do you need?",
       isBot: true,
       timestamp: new Date(),
     }
@@ -86,6 +87,27 @@ const ChatBot = ({ onShowTraining }) => {
     }
   };
 
+  const cleanResponse = (text) => {
+    // Remove all emoji icons, symbols, and formatting
+    return text
+      .replace(/[🌱💊🌾🌿📚🌤️💰🏪🔍🛡️⚠️📅💩🌦️📤🤖🗑️]/g, '')
+      .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold formatting
+      .replace(/\*(.*?)\*/g, '$1') // Remove italic formatting
+      .replace(/\*+/g, '') // Remove any remaining stars
+      .replace(/^•/gm, '•') // Ensure proper bullet points
+      .replace(/\n\s*\n\s*\n/g, '\n\n') // Remove excessive line breaks
+      .trim();
+  };
+
+  const organizeResponse = (title, items) => {
+    if (!Array.isArray(items)) {
+      return `${title}:\n\n${items}`;
+    }
+    
+    const bulletPoints = items.map(item => `• ${item}`).join('\n');
+    return `${title}:\n\n${bulletPoints}`;
+  };
+
   const generateBotResponse = (userMessage) => {
     const lowerMessage = userMessage.toLowerCase();
     
@@ -97,59 +119,56 @@ const ChatBot = ({ onShowTraining }) => {
     // Check for disease queries
     for (const [disease, info] of Object.entries(knowledgeBase.diseases)) {
       if (lowerMessage.includes(disease) || lowerMessage.includes(disease.replace(' ', ''))) {
-        return `🌱 **${disease.charAt(0).toUpperCase() + disease.slice(1)}**\n\n🔍 **Symptoms:** ${info.symptoms}\n\n💊 **Treatment:** ${info.treatment}\n\n🛡️ **Prevention:** ${info.prevention}\n\n⚠️ **Severity:** ${info.severity}`;
+        return `${disease.charAt(0).toUpperCase() + disease.slice(1)}:\n\n• ${info.symptoms.split('.')[0]}\n• ${info.treatment.split('.')[0]}\n• ${info.prevention.split('.')[0]}`;
       }
     }
     
     // Check for crop-specific queries
     for (const [crop, info] of Object.entries(knowledgeBase.crops)) {
       if (lowerMessage.includes(crop)) {
-        if (lowerMessage.includes('plant') || lowerMessage.includes('grow')) {
-          return `🌱 **Growing ${crop.charAt(0).toUpperCase() + crop.slice(1)}:**\n\n📅 **Planting:** ${info.planting}\n\n🌦️ **Season:** ${info.season}\n\n💩 **Fertilizer:** ${info.fertilizer}\n\n🌾 **Harvesting:** ${info.harvesting}`;
-        }
-        return `🌱 **${crop.charAt(0).toUpperCase() + crop.slice(1)} Information:**\n\n📅 **Planting:** ${info.planting}\n\n🌦️ **Season:** ${info.season}\n\n💩 **Fertilizer:** ${info.fertilizer}\n\n🌾 **Harvesting:** ${info.harvesting}`;
+        return `${crop.charAt(0).toUpperCase() + crop.slice(1)}:\n\n• ${info.planting.split('.')[0]}\n• ${info.season}\n• ${info.fertilizer.split('.')[0]}`;
       }
     }
     
     // Check for general topics
     for (const [topic, info] of Object.entries(knowledgeBase.general)) {
       if (lowerMessage.includes(topic)) {
-        return `📚 **${topic.charAt(0).toUpperCase() + topic.slice(1)}:**\n\n${info}`;
+        return `${topic.charAt(0).toUpperCase() + topic.slice(1)}:\n\n${info}`;
       }
     }
     
     // Check for specific questions
     if (lowerMessage.includes('how to') || lowerMessage.includes('what is') || lowerMessage.includes('when to')) {
       if (lowerMessage.includes('plant')) {
-        return "🌱 **Planting Tips:**\n\n• Choose the right season for your crop\n• Prepare soil with organic matter\n• Plant at proper depth and spacing\n• Water immediately after planting\n• Protect young plants from pests\n• Use certified seeds when possible";
+        return "Planting:\n\n• Choose right season\n• Prepare soil\n• Plant at proper depth\n• Water after planting";
       }
       if (lowerMessage.includes('water') || lowerMessage.includes('irrigate')) {
-        return "💧 **Watering Guidelines:**\n\n• Water deeply but less frequently\n• Water early morning to reduce evaporation\n• Check soil moisture before watering\n• Use drip irrigation for efficiency\n• Adjust based on weather conditions\n• Avoid waterlogging";
+        return "Watering:\n\n• Water deeply, less frequently\n• Water early morning\n• Check soil moisture\n• Use drip irrigation";
       }
       if (lowerMessage.includes('harvest')) {
-        return "🌾 **Harvesting Tips:**\n\n• Harvest at peak ripeness\n• Use clean, sharp tools\n• Handle produce gently\n• Harvest in cool morning hours\n• Store properly after harvest\n• Check for disease before storage";
+        return "Harvesting:\n\n• Harvest at peak ripeness\n• Use clean tools\n• Handle gently\n• Store properly";
       }
       if (lowerMessage.includes('fertilize')) {
-        return "💩 **Fertilization Guide:**\n\n• Test soil before applying\n• Use organic options when possible\n• Apply at right growth stages\n• Don't over-fertilize\n• Water after application\n• Consider crop-specific needs";
+        return "Fertilization:\n\n• Test soil first\n• Use organic when possible\n• Apply at right stages\n• Don't over-fertilize";
       }
     }
     
     // Check for weather-related queries
     if (lowerMessage.includes('weather') || lowerMessage.includes('rain') || lowerMessage.includes('drought')) {
-      return "🌤️ **Weather & Farming:**\n\n• Monitor forecasts regularly\n• Adjust planting times based on rainfall\n• Use irrigation during dry spells\n• Protect crops from extreme weather\n• Consider drought-resistant varieties\n• Plan for climate variability";
+      return "Weather & Farming:\n\n• Monitor forecasts\n• Adjust planting times\n• Use irrigation when needed\n• Protect from extreme weather";
     }
     
     // Check for market queries
     if (lowerMessage.includes('market') || lowerMessage.includes('price') || lowerMessage.includes('sell')) {
-      return "💰 **Market & Sales:**\n\n• Research prices before planting\n• Consider contract farming\n• Diversify crops to spread risk\n• Store properly for off-season sales\n• Build relationships with buyers\n• Monitor market trends";
+      return "Market & Sales:\n\n• Research prices first\n• Consider contract farming\n• Diversify crops\n• Store for off-season";
     }
     
     // Default responses for unknown queries
     const defaultResponses = [
-      "I'm not sure about that specific question, but I can help with crop diseases, farming practices, pest control, and general agricultural advice. Could you rephrase your question?",
-      "That's an interesting question! While I don't have specific information on that, I'm knowledgeable about common crop diseases, treatment methods, and farming best practices. What else would you like to know?",
-      "I'm still learning about that topic. However, I can help you with identifying plant diseases, treatment recommendations, and general farming advice. What would you like to know about?",
-      "Great question! I specialize in crop diseases, farming techniques, pest management, and agricultural best practices. Could you ask about something in those areas?"
+      "I can help with crop diseases and farming. Try rephrasing your question.",
+      "I know about crop diseases and farming. What else can I help with?",
+      "I can help with plant diseases and farming. What do you need?",
+      "I specialize in crop diseases and farming. Ask about those topics."
     ];
     
     return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
@@ -170,26 +189,26 @@ const ChatBot = ({ onShowTraining }) => {
     setIsTyping(true);
     
     try {
-      console.log('🤖 Sending message to Gemini API...');
-      console.log('📋 ChatbotWrapper:', ChatbotWrapper);
-      console.log('📋 ChatbotWrapper type:', typeof ChatbotWrapper);
-      console.log('📋 ChatbotWrapper keys:', Object.keys(ChatbotWrapper || {}));
+      console.log('Sending message to Gemini API...');
+      console.log('ChatbotWrapper:', ChatbotWrapper);
+      console.log('ChatbotWrapper type:', typeof ChatbotWrapper);
+      console.log('ChatbotWrapper keys:', Object.keys(ChatbotWrapper || {}));
       
       // Use real Gemini chatbot API via wrapper
       const response = await ChatbotWrapper.sendMessage(inputText, userContext);
       
       if (response.success) {
-        console.log('✅ Gemini API response received');
+        console.log('Gemini API response received');
         const botMessage = {
           id: Date.now() + 1,
-          text: response.message,
+          text: cleanResponse(response.message),
           isBot: true,
           timestamp: new Date(),
         };
         
         setMessages(prev => [...prev, botMessage]);
       } else {
-        console.log('⚠️ Gemini API failed, using fallback');
+        console.log('Gemini API failed, using fallback');
         // Fallback to local knowledge base
         const botResponse = generateBotResponse(inputText);
         const botMessage = {
@@ -202,7 +221,7 @@ const ChatBot = ({ onShowTraining }) => {
         setMessages(prev => [...prev, botMessage]);
       }
     } catch (error) {
-      console.error('❌ Chatbot error:', error);
+      console.error('Chatbot error:', error);
       // Fallback to local knowledge base
       const botResponse = generateBotResponse(inputText);
       const botMessage = {
@@ -234,7 +253,7 @@ const ChatBot = ({ onShowTraining }) => {
           onPress: () => {
             setMessages([{
               id: Date.now(),
-              text: "Hello! I'm AgrofBot, your AI agricultural assistant powered by Gemini AI. I can help you with:\n\n🌱 Crop disease identification\n💊 Treatment recommendations\n🌾 Farming best practices\n🌿 Pest control advice\n📚 General agricultural knowledge\n🌤️ Weather-based advice\n💰 Market insights\n🏪 AGROF store product recommendations\n\nWhat would you like to know today?",
+              text: "Hello! I'm AgrofBot. I can help with:\n\n• Crop diseases\n• Farming tips\n• Pest control\n• Weather advice\n• Market info\n\nWhat do you need?",
               isBot: true,
               timestamp: new Date(),
             }]);
@@ -251,22 +270,21 @@ const ChatBot = ({ onShowTraining }) => {
   }, [messages]);
 
   return (
-    <KeyboardAvoidingView 
-      style={styles.container} 
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>💬 AgrofBot</Text>
-        <Text style={styles.headerSubtitle}>AI Agricultural Assistant</Text>
-        <View style={styles.headerButtons}>
-          <TouchableOpacity style={styles.trainingButton} onPress={onShowTraining}>
-            <Text style={styles.trainingButtonText}>🤖</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.clearButton} onPress={clearChat}>
-            <Text style={styles.clearButtonText}>🗑️</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+    <View style={styles.container}>
+      {/* Background Image */}
+      <Image 
+        source={require('../assets/care.png')} 
+        style={styles.backgroundImage}
+        resizeMode="cover"
+      />
+      
+      {/* Content Overlay */}
+      <View style={styles.overlay}>
+        <KeyboardAvoidingView 
+          style={styles.keyboardContainer} 
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
+        >
       
       <ScrollView 
         ref={scrollViewRef}
@@ -325,25 +343,39 @@ const ChatBot = ({ onShowTraining }) => {
           onPress={sendMessage}
           disabled={inputText.trim() === ''}
         >
-          <Text style={styles.sendButtonText}>📤</Text>
+          <Text style={styles.sendButtonText}>Send</Text>
         </TouchableOpacity>
       </View>
-    </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
   },
-  header: {
-    backgroundColor: '#4CAF50',
-    paddingTop: 50,
-    paddingBottom: 20,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-    position: 'relative',
+  backgroundImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Semi-transparent overlay for better text readability
+  },
+  keyboardContainer: {
+    flex: 1,
+  },
+  floatingButtons: {
+    position: 'absolute',
+    top: 50,
+    right: 20,
+    flexDirection: 'row',
+    zIndex: 1000,
   },
   headerTitle: {
     fontSize: 24,
@@ -362,14 +394,30 @@ const styles = StyleSheet.create({
     top: 50,
   },
   trainingButton: {
-    padding: 10,
+    backgroundColor: 'rgba(76, 175, 80, 0.9)',
+    borderRadius: 25,
+    padding: 12,
+    marginLeft: 10,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
   trainingButtonText: {
     fontSize: 20,
     color: 'white',
   },
   clearButton: {
-    padding: 10,
+    backgroundColor: 'rgba(244, 67, 54, 0.9)',
+    borderRadius: 25,
+    padding: 12,
+    marginLeft: 10,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
   clearButtonText: {
     fontSize: 20,
@@ -436,10 +484,16 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: 'row',
-    padding: 20,
+    padding: 15,
+    paddingBottom: Platform.OS === 'ios' ? 25 : 15,
     backgroundColor: 'white',
     borderTopWidth: 1,
     borderTopColor: '#eee',
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   textInput: {
     flex: 1,
@@ -450,7 +504,9 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     fontSize: 16,
     maxHeight: 100,
-    backgroundColor: '#f8f9fa',
+    minHeight: 45,
+    backgroundColor: 'white',
+    textAlignVertical: 'top',
   },
   sendButton: {
     backgroundColor: '#4CAF50',
@@ -465,8 +521,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#ccc',
   },
   sendButtonText: {
-    fontSize: 20,
+    fontSize: 16,
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
 
 export default ChatBot;
+

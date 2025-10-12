@@ -4,10 +4,10 @@
 Balton Uganda Ltd
 
 ## Overview
-Foliar fertilizer for every stage of your crop. Supplies Nitrogen, Phosphorus,Potassium, Magnesium and micronutrients.
+Foliar fertilizer for every stage of your crop. Supplies Nitrogen, Phosphorus, Potassium, Magnesium and micronutrients.
 
 ## Price Information
-25kg: UGX 350,000
+- 25kg: UGX 350,000
 
 ## Key Features
 - High quality agricultural fertilizer

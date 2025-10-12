@@ -20,23 +20,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Use Stellar Star when the weeds have germinated and are actively growing at 4-6 maize leaf stage**
-**Dosage:** 100mls/20ltrs of water
-**Rate of application:** 400mls per acre (Actual dosage could vary depending on mixing accuracy and speed of spraying)
-
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application timing**: Use when weeds have germinated and are actively growing at 4-6 maize leaf stage
+- **Dosage**: 100mls/20L of water
+- **Application rate**: 400mls per acre (actual dosage may vary depending on mixing accuracy and spraying speed)
+- **Target weeds**: Broad spectrum weeds in maize
+- **Application method**: Post-emergence herbicide
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Flexibility**: Widest flexibility of application timing
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Timing**: Apply when weeds are actively growing
+- **Maize stage**: Apply at 4-6 maize leaf stage
+- **Flexibility**: Longest window of application
 
 ## Benefits
-The longest window of application which keeps you on time
-Post emergence application giving you flexibility in use
-Broad spectrum weed control saving time and effort
-Safe on crop, tough on weeds giving confidence to the farmer
-Two active ingredients with different modes of action which is excellent for resistance management
+- **Longest application window**: Keeps you on time with flexible application timing
+- **Post-emergence flexibility**: Apply after weed emergence for maximum effectiveness
+- **Broad spectrum control**: Controls multiple weed types saving time and effort
+- **Crop safety**: Safe on maize, tough on weeds for farmer confidence
+- **Resistance management**: Two active ingredients with different modes of action
+- **Cost-effective**: Single application for season-long control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 1L: UGX 189,500

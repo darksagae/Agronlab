@@ -4,10 +4,10 @@
 Uganda Crop Care Limited
 
 ## Overview
-Rosasol - Even is a complete water-soluble fertilizer which provides all major plant nutrients i.e., Nitrogen, Phosphorus, Potassium plus some trace elements in a balanced ratio (NPK 19:19:19) to the plants and greatly boosts yields.
+Rosasol - Even is a complete water-soluble fertilizer which provides all major plant nutrients i.e., Nitrogen, Phosphorus, Potassium plus some trace elements in a balanced ratio (NPK 19:19:19) to the plants and greatly boosts yields. It can be applied through foliar spraying or fertigation.
 
 ## Price Information
-25 Kg: UGX 260,000
+- 25 Kg: UGX 260,000
 
 ## Key Features
 - High quality agricultural fertilizer

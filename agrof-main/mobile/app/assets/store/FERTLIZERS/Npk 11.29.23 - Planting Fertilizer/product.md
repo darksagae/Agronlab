@@ -4,10 +4,10 @@
 Export Trading Group
 
 ## Overview
-This provides / promotes root and shoots growth, phosphorous is important for regulating water and nutrient movement in the plant cell there by promoting fruiting, flowering, hardiness and promote over roll health of the plant.
+This provides / promotes root and shoots growth, phosphorous is important for regulating water and nutrient movement in the plant cell there by promoting fruiting, flowering, hardiness and promote over roll health of the plant providing resistance to diseases. This is a field grade fertilizer composed of Nitrogen, phosphorous and potassium in balanced proportions suitable for improved production of most crops, it is universal, can be used on all crops (from vegetables to fruit trees), it is essential in promoting the growth of leaves and vegetation. This is water soluble and can be taken up by the plant almost immediately this provides nutrients plants need at healthy growth seeds and seedling stage.
 
 ## Price Information
-50kg: UGX 160,000
+- 50kg: UGX 160,000
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -16,16 +16,22 @@ This provides / promotes root and shoots growth, phosphorous is important for re
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Soil application at planting
+- **Timing**: Apply during planting and early growth stages
+- **Target stages**: Seeds and seedling stage
+- **Frequency**: Apply as needed during growing season
+- **Method**: Broadcast or band application
+- **Water solubility**: Can be taken up by plants almost immediately
+- **Water management**: Water after application for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Root and shoot growth**: Promotes healthy root and shoot development
+- **Phosphorus benefits**: Regulates water and nutrient movement in plant cells
+- **Fruiting and flowering**: Promotes fruiting, flowering, and plant hardiness
+- **Disease resistance**: Provides resistance to diseases
+- **Universal application**: Suitable for all crops from vegetables to fruit trees
+- **Water soluble**: Immediate availability to plants
+- **Balanced nutrition**: NPK 11:29:23 in balanced proportions
 
 ## Storage Instructions
 - Store in cool, dry place

@@ -20,20 +20,30 @@ Easy to apply
 Compatible with most pesticides
 
 ## Usage Instructions
-**Mode/rate of use:** Foliar spray: 200-250g/100L (40-50g/20ltrs)
-**Dosage:** Varies depending on crop and disease
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Mode/rate of use**: Foliar spray: 200-250g/100L (40-50g/20L)
+- **Dosage**: Varies depending on crop and disease
+- **Application method**: Contact broad spectrum fungicide for Fungal diseases of Agricultural and horticultural crops
+- **Target diseases**: Fungal diseases of agricultural and horticultural crops
+- **Target crops**: Agricultural and horticultural crops
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredient**: Mancozeb 80%
+- **Formulation**: Wettable Powder (WP)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Contact action**: Contact broad spectrum fungicide for comprehensive disease control
+- **Protective action**: Provides protective action at early stages
+- **Multi-disease control**: Effective against fungal diseases of agricultural and horticultural crops
+- **Multi-crop use**: Suitable for agricultural and horticultural crops
 
 ## Benefits
-Contact broad spectrum protection
-Protective action at early stages
-Effective against fungal diseases
-Cost-effective solution
-Easy to use
+- **Contact broad spectrum protection**: Contact broad spectrum fungicide for Fungal diseases of Agricultural and horticultural crops
+- **Early stage protection**: Provides protective action at early stages
+- **Multi-disease control**: Effective against fungal diseases of agricultural and horticultural crops
+- **Multi-crop use**: Suitable for agricultural and horticultural crops
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 500g: UGX 17,000

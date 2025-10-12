@@ -20,21 +20,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Dosage:** 200-250ml of Butanil-70 per 20L of water
-**Application:** Apply as a pre or post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Dosage**: 200-250ml of Butanil-70 per 20L of water
+- **Application method**: Selective pre and post-emergence herbicide
+- **Target weeds**: Grasses and broadleaved weeds
+- **Target crops**: Rice and wheat
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: Selective herbicide
 
 ## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
-Post-emergence Spray: Direct application to weed foliage
+- **Pre-emergence**: Apply to soil before crop emergence
+- **Post-emergence**: Direct application to weed foliage
+- **Flexible timing**: Can be applied before or after weed emergence
+- **Selective control**: Targets weeds while protecting rice and wheat crops
+- **Contact action**: Kills susceptible weeds by direct contact action
 
 ## Benefits
-Effective control of grasses and broadleaved weeds
-Pre and post-emergence flexibility
-Selective action on rice and wheat
-Cost-effective solution
-Easy to use
+- **Grass and broadleaf control**: Effective control of grasses and broadleaved weeds
+- **Dual application**: Pre and post-emergence flexibility
+- **Selective action**: Safe for rice and wheat crops
+- **Contact action**: Kills susceptible weeds by direct contact
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Reliable results**: Most effective when applied to small, actively growing weeds
 
 ## Price Information
 Per 1L: UGX 29,000

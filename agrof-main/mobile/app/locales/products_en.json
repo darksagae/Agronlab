@@ -1,0 +1,222 @@
+{
+  "section_headers": {
+    "overview": "Overview",
+    "specifications": "Specifications",
+    "features": "Key Features",
+    "usage_instructions": "Usage Instructions",
+    "application_method": "Application Method",
+    "benefits": "Benefits",
+    "storage_instructions": "Storage Instructions",
+    "safety_info": "Safety Information",
+    "price": "Price Information",
+    "growing_requirements": "Growing Requirements",
+    "planting_instructions": "Planting Instructions",
+    "harvesting": "Harvesting",
+    "disease_resistance": "Disease Resistance",
+    "yield_potential": "Yield Potential",
+    "maturity": "Maturity",
+    "spacing": "Spacing",
+    "seed_rate": "Seed Rate"
+  },
+  "categories": {
+    "fertilizers": "Fertilizers",
+    "fungicides": "Fungicides",
+    "herbicides": "Herbicides",
+    "nursery_bed": "Nursery Bed",
+    "organic_chemicals": "Organic Chemicals",
+    "seeds": "Seeds"
+  },
+  "sugar_baby": {
+    "name": "Sugar Baby - Watermelon",
+    "description": "Early maturing watermelon variety with excellent fruit quality and high yield potential",
+    "overview": "Sugar Baby is a popular early maturing watermelon variety known for its sweet, crisp flesh and excellent transport quality. This variety is ideal for both commercial and home garden cultivation.",
+    "key_features": [
+      "Early maturity (80 days)",
+      "High yield potential (48-50 tons per acre)",
+      "Excellent fruit quality",
+      "Good transport quality",
+      "Dark green, round fruits",
+      "Very uniform growth",
+      "Wide soil adaptability"
+    ],
+    "growing_requirements": "Prefers warm climates with well-drained soil. Requires consistent moisture during fruit development.",
+    "planting_instructions": "Plant seeds 1-2 cm deep in well-prepared soil. Space plants 100cm x 100cm apart.",
+    "harvesting": "Harvest when fruits reach full size and develop proper color. Handle carefully to avoid damage.",
+    "disease_resistance": "Good resistance to common watermelon diseases",
+    "yield_potential": "48-50 tons per acre under good management",
+    "maturity": "80 days from planting",
+    "spacing": "100cm x 100cm",
+    "seed_rate": "500 grams per acre",
+    "benefits": [
+      "Early maturity for quick returns",
+      "High yield potential",
+      "Excellent fruit quality",
+      "Good transport quality",
+      "Uniform growth",
+      "Wide soil adaptability"
+    ],
+    "usage_instructions": [
+      "Plant in warm season when soil temperature is above 20°C",
+      "Provide consistent moisture during fruit development",
+      "Apply balanced fertilizer for optimal growth",
+      "Monitor for pests and diseases",
+      "Harvest at proper maturity for best quality"
+    ],
+    "application_method": "Direct seeding recommended. Plant in rows with proper spacing for optimal growth.",
+    "price": "Contact for current pricing"
+  },
+  "julie_f1": {
+    "name": "Julie F1 - Watermelon",
+    "description": "High-yielding hybrid watermelon with oblong shaped fruits and excellent disease resistance",
+    "overview": "Julie F1 is a popular hybrid watermelon variety known for its oblong shaped fruits, very sweet red flesh, and excellent disease resistance.",
+    "key_features": [
+      "Oblong shaped fruits",
+      "Very sweet red flesh",
+      "Tolerant to fusarium wilt and anthracnose",
+      "High yield potential (35-40 tons per acre)",
+      "Excellent fruit quality",
+      "Good transport quality"
+    ],
+    "growing_requirements": "Thrives in warm climates with well-drained soil. Requires consistent moisture.",
+    "planting_instructions": "Plant seeds 1-2 cm deep. Space plants 150cm x 100cm apart.",
+    "harvesting": "Harvest when fruits reach full size and develop proper color.",
+    "disease_resistance": "Tolerant to fusarium wilt and anthracnose",
+    "yield_potential": "35-40 tons per acre",
+    "maturity": "85 days from planting",
+    "spacing": "150cm x 100cm",
+    "seed_rate": "500 grams per acre",
+    "benefits": [
+      "High yield potential",
+      "Excellent disease resistance",
+      "Very sweet fruit quality",
+      "Good transport quality",
+      "Oblong shaped fruits"
+    ],
+    "usage_instructions": [
+      "Plant in warm season",
+      "Provide consistent moisture",
+      "Apply balanced fertilizer",
+      "Monitor for diseases",
+      "Harvest at proper maturity"
+    ],
+    "application_method": "Direct seeding recommended with proper spacing.",
+    "price": "Contact for current pricing"
+  },
+  "drumhead_cabbage": {
+    "name": "Drumhead - Cabbage",
+    "description": "Cool season cabbage variety with large, round heads and excellent storage quality",
+    "overview": "Drumhead cabbage is a cool season variety known for its large, round heads and excellent storage quality. Ideal for areas with moderate to heavy rainfall.",
+    "key_features": [
+      "Cool season variety",
+      "Large, round heads",
+      "Excellent storage quality",
+      "High yield potential (32 tons per acre)",
+      "Good disease resistance",
+      "Suitable for commercial farming"
+    ],
+    "growing_requirements": "Prefers cool conditions with well-distributed, moderate to heavy rainfall.",
+    "planting_instructions": "Transplant seedlings when they have 4-6 true leaves. Space plants 60cm x 45cm apart.",
+    "harvesting": "Harvest when heads are firm and reach desired size.",
+    "disease_resistance": "Good resistance to common cabbage diseases",
+    "yield_potential": "32 tons per acre",
+    "maturity": "90 days from transplanting",
+    "spacing": "60cm x 45cm",
+    "seed_rate": "120 grams per acre",
+    "benefits": [
+      "Cool season adaptation",
+      "High yield potential",
+      "Excellent storage quality",
+      "Round head shape",
+      "Good disease resistance",
+      "Commercial farming suitability"
+    ],
+    "usage_instructions": [
+      "Plant in cool season",
+      "Transplant when seedlings are ready",
+      "Provide consistent moisture",
+      "Apply balanced fertilizer",
+      "Monitor for pests and diseases",
+      "Harvest at proper maturity"
+    ],
+    "application_method": "Transplanting recommended for better establishment.",
+    "price": "Contact for current pricing"
+  },
+  "copenhagen_cabbage": {
+    "name": "Copenhagen - Cabbage",
+    "description": "Early maturing cabbage variety with excellent quality and high yield potential",
+    "overview": "Copenhagen cabbage is an early maturing variety known for its excellent quality and high yield potential. Suitable for well-drained soils with low organic matter.",
+    "key_features": [
+      "Early maturity (65 days)",
+      "Excellent quality",
+      "High yield potential (34 tons per acre)",
+      "Good soil adaptability",
+      "Uniform growth",
+      "Commercial farming suitability"
+    ],
+    "growing_requirements": "Prefers well-drained soil with low organic matter content.",
+    "planting_instructions": "Transplant seedlings when ready. Space plants 60cm x 45cm apart.",
+    "harvesting": "Harvest when heads are firm and reach desired size.",
+    "disease_resistance": "Good resistance to common cabbage diseases",
+    "yield_potential": "34 tons per acre",
+    "maturity": "65 days from transplanting",
+    "spacing": "60cm x 45cm",
+    "seed_rate": "120 grams per acre",
+    "benefits": [
+      "Early maturity",
+      "High yield potential",
+      "Excellent quality",
+      "Soil adaptability",
+      "Uniform growth",
+      "Commercial suitability"
+    ],
+    "usage_instructions": [
+      "Plant in suitable season",
+      "Transplant when ready",
+      "Provide adequate moisture",
+      "Apply balanced fertilizer",
+      "Monitor for diseases",
+      "Harvest at proper maturity"
+    ],
+    "application_method": "Transplanting recommended for optimal results.",
+    "price": "Contact for current pricing"
+  },
+  "coriander_dhania": {
+    "name": "Coriander Dhania",
+    "description": "Traditional coriander variety with excellent flavor and aroma, perfect for culinary use",
+    "overview": "Coriander Dhania is a traditional variety known for its excellent flavor and aroma. Perfect for culinary use and easy to grow.",
+    "key_features": [
+      "Traditional variety",
+      "Excellent flavor and aroma",
+      "Quick maturity (4-6 weeks)",
+      "Easy to grow",
+      "Container friendly",
+      "Versatile use"
+    ],
+    "growing_requirements": "Prefers well-drained soil with good organic matter content.",
+    "planting_instructions": "Plant seeds in drills 30cm apart at 2.5-3.5cm depth.",
+    "harvesting": "Harvest leaves when needed. Seeds can be harvested when mature.",
+    "disease_resistance": "Good resistance to common herb diseases",
+    "yield_potential": "Continuous harvest of leaves",
+    "maturity": "4-6 weeks for leaf harvest",
+    "spacing": "30cm between rows",
+    "seed_rate": "As needed for continuous harvest",
+    "benefits": [
+      "Traditional variety",
+      "Quick maturity",
+      "Easy growing",
+      "Container friendly",
+      "Versatile use",
+      "High demand"
+    ],
+    "usage_instructions": [
+      "Plant in drills 30cm apart",
+      "Sow at 2.5-3.5cm depth",
+      "Keep soil moist",
+      "Harvest leaves as needed",
+      "Allow some plants to seed",
+      "Continuous planting for steady supply"
+    ],
+    "application_method": "Direct seeding in drills recommended.",
+    "price": "Contact for current pricing"
+  }
+}

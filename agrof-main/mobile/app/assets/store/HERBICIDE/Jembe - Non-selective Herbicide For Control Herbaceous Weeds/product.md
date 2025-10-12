@@ -19,24 +19,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**APPLY JEMBE to actively growing weeds that are not dormant or under temperature or moisture stress**
-**Weeds controlled include:** couch grass, paspalum, Kikuyu grass, wild sorghum, nut sedges, blackjack, pigweed, thorn apple, nightshade etc.
-
-**Mixing/dosage:** Half fill the spray tank with clean water and add 150-200mls of JEMBE in a 15 to 20ltrs respectively. Mix thoroughly and fill the tank to the required volume.
-
-**Application:** Apply as a foliar spray
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application conditions**: Apply to actively growing weeds that are not dormant or under temperature or moisture stress
+- **Weeds controlled**: Couch grass, paspalum, Kikuyu grass, wild sorghum, nut sedges, blackjack, pigweed, thorn apple, nightshade etc.
+- **Mixing ratio**: Half fill the spray tank with clean water and add 150-200mls of JEMBE in 15-20L respectively. Mix thoroughly and fill the tank to the required volume.
+- **Application method**: Non-selective herbicide
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
 
 ## Application Method
-Foliar Spray: Direct application to weed foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to weed foliage
+- **Non-selective**: Controls all vegetation it contacts
+- **Use areas**: Non-crop areas and land preparation
+- **Water-soluble**: Mixes well with water for easy application
 
 ## Benefits
-Effective control of herbaceous plants
-Non-selective action
-Cost-effective solution
-Easy to use
-Water-soluble formulation
+- **Herbaceous control**: Effective control of most herbaceous plants
+- **Non-selective action**: Controls all vegetation it contacts
+- **Water-soluble formulation**: Mixes well with water for easy application
+- **Cost-effective**: Single application for complete control
+- **Easy application**: Simple mixing and spray application
+- **Versatile use**: Suitable for non-crop areas and land preparation
+- **Reliable results**: Visible effects appear 10-14 days after treatment
 
 ## Price Information
 Per 500ml: UGX 5,750

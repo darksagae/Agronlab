@@ -1,14 +1,20 @@
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, Alert, ActivityIndicator, TextInput, FlatList, Animated, Easing } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, Alert, ActivityIndicator, TextInput, FlatList, Animated, Easing, Modal } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useSafeTranslation } from '../i18n';
 import { categoriesApi, productsApi, healthCheck } from '../services/storeApi';
 import { useCart } from '../contexts/CartContext';
+import { useLanguage } from '../contexts/LanguageContext';
+import storeImageService from '../services/storeImageService';
+import OptimizedImage from '../components/OptimizedImage';
 import CategoryProductsScreen from './CategoryProductsScreen';
 import CartScreen from './CartScreen';
 import ProductDetailScreen from './ProductDetailScreen';
 import { featuredProducts } from '../data/featuredProducts';
 
 const StoreScreen = () => {
+  const { t } = useSafeTranslation();
+  const { currentLanguage, forceUpdate } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showCart, setShowCart] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -20,11 +26,6 @@ const StoreScreen = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
   
-  // Debug state changes
-  useEffect(() => {
-    console.log('🔍 Search results state changed:', showSearchResults);
-    console.log('🎯 Featured products should be visible:', !showSearchResults);
-  }, [showSearchResults]);
   const [backendStatus, setBackendStatus] = useState('checking');
   
   // Marquee animation
@@ -32,31 +33,14 @@ const StoreScreen = () => {
 
   const { getTotalItems } = useCart();
 
-
   // Function to get real product images from store folder
   const getProductImage = (product) => {
-    // For now, use category images to avoid complex path issues
-    // TODO: Implement real product images later
-    console.log('🎯 Using category image for product:', product.name, 'category:', product.category);
-    return getCategoryImage(product.category);
+    return storeImageService.getProductImage(product);
   };
 
   // Legacy function for backward compatibility
   const getCategoryImage = (categoryName) => {
-    console.log('🖼️ Getting category image for:', categoryName);
-    const imageMap = {
-      'fertilizers': require('../assets/fertilizers.png'),
-      'fungicides': require('../assets/fungicides.png'),
-      'herbicides': require('../assets/herbicides.png'),
-      'nursery_bed': require('../assets/nurserybed.png'),
-      'organic_chemicals': require('../assets/organic_chemicals.png'),
-      'seeds': require('../assets/seeds.png'),
-      'pesticides': require('../assets/fungicides.png'),
-      'tools': require('../assets/fertilizers.png'),
-    };
-    const image = imageMap[categoryName] || require('../assets/fertilizers.png');
-    console.log('🖼️ Category image result:', image ? 'Found' : 'Not found');
-    return image;
+    return storeImageService.getCategoryImage(categoryName);
   };
 
   // Fallback categories if API fails
@@ -69,24 +53,54 @@ const StoreScreen = () => {
     { id: 6, name: 'seeds', display_name: 'Seeds', image: require('../assets/seeds.png') },
   ], []);
 
-  // Featured products fetched from JavaScript array
+  // Featured products from API with fallback to static data
   const extendedFeaturedProducts = useMemo(() => {
-    console.log('🎯 Featured Products loaded:', featuredProducts.length, 'products');
-    console.log('🎯 First few products:', featuredProducts.slice(0, 3));
-    console.log('🎯 Sample product with imagePath:', featuredProducts[0]);
-    return featuredProducts;
-  }, []);
+    console.log('🔄 Featured products update:', {
+      apiProducts: apiFeaturedProducts.length,
+      staticProducts: featuredProducts.length,
+      usingApi: apiFeaturedProducts.length > 0
+    });
+    return apiFeaturedProducts.length > 0 ? apiFeaturedProducts : featuredProducts;
+  }, [apiFeaturedProducts]);
 
   // Load categories and featured products on mount
   useEffect(() => {
     loadStoreData();
   }, []);
 
+  // Retry loading if featured products fail
+  useEffect(() => {
+    if (apiFeaturedProducts.length === 0 && !loading) {
+      console.log('🔄 Retrying featured products loading...');
+      const retryTimer = setTimeout(() => {
+        loadStoreData();
+      }, 2000);
+      return () => clearTimeout(retryTimer);
+    }
+  }, [apiFeaturedProducts.length, loading]);
+
+  // Preload images when products are loaded
+  useEffect(() => {
+    if (apiFeaturedProducts.length > 0) {
+      storeImageService.preloadImages(apiFeaturedProducts);
+    }
+  }, [apiFeaturedProducts]);
+
+  // Preload category images for faster loading
+  useEffect(() => {
+    if (categories.length > 0) {
+      const categoryProducts = categories.map(cat => ({ 
+        id: cat.id, 
+        name: cat.name, 
+        category_name: cat.name 
+      }));
+      storeImageService.preloadImages(categoryProducts);
+    }
+  }, [categories]);
+
   // Start marquee animation - never stops
   useEffect(() => {
     if (extendedFeaturedProducts.length === 0) return;
-    
-    console.log('🎬 Starting marquee animation with', extendedFeaturedProducts.length, 'products');
     
     const startMarquee = () => {
       marqueeAnimation.setValue(0);
@@ -94,7 +108,7 @@ const StoreScreen = () => {
       const animate = () => {
         Animated.timing(marqueeAnimation, {
           toValue: 1,
-          duration: 60000, // 60 seconds for slower movement
+          duration: 20000, // 20 seconds for faster movement
           useNativeDriver: true,
           easing: Easing.linear,
         }).start(() => {
@@ -118,29 +132,59 @@ const StoreScreen = () => {
       setLoading(true);
       console.log('🔄 Loading store data...');
       
-      // Check backend health
-      console.log('🔍 Checking backend health...');
-      const health = await healthCheck();
-      console.log('🏥 Health check result:', health);
-      setBackendStatus(health.status === 'OK' ? 'connected' : 'disconnected');
+      // Load categories and products in parallel (streamlined for speed)
+      const [health, categoriesData, productsData] = await Promise.allSettled([
+        healthCheck().catch(err => {
+          console.warn('⚠️ Health check error:', err);
+          return { status: 'ERROR', message: err.message };
+        }),
+        categoriesApi.getAll(currentLanguage).catch(err => {
+          console.warn('⚠️ Categories API error:', err);
+          return [];
+        }),
+        productsApi.getAll({ limit: 6, language: currentLanguage }).catch(err => {
+          console.warn('⚠️ Products API error:', err);
+          return [];
+        })
+      ]);
       
-      // Load categories
-      console.log('📂 Loading categories...');
-      const categoriesData = await categoriesApi.getAll();
-      console.log('📂 Categories loaded:', categoriesData.length, 'categories');
-      console.log('📂 Categories data:', categoriesData);
-      setCategories(categoriesData.length > 0 ? categoriesData : fallbackCategories);
+      // Handle health check result
+      if (health.status === 'fulfilled' && health.value) {
+        console.log('🏥 Health check result:', health.value);
+        setBackendStatus(health.value.status === 'OK' ? 'connected' : 'disconnected');
+      } else {
+        console.warn('⚠️ Health check failed, using fallback');
+        setBackendStatus('disconnected');
+      }
       
-      // Load featured products
-      console.log('⭐ Loading featured products...');
-      const productsData = await productsApi.getAll({ limit: 6 });
-      console.log('⭐ Featured products loaded:', productsData.length, 'products');
-      setApiFeaturedProducts(productsData);
+      // Handle categories result
+      if (categoriesData.status === 'fulfilled' && categoriesData.value) {
+        console.log('📂 Categories loaded:', categoriesData.value.length, 'categories');
+        setCategories(categoriesData.value.length > 0 ? categoriesData.value : fallbackCategories);
+      } else {
+        console.warn('⚠️ Categories loading failed, using fallback');
+        setCategories(fallbackCategories);
+      }
+      
+      // Handle products result
+      if (productsData.status === 'fulfilled' && productsData.value) {
+        console.log('⭐ Featured products loaded:', productsData.value.length, 'products');
+        console.log('⭐ Featured products data:', productsData.value);
+        setApiFeaturedProducts(productsData.value);
+      } else {
+        console.warn('⚠️ Products loading failed, using fallback');
+        console.warn('⚠️ Products error details:', productsData.reason);
+        setApiFeaturedProducts([]);
+      }
       
     } catch (error) {
-      console.error('❌ Failed to load store data:', error);
+      console.error('❌ Critical error in loadStoreData:', error);
       setBackendStatus('disconnected');
+      
+      // Use fallback data immediately for faster display
       setCategories(fallbackCategories);
+      setApiFeaturedProducts([]);
+      
     } finally {
       setLoading(false);
     }
@@ -148,16 +192,15 @@ const StoreScreen = () => {
 
   // Search functionality
   const handleSearch = async (query) => {
-    setSearchQuery(query);
-    
-    if (query.trim().length < 2) {
+    // Don't search if query is empty or too short
+    if (!query || query.trim().length < 2) {
       setSearchResults([]);
       setShowSearchResults(false);
       return;
     }
 
     try {
-      const results = await productsApi.search(query);
+      const results = await productsApi.search(query.trim());
       setSearchResults(results);
       setShowSearchResults(true);
     } catch (error) {
@@ -185,10 +228,16 @@ const StoreScreen = () => {
   // Show product detail screen if a product is selected
   if (selectedProduct) {
     return (
-      <ProductDetailScreen 
-        route={{ params: { productId: selectedProduct.id, product: selectedProduct } }}
-        navigation={{ goBack: () => setSelectedProduct(null) }}
-      />
+      <Modal
+        visible={true}
+        animationType="slide"
+        presentationStyle="fullScreen"
+      >
+        <ProductDetailScreen 
+          route={{ params: { productId: selectedProduct.id, product: selectedProduct } }}
+          navigation={{ goBack: () => setSelectedProduct(null) }}
+        />
+      </Modal>
     );
   }
 
@@ -217,24 +266,24 @@ const StoreScreen = () => {
         <View style={styles.header}>
           <View style={styles.headerTitleContainer}>
             <MaterialIcons name="store" size={32} color="white" />
-            <Text style={styles.headerTitle}>AGROF Store</Text>
+            <Text style={styles.headerTitle}>{t('store.title')}</Text>
           </View>
         </View>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#4CAF50" />
-          <Text style={styles.loadingText}>Loading store...</Text>
+          <Text style={styles.loadingText}>{t('common.loading')}</Text>
         </View>
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <View key={`store-${currentLanguage}-${forceUpdate}`} style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerTitleContainer}>
           <MaterialIcons name="store" size={32} color="white" />
-          <Text style={styles.headerTitle}>AGROF Store</Text>
+            <Text style={styles.headerTitle}>{t('store.title')}</Text>
           <TouchableOpacity 
             style={styles.cartButton}
             onPress={() => setShowCart(true)}
@@ -247,7 +296,7 @@ const StoreScreen = () => {
             )}
           </TouchableOpacity>
         </View>
-        <Text style={styles.headerSubtitle}>Quality agricultural products for your farm</Text>
+        <Text style={styles.headerSubtitle}>{t('store.subtitle')}</Text>
         
         {/* Backend Status */}
         <View style={styles.statusContainer}>
@@ -269,10 +318,14 @@ const StoreScreen = () => {
           <MaterialIcons name="search" size={20} color="#666" style={styles.searchIcon} />
           <TextInput
             style={styles.searchInput}
-            placeholder="Search products..."
+            placeholder={t('store.search')}
             value={searchQuery}
-            onChangeText={setSearchQuery}
+            onChangeText={(text) => {
+              setSearchQuery(text);
+              // Only search when user presses enter, not on every keystroke
+            }}
             onSubmitEditing={() => handleSearch(searchQuery)}
+            returnKeyType="search"
             placeholderTextColor="#999"
           />
           {searchQuery.length > 0 && (
@@ -299,9 +352,10 @@ const StoreScreen = () => {
                 style={styles.searchResultItem}
                 onPress={() => setSelectedProduct(item)}
               >
-                <Image 
-                  source={item.image_url ? { uri: `http://192.168.1.15:3001${item.image_url}` } : getCategoryImage(item.category_name)} 
-                  style={styles.searchResultImage} 
+                <OptimizedImage 
+                  product={item}
+                  style={styles.searchResultImage}
+                  resizeMode="cover"
                 />
                 <View style={styles.searchResultContent}>
                   <Text style={styles.searchResultName}>{item.name}</Text>
@@ -318,8 +372,7 @@ const StoreScreen = () => {
       {/* Featured Products Marquee */}
       {!showSearchResults && (
         <View style={styles.featuredContainer}>
-          <Text style={styles.featuredTitle}>Featured Products</Text>
-          {console.log('🎬 Rendering marquee with', extendedFeaturedProducts.length, 'products')}
+          <Text style={styles.featuredTitle}>{t('store.featured')}</Text>
           {extendedFeaturedProducts.length > 0 ? (
             <View style={styles.marqueeContainer}>
             <Animated.View 
@@ -337,7 +390,12 @@ const StoreScreen = () => {
             >
               {/* First set of products */}
               {extendedFeaturedProducts.map((product, index) => {
-                console.log(`🎬 Rendering product ${index + 1}:`, product.name, 'imagePath:', product.imagePath);
+                console.log('🎯 Marquee product:', { 
+                  id: product.id, 
+                  name: product.name, 
+                  price: product.price,
+                  index 
+                });
                 return (
                   <TouchableOpacity 
                     key={product.id} 
@@ -374,7 +432,9 @@ const StoreScreen = () => {
           </View>
           ) : (
             <View style={styles.marqueeContainer}>
-              <Text style={styles.noProductsText}>Loading featured products...</Text>
+              <Text style={styles.noProductsText}>
+                {loading ? t('common.loading') : 'Featured products loading...'}
+              </Text>
             </View>
           )}
         </View>
@@ -383,21 +443,19 @@ const StoreScreen = () => {
       {/* Category Grid */}
       {!showSearchResults && (
       <View style={styles.categoriesContainer}>
-          <Text style={styles.categoriesTitle}>Categories</Text>
+          <Text style={styles.categoriesTitle}>{t('store.categories')}</Text>
         <View style={styles.categoriesGrid}>
-          {console.log('🏪 Rendering categories:', categories.length, 'categories')}
           {categories.map((category, index) => {
-            console.log(`🏪 Category ${index + 1}:`, category.name, 'display_name:', category.display_name);
             return (
               <TouchableOpacity
                 key={category.id}
                 style={styles.categoryCard}
                 onPress={() => handleCategoryPress(category)}
               >
-                <Image 
-                  source={getCategoryImage(category.name)} 
-                  style={styles.categoryImage} 
-                  resizeMode="cover" 
+                <OptimizedImage 
+                  product={{ category_name: category.name, id: category.id }}
+                  style={styles.categoryImage}
+                  resizeMode="cover"
                 />
                 <Text style={styles.categoryText}>
                   {category.display_name || category.name}
@@ -566,13 +624,22 @@ const styles = StyleSheet.create({
   },
   featuredContainer: {
     marginBottom: 20,
+    backgroundColor: 'white',
+    borderRadius: 15,
+    padding: 15,
+    margin: 15,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   featuredTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#2c5530',
-    marginLeft: 15,
+    color: '#333',
     marginBottom: 10,
+    textAlign: 'center',
   },
   featuredScroll: {
     paddingLeft: 15,
@@ -630,13 +697,21 @@ const styles = StyleSheet.create({
   },
   categoriesContainer: {
     padding: 20,
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
+    borderRadius: 15,
+    margin: 15,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   categoriesTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#2c5530',
+    color: '#333',
     marginBottom: 15,
+    textAlign: 'center',
   },
   categoriesGrid: {
     flexDirection: 'row',
@@ -649,7 +724,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     borderRadius: 15,
-    padding: 15,
+    padding: 20,
     elevation: 3,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -657,10 +732,10 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   categoryImage: {
-    width: 80,
-    height: 80,
+    width: 120,
+    height: 120,
     marginBottom: 10,
-    borderRadius: 40,
+    borderRadius: 60,
   },
   categoryText: {
     fontSize: 14,

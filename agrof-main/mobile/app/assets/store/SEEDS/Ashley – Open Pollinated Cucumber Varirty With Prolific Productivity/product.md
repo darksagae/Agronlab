@@ -32,24 +32,32 @@ Water: Regular irrigation needed
 Spacing: 90cm x 90cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 12 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 15°C+
-Germination: 7-10 days
-Transplanting: When seedlings have 2-3 true leaves
+- **Variety type**: Open pollinated cucumber that has been grown for years in most vegetable gardens
+- **Fruit characteristics**: Excellent for slicing, early variety with prolific producer of medium size 30cm fruits
+- **Fruit color**: Darker than other cultivars
+- **Disease resistance**: Resistant to downy mildew and other problems normally caused by humid conditions
+- **Growing conditions**: Also grows well in containers
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 15°C+
+- **Germination**: 7-10 days
+- **Transplanting**: When seedlings have 2-3 true leaves
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 90cm x 90cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Open pollinated cucumber for prolific productivity
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Container growing**: Also grows well in containers
+- **Disease resistance**: Resistant to downy mildew and other problems normally caused by humid conditions
+- **Versatile use**: Excellent for slicing and fresh consumption
 
 ## Benefits
-Prolific Yield: High production per plant
-Open Pollinated: Can save seeds for next season
-Excellent Quality: Crisp, flavorful fruits
-Versatile Use: Fresh consumption and pickling
-Disease Resistance: Reduces crop losses
-Easy Growing: Suitable for beginners
+- **Prolific productivity**: Prolific producer of medium size 30cm fruits
+- **Open pollinated**: Can save seeds for next season
+- **Disease resistance**: Resistant to downy mildew and other problems normally caused by humid conditions
+- **Container friendly**: Also grows well in containers
+- **Early variety**: Early variety with excellent productivity
+- **Versatile use**: Excellent for slicing and fresh consumption
+- **Easy growing**: Suitable for beginners and experienced gardeners
 
 ## Price Information
 Per 1000 seeds: UGX 20,000

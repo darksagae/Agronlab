@@ -20,21 +20,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Dosage:** 100-120ml in 20L of water
-**Mixing Instructions:** Half fill tank with water, then pour required Glufosun amount in tank through sieve. Agitate thoroughly and fill to the mark.
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Dosage**: 100-120ml in 20L of water
+- **Mixing instructions**: Half fill tank with water, then pour required Glufosun amount in tank through sieve. Agitate thoroughly and fill to the mark.
+- **Application method**: Non-residual post-emergence herbicide
+- **Target weeds**: Broadleaf and grass weeds
+- **Target crops**: Tree crops, bananas, cassava, coffee and many others
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Non-residual**: No residual activity in soil
+- **Multi-crop use**: Suitable for tree crops, bananas, cassava, coffee and many others
+- **Plantation use**: Ideal for plantation weed control
 
 ## Benefits
-Effective control of broadleaf and grass weeds
-Non-residual action
-Suitable for multiple crops
-Cost-effective solution
-Easy to use
+- **Broad spectrum control**: Effective against broadleaf and grass weeds
+- **Non-residual action**: No residual activity in soil
+- **Multi-crop use**: Suitable for tree crops, bananas, cassava, coffee and many others
+- **Plantation control**: Ideal for plantation weed control
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Reliable results**: Proven effectiveness in plantation systems
 
 ## Price Information
 Per 1L: UGX 20,000

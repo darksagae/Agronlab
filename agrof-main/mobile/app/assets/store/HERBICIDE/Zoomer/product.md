@@ -20,21 +20,31 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Rate:** Tea- 800mls/acre, Grapes and non-crop areas-1250mls/acre
-**Mixing:** 125mls/20ltrs of water
-**Application:** Apply as a post emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application rate**: Tea- 800mls/acre, Grapes and non-crop areas-1250mls/acre
+- **Mixing ratio**: 125mls/20L of water
+- **Application method**: Non-selective, contact and systemic herbicide
+- **Target weeds**: Grasses, sedges & broad-leaved weeds
+- **Target areas**: Non-crop, Orchard and plantation crops
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Use areas**: Non-crop, Orchard and plantation crops
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Contact action**: Kills weeds on contact
+- **Systemic action**: Moves throughout the plant for complete control
+- **Foliar and soil activity**: Effective on both foliage and soil
+- **Broad spectrum**: Controls grasses, sedges & broad-leaved weeds
 
 ## Benefits
-Effective control of grasses, sedges & broad-leaved weeds
-Contact and systemic action
-Broad spectrum activity
-Cost-effective solution
-Easy to use
+- **Broad spectrum control**: Effective control of grasses, sedges & broad-leaved weeds
+- **Dual action**: Contact and systemic action for complete control
+- **Non-selective**: Controls all vegetation it contacts
+- **Multi-area use**: Suitable for non-crop, Orchard and plantation crops
+- **Cost-effective**: Single application for complete control
+- **Easy application**: Simple mixing and spray application
+- **Reliable results**: Proven effectiveness in various agricultural settings
 
 ## Price Information
 Per 1L: UGX 48,400

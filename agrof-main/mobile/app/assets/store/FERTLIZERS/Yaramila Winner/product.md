@@ -4,10 +4,10 @@
 Yara East Africa Ltd
 
 ## Overview
-YaraMila™️ WINNER™️ is a combination of Potassium Chloride (65%) and Potassium Sulphate (35%). It is a high quality, compound NPK with micronutrients, ideally suited for vegetables including potatoes.
+YaraMila™️ WINNER™️ is a combination of Potassium Chloride (65%) and Potassium Sulphate (35%). It is a high quality, compound NPK with micronutrients, ideally suited for vegetables including potatoes. It is an excellent combination of Nitrogen. Nitrate Nitrogen is immediately available to the plant and its uptake is rapid. Ammonium Nitrogen is a little slower in availability to the plant as it needs to be converted in the soil to Nitrate Nitrogen. Nitrogen forms in YaraMila™️ WINNER™️ are a combination of quicker and slower availability. This balance helps ensure the crop the best opportunity for rapid growth, higher yields and larger produce.
 
 ## Price Information
-50 Kg: UGX 165,000
+- 50 Kg: UGX 165,000
 
 ## Key Features
 - High quality agricultural fertilizer

@@ -21,20 +21,30 @@ Cost-effective solution
 Easy to apply
 
 ## Usage Instructions
-**Rate of use:** 16g/20Ltrs of water (800g/Ha)
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
-**Coverage:** Ensure complete coverage of plant foliage
+- **Rate of use**: 16g/20L of water (800g/Ha)
+- **Application method**: Systemic fungicide with curative and protective action
+- **Target diseases**: Scab, powdery mildews, canker, Botrytis and Sclerotinia spp
+- **Target crops**: Various crops
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Coverage**: Ensure complete coverage of plant foliage
+- **Active ingredient**: Thiophanate Methyl 70%
+- **Formulation**: Water Dispersible Granules (WDG)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed by plant tissues and translocated throughout the plant
+- **Curative action**: Effective against existing fungal infections
+- **Protective action**: Provides protection before disease infection
+- **Water dispersible**: Water dispersible granules for easy mixing
 
 ## Benefits
-Systemic protection throughout the plant
-Curative and protective action
-Effective against multiple diseases
-Cost-effective solution
-Easy to use
+- **Systemic protection**: Systemic fungicide with curative and protective action
+- **Dual action**: Both curative and protective properties
+- **Multi-disease control**: Effective against scab, powdery mildews, canker, Botrytis and Sclerotinia spp
+- **Multi-crop use**: Suitable for various crops
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 500g: UGX 35,000

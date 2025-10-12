@@ -7,7 +7,7 @@ Grain Pulse Ltd
 Blended Fertilizer for Cassava, Sweet potato, Used for planting and top-dressing after 2 months. Application rate: 75kg/acre.
 
 ## Price Information
-25 Kg: UGX 70,000
+- 25 Kg: UGX 70,000
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -16,16 +16,22 @@ Blended Fertilizer for Cassava, Sweet potato, Used for planting and top-dressing
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Soil application
+- **Application rate**: 75kg per acre
+- **Timing**: Apply at planting and top-dressing after 2 months
+- **Target crops**: Cassava and sweet potato
+- **Frequency**: Apply at planting and after 2 months
+- **Method**: Broadcast or band application
+- **Water management**: Water after application for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Crop-specific**: Blended specifically for cassava and sweet potato
+- **Balanced nutrition**: NPK 14:10:28 + 25% additional nutrients
+- **Planting support**: Ideal for planting applications
+- **Top-dressing**: Suitable for top-dressing after 2 months
+- **Yield improvement**: Boosts yields in cassava and sweet potato
+- **Cost-effective**: Tailored nutrition for root crops
+- **Easy application**: Simple application method
 
 ## Storage Instructions
 - Store in cool, dry place

@@ -32,24 +32,33 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: No special treatment required
-Planting Depth: 1-2 cm deep
-Planting Time: 6-8 weeks before last frost
-Germination: 7-10 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Growing conditions**: Prefers Cool conditions, suitable for areas with well distributed, moderate to Heavy rainfall
+- **Transplant to harvest days**: 90 days
+- **Seed rate**: 120g/acre
+- **Spacing**: 60*45cm
+- **Head shape**: Round
+- **Average potential yield**: 32 Tones Per Acre
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: 6-8 weeks before last frost
+- **Germination**: 7-10 days
+- **Transplanting**: When seedlings have 4-6 true leaves
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Cool season cabbage variety with large heads
+- **Spacing**: 60*45cm between plants
+- **Growing conditions**: Prefers Cool conditions, suitable for areas with well distributed, moderate to Heavy rainfall
+- **Head characteristics**: Round heads with excellent quality
+- **Yield potential**: 32 Tones Per Acre
 
 ## Benefits
-Large Heads: Market-preferred size
-Excellent Quality: Uniform, round heads
-High Yield: Good production per plant
-Good Storage: Long shelf life
-Disease Resistance: Reduces crop losses
-Suitable for Large Scale: Ideal for commercial farming
+- **Cool season variety**: Prefers Cool conditions, suitable for areas with well distributed, moderate to Heavy rainfall
+- **High yield potential**: 32 Tones Per Acre under good management
+- **Round heads**: Round heads with excellent quality
+- **Good storage**: Long shelf life
+- **Disease resistance**: Reduces crop losses
+- **Suitable for large scale**: Ideal for commercial farming
+- **Market demand**: Popular variety with excellent market acceptance
 
 ## Price Information
 Per 1000 seeds: UGX 25,000

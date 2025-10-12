@@ -20,21 +20,30 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Dosage:** 150mls/20ltrs of water
-**Rate of application:** 1.2-6ltrs/Ha depending on crop and growth stage
-**Application:** Apply as a selective systemic herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Dosage**: 150mls/20L of water
+- **Application rate**: 1.2-6L/Ha depending on crop and growth stage
+- **Application method**: Selective systemic herbicide
+- **Target weeds**: Broad leaved weeds
+- **Target crops**: Wheat, maize, rice and plantation crops like rubber, oil palm and sugarcane
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: 2,4-Dynethylamine Salt 720g/L
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Systemic action**: Moves throughout the plant for complete control
+- **Selective control**: Targets weeds while protecting target crops
+- **Multi-crop use**: Suitable for wheat, maize, rice and plantation crops
 
 ## Benefits
-Effective control of broad leaved weeds
-Systemic action
-Selective action on target crops
-Cost-effective solution
-Easy to use
+- **Broad-leaved control**: Effective control of broad leaved weeds
+- **Systemic action**: Moves throughout the plant for complete control
+- **Selective action**: Safe for wheat, maize, rice and plantation crops
+- **Multi-crop use**: Suitable for various crop types including plantation crops
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Reliable results**: Proven effectiveness in multiple crop systems
 
 ## Price Information
 Per 1L: UGX 14,800

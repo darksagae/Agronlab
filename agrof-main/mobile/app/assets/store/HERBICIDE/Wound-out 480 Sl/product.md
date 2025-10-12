@@ -20,21 +20,28 @@ Easy to apply
 Long-lasting control
 
 ## Usage Instructions
-**Mixing:** 200mls per 20ltrs of water
-**Application rate:** 1.2ltrs per acre
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 200mls per 20L of water
+- **Application rate**: 1.2L per acre
+- **Application method**: Post-emergence herbicide
+- **Target weeds**: All grasses and broad leaf weeds plus nut sedges
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Use areas**: Non-crop areas and land preparation
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Broad spectrum**: Controls all weed types
+- **Non-selective**: Kills all vegetation it contacts
 
 ## Benefits
-Effective control of all weed types
-Broad spectrum control
-Cost-effective solution
-Easy to use
-Long-lasting control
+- **Broad spectrum control**: Effective against all grasses and broad leaf weeds
+- **Nut sedge control**: Specifically targets nut sedges
+- **Non-selective action**: Kills all vegetation it contacts
+- **Cost-effective**: Single application for complete control
+- **Easy application**: Simple mixing and spray application
+- **Long-lasting control**: Provides extended weed control
+- **Land preparation**: Ideal for land preparation and non-crop areas
 
 ## Price Information
 Per 1L: UGX 25,300

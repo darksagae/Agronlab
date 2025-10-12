@@ -7,8 +7,8 @@ Grain Pulse Ltd
 Blended Fertilizer for Sunflower, Used at planting to boost soil fertility and improve productivity. Application rate: 50kgs per acre.
 
 ## Price Information
-10 Kg: UGX 31,900
-25 Kg: UGX 78,000
+- 10 Kg: UGX 31,900
+- 25 Kg: UGX 78,000
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -17,16 +17,22 @@ Blended Fertilizer for Sunflower, Used at planting to boost soil fertility and i
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Soil application at planting
+- **Application rate**: 50kg per acre
+- **Timing**: Apply at planting to boost soil fertility
+- **Target crops**: Sunflower
+- **Frequency**: Apply at planting
+- **Method**: Broadcast or band application
+- **Water management**: Water after application for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Sunflower-specific**: Blended specifically for sunflower production
+- **Soil fertility**: Boosts soil fertility for sunflower
+- **Productivity boost**: Improves sunflower productivity
+- **Balanced nutrition**: NPK 24:17:10 + trace elements for sunflower needs
+- **Planting support**: Ideal for planting applications
+- **Yield improvement**: Significantly boosts sunflower yields
+- **Cost-effective**: Tailored nutrition for sunflower farmers
 
 ## Storage Instructions
 - Store in cool, dry place

@@ -20,21 +20,31 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing/Dosage:** Grasses, sedges and broadleaf weeds; 7.5-10mls/10ltrs of water
-**Rate of application:** 250-300mls/Ha
-**Application:** Apply as a post emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 7.5-10mls/10L of water for grasses, sedges and broadleaf weeds
+- **Application rate**: 250-300mls/Ha
+- **Application method**: Post-emergence herbicide with contact action
+- **Target weeds**: Annual and broadleaf weeds
+- **Target crops**: Rice
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: Bispyribac sodium 100g/L
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Contact action**: Kills weeds on contact
+- **Equipment**: Any type of properly calibrated conventional spray equipment
+- **Timing**: 2-4 leaf stage of weeds or 7-15 days after seedling or transplanting
+- **Drainage**: For wet direct seeded fields, drain excess water to expose target weeds
 
 ## Benefits
-Effective control of annual and broadleaf weeds
-Contact action
-Selective action on rice
-Cost-effective solution
-Easy to use
+- **Broad spectrum control**: Effective control of annual and broadleaf weeds
+- **Contact action**: Kills weeds on contact
+- **Rice weed control**: Specifically designed for rice cultivation
+- **Flexible application**: Can be applied as over-all spray
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Reliable results**: Proven effectiveness in rice fields
 
 ## Price Information
 Per 1L: UGX 43,600

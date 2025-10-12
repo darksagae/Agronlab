@@ -21,25 +21,29 @@ Wide application window
 Cost-effective weed control
 
 ## Usage Instructions
-Mixing: Mix 150-200ml per 20 liters of water
-Application: Apply as a foliar spray to actively growing weeds
-Timing: Best applied when weeds are young and actively growing
-Avoid Drift: Do not apply when windy to prevent drift
-Re-entry Period: 12 hours after application
+- **Mixing ratio**: 150-200ml per 20L of water
+- **Application method**: Non-selective, post-emergence herbicide
+- **Target weeds**: Annual and perennial grasses, broadleaf weeds, woody plants
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Use areas**: Non-crop land, pre-plant in various crops, orchards, vineyards
+- **Active ingredient**: Glyphosate 480g/L
 
 ## Application Method
-Foliar Spray: Apply to weed foliage
-Boom Sprayer: For large areas
-Knapsack Sprayer: For small areas
-Timing: Early morning or late evening
+- **Method**: Foliar spray application
+- **Target**: Direct application to weed foliage
+- **Systemic action**: Moves throughout the plant for complete control
+- **Non-selective**: Controls all vegetation it contacts
+- **Complete kill**: No part of the plant survives
 
 ## Benefits
-Non-Selective: Kills all vegetation
-Systemic Action: Moves throughout the plant
-Effective Control: Controls tough weeds
-Cost Effective: Reduces manual weeding
-Time Saving: Quick and efficient application
-Wide Application: Suitable for many uses
+- **Non-selective control**: Kills all vegetation it contacts
+- **Systemic action**: Moves throughout the plant for complete control
+- **Broad spectrum**: Effective against annual and perennial weeds
+- **Cost-effective**: Single application for complete control
+- **Easy application**: Simple mixing and spray application
+- **Versatile use**: Suitable for various agricultural applications
+- **Reliable results**: Proven effectiveness against tough weeds
 
 ## Price Information
 Per 1L container: UGX 50,000

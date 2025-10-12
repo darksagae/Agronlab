@@ -20,28 +20,39 @@ Spreads evenly on leaf surface
 Multi-fungicide action
 
 ## Usage Instructions
-**Rate:** 50g/20Lt 2.5 kg/Ha
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Rate**: 50g/20L (2.5 kg/Ha)
+- **Application method**: Broad spectrum, inorganic green copper fungicide
+- **Target diseases**: Late blight of potatoes, tomatoes and other vegetables, leaf spot diseases, Downey mildews, cankers, scab and asparagus rust
+- **Target crops**: Potatoes, tomatoes, vegetables, asparagus
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredient**: Copper-based fungicide
+- **Formulation**: Dustable Powder (DF)
 
 **Target Crops & Diseases:**
-- **Vegetables (French beans):** Rust, Anthracnose, Bacterial blight
-- **Brassica:** Downey mildew, Black rot, White rust
-- **Lettuce:** Downey mildew
-- **Tomatoes:** Early & Late blight, Bacterial spot, Anthracnose, Botrytis
-- **Pepper:** Bacterial leaf spot
-- **Squash:** Fusarium wilt, Anthracnose, Powdery mildew, Stem rot
-- **Egg plant:** Alternaria blight, Botrytis, Anthracnose, Fruit rot
+- **Vegetables (French beans)**: Rust, Anthracnose, Bacterial blight
+- **Brassica**: Downey mildew, Black rot, White rust
+- **Lettuce**: Downey mildew
+- **Tomatoes**: Early & Late blight, Bacterial spot, Anthracnose, Botrytis
+- **Pepper**: Bacterial leaf spot
+- **Squash**: Fusarium wilt, Anthracnose, Powdery mildew, Stem rot
+- **Egg plant**: Alternaria blight, Botrytis, Anthracnose, Fruit rot
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Contact action**: Contact, preventive fungicide for the control of a wide range of diseases
+- **Preventive action**: Prevents germination of fungal spores killing them
+- **Water dispersion**: Disperses readily in water and spread evenly on the leaf surface
+- **Multi-fungicide**: Multi-fungicide that prevents germination of fungal spores
 
 ## Benefits
-Broad spectrum disease control
-Prevents germination of fungal spores
-Disperses readily in water
-Spreads evenly on leaf surface
-Cost-effective solution
+- **Broad spectrum control**: Control of a wide range of diseases such as late blight of potatoes, tomatoes and other vegetables, leaf spot diseases, Downey mildews, cankers, scab and asparagus rust
+- **Copper-based**: Broad spectrum, inorganic green copper fungicide
+- **Spore prevention**: Prevents germination of fungal spores killing them
+- **Water dispersion**: Disperses readily in water and spread evenly on the leaf surface
+- **Multi-crop use**: Suitable for potatoes, tomatoes, vegetables, asparagus
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 1kg: UGX 47,000

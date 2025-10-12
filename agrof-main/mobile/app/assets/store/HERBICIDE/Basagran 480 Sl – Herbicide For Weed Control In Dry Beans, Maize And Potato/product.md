@@ -20,24 +20,27 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Dosage:**
-- **Beans:** 1.5-3.0 L/ha (150-300 ml/20ltrs of water)
-- **Maize:** 2.0-3.0 L/ha (200-300 ml/20ltrs of water)
-- **Potatoes:** 1.75-3.0 l/ha (175-300 ml/20L of water)
+- **Application method**: Post-emergence herbicide application
+- **Target weeds**: Broad leaf weeds in dry beans, maize, and potato
+- **Application timing**: Apply when weeds have already emerged
+- **Weather conditions**: Warmth and good growing weather accelerate action
+- **Rain protection**: No rain should fall for 6 hours after treatment
+- **Coverage**: Ensure adequate wetting of leaves and stems
+- **Safety**: WHO Class II - Moderately Hazardous
 
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
-
-## Application Method
-Foliar Spray: Direct application to weed foliage
+## Application Rates
+- **Beans**: 1.5-3.0 L/ha (150-300 ml/20L of water)
+- **Maize**: 2.0-3.0 L/ha (200-300 ml/20L of water)
+- **Potatoes**: 1.75-3.0 L/ha (175-300 ml/20L of water)
 
 ## Benefits
-Effective control of broad leaf weeds
-Selective action on target crops
-Suitable for multiple crops
-Cost-effective solution
-Easy to use
+- **Broad leaf control**: Effective control of broad leaf weeds
+- **Multi-crop use**: Suitable for dry beans, maize, and potato
+- **Post-emergence action**: Can be applied after weed emergence
+- **Weather dependent**: Works better in warm, good growing conditions
+- **Safe application**: No biologically active vapour pressure
+- **Crop safety**: No risk to neighbouring crops
+- **Cost-effective**: Efficient weed control solution
 
 ## Price Information
 Per 5L: UGX 305,200

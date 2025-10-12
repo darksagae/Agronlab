@@ -4,10 +4,10 @@
 Export Trading Group
 
 ## Overview
-This is base fertilizer that supplies three macro nutrients. It helps in good flower setting and forming enlarged fruits & for planting certain crops. Contains N-17% P-17% K-17%.
+This is base fertilizer that supplies three macro nutrients. It helps in good flower setting and forming enlarged fruits & for planting certain crops. Application rate: 50-75 kg per acre depending on crop. Contains N-17% P-17% K-17%.
 
 ## Price Information
-50 Kg: UGX 120,000
+- 50 Kg: UGX 120,000
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -16,16 +16,22 @@ This is base fertilizer that supplies three macro nutrients. It helps in good fl
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Soil application
+- **Application rate**: 50-75 kg per acre depending on crop
+- **Timing**: Apply during planting and active growth stages
+- **Target crops**: Crops requiring balanced nutrition
+- **Frequency**: Apply as needed during growing season
+- **Method**: Broadcast or band application
+- **Water management**: Water after application for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Balanced nutrition**: NPK 17:17:17 for balanced plant nutrition
+- **Flower setting**: Helps in good flower setting
+- **Fruit development**: Forms enlarged fruits
+- **Planting support**: Ideal for planting certain crops
+- **Macro nutrients**: Supplies three essential macro nutrients
+- **Universal application**: Suitable for various crop types
+- **Cost-effective**: Complete nutrition in balanced proportions
 
 ## Storage Instructions
 - Store in cool, dry place

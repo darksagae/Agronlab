@@ -33,24 +33,34 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 12 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 10-14 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Plant characteristics**: The plants are tall with the production of concentrated fruits which grow upwards
+- **Fruit quality**: Demon's appeal is fruit quality, bright colour, uniform fruit (8*1cm)and firmness
+- **Maturity**: 70-75 days
+- **Fruit color**: Red
+- **Fruit dimensions**: Length(cm) : 7-9, Diameter(cm) : 0.9-1.1
+- **Plant vigour**: Strong
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 20°C+
+- **Germination**: 10-14 days
+- **Transplanting**: When seedlings have 4-6 true leaves
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: High-yielding hot pepper with concentrated fruit production
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Plant characteristics**: Tall plants with concentrated fruits which grow upwards
+- **Fruit quality**: Bright colour, uniform fruit (8*1cm)and firmness
+- **Plant vigour**: Strong plant vigor
 
 ## Benefits
-High Yield: Excellent production per plant
-Uniform Fruits: Consistent size and shape
-Very Hot Flavor: Perfect for spicy dishes
-Disease Resistance: Reduces crop losses
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
+- **Tall plants**: The plants are tall with the production of concentrated fruits which grow upwards
+- **Fruit quality**: Demon's appeal is fruit quality, bright colour, uniform fruit (8*1cm)and firmness
+- **Early maturity**: 70-75 days to maturity
+- **Red color**: Red fruit color
+- **Uniform size**: Uniform fruit (8*1cm)and firmness
+- **Strong vigor**: Strong plant vigor
+- **Market demand**: High demand for hot peppers
+- **Profit potential**: High return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 30,000

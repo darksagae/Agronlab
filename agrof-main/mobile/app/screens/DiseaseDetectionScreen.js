@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -9,13 +9,16 @@ import {
   ScrollView,
   Dimensions,
   ActivityIndicator,
+  Modal,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Card, Title, Paragraph, Button, Chip } from 'react-native-paper';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { theme } from '../theme';
-import { getProperImageAnalysis } from '../services/properImageAnalysisService';
+import hybridAIService from '../services/hybridAIService';
+import ProductRecommendationCards from '../components/ProductRecommendationCards';
+import authService from '../services/authService';
 
 const { width, height } = Dimensions.get('window');
 
@@ -25,6 +28,47 @@ const DiseaseDetectionScreen = ({ navigation }) => {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [aiStatus, setAiStatus] = useState(null);
+  const [networkStatus, setNetworkStatus] = useState('checking');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showAuthPrompt, setShowAuthPrompt] = useState(false);
+
+  // Initialize Hybrid AI Service and check auth on component mount
+  useEffect(() => {
+    initializeAI();
+    checkAuthentication();
+  }, []);
+
+  // Check if user is authenticated
+  const checkAuthentication = async () => {
+    try {
+      const authResult = await authService.getCurrentUser();
+      if (authResult.success && authResult.user) {
+        setIsAuthenticated(true);
+        console.log('👤 User authenticated in Disease Detection:', authResult.user.email);
+      } else {
+        setIsAuthenticated(false);
+        console.log('⚠️ User not authenticated in Disease Detection');
+      }
+    } catch (error) {
+      console.log('Auth check error:', error);
+      setIsAuthenticated(false);
+    }
+  };
+
+  const initializeAI = async () => {
+    try {
+      console.log('🚀 Initializing Hybrid AI Service...');
+      await hybridAIService.initialize();
+      const status = hybridAIService.getStatus();
+      setAiStatus(status);
+      setNetworkStatus(status.isOnline ? 'online' : 'offline');
+      console.log('✅ Hybrid AI initialized:', status);
+    } catch (error) {
+      console.error('❌ AI initialization failed:', error);
+      Alert.alert('AI Initialization', 'AI service started with limited features');
+    }
+  };
 
   // Request permissions and pick image from gallery (Alternative Method)
   const pickImageFromGallery = async () => {
@@ -104,10 +148,16 @@ const DiseaseDetectionScreen = ({ navigation }) => {
     }
   };
 
-  // Analyze image with Gemini AI
+  // Analyze image with Hybrid AI (Gemini online / TensorFlow Lite offline)
   const analyzeImage = async () => {
     if (!selectedImage) {
       Alert.alert('No Image', 'Please select an image first');
+      return;
+    }
+
+    // Check authentication before analyzing
+    if (!isAuthenticated) {
+      setShowAuthPrompt(true);
       return;
     }
 
@@ -115,26 +165,65 @@ const DiseaseDetectionScreen = ({ navigation }) => {
     setError(null);
 
     try {
-      // Use proper image analysis service
-      const result = await getProperImageAnalysis(selectedImage.uri);
+      console.log('🔍 Starting hybrid AI analysis...');
+      
+      // Use hybrid AI service (automatically switches between Gemini and TensorFlow)
+      const result = await hybridAIService.analyzeDisease(selectedImage.uri);
 
-      if (result.success) {
-        setAnalysisResult({
+      console.log('✅ Analysis complete:', result);
+
+      // Update network status
+      const status = hybridAIService.getStatus();
+      setNetworkStatus(status.isOnline ? 'online' : 'offline');
+
+      // Format result for display
+      // Check if result already has 'analysis' nested (from Gemini) or if data is at top level
+      const analysisData = result.analysis || result;
+      
+      const formattedResult = {
           status: 'success',
-          message: 'Disease analysis completed using JavaScript AI',
-          analysis: result.analysis,
-          timestamp: result.timestamp
-        });
-        Alert.alert('Analysis Complete', 'Disease analysis completed successfully!');
-      } else {
-        throw new Error(result.error || 'Analysis failed');
-      }
+        message: getAnalysisMessage(result),
+        analysis: analysisData, // Use the extracted analysis data
+        timestamp: result.timestamp || new Date().toISOString(),
+        source: result.source || 'Gemini AI',
+        analysisMethod: result.analysisMethod || 'gemini'
+      };
+
+      setAnalysisResult(formattedResult);
+      
+      console.log('📊 Formatted result set to state:', JSON.stringify(formattedResult, null, 2));
+      console.log('🎯 Analysis result disease:', formattedResult.analysis?.disease_type);
+      console.log('🎯 Analysis result crop:', formattedResult.analysis?.crop_type);
+      
+      Alert.alert(
+        'Analysis Complete',
+        `Disease detected using ${result.source === 'Gemini AI' ? 'Gemini AI (Online)' : 'TensorFlow Lite (Offline)'}\n\nCrop: ${result.crop_type || 'Unknown'}\nDisease: ${result.disease_type || 'Unknown'}\nConfidence: ${(result.confidence * 100).toFixed(1)}%`,
+        [{ text: 'View Results' }]
+      );
     } catch (error) {
+      console.error('❌ Analysis failed:', error);
       setError(error.message);
-      Alert.alert('Analysis Failed', `Failed to analyze image: ${error.message}`);
+      Alert.alert(
+        'Analysis Failed',
+        `Failed to analyze image: ${error.message}\n\nPlease ensure:\n• Image is clear and well-lit\n• Plant is visible in the image\n• You have network connection (for Gemini) or model downloaded (for offline mode)`
+      );
     } finally {
       setIsAnalyzing(false);
     }
+  };
+
+  // Get analysis message based on source
+  const getAnalysisMessage = (result) => {
+    if (result.source === 'gemini') {
+      return '✨ Analysis completed using Gemini AI (Online mode)';
+    } else if (result.source === 'tensorflow_lite') {
+      return '📱 Analysis completed using TensorFlow Lite (Offline mode)';
+    } else if (result.analysisMethod === 'offline_fallback') {
+      return '📱 Online service unavailable - using TensorFlow Lite (Offline fallback)';
+    } else if (result.source === 'cache') {
+      return '📦 Using cached analysis result';
+    }
+    return 'Analysis completed';
   };
 
   // Reset all states
@@ -243,12 +332,19 @@ const DiseaseDetectionScreen = ({ navigation }) => {
 
   // Render analysis results
   const renderAnalysisResults = () => {
-    if (!analysisResult) return null;
+    console.log('🎨 renderAnalysisResults called, analysisResult:', !!analysisResult);
+    if (!analysisResult) {
+      console.log('⚠️ analysisResult is null, not rendering');
+      return null;
+    }
+
+    console.log('✅ Rendering analysis results!');
+    console.log('📊 Analysis data:', analysisResult.analysis);
 
     return (
       <Card style={styles.card}>
         <Card.Content>
-          <Title style={styles.cardTitle}><Text>🔬 Analysis Results</Text></Title>
+          <Title style={styles.cardTitle}>Analysis Results</Title>
           
           {/* Crop Identification */}
           <View style={styles.resultSection}>
@@ -258,7 +354,7 @@ const DiseaseDetectionScreen = ({ navigation }) => {
             </View>
             <View style={styles.cropInfo}>
               <Text style={styles.cropType}>
-                🌾 {analysisResult.analysis?.crop_type || 'Unknown Crop'}
+                {analysisResult.analysis?.crop_type || 'Unknown Crop'}
               </Text>
               <Text style={styles.plantFamily}>
                 Family: {analysisResult.analysis?.plant_family || 'Unknown'}
@@ -288,7 +384,7 @@ const DiseaseDetectionScreen = ({ navigation }) => {
                 color: analysisResult.analysis?.health_status === 'healthy' ? '#2E7D32' : '#C62828'
               }}
             >
-              <Text>{analysisResult.analysis?.health_status === 'healthy' ? '🌱 Healthy Plant' : '🦠 Diseased Plant'}</Text>
+              <Text>{analysisResult.analysis?.health_status === 'healthy' ? 'Healthy Plant' : 'Diseased Plant'}</Text>
             </Chip>
           </View>
 
@@ -296,7 +392,6 @@ const DiseaseDetectionScreen = ({ navigation }) => {
           {analysisResult.analysis?.disease_type && analysisResult.analysis.disease_type !== 'none' && (
             <View style={styles.resultSection}>
               <View style={styles.sectionHeader}>
-                <MaterialIcons name="warning" size={24} color="#FF9800" />
                 <Text style={styles.sectionTitle}>Disease Detected</Text>
               </View>
               <Text style={styles.diseaseName}>
@@ -314,7 +409,6 @@ const DiseaseDetectionScreen = ({ navigation }) => {
           {analysisResult.analysis?.recommendations && analysisResult.analysis.recommendations.length > 0 && (
             <View style={styles.resultSection}>
               <View style={styles.sectionHeader}>
-                <MaterialIcons name="lightbulb" size={24} color="#2196F3" />
                 <Text style={styles.sectionTitle}>Recommendations</Text>
               </View>
               {analysisResult.analysis.recommendations.map((rec, index) => (
@@ -329,7 +423,6 @@ const DiseaseDetectionScreen = ({ navigation }) => {
           {analysisResult.analysis?.confidence && (
             <View style={styles.resultSection}>
               <View style={styles.sectionHeader}>
-                <MaterialIcons name="analytics" size={24} color="#9C27B0" />
                 <Text style={styles.sectionTitle}>Confidence Score</Text>
               </View>
               <Text style={styles.confidence}>
@@ -362,51 +455,176 @@ const DiseaseDetectionScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Header with Back Button */}
-      <View style={styles.headerContainer}>
-        <TouchableOpacity 
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <MaterialIcons name="arrow-back" size={24} color="#2E7D32" />
-        </TouchableOpacity>
-        <View style={styles.headerContent}>
-          <Text style={styles.headerTitle}>🔬 Disease Detection</Text>
-          <Text style={styles.headerSubtitle}>Advanced plant health analysis and crop monitoring</Text>
-        </View>
+    <View style={styles.container}>
+      {/* Background handled by App.js BackgroundImage wrapper */}
+      
+      {/* Content */}
+      <View style={styles.overlay}>
+        <SafeAreaView style={styles.safeArea}>
+          {/* Header with Back Button */}
+          <View style={styles.headerContainer}>
+            <TouchableOpacity 
+              style={styles.backButton}
+              onPress={() => navigation.goBack()}
+            >
+              <MaterialIcons name="arrow-back" size={24} color="#2E7D32" />
+            </TouchableOpacity>
+            <View style={styles.headerContent}>
+              <Text style={styles.headerTitle}>Disease Detection</Text>
+              <Text style={styles.headerSubtitle}>Advanced plant health analysis and crop monitoring</Text>
+            </View>
+          </View>
+          
+          <ScrollView contentContainerStyle={styles.scrollContent}>
+
+            {/* Image Selection */}
+            {renderImageSelection()}
+
+            {/* Error Display */}
+            {renderError()}
+
+            {/* Analysis Results */}
+            {renderAnalysisResults()}
+
+            {/* Product Recommendations */}
+            {analysisResult && (
+              <ProductRecommendationCards
+                diseaseType={analysisResult.analysis?.disease_type}
+                symptoms={analysisResult.analysis?.symptoms}
+                onProductPress={(product) => {
+                  // Navigate to product detail or handle product selection
+                  console.log('Product selected:', product);
+                }}
+              />
+            )}
+
+          </ScrollView>
+        </SafeAreaView>
       </View>
-      
-      <ScrollView contentContainerStyle={styles.scrollContent}>
 
-        {/* Image Selection */}
-        {renderImageSelection()}
+      {/* Authentication Prompt Modal */}
+      <Modal
+        visible={showAuthPrompt}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setShowAuthPrompt(false)}
+      >
+        <View style={styles.authModalOverlay}>
+          <View style={styles.authCard}>
+            <View style={styles.authLogoContainer}>
+              <Image 
+                source={require('../assets/logo.png')}
+                style={styles.authLogoImage}
+                resizeMode="contain"
+              />
+            </View>
+            <Text style={styles.authTitle}>Sign In to Analyze</Text>
+            <Text style={styles.authMessage}>
+              Create an account or sign in to use AI-powered disease detection and get personalized recommendations for your crops.
+            </Text>
 
-        {/* Error Display */}
-        {renderError()}
+            {/* Benefits List */}
+            <View style={styles.benefitsList}>
+              <View style={styles.benefitItem}>
+                <MaterialIcons name="check-circle" size={20} color="#4CAF50" />
+                <Text style={styles.benefitText}>AI disease detection</Text>
+              </View>
+              <View style={styles.benefitItem}>
+                <MaterialIcons name="check-circle" size={20} color="#4CAF50" />
+                <Text style={styles.benefitText}>Treatment recommendations</Text>
+              </View>
+              <View style={styles.benefitItem}>
+                <MaterialIcons name="check-circle" size={20} color="#4CAF50" />
+                <Text style={styles.benefitText}>Save analysis history</Text>
+              </View>
+            </View>
 
-        {/* Analysis Results */}
-        {renderAnalysisResults()}
+            {/* Sign Up Button */}
+            <TouchableOpacity
+              style={styles.authSignupButton}
+              onPress={async () => {
+                setShowAuthPrompt(false);
+                // Save the current image before navigating
+                const currentImage = selectedImage;
+                if (navigation && navigation.navigate) {
+                  navigation.navigate('signup');
+                }
+                // After user returns, check if they're authenticated and auto-analyze
+                setTimeout(async () => {
+                  await checkAuthentication();
+                  if (currentImage && isAuthenticated) {
+                    console.log('🔄 User authenticated, auto-analyzing saved image...');
+                    // Image is still in state, will auto-analyze on next attempt
+                  }
+                }, 1000);
+              }}
+            >
+              <Text style={styles.authSignupButtonText}>Create Free Account</Text>
+            </TouchableOpacity>
 
-      </ScrollView>
-      
-    </SafeAreaView>
+            {/* Log In Button */}
+            <TouchableOpacity
+              style={styles.authLoginButton}
+              onPress={async () => {
+                setShowAuthPrompt(false);
+                // Save the current image before navigating
+                const currentImage = selectedImage;
+                if (navigation && navigation.navigate) {
+                  navigation.navigate('login');
+                }
+                // After user returns, check if they're authenticated and auto-analyze
+                setTimeout(async () => {
+                  await checkAuthentication();
+                  if (currentImage && isAuthenticated) {
+                    console.log('🔄 User authenticated, auto-analyzing saved image...');
+                    // Image is still in state, will auto-analyze on next attempt
+                  }
+                }, 1000);
+              }}
+            >
+              <Text style={styles.authLoginButtonText}>Already have an account? Log In</Text>
+            </TouchableOpacity>
+
+            {/* Close Button */}
+            <TouchableOpacity
+              style={styles.authCloseButton}
+              onPress={() => setShowAuthPrompt(false)}
+            >
+              <Text style={styles.authCloseButtonText}>Maybe Later</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+  },
+  backgroundImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Semi-transparent overlay for better text readability
+  },
+  safeArea: {
+    flex: 1,
   },
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(26, 26, 26, 0.8)', // Semi-transparent dark background
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: 'rgba(51, 51, 51, 0.5)',
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -417,7 +635,7 @@ const styles = StyleSheet.create({
     marginRight: 12,
     padding: 8,
     borderRadius: 20,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#333333',
   },
   headerContent: {
     flex: 1,
@@ -427,33 +645,36 @@ const styles = StyleSheet.create({
   },
   headerCard: {
     marginBottom: 16,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(26, 26, 26, 0.8)',
     elevation: 2,
   },
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#2E7D32',
+    color: '#4CAF50',
     marginBottom: 4,
   },
   headerSubtitle: {
     fontSize: 14,
-    color: '#666',
+    color: '#cccccc',
   },
   card: {
     marginBottom: 16,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(26, 26, 26, 0.8)',
     elevation: 2,
+    borderWidth: 2,
+    borderColor: '#4CAF50',
+    borderRadius: 12,
   },
   cardTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#ffffff',
     marginBottom: 8,
   },
   cardSubtitle: {
     fontSize: 14,
-    color: '#666',
+    color: '#cccccc',
     marginBottom: 16,
   },
   imageContainer: {
@@ -506,23 +727,23 @@ const styles = StyleSheet.create({
   imagePlaceholder: {
     width: width - 64,
     height: 200,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#333333',
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#ddd',
+    borderColor: '#4CAF50',
     borderStyle: 'dashed',
   },
   placeholderText: {
     marginTop: 8,
-    color: '#666',
+    color: '#ffffff',
     fontSize: 16,
     fontWeight: 'bold',
   },
   placeholderSubtext: {
     marginTop: 4,
-    color: '#999',
+    color: '#cccccc',
     fontSize: 12,
   },
   buttonContainer: {
@@ -543,7 +764,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#4CAF50',
   },
   cameraButton: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#4CAF50',
   },
   buttonText: {
     color: '#fff',
@@ -559,6 +780,11 @@ const styles = StyleSheet.create({
   },
   resultSection: {
     marginBottom: 16,
+    borderWidth: 1,
+    borderColor: '#4CAF50',
+    borderRadius: 8,
+    padding: 12,
+    backgroundColor: 'rgba(26, 26, 26, 0.8)',
   },
   sectionHeader: {
     flexDirection: 'row',
@@ -569,7 +795,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginLeft: 8,
-    color: '#333',
+    color: '#ffffff',
   },
   healthChip: {
     alignSelf: 'flex-start',
@@ -585,12 +811,12 @@ const styles = StyleSheet.create({
   },
   plantFamily: {
     fontSize: 14,
-    color: '#666',
+    color: '#cccccc',
     marginBottom: 2,
   },
   growthStage: {
     fontSize: 14,
-    color: '#666',
+    color: '#cccccc',
     fontStyle: 'italic',
   },
   diseaseName: {
@@ -601,11 +827,11 @@ const styles = StyleSheet.create({
   },
   severity: {
     fontSize: 14,
-    color: '#666',
+    color: '#cccccc',
   },
   recommendation: {
     fontSize: 14,
-    color: '#333',
+    color: '#ffffff',
     marginBottom: 4,
     lineHeight: 20,
   },
@@ -633,9 +859,103 @@ const styles = StyleSheet.create({
   },
   instructionText: {
     fontSize: 14,
-    color: '#666',
+    color: '#cccccc',
     lineHeight: 20,
   },
+  
+  // Authentication Modal Styles
+  authModalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.8)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  authCard: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 30,
+    alignItems: 'center',
+    width: width * 0.9,
+    maxWidth: 400,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.4,
+    shadowRadius: 15,
+    elevation: 15,
+  },
+  authTitle: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: '#333',
+    marginTop: 15,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  authMessage: {
+    fontSize: 16,
+    color: '#666',
+    textAlign: 'center',
+    marginBottom: 20,
+    lineHeight: 22,
+  },
+  benefitsList: {
+    width: '100%',
+    marginBottom: 25,
+  },
+  benefitItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    paddingLeft: 10,
+  },
+  benefitText: {
+    fontSize: 16,
+    color: '#333',
+    marginLeft: 12,
+  },
+  authLogoContainer: {
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  authLogoImage: {
+    width: 80,
+    height: 80,
+  },
+  authSignupButton: {
+    backgroundColor: '#4CAF50',
+    paddingHorizontal: 40,
+    paddingVertical: 16,
+    borderRadius: 12,
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 15,
+    shadowColor: '#4CAF50',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  authSignupButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  authLoginButton: {
+    paddingVertical: 12,
+    marginBottom: 10,
+  },
+  authLoginButtonText: {
+    color: '#4CAF50',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  authCloseButton: {
+    paddingVertical: 10,
+    marginTop: 10,
+  },
+  authCloseButtonText: {
+    color: '#999',
+    fontSize: 14,
+  },
 });
-
 export default DiseaseDetectionScreen;

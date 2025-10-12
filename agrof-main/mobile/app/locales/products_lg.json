@@ -1,0 +1,312 @@
+{
+  "section_headers": {
+    "overview": "Enkola",
+    "specifications": "Bikwata",
+    "features": "Bikulu",
+    "usage_instructions": "Enkola y'okukozesa",
+    "application_method": "Enkola y'okukozesa",
+    "benefits": "Bikulu",
+    "storage_instructions": "Enkola y'okutereka",
+    "safety_info": "Amawulire ag'okwerinda",
+    "price": "Omutindo",
+    "growing_requirements": "Bikwata ku kukula",
+    "planting_instructions": "Enkola y'okutaba",
+    "harvesting": "Okusanya",
+    "disease_resistance": "Okukwata ku ndwadde",
+    "yield_potential": "Obukadde obusobola",
+    "maturity": "Okukula",
+    "spacing": "Obukadde",
+    "seed_rate": "Omutindo gw'emba"
+  },
+  "categories": {
+    "fertilizers": "Fertilizers",
+    "fungicides": "Fungicides",
+    "herbicides": "Herbicides",
+    "nursery_bed": "Nursery Bed",
+    "organic_chemicals": "Organic Chemicals",
+    "seeds": "Embajjajja"
+  },
+  "sugar_baby": {
+    "name": "Sugar Baby - Watermelon",
+    "description": "Watermelon ey'okukula mangu n'ekikulu ekirungi n'obukadde obungi",
+    "overview": "Sugar Baby ye watermelon ey'okukula mangu ey'okumanyiddwa ku kukula kw'ekikulu n'obukadde obungi. Eyo eriimu obukadde obungi n'ekikulu ekirungi.",
+    "key_features": [
+      "Okukula mangu (80 days)",
+      "Obukadde obungi (48-50 tons per acre)",
+      "Ekikulu ekirungi",
+      "Okutambula kirungi",
+      "Watermelon enzirugavu, ey'omugolomugolo",
+      "Okukula kw'omugolomugolo",
+      "Okukula mu ttaka lyonna"
+    ],
+    "growing_requirements": "Efuna embeera ey'omukka n'ettaka ly'omugolomugolo. Efuna amazzi ag'omugolomugolo mu kiseera ky'okukula kw'ekikulu.",
+    "planting_instructions": "Taba embajjajja 1-2 cm mu ttaka ly'omugolomugolo. Tandika 100cm x 100cm.",
+    "harvesting": "Sanya bwe kikula n'ekikulu ekirungi. Kola bulungi okutakola.",
+    "disease_resistance": "Kikwata ku ndwadde z'omugolomugolo",
+    "yield_potential": "48-50 tons per acre mu kukola bulungi",
+    "maturity": "80 days okuva mu kutaba",
+    "spacing": "100cm x 100cm",
+    "seed_rate": "500 grams per acre",
+    "benefits": [
+      "Okukula mangu",
+      "Obukadde obungi",
+      "Ekikulu ekirungi",
+      "Okutambula kirungi",
+      "Okukula kw'omugolomugolo",
+      "Okukula mu ttaka lyonna"
+    ],
+    "usage_instructions": [
+      "Taba mu kiseera ky'omukka",
+      "Wa amazzi ag'omugolomugolo",
+      "Kozesa fertilizer ey'omugolomugolo",
+      "Laba ku ndwadde",
+      "Sanya bwe kikula"
+    ],
+    "application_method": "Okutaba embajjajja mu ttaka ly'omugolomugolo.",
+    "price": "Buulira omutindo"
+  },
+  "julie_f1": {
+    "name": "Julie F1 - Watermelon",
+    "description": "Watermelon ey'obukadde obungi n'ekikulu ekirungi n'okukwata ku ndwadde",
+    "overview": "Julie F1 ye watermelon ey'obukadde obungi ey'okumanyiddwa ku kukula kw'ekikulu ekirungi n'okukwata ku ndwadde.",
+    "key_features": [
+      "Ekikulu ekirungi",
+      "Ekikulu ekirungi n'omukka",
+      "Kikwata ku fusarium wilt n'anthracnose",
+      "Obukadde obungi (35-40 tons per acre)",
+      "Ekikulu ekirungi",
+      "Okutambula kirungi"
+    ],
+    "growing_requirements": "Kikula bulungi mu mbeera ey'omukka n'ettaka ly'omugolomugolo.",
+    "planting_instructions": "Taba embajjajja 1-2 cm. Tandika 150cm x 100cm.",
+    "harvesting": "Sanya bwe kikula n'ekikulu ekirungi.",
+    "disease_resistance": "Kikwata ku fusarium wilt n'anthracnose",
+    "yield_potential": "35-40 tons per acre",
+    "maturity": "85 days okuva mu kutaba",
+    "spacing": "150cm x 100cm",
+    "seed_rate": "500 grams per acre",
+    "benefits": [
+      "Obukadde obungi",
+      "Okukwata ku ndwadde",
+      "Ekikulu ekirungi",
+      "Okutambula kirungi",
+      "Ekikulu ekirungi"
+    ],
+    "usage_instructions": [
+      "Taba mu kiseera ky'omukka",
+      "Wa amazzi ag'omugolomugolo",
+      "Kozesa fertilizer ey'omugolomugolo",
+      "Laba ku ndwadde",
+      "Sanya bwe kikula"
+    ],
+    "application_method": "Okutaba embajjajja mu ttaka ly'omugolomugolo.",
+    "price": "Buulira omutindo"
+  },
+  "drumhead_cabbage": {
+    "name": "Drumhead - Cabbage",
+    "description": "Cabbage ey'okiseera ky'omukka n'ekikulu ekirungi n'okutereka kirungi",
+    "overview": "Drumhead cabbage ye cabbage ey'okiseera ky'omukka ey'okumanyiddwa ku kukula kw'ekikulu ekirungi n'okutereka kirungi.",
+    "key_features": [
+      "Cabbage ey'okiseera ky'omukka",
+      "Ekikulu ekirungi",
+      "Okutereka kirungi",
+      "Obukadde obungi (32 tons per acre)",
+      "Okukwata ku ndwadde",
+      "Okukula mu kifo ky'omugolomugolo"
+    ],
+    "growing_requirements": "Efuna embeera ey'omukka n'amazzi ag'omugolomugolo.",
+    "planting_instructions": "Taba bwe kikula. Tandika 60cm x 45cm.",
+    "harvesting": "Sanya bwe kikula n'ekikulu ekirungi.",
+    "disease_resistance": "Kikwata ku ndwadde z'omugolomugolo",
+    "yield_potential": "32 tons per acre",
+    "maturity": "90 days okuva mu kutaba",
+    "spacing": "60cm x 45cm",
+    "seed_rate": "120 grams per acre",
+    "benefits": [
+      "Okukula mu kiseera ky'omukka",
+      "Obukadde obungi",
+      "Okutereka kirungi",
+      "Ekikulu ekirungi",
+      "Okukwata ku ndwadde",
+      "Okukula mu kifo ky'omugolomugolo"
+    ],
+    "usage_instructions": [
+      "Taba mu kiseera ky'omukka",
+      "Taba bwe kikula",
+      "Wa amazzi ag'omugolomugolo",
+      "Kozesa fertilizer ey'omugolomugolo",
+      "Laba ku ndwadde",
+      "Sanya bwe kikula"
+    ],
+    "application_method": "Okutaba embajjajja mu ttaka ly'omugolomugolo.",
+    "price": "Buulira omutindo"
+  },
+  "copenhagen_cabbage": {
+    "name": "Copenhagen - Cabbage",
+    "description": "Cabbage ey'okukula mangu n'ekikulu ekirungi n'obukadde obungi",
+    "overview": "Copenhagen cabbage ye cabbage ey'okukula mangu ey'okumanyiddwa ku kukula kw'ekikulu ekirungi n'obukadde obungi.",
+    "key_features": [
+      "Okukula mangu (65 days)",
+      "Ekikulu ekirungi",
+      "Obukadde obungi (34 tons per acre)",
+      "Okukula mu ttaka lyonna",
+      "Okukula kw'omugolomugolo",
+      "Okukula mu kifo ky'omugolomugolo"
+    ],
+    "growing_requirements": "Efuna ettaka ly'omugolomugolo n'omugolomugolo.",
+    "planting_instructions": "Taba bwe kikula. Tandika 60cm x 45cm.",
+    "harvesting": "Sanya bwe kikula n'ekikulu ekirungi.",
+    "disease_resistance": "Kikwata ku ndwadde z'omugolomugolo",
+    "yield_potential": "34 tons per acre",
+    "maturity": "65 days okuva mu kutaba",
+    "spacing": "60cm x 45cm",
+    "seed_rate": "120 grams per acre",
+    "benefits": [
+      "Okukula mangu",
+      "Obukadde obungi",
+      "Ekikulu ekirungi",
+      "Okukula mu ttaka lyonna",
+      "Okukula kw'omugolomugolo",
+      "Okukula mu kifo ky'omugolomugolo"
+    ],
+    "usage_instructions": [
+      "Taba mu kiseera ky'omugolomugolo",
+      "Taba bwe kikula",
+      "Wa amazzi ag'omugolomugolo",
+      "Kozesa fertilizer ey'omugolomugolo",
+      "Laba ku ndwadde",
+      "Sanya bwe kikula"
+    ],
+    "application_method": "Okutaba embajjajja mu ttaka ly'omugolomugolo.",
+    "price": "Buulira omutindo"
+  },
+  "coriander_dhania": {
+    "name": "Coriander Dhania",
+    "description": "Coriander ey'omugolomugolo n'ekikulu ekirungi, eriimu omukka n'ekikulu ekirungi",
+    "overview": "Coriander Dhania ye coriander ey'omugolomugolo ey'okumanyiddwa ku kukula kw'ekikulu ekirungi n'omukka.",
+    "key_features": [
+      "Coriander ey'omugolomugolo",
+      "Ekikulu ekirungi n'omukka",
+      "Okukula mangu (4-6 weeks)",
+      "Okukula mangu",
+      "Okukula mu kifo ky'omugolomugolo",
+      "Okukozesa kw'omugolomugolo"
+    ],
+    "growing_requirements": "Efuna ettaka ly'omugolomugolo n'omugolomugolo.",
+    "planting_instructions": "Taba embajjajja mu ttaka 30cm. Taba 2.5-3.5cm mu ttaka.",
+    "harvesting": "Sanya bwe kikula. Embajjajja zisobola okusanyibwa bwe zikula.",
+    "disease_resistance": "Kikwata ku ndwadde z'omugolomugolo",
+    "yield_potential": "Okusanya kw'omugolomugolo",
+    "maturity": "4-6 weeks okusanya",
+    "spacing": "30cm wakati w'omugolomugolo",
+    "seed_rate": "Bwe kikula",
+    "benefits": [
+      "Coriander ey'omugolomugolo",
+      "Okukula mangu",
+      "Okukula mangu",
+      "Okukula mu kifo ky'omugolomugolo",
+      "Okukozesa kw'omugolomugolo",
+      "Okusanya kw'omugolomugolo"
+    ],
+    "usage_instructions": [
+      "Taba mu ttaka 30cm",
+      "Taba 2.5-3.5cm mu ttaka",
+      "Wa amazzi ag'omugolomugolo",
+      "Sanya bwe kikula",
+      "Teka embajjajja zisobola okusanyibwa",
+      "Taba bulungi okusanya"
+    ],
+    "application_method": "Okutaba embajjajja mu ttaka ly'omugolomugolo.",
+    "price": "Buulira omutindo"
+  },
+  "ammonium_sulphate": {
+    "name": "Ammonium Sulphate",
+    "description": "Fertilizer ey'omugolomugolo ey'okukula kw'emiti n'emikono",
+    "overview": "Ammonium Sulphate ye fertilizer ey'omugolomugolo ey'okukula kw'emiti n'emikono. Eyo eriimu nitrogen n'sulphur.",
+    "key_features": [
+      "Nitrogen ey'omugolomugolo",
+      "Sulphur ey'omugolomugolo",
+      "Okukula kw'emiti",
+      "Okukula kw'emikono",
+      "Okukula mu ttaka lyonna",
+      "Okukozesa kw'omugolomugolo"
+    ],
+    "benefits": [
+      "Nitrogen ey'omugolomugolo",
+      "Sulphur ey'omugolomugolo",
+      "Okukula kw'emiti",
+      "Okukula kw'emikono",
+      "Okukula mu ttaka lyonna",
+      "Okukozesa kw'omugolomugolo"
+    ],
+    "usage_instructions": [
+      "Kozesa mu kiseera ky'okukula",
+      "Kozesa mu ttaka ly'omugolomugolo",
+      "Kozesa mu kiseera ky'omukka",
+      "Kozesa mu kiseera ky'omukka",
+      "Kozesa mu kiseera ky'omukka"
+    ],
+    "application_method": "Okukozesa fertilizer mu ttaka ly'omugolomugolo.",
+    "price": "Buulira omutindo"
+  },
+  "urea": {
+    "name": "Urea",
+    "description": "Fertilizer ey'omugolomugolo ey'okukula kw'emiti n'emikono",
+    "overview": "Urea ye fertilizer ey'omugolomugolo ey'okukula kw'emiti n'emikono. Eyo eriimu nitrogen ey'omugolomugolo.",
+    "key_features": [
+      "Nitrogen ey'omugolomugolo",
+      "Okukula kw'emiti",
+      "Okukula kw'emikono",
+      "Okukula mu ttaka lyonna",
+      "Okukozesa kw'omugolomugolo",
+      "Okukula kw'omugolomugolo"
+    ],
+    "benefits": [
+      "Nitrogen ey'omugolomugolo",
+      "Okukula kw'emiti",
+      "Okukula kw'emikono",
+      "Okukula mu ttaka lyonna",
+      "Okukozesa kw'omugolomugolo",
+      "Okukula kw'omugolomugolo"
+    ],
+    "usage_instructions": [
+      "Kozesa mu kiseera ky'okukula",
+      "Kozesa mu ttaka ly'omugolomugolo",
+      "Kozesa mu kiseera ky'omukka",
+      "Kozesa mu kiseera ky'omukka",
+      "Kozesa mu kiseera ky'omukka"
+    ],
+    "application_method": "Okukozesa fertilizer mu ttaka ly'omugolomugolo.",
+    "price": "Buulira omutindo"
+  },
+  "dap": {
+    "name": "DAP",
+    "description": "Fertilizer ey'omugolomugolo ey'okukula kw'emiti n'emikono",
+    "overview": "DAP ye fertilizer ey'omugolomugolo ey'okukula kw'emiti n'emikono. Eyo eriimu nitrogen n'phosphorus.",
+    "key_features": [
+      "Nitrogen ey'omugolomugolo",
+      "Phosphorus ey'omugolomugolo",
+      "Okukula kw'emiti",
+      "Okukula kw'emikono",
+      "Okukula mu ttaka lyonna",
+      "Okukozesa kw'omugolomugolo"
+    ],
+    "benefits": [
+      "Nitrogen ey'omugolomugolo",
+      "Phosphorus ey'omugolomugolo",
+      "Okukula kw'emiti",
+      "Okukula kw'emikono",
+      "Okukula mu ttaka lyonna",
+      "Okukozesa kw'omugolomugolo"
+    ],
+    "usage_instructions": [
+      "Kozesa mu kiseera ky'okukula",
+      "Kozesa mu ttaka ly'omugolomugolo",
+      "Kozesa mu kiseera ky'omukka",
+      "Kozesa mu kiseera ky'omukka",
+      "Kozesa mu kiseera ky'omukka"
+    ],
+    "application_method": "Okukozesa fertilizer mu ttaka ly'omugolomugolo.",
+    "price": "Buulira omutindo"
+  }
+}

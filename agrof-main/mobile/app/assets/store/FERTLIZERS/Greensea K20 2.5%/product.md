@@ -4,11 +4,11 @@
 Hangzhou Agrochemicals (U) Ltd
 
 ## Overview
-A biological biostimulant that improves root and shoot development, improves photosynthesis and helps a lot of times of stress e.g. during drought.
+A biological biostimulant that improves root and shoot development, improves photosynthesis and helps a lot of times of stress e.g. during drought. Mixing: 50-100mls/20ltr. Active Ingredient: Sea and Weed extract, Available in 1ltr pack.
 
 ## Price Information
-1ltr: UGX 35,000
-100mls: UGX 5,500
+- 1ltr: UGX 35,000
+- 100mls: UGX 5,500
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -17,16 +17,22 @@ A biological biostimulant that improves root and shoot development, improves pho
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Foliar spray
+- **Mixing ratio**: 50-100ml per 20L water
+- **Timing**: Apply during active growth and stress periods
+- **Frequency**: Every 2-3 weeks during growing season
+- **Best time**: Early morning or late afternoon
+- **Target conditions**: Apply during drought and stress periods
+- **Coverage**: Ensure complete leaf coverage for maximum absorption
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Biological biostimulant**: Natural plant growth enhancement
+- **Root development**: Improves root and shoot development
+- **Photosynthesis**: Enhances photosynthetic efficiency
+- **Stress resistance**: Helps during drought and stress conditions
+- **Sea and weed extracts**: Natural active ingredients
+- **Plant health**: Improves overall plant health and vigor
+- **Yield improvement**: Increases crop productivity and quality
 
 ## Storage Instructions
 - Store in cool, dry place

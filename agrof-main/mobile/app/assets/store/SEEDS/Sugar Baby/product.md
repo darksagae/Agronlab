@@ -32,24 +32,32 @@ Water: Regular irrigation needed
 Spacing: 2m x 2m between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 24 hours
-Planting Depth: 2-3 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 7-10 days
-Transplanting: When seedlings have 2-3 true leaves
+- **Potential fruit weight**: 5-8kgs
+- **Yield potential**: 48-50 tons per acre
+- **Duration to maturity**: 80 days
+- **Spacing**: 100x100cm
+- **Seed rate**: 500 grams per acre
+- **Approximate seed count per gram**: 20 seeds
+- **Special attributes**: Dark green, round watermelon, Very uniform growth, Very adoptable and grows on wide range of soils
+- **Planting method**: Direct seeding or transplanting
+- **Germination**: 7-10 days under optimal conditions
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 2m x 2m spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Spacing**: 100x100cm between plants
+- **Planting depth**: 2-3 cm deep
+- **Soil preparation**: Well-drained, fertile soil with pH 6.0-7.0
+- **Watering**: Regular irrigation needed, especially during fruit development
+- **Fertilization**: Apply balanced fertilizer for optimal growth
 
 ## Benefits
-Early Maturity: Quick harvest
-Excellent Flavor: Sweet, crisp flesh
-High Yield: Good production per plant
-Market Demand: Popular variety
-Easy Growing: Suitable for beginners
-Profit Potential: Good for commercial cultivation
+- **High yield potential**: 48-50 tons per acre under good management
+- **Early maturity**: 80 days from planting to harvest
+- **Uniform growth**: Very uniform growth characteristics
+- **Wide adaptability**: Very adoptable and grows on wide range of soils
+- **Market demand**: Popular variety with excellent market acceptance
+- **Profit potential**: High yield potential makes it profitable for commercial cultivation
+- **Easy growing**: Suitable for both beginners and experienced farmers
 
 ## Price Information
 Per 1000 seeds: UGX 20,000

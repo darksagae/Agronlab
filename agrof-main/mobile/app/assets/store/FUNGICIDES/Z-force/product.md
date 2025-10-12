@@ -18,20 +18,30 @@ Easy to apply
 Compatible with most pesticides
 
 ## Usage Instructions
-**Rate of use:** 1.5 kg/ha
-**Mixing:** 50g/20ltrs of water
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
+- **Rate of use**: 1.5 kg/ha
+- **Mixing ratio**: 50g/20L of water
+- **Application method**: Preventive, contact, fungicide recommended for field crops, vegetables, orchards
+- **Target crops**: Field crops, vegetables, orchards
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Active ingredient**: Mancozeb 80% WP
+- **Formulation**: Wettable Powder (WP)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Preventive action**: Provides protection before disease infection
+- **Contact action**: Provides immediate protection on plant surfaces
+- **Broad spectrum**: Effective against multiple diseases
+- **Multi-crop use**: Suitable for field crops, vegetables, orchards
 
 ## Benefits
-Preventive contact protection
-Broad spectrum disease control
-Cost-effective solution
-Easy to use
-Compatible with other pesticides
+- **Preventive contact protection**: Preventive, contact, fungicide for comprehensive disease control
+- **Broad spectrum control**: Effective against multiple diseases
+- **Multi-crop use**: Recommended for field crops, vegetables, orchards
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
+- **Compatible**: Compatible with other pesticides
+- **Long-lasting protection**: Provides extended disease control
 
 ## Price Information
 Per 250g: UGX 4,708

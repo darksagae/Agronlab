@@ -31,23 +31,33 @@ Water: Regular irrigation needed
 Spacing: 60cm x 60cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 12 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 15°C+
-Germination: 7-10 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Plant type**: Indeterminate hybrid, tall with vigorous plant habit
+- **Foliage**: Broad, dark green leaves with excellent foliage cover
+- **Growing conditions**: Ideal for greenhouse or Open field production under support system
+- **Spacing**: 60 * 45 cm
+- **Fruit characteristics**: Square oblong firm fruits turning deep uniform red colour at ripening stage
+- **Harvesting**: Fruit harvesting start 65 – 70 after transplanting
+- **Harvesting cycle**: Long harvesting cycle between average 5 – 9 months under good agronomic practice in the greenhouse
+- **Fruit quality**: Ripe fruits are sweet, firm with glossy red colour
+- **Fruit per truss**: Average 7 – 9 fruits per truss
+- **Shelf life**: Average 21 days harvested at mature green stage
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 60cm x 60cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Indeterminate hybrid tomato for greenhouse or open field production
+- **Spacing**: 60 * 45 cm between plants
+- **Support system**: Requires support system for optimal growth
+- **Plant vigor**: Strong vigorous plant with good heat setting
+- **Disease resistance**: Tolerant to Bacterial wilt, Fusarium & Verticillium wilt Stemphylium
 
 ## Benefits
-High Yield: 40-50 tons per hectare
-Excellent Quality: Uniform, flavorful fruits
-Disease Resistance: Reduces crop losses
-Market Demand: High demand in local and export markets
-Profit Potential: Excellent return on investment
+- **High yield potential**: Average 70 – 80 Tons / acre
+- **Disease resistance**: Tolerant to Bacterial wilt, Fusarium & Verticillium wilt Stemphylium
+- **Long harvesting cycle**: 5 – 9 months under good agronomic practice
+- **Excellent fruit quality**: Sweet, firm with glossy red colour
+- **High fruit count**: Average 7 – 9 fruits per truss
+- **Good shelf life**: Average 21 days harvested at mature green stage
+- **Versatile growing**: Ideal for greenhouse or Open field production
 
 ## Price Information
 Per 1000 seeds: UGX 35,000

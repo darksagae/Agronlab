@@ -20,21 +20,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Rate of Application:** Apply 50g/ha (Dosage and Mixing vary depending target weed, local conditions and growth stage)
-**Application:** Apply as an early post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application rate**: 50g/ha (Dosage and mixing vary depending on target weed, local conditions and growth stage)
+- **Application method**: Selective early post-emergence herbicide
+- **Target weeds**: Yellow nutsedge and purple nutsedges and certain broadleaf weeds
+- **Target crops**: Barley, wheat, maize and sugarcane
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: 750g/kg Halosulfuron-methyl
 
 ## Application Method
-Early Post-emergence Spray: Direct application to weed foliage
+- **Method**: Early post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Selective control**: Targets weeds while protecting barley, wheat, maize and sugarcane
+- **Enhancement**: Used with a wetter to enhance efficacy
+- **Crop safety**: Safe for target crops
 
 ## Benefits
-Rapidly inhibits growth of susceptible weeds
-Used with a wetter to enhance efficacy
-Effective control of nutsedge and broadleaf weeds
-Selective action on target crops
-Cost-effective solution
-Easy to use
+- **Nutsedge control**: Effective control of yellow nutsedge and purple nutsedges
+- **Broadleaf control**: Controls certain broadleaf weeds
+- **Selective action**: Safe for barley, wheat, maize and sugarcane
+- **Early application**: Can be applied early in post-emergence stage
+- **Rapid action**: Rapidly inhibits growth of susceptible weeds
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 50g: UGX 110,000

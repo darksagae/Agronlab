@@ -19,20 +19,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Rate of use:** 4 L/ha
-**Mixing:** 200 ml/20ltrs of water
-**Application:** Apply as directed on the label
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application rate**: 4L/ha
+- **Mixing ratio**: 200ml/20L of water
+- **Application method**: Non-selective, systemic herbicide
+- **Target weeds**: Grasses and broad leaved weeds
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: Glyphosate 480% SL
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Systemic action**: Moves throughout the plant for complete control
+- **Non-selective**: Controls all vegetation it contacts
+- **Use areas**: Non-crop areas and land preparation
 
 ## Benefits
-Effective control of grasses and broad leaved weeds
-Systemic action
-Cost-effective solution
-Easy to use
+- **Broad spectrum control**: Effective against grasses and broad leaved weeds
+- **Systemic action**: Moves throughout the plant for complete control
+- **Non-selective**: Controls all vegetation it contacts
+- **Cost-effective**: Single application for complete control
+- **Easy application**: Simple mixing and spray application
+- **Versatile use**: Suitable for non-crop areas and land preparation
+- **Reliable results**: Proven effectiveness against various weed types
 
 ## Price Information
 Per 500ml: UGX 8,000

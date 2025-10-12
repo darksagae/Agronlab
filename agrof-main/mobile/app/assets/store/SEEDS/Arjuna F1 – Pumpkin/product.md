@@ -32,24 +32,32 @@ Water: Regular irrigation needed
 Spacing: 120cm x 120cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 24 hours
-Planting Depth: 2-3 cm deep
-Planting Time: After last frost, when soil temperature is 15°C+
-Germination: 10-14 days
-Transplanting: When seedlings have 2-3 true leaves
+- **Seed rate**: 1.2kgs/acre
+- **Number of plants per acre**: 1,600
+- **Spacing**: 100cm*250cm
+- **Number of days in nursery bed**: (0)-direct sowing
+- **Maturity days after transplanting**: 80-85 days
+- **Main features**: Suitable for harvesting either immature green or fully mature red brown depending on market demands, good shelf life
+- **Flesh characteristics**: Flesh is yellow in colour, firm, sticky and has excellent taste
+- **Planting depth**: 2-3 cm deep
+- **Planting time**: After last frost, when soil temperature is 15°C+
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 120cm x 120cm spacing between plants
+- **Method**: Direct seeding recommended
+- **Target**: High-yielding pumpkin variety with excellent fruit quality
+- **Spacing**: 100cm*250cm between plants
+- **Harvesting flexibility**: Suitable for harvesting either immature green or fully mature red brown
+- **Fruit quality**: Flesh is yellow in colour, firm, sticky and has excellent taste
+- **Shelf life**: Good shelf life for market demands
 
 ## Benefits
-High Yield: Excellent production per plant
-Large Fruits: Market-preferred size
-Excellent Quality: Superior flavor and texture
-Disease Resistance: Reduces crop losses
-Good Storage: Long shelf life
-Versatile Use: Fresh consumption and processing
+- **High yield potential**: Excellent production per plant
+- **Harvesting flexibility**: Suitable for harvesting either immature green or fully mature red brown depending on market demands
+- **Good shelf life**: Good shelf life for market demands
+- **Excellent taste**: Flesh is yellow in colour, firm, sticky and has excellent taste
+- **Market adaptability**: Suitable for various market demands
+- **Easy growing**: Suitable for beginners and experienced farmers
+- **Profit potential**: High return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 30,000

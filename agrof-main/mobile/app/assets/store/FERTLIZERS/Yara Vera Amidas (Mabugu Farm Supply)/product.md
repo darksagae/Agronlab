@@ -4,10 +4,10 @@
 Mabugu Farm Supply
 
 ## Overview
-It is a granular, white coloured, highly soluble fertilizer and contains the highest nitrogen among all nitrogenous fertilizers. Its chemical formula is CO(NH2)2 and contains 46% N (nitrogen).
+It is a granular, white coloured, highly soluble fertilizer and contains the highest nitrogen among all nitrogenous fertilizers. It supplies the nitrogen need of plants through either soil or foliar application. Its chemical formula is CO(NH2)2 and contains 46% N (nitrogen).
 
 ## Price Information
-50kg: UGX 146,000
+- 50kg: UGX 146,000
 
 ## Key Features
 - High quality agricultural fertilizer

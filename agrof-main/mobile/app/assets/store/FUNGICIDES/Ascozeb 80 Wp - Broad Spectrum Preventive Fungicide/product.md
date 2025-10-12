@@ -20,23 +20,30 @@ Compatible with most pesticides
 Long-lasting protection
 
 ## Usage Instructions
-**Rate of use:** 1kg/acre
-**Mixing:** 
-- 40-60g/20ltrs of water for tomatoes, potatoes and onions
-- 50-60g/20ltrs of water for roses
-**Pre-Harvest Interval (PHI):** 7 days
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply preventatively or at first sign of disease
+- **Rate of use**: 1kg/acre
+- **Mixing ratio**: 40-60g/20L of water for tomatoes, potatoes and onions; 50-60g/20L of water for roses
+- **Application method**: Broad spectrum preventive fungicide
+- **Target diseases**: Early and late blight in potatoes, tomatoes, blotch and downy mildew in onions and botrytis in roses
+- **Target crops**: Potatoes, tomatoes, onions, roses
+- **Application timing**: Apply preventatively or at first sign of disease
+- **Pre-harvest interval**: 7 days
+- **Active ingredient**: Mancozeb 800g/kg
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Preventive action**: Provides protection before disease infection
+- **Coverage**: Ensure thorough coverage for effective protection
+- **Formulation**: Wettable Powder (WP)
 
 ## Benefits
-Broad spectrum disease control
-Preventive protection
-Cost-effective solution
-Easy to use
-Compatible with other pesticides
+- **Broad spectrum control**: Effective against early and late blight in potatoes, tomatoes, blotch and downy mildew in onions and botrytis in roses
+- **Preventive protection**: Provides protection before disease infection occurs
+- **Multi-crop use**: Suitable for potatoes, tomatoes, onions, roses
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
+- **Compatible**: Compatible with most pesticides
+- **Long-lasting protection**: Provides extended disease control
 
 ## Price Information
 Per 250g: UGX 6,800

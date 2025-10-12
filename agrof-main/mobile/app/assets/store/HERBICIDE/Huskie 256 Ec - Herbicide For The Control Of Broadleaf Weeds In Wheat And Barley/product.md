@@ -19,18 +19,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application method**: Post-emergence herbicide
+- **Target weeds**: Broadleaf weeds in wheat and barley
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Crop safety**: Safe for wheat and barley crops
+- **Active ingredients**: Pyrasulfotole + Bromoxynil + Mefenpyr diethyl
+- **Formulation**: Emulsifiable Concentrate (EC)
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to broadleaf weed foliage
+- **Selective control**: Targets broadleaf weeds while protecting wheat and barley
+- **Crop stage**: Apply when crops are at appropriate growth stage
 
 ## Benefits
-Effective control of broadleaf weeds
-Selective action on wheat and barley
-Cost-effective solution
-Easy to use
+- **Broadleaf control**: Effective control of broadleaf weeds in wheat and barley
+- **Selective action**: Safe for wheat and barley crops
+- **Multi-active**: Three active ingredients for enhanced control
+- **Cost-effective**: Single application for season-long control
+- **Easy application**: Simple spray application method
+- **Crop safety**: No harmful effects on wheat and barley
+- **Reliable results**: Proven effectiveness in cereal crops
 
 ## Price Information
 Per 5L: UGX 187,500

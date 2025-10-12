@@ -19,21 +19,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Rate of use:** 4L/ha
-**Mixing:** 200 ml/20ltrs of water
-**Application:** Apply as a pre emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application rate**: 4L/ha
+- **Mixing ratio**: 200ml/20L of water
+- **Application method**: Selective pre-emergence herbicide
+- **Target crops**: Rice, vegetables, leguminous crops
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: Pendemethlin 33%
 
 ## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
+- **Method**: Pre-emergence spray application
+- **Target**: Apply to soil before crop emergence
+- **Timing**: Apply before crop emergence
+- **Soil preparation**: Ensure proper soil preparation
+- **Rain timing**: Apply shortly before rain or within 48 hours after rain
 
 ## Benefits
-Effective control of weeds in multiple crops
-Pre emergence protection
-Selective action on target crops
-Cost-effective solution
-Easy to use
+- **Multi-crop control**: Effective control of weeds in rice, vegetables, and leguminous crops
+- **Pre-emergence protection**: Prevents weed emergence before crop
+- **Selective action**: Safe for rice, vegetables, and leguminous crops
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Versatile use**: Suitable for various crop types
+- **Reliable results**: Proven effectiveness in multiple crop systems
 
 ## Price Information
 Per 1L: UGX 27,000

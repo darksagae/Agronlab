@@ -33,24 +33,33 @@ Water: Regular irrigation needed
 Spacing: 120cm x 120cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 24 hours
-Planting Depth: 2-3 cm deep
-Planting Time: After last frost, when soil temperature is 20°C+
-Germination: 10-14 days
-Transplanting: When seedlings have 2-3 true leaves
+- **Variety type**: Very sweet Melon with firm fruits, aromatic flavour
+- **Disease resistance**: Tolerant to fusarium wilt race 0 and powdery mildew
+- **Maturity days after sowing**: 70 days
+- **Spacing**: 150cm*60cm
+- **Seed rate**: 600grams/acre
+- **Average fruit weight**: 0.8-1.2kgs
+- **Fruit shape**: Globe shaped fruits with small cavity
+- **Fruit color**: Rind-gold yellow with medium netting, fruits- green fresh
+- **Planting depth**: 2-3 cm deep
+- **Planting time**: After last frost, when soil temperature is 20°C+
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 120cm x 120cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Sweet melon with firm fruits and aromatic flavour
+- **Spacing**: 150cm*60cm between plants
+- **Disease resistance**: Tolerant to fusarium wilt race 0 and powdery mildew
+- **Fruit characteristics**: Globe shaped fruits with small cavity
+- **Storage quality**: Excellent storage and transport quality
 
 ## Benefits
-Firm Texture: Excellent fruit quality
-Aromatic Flavor: Superior taste
-High Yield: Excellent production per plant
-Good Storage: Long shelf life
-Disease Resistance: Reduces crop losses
-Versatile Use: Fresh consumption and processing
+- **Sweet melon**: Very sweet Melon with firm fruits, aromatic flavour
+- **Disease resistance**: Tolerant to fusarium wilt race 0 and powdery mildew
+- **Early maturity**: 70 days after sowing
+- **High yield**: Excellent production per plant
+- **Firm texture**: Globe shaped fruits with small cavity
+- **Good storage**: Excellent storage and transport quality
+- **Market demand**: High demand due to sweet flavor and firm texture
 
 ## Price Information
 Per 1000 seeds: UGX 40,000

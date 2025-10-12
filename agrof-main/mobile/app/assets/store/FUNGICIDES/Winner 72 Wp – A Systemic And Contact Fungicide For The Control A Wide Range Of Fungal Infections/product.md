@@ -20,21 +20,32 @@ Cost-effective solution
 Easy to apply
 
 ## Usage Instructions
-**Rate of use:** 1-1.5kgs/acre
-**Mixing:** 50-70gms/20ltrs of water
-**Application:** Spray at the first sign of disease and repeat every 10-14 days
-**Coverage:** Ensure even and full coverage of the plant
-**Rotation:** Always alternate with chemicals with different mode of action
+- **Rate of use**: 1-1.5kgs/acre
+- **Mixing ratio**: 50-70gms/20L of water
+- **Application method**: Systemic and contact fungicide for the control of foliar and root diseases in vegetables, and downy mildew in ornamentals and field crops
+- **Target diseases**: Foliar and root diseases, downy mildew
+- **Target crops**: Vegetables, ornamentals, field crops
+- **Application timing**: Spray at the first sign of disease and repeat every 10-14 days
+- **Coverage**: Ensure even and full coverage of the plant
+- **Rotation**: Always alternate with chemicals with different mode of action
+- **Active ingredients**: Mancozeb 640g/kg + Metalaxyl 80g/kg
+- **Formulation**: Wettable Powder (WP)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed by plant tissues and translocated throughout the plant
+- **Contact action**: Provides immediate protection on plant surfaces
+- **Dual action**: Combines systemic and contact fungicide properties
+- **Multi-crop use**: Suitable for vegetables, ornamentals, field crops
 
 ## Benefits
-Systemic and contact protection
-Effective against foliar and root diseases
-Controls downy mildew
-Broad spectrum disease control
-Cost-effective solution
+- **Foliar and root disease control**: Systemic and contact fungicide for the control of foliar and root diseases in vegetables
+- **Downy mildew control**: Controls downy mildew in ornamentals and field crops
+- **Dual action**: Systemic and contact fungicide for comprehensive disease control
+- **Multi-crop use**: Suitable for vegetables, ornamentals, field crops
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 100g: UGX 5,000

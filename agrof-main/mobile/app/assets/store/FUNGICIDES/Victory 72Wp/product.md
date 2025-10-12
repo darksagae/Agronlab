@@ -20,20 +20,30 @@ Cost-effective solution
 Easy to apply
 
 ## Usage Instructions
-**Application:** Apply as directed on the label
-**Timing:** Apply at first sign of disease or preventatively
-**Coverage:** Ensure thorough coverage of plant foliage
-**Frequency:** Apply as needed based on disease pressure
+- **Application method**: Systemic and contact fungicide for the control of early and late blight on potatoes, tomatoes, grapes
+- **Target diseases**: Early and late blight, downy mildew, leak and pink rot
+- **Target crops**: Potatoes, tomatoes, grapes, vegetables
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Coverage**: Ensure thorough coverage of plant foliage
+- **Frequency**: Apply as needed based on disease pressure
+- **Formulation**: Wettable Powder (WP)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Systemic action**: Absorbed by plant tissues and translocated throughout the plant
+- **Contact action**: Provides immediate protection on plant surfaces
+- **Dual action**: Combines systemic and contact fungicide properties
+- **Multi-crop use**: Suitable for potatoes, tomatoes, grapes, vegetables
 
 ## Benefits
-Systemic and contact protection
-Effective against early and late blight
-Controls downy mildew
-Suppresses leak and pink rot
-Cost-effective solution
+- **Early and late blight control**: Effective against early and late blight on potatoes, tomatoes, grapes
+- **Downy mildew control**: Controls downy mildew
+- **Leak and pink rot suppression**: Suppresses leak and pink rot in vegetables
+- **Dual action**: Systemic and contact fungicide for comprehensive disease control
+- **Multi-crop use**: Suitable for potatoes, tomatoes, grapes, vegetables
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple application as directed on the label
 
 ## Price Information
 Per 100g: UGX 6,000

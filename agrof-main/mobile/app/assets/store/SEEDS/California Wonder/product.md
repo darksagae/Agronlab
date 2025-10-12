@@ -32,24 +32,33 @@ Water: Regular irrigation needed
 Spacing: 50cm x 50cm between plants
 
 ## Usage Instructions
-Seed Preparation: Soak seeds in water for 12 hours
-Planting Depth: 1-2 cm deep
-Planting Time: After last frost, when soil temperature is 15°C+
-Germination: 7-10 days
-Transplanting: When seedlings have 4-6 true leaves
+- **Variety type**: Ideal for Open field production
+- **Fruit characteristics**: Very uniform fruits, Blocky and medium-sized
+- **Adaptability**: Widely adaptable variety
+- **Fruit color**: Colour turns from green to red
+- **Average yield per acre**: 6-7 tons
+- **Maturity**: 80-90 Days
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: After last frost, when soil temperature is 15°C+
+- **Germination**: 7-10 days
+- **Transplanting**: When seedlings have 4-6 true leaves
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Transplanting: Start seeds in trays, transplant when ready
-Spacing: Maintain 50cm x 50cm spacing between plants
+- **Method**: Direct seeding or transplanting
+- **Target**: Open field production with uniform fruits
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Field production**: Ideal for Open field production
+- **Fruit uniformity**: Very uniform fruits, Blocky and medium-sized
+- **Color development**: Colour turns from green to red
 
 ## Benefits
-Excellent Quality: Large, sweet fruits
-High Yield: Good production per plant
-Versatile Use: Fresh consumption and processing
-Market Demand: Popular variety
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
+- **Open field production**: Ideal for Open field production
+- **Uniform fruits**: Very uniform fruits, Blocky and medium-sized
+- **Wide adaptability**: Widely adaptable variety
+- **High yield**: Average yield per acre 6-7 tons
+- **Early maturity**: 80-90 Days to maturity
+- **Market demand**: Popular variety with excellent market acceptance
+- **Easy growing**: Suitable for beginners and experienced farmers
 
 ## Price Information
 Per 1000 seeds: UGX 30,000

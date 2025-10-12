@@ -1,0 +1,222 @@
+{
+  "section_headers": {
+    "overview": "Muhtasari",
+    "specifications": "Vipimo",
+    "features": "Vipengele Muhimu",
+    "usage_instructions": "Maagizo ya Matumizi",
+    "application_method": "Njia ya Utumizi",
+    "benefits": "Faida",
+    "storage_instructions": "Maagizo ya Uhifadhi",
+    "safety_info": "Taarifa za Usalama",
+    "price": "Bei",
+    "growing_requirements": "Mahitaji ya Kukua",
+    "planting_instructions": "Maagizo ya Kupanda",
+    "harvesting": "Mavuno",
+    "disease_resistance": "Upinzani wa Magonjwa",
+    "yield_potential": "Uwezo wa Mavuno",
+    "maturity": "Ukamilifu",
+    "spacing": "Umbali",
+    "seed_rate": "Kiwango cha Mbegu"
+  },
+  "categories": {
+    "fertilizers": "Mboreshaji",
+    "fungicides": "Dawa za Kuvunja",
+    "herbicides": "Dawa za Magugu",
+    "nursery_bed": "Kitanda cha Mazao",
+    "organic_chemicals": "Kemikali za Asili",
+    "seeds": "Mbegu"
+  },
+  "sugar_baby": {
+    "name": "Sugar Baby - Tikiti",
+    "description": "Aina ya tikiti inayokua haraka na matunda mazuri na uwezo wa mavuno mazuri",
+    "overview": "Sugar Baby ni aina ya tikiti inayokua haraka inayojulikana kwa matunda mazuri na uwezo wa mavuno mazuri. Hii ni bora kwa kilimo cha kibiashara na bustani za nyumbani.",
+    "key_features": [
+      "Ukamilifu wa haraka (siku 80)",
+      "Uwezo wa mavuno mazuri (tani 48-50 kwa ekari)",
+      "Matunda mazuri",
+      "Usafiri mzuri",
+      "Matunda ya rangi ya kijani, mviringo",
+      "Ukuaji wa kawaida",
+      "Uwezo wa kukua katika udongo wowote"
+    ],
+    "growing_requirements": "Inapendelea hali ya joto na udongo mzuri wa maji. Inahitaji unyevu wa kawaida wakati wa ukuaji wa matunda.",
+    "planting_instructions": "Panda mbegu 1-2 cm katika udongo mzuri. Panga umbali wa 100cm x 100cm.",
+    "harvesting": "Vuna wakati matunda yamekua na yamepata rangi sahihi. Fanya kwa uangalifu ili kuepuka uharibifu.",
+    "disease_resistance": "Upinzani mzuri wa magonjwa ya kawaida ya tikiti",
+    "yield_potential": "Tani 48-50 kwa ekari chini ya usimamizi mzuri",
+    "maturity": "Siku 80 kutoka kupanda",
+    "spacing": "100cm x 100cm",
+    "seed_rate": "Gramu 500 kwa ekari",
+    "benefits": [
+      "Ukamilifu wa haraka kwa faida ya haraka",
+      "Uwezo wa mavuno mazuri",
+      "Matunda mazuri",
+      "Usafiri mzuri",
+      "Ukuaji wa kawaida",
+      "Uwezo wa kukua katika udongo wowote"
+    ],
+    "usage_instructions": [
+      "Panda katika msimu wa joto",
+      "Toa unyevu wa kawaida wakati wa ukuaji wa matunda",
+      "Tumia mbolea ya usawa kwa ukuaji bora",
+      "Fuatilia wadudu na magonjwa",
+      "Vuna wakati wa ukamilifu sahihi kwa ubora bora"
+    ],
+    "application_method": "Kupanda mbegu moja kwa moja kunapendekezwa. Panda katika safu zilizo na umbali sahihi kwa ukuaji bora.",
+    "price": "Wasiliana kwa bei ya sasa"
+  },
+  "julie_f1": {
+    "name": "Julie F1 - Tikiti",
+    "description": "Aina ya tikiti ya mavuno mazuri na matunda ya umbo la mviringo na upinzani mzuri wa magonjwa",
+    "overview": "Julie F1 ni aina ya tikiti ya mavuno mazuri inayojulikana kwa matunda ya umbo la mviringo, nyama tamu ya nyekundu, na upinzani mzuri wa magonjwa.",
+    "key_features": [
+      "Matunda ya umbo la mviringo",
+      "Nyama tamu ya nyekundu",
+      "Upinzani wa fusarium wilt na anthracnose",
+      "Uwezo wa mavuno mazuri (tani 35-40 kwa ekari)",
+      "Matunda mazuri",
+      "Usafiri mzuri"
+    ],
+    "growing_requirements": "Inakua vizuri katika hali ya joto na udongo mzuri wa maji.",
+    "planting_instructions": "Panda mbegu 1-2 cm. Panga umbali wa 150cm x 100cm.",
+    "harvesting": "Vuna wakati matunda yamekua na yamepata rangi sahihi.",
+    "disease_resistance": "Upinzani wa fusarium wilt na anthracnose",
+    "yield_potential": "Tani 35-40 kwa ekari",
+    "maturity": "Siku 85 kutoka kupanda",
+    "spacing": "150cm x 100cm",
+    "seed_rate": "Gramu 500 kwa ekari",
+    "benefits": [
+      "Uwezo wa mavuno mazuri",
+      "Upinzani mzuri wa magonjwa",
+      "Matunda tamu",
+      "Usafiri mzuri",
+      "Matunda ya umbo la mviringo"
+    ],
+    "usage_instructions": [
+      "Panda katika msimu wa joto",
+      "Toa unyevu wa kawaida",
+      "Tumia mbolea ya usawa",
+      "Fuatilia magonjwa",
+      "Vuna wakati wa ukamilifu sahihi"
+    ],
+    "application_method": "Kupanda mbegu moja kwa moja kunapendekezwa na umbali sahihi.",
+    "price": "Wasiliana kwa bei ya sasa"
+  },
+  "drumhead_cabbage": {
+    "name": "Drumhead - Kabichi",
+    "description": "Aina ya kabichi ya msimu wa baridi na vichwa vikubwa, vya mviringo na ubora mzuri wa uhifadhi",
+    "overview": "Drumhead kabichi ni aina ya msimu wa baridi inayojulikana kwa vichwa vikubwa, vya mviringo na ubora mzuri wa uhifadhi. Bora kwa maeneo yenye mvua ya wastani hadi nyingi.",
+    "key_features": [
+      "Aina ya msimu wa baridi",
+      "Vichwa vikubwa, vya mviringo",
+      "Ubora mzuri wa uhifadhi",
+      "Uwezo wa mavuno mazuri (tani 32 kwa ekari)",
+      "Upinzani mzuri wa magonjwa",
+      "Inafaa kwa kilimo cha kibiashara"
+    ],
+    "growing_requirements": "Inapendelea hali ya baridi na mvua ya kawaida, ya wastani hadi nyingi.",
+    "planting_instructions": "Panda miche wakati ina majani 4-6 ya kweli. Panga umbali wa 60cm x 45cm.",
+    "harvesting": "Vuna wakati vichwa vimekua na vimepata ukubwa unaotaka.",
+    "disease_resistance": "Upinzani mzuri wa magonjwa ya kawaida ya kabichi",
+    "yield_potential": "Tani 32 kwa ekari",
+    "maturity": "Siku 90 kutoka kupanda",
+    "spacing": "60cm x 45cm",
+    "seed_rate": "Gramu 120 kwa ekari",
+    "benefits": [
+      "Ukuaji wa msimu wa baridi",
+      "Uwezo wa mavuno mazuri",
+      "Ubora mzuri wa uhifadhi",
+      "Umbo la vichwa vya mviringo",
+      "Upinzani mzuri wa magonjwa",
+      "Inafaa kwa kilimo cha kibiashara"
+    ],
+    "usage_instructions": [
+      "Panda katika msimu wa baridi",
+      "Panda miche wakati ziko tayari",
+      "Toa unyevu wa kawaida",
+      "Tumia mbolea ya usawa",
+      "Fuatilia wadudu na magonjwa",
+      "Vuna wakati wa ukamilifu sahihi"
+    ],
+    "application_method": "Kupanda miche kunapendekezwa kwa ukuaji bora.",
+    "price": "Wasiliana kwa bei ya sasa"
+  },
+  "copenhagen_cabbage": {
+    "name": "Copenhagen - Kabichi",
+    "description": "Aina ya kabichi inayokua haraka na ubora mzuri na uwezo wa mavuno mazuri",
+    "overview": "Copenhagen kabichi ni aina inayokua haraka inayojulikana kwa ubora mzuri na uwezo wa mavuno mazuri. Inafaa kwa udongo mzuri wa maji na maudhui ya chini ya viumbe hai.",
+    "key_features": [
+      "Ukamilifu wa haraka (siku 65)",
+      "Ubora mzuri",
+      "Uwezo wa mavuno mazuri (tani 34 kwa ekari)",
+      "Uwezo wa kukua katika udongo",
+      "Ukuaji wa kawaida",
+      "Inafaa kwa kilimo cha kibiashara"
+    ],
+    "growing_requirements": "Inapendelea udongo mzuri wa maji na maudhui ya chini ya viumbe hai.",
+    "planting_instructions": "Panda miche wakati ziko tayari. Panga umbali wa 60cm x 45cm.",
+    "harvesting": "Vuna wakati vichwa vimekua na vimepata ukubwa unaotaka.",
+    "disease_resistance": "Upinzani mzuri wa magonjwa ya kawaida ya kabichi",
+    "yield_potential": "Tani 34 kwa ekari",
+    "maturity": "Siku 65 kutoka kupanda",
+    "spacing": "60cm x 45cm",
+    "seed_rate": "Gramu 120 kwa ekari",
+    "benefits": [
+      "Ukamilifu wa haraka",
+      "Uwezo wa mavuno mazuri",
+      "Ubora mzuri",
+      "Uwezo wa kukua katika udongo",
+      "Ukuaji wa kawaida",
+      "Inafaa kwa kilimo cha kibiashara"
+    ],
+    "usage_instructions": [
+      "Panda katika msimu unaofaa",
+      "Panda miche wakati ziko tayari",
+      "Toa unyevu wa kutosha",
+      "Tumia mbolea ya usawa",
+      "Fuatilia magonjwa",
+      "Vuna wakati wa ukamilifu sahihi"
+    ],
+    "application_method": "Kupanda miche kunapendekezwa kwa matokeo bora.",
+    "price": "Wasiliana kwa bei ya sasa"
+  },
+  "coriander_dhania": {
+    "name": "Coriander Dhania",
+    "description": "Aina ya coriander ya jadi na ladha mzuri na harufu, bora kwa matumizi ya mapishi",
+    "overview": "Coriander Dhania ni aina ya jadi inayojulikana kwa ladha mzuri na harufu. Bora kwa matumizi ya mapishi na ni rahisi kukua.",
+    "key_features": [
+      "Aina ya jadi",
+      "Ladha mzuri na harufu",
+      "Ukamilifu wa haraka (wiki 4-6)",
+      "Rahisi kukua",
+      "Inafaa kwa vyombo",
+      "Matumizi mbalimbali"
+    ],
+    "growing_requirements": "Inapendelea udongo mzuri wa maji na maudhui mazuri ya viumbe hai.",
+    "planting_instructions": "Panda mbegu katika mifereji ya 30cm umbali kwa kina cha 2.5-3.5cm.",
+    "harvesting": "Vuna majani wakati unahitaji. Mbegu zinaweza kuvunwa wakati zimekua.",
+    "disease_resistance": "Upinzani mzuri wa magonjwa ya kawaida ya mimea ya mazao",
+    "yield_potential": "Mavuno ya majani ya kudumu",
+    "maturity": "Wiki 4-6 kwa mavuno ya majani",
+    "spacing": "30cm kati ya safu",
+    "seed_rate": "Kadiri inahitajika kwa mavuno ya kudumu",
+    "benefits": [
+      "Aina ya jadi",
+      "Ukamilifu wa haraka",
+      "Rahisi kukua",
+      "Inafaa kwa vyombo",
+      "Matumizi mbalimbali",
+      "Mahitaji makubwa"
+    ],
+    "usage_instructions": [
+      "Panda katika mifereji ya 30cm umbali",
+      "Panda kwa kina cha 2.5-3.5cm",
+      "Hifadhi udongo unyevu",
+      "Vuna majani kadiri unahitaji",
+      "Acha mimea kadhaa kutoa mbegu",
+      "Panda kwa kudumu kwa usambazaji wa kawaida"
+    ],
+    "application_method": "Kupanda mbegu moja kwa moja katika mifereji kunapendekezwa.",
+    "price": "Wasiliana kwa bei ya sasa"
+  }
+}

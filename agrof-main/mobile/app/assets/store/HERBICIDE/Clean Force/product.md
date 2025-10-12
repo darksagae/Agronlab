@@ -20,20 +20,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Rate of use:** 3L/ha
-**Mixing:** 150 ml/20ltrs of water
-**Application:** Apply as a post -emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application rate**: 3L/ha
+- **Mixing ratio**: 150ml/20L of water
+- **Application method**: Selective post-emergence herbicide
+- **Target crops**: Pineapple, sugarcane, bananas, citrus, cassava, tea, cocoa and palm oil
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: Ametryn 50% SC
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Selective control**: Targets weeds while protecting multiple crop types
+- **Crop safety**: Safe for pineapple, sugarcane, bananas, citrus, cassava, tea, cocoa and palm oil
 
 ## Benefits
-Effective control of weeds in multiple crops
-Selective action on target crops
-Cost-effective solution
-Easy to use
+- **Multi-crop control**: Effective control of weeds in multiple crop types
+- **Selective action**: Safe for pineapple, sugarcane, bananas, citrus, cassava, tea, cocoa and palm oil
+- **Post-emergence application**: Can be applied after weed emergence
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Versatile use**: Suitable for various crop types
+- **Reliable results**: Proven effectiveness in multiple crop systems
 
 ## Price Information
 Per 1L: UGX 22,470

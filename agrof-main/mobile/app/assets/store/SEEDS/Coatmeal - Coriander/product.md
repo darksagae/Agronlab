@@ -31,25 +31,30 @@ Water: Regular irrigation needed
 Spacing: 20cm x 20cm between plants
 
 ## Usage Instructions
-Seed Preparation: No special treatment required
-Planting Depth: 1-2 cm deep
-Planting Time: Early spring or fall
-Germination: 7-10 days
-Direct seeding recommended
+- **Variety type**: A popular herb with finely cut, small and rather pungent leaves
+- **Foliage use**: Tender foliage used for seasoning and flavouring curries
+- **Planting depth**: 1-2 cm deep
+- **Planting time**: Early spring or fall
+- **Germination**: 7-10 days
+- **Direct seeding**: Recommended for optimal results
+- **Special attributes**: Popular herb with excellent flavor and aroma
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Broadcast Seeding: For large areas
-Container Growing: Suitable for pots
-Spacing: Maintain 20cm x 20cm spacing between plants
+- **Method**: Direct seeding recommended
+- **Target**: Popular herb with finely cut, small and rather pungent leaves
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Broadcast seeding**: For large areas
+- **Container growing**: Suitable for pots
+- **Culinary use**: Tender foliage used for seasoning and flavouring curries
 
 ## Benefits
-Excellent Flavor: Superior taste and aroma
-Abundant Foliage: High leaf production
-High Seed Yield: Good seed production
-Easy Growing: Suitable for beginners
-Container Friendly: Can be grown in pots
-Versatile Use: Culinary and medicinal
+- **Popular herb**: A popular herb with finely cut, small and rather pungent leaves
+- **Culinary use**: Tender foliage used for seasoning and flavouring curries
+- **Excellent flavor**: Superior taste and aroma
+- **Easy growing**: Suitable for beginners and experienced gardeners
+- **Container friendly**: Can be grown in pots
+- **Versatile use**: Culinary and medicinal purposes
+- **High demand**: Popular variety with excellent market acceptance
 
 ## Price Information
 Per 1000 seeds: UGX 15,000

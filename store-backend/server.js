@@ -10,6 +10,90 @@ const sqlite3 = require('sqlite3').verbose();
 const InventoryAutomation = require('./inventory-automation');
 const InventoryReports = require('./inventory-reports');
 
+// Product translation service
+const loadProductTranslations = async (language = 'en') => {
+  try {
+    const translationPath = path.join(__dirname, `../agrof-main/mobile/app/locales/products_${language}.json`);
+    if (await fs.pathExists(translationPath)) {
+      const translationData = await fs.readJson(translationPath);
+      return translationData;
+    }
+    return {};
+  } catch (error) {
+    console.error(`Error loading translations for ${language}:`, error);
+    return {};
+  }
+};
+
+const translateProduct = (product, translations) => {
+  if (!product || !product.name || !translations) return product;
+  
+  // Create a mapping from product names to translation keys
+  const productNameMapping = {
+    'Sugar Baby Watermelon Seeds': 'sugar_baby',
+    'Julie F1 Watermelon Seeds': 'julie_f1',
+    'Drumhead Cabbage Seeds': 'drumhead_cabbage',
+    'Copenhagen Cabbage Seeds': 'copenhagen_cabbage',
+    'Corriander Dhania Seeds': 'coriander_dhania',
+    'Copenhagen Market Cabbage Seeds': 'copenhagen_cabbage',
+    'Sugar Baby': 'sugar_baby',
+    'Julie F1': 'julie_f1',
+    'Drumhead': 'drumhead_cabbage',
+    'Copenhagen': 'copenhagen_cabbage',
+    'Corriander Dhania': 'coriander_dhania',
+    'Ammonium Sulphate': 'ammonium_sulphate',
+    'Urea (Prilled)': 'urea',
+    'Dap': 'dap',
+    'DAP': 'dap'
+  };
+  
+  // Try to find the translation key
+  let productKey = productNameMapping[product.name];
+  
+  // If no direct mapping, try to create a key from the name
+  if (!productKey) {
+    productKey = product.name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '')
+      .replace(/\s+/g, '_')
+      .replace(/_+/g, '_')
+      .trim();
+  }
+  
+  console.log(`🌍 Translating product: "${product.name}" -> key: "${productKey}"`);
+  console.log(`🌍 Available translation keys:`, Object.keys(translations));
+  
+  const productTranslations = translations[productKey] || {};
+  
+  if (productTranslations.name) {
+    console.log(`✅ Found translation for ${product.name}: ${productTranslations.name}`);
+  } else {
+    console.log(`❌ No translation found for ${product.name} (key: ${productKey})`);
+  }
+  
+  return {
+    ...product,
+    name: productTranslations.name || product.name,
+    description: productTranslations.description || product.description,
+    overview: productTranslations.overview || product.overview,
+    key_features: productTranslations.key_features || product.key_features,
+    growing_requirements: productTranslations.growing_requirements || product.growing_requirements,
+    planting_instructions: productTranslations.planting_instructions || product.planting_instructions,
+    harvesting: productTranslations.harvesting || product.harvesting,
+    disease_resistance: productTranslations.disease_resistance || product.disease_resistance,
+    yield_potential: productTranslations.yield_potential || product.yield_potential,
+    maturity: productTranslations.maturity || product.maturity,
+    spacing: productTranslations.spacing || product.spacing,
+    seed_rate: productTranslations.seed_rate || product.seed_rate,
+    usage_instructions: productTranslations.usage_instructions || product.usage_instructions,
+    application_method: productTranslations.application_method || product.application_method,
+    benefits: productTranslations.benefits || product.benefits,
+    storage_instructions: productTranslations.storage_instructions || product.storage_instructions,
+    safety_info: productTranslations.safety_info || product.safety_info,
+    price: productTranslations.price || product.price
+  };
+};
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -20,6 +104,10 @@ app.use(morgan('combined'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Import messaging routes
+const messagingRoutes = require('./messaging');
+app.use('/api', messagingRoutes);
 
 // Serve static files from the store directory
 const storePath = path.join(__dirname, '../agrof-main/mobile/app/assets/store');
@@ -150,7 +238,7 @@ const initializeDatabase = () => {
 };
 
 // Parse individual product markdown file
-const parseProductMarkdownFile = async (filePath) => {
+const parseProductMarkdownFile = async (filePath, language = 'en') => {
   try {
     const content = await fs.readFile(filePath, 'utf8');
     const tokens = marked.lexer(content);
@@ -165,7 +253,17 @@ const parseProductMarkdownFile = async (filePath) => {
       application_method: '',
       benefits: '',
       storage_instructions: '',
-      safety_info: ''
+      safety_info: '',
+      overview: '',
+      key_features: '',
+      growing_requirements: '',
+      planting_instructions: '',
+      harvesting: '',
+      disease_resistance: '',
+      yield_potential: '',
+      maturity: '',
+      spacing: '',
+      seed_rate: ''
     };
     
     let currentSection = '';
@@ -397,7 +495,7 @@ const populateDatabase = async () => {
               }
               
               const imageUrl = imageFile ? 
-                `/api/images/${categoryDirMap[category.name] || category.name.toUpperCase()}/${encodeURIComponent(item)}/${imageFile}` : 
+                `/api/images/${categoryDirMap[category.name] || category.name.toUpperCase()}/${item}/${imageFile}` : 
                 null;
               
               // Insert product with enhanced data
@@ -459,40 +557,66 @@ app.get('/api/health', (req, res) => {
 });
 
 // Get all categories
-app.get('/api/categories', (req, res) => {
-  db.all('SELECT * FROM categories ORDER BY name', (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json(rows);
-  });
+app.get('/api/categories', async (req, res) => {
+  const { language = 'en' } = req.query;
+  
+  try {
+    const translations = await loadProductTranslations(language);
+    const categoryTranslations = translations.categories || {};
+    
+    db.all('SELECT * FROM categories ORDER BY name', (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      
+      // Translate category names
+      const translatedRows = rows.map(row => ({
+        ...row,
+        display_name: categoryTranslations[row.name] || row.display_name
+      }));
+      
+      res.json(translatedRows);
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to load translations' });
+  }
 });
 
 // Get products by category
-app.get('/api/categories/:categoryId/products', (req, res) => {
+app.get('/api/categories/:categoryId/products', async (req, res) => {
   const { categoryId } = req.params;
+  const { language = 'en' } = req.query;
   
-  const query = `
-    SELECT p.*, c.name as category_name, c.display_name as category_display_name 
-    FROM products p 
-    JOIN categories c ON p.category_id = c.id 
-    WHERE c.name = ? 
-    ORDER BY p.name
-  `;
-  
-  db.all(query, [categoryId], (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json(rows);
-  });
+  try {
+    const translations = await loadProductTranslations(language);
+    
+    const query = `
+      SELECT p.*, c.name as category_name, c.display_name as category_display_name 
+      FROM products p 
+      JOIN categories c ON p.category_id = c.id 
+      WHERE c.name = ? 
+      ORDER BY p.name
+    `;
+    
+    db.all(query, [categoryId], (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      
+      // Translate products
+      const translatedRows = rows.map(row => translateProduct(row, translations));
+      res.json(translatedRows);
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to load translations' });
+  }
 });
 
 // Get all products
-app.get('/api/products', (req, res) => {
-  const { search, category, limit = 500, offset = 0 } = req.query;
+app.get('/api/products', async (req, res) => {
+  const { search, category, limit = 500, offset = 0, language = 'en' } = req.query;
   
   let query = `
     SELECT p.*, c.name as category_name, c.display_name as category_display_name 
@@ -515,37 +639,56 @@ app.get('/api/products', (req, res) => {
   query += ' ORDER BY p.name LIMIT ? OFFSET ?';
   params.push(parseInt(limit), parseInt(offset));
   
-  db.all(query, params, (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json(rows);
-  });
+  try {
+    const translations = await loadProductTranslations(language);
+    
+    db.all(query, params, (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      
+      // Translate products
+      const translatedRows = rows.map(row => translateProduct(row, translations));
+      res.json(translatedRows);
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to load translations' });
+  }
 });
 
 // Get single product
-app.get('/api/products/:id', (req, res) => {
+app.get('/api/products/:id', async (req, res) => {
   const { id } = req.params;
+  const { language = 'en' } = req.query;
   
-  const query = `
-    SELECT p.*, c.name as category_name, c.display_name as category_display_name 
-    FROM products p 
-    JOIN categories c ON p.category_id = c.id 
-    WHERE p.id = ?
-  `;
-  
-  db.get(query, [id], (err, row) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    if (!row) {
-      res.status(404).json({ error: 'Product not found' });
-      return;
-    }
-    res.json(row);
-  });
+  try {
+    const translations = await loadProductTranslations(language);
+    
+    const query = `
+      SELECT p.*, c.name as category_name, c.display_name as category_display_name 
+      FROM products p 
+      JOIN categories c ON p.category_id = c.id 
+      WHERE p.id = ?
+    `;
+    
+    db.get(query, [id], (err, row) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      if (!row) {
+        res.status(404).json({ error: 'Product not found' });
+        return;
+      }
+      
+      // Translate product
+      const translatedRow = translateProduct(row, translations);
+      res.json(translatedRow);
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to load translations' });
+  }
 });
 
 // Search products

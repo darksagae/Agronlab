@@ -7,11 +7,12 @@ Uganda Crop Care Limited
 Omni K is a water-soluble fertilizer for fertigation or foliar application, supplying nitrate, nitrogen and chlorine free potassium to plants for enhanced growth and higher yields.
 
 ## Content/Composition
-130g/kg N – 380g/kg K, 130g/kg N – 460g/kg K2O
+- 130g/kg N – 380g/kg K
+- 130g/kg N – 460g/kg K2O
 
 ## Price Information
-Retail: UGX 366,000
-Wholesale: UGX 357,500
+- Retail: UGX 366,000
+- Wholesale: UGX 357,500
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -20,16 +21,22 @@ Wholesale: UGX 357,500
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Foliar spray or fertigation
+- **Timing**: Apply during active growth stages
+- **Frequency**: Apply as needed during growing season
+- **Best time**: Early morning or late afternoon
+- **Target crops**: All crops
+- **Water solubility**: Can be applied through irrigation systems
+- **Water management**: Water after application for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Water soluble**: Perfect for fertigation and foliar application
+- **Chlorine free**: Supplies chlorine-free potassium
+- **Nitrate nitrogen**: Provides nitrate nitrogen for enhanced growth
+- **High potassium**: 380g/kg K (460g/kg K2O) for strong plant development
+- **Enhanced growth**: Promotes enhanced growth and higher yields
+- **Versatile application**: Suitable for all crop types
+- **Cost-effective**: Efficient nutrient delivery system
 
 ## Storage Instructions
 - Store in cool, dry place

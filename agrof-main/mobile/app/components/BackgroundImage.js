@@ -2,39 +2,64 @@ import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
 const BackgroundImage = ({ children, overlayOpacity = 0.3, backgroundImage = 'welcome' }) => {
+  console.log('🖼️ BackgroundImage component - backgroundImage prop:', backgroundImage);
+  
   // Map background names to actual image sources
   const getBackgroundSource = (bgName) => {
+    console.log('🖼️ Getting background source for:', bgName);
     try {
+      let source;
       switch (bgName) {
         case 'welcome':
-          return require('../assets/welcome.png');
+          console.log('🎯 Loading Welcome image...');
+          source = require('../assets/welcome.png');
+          console.log('🎯 Welcome image source:', source);
+          break;
         case 'background1':
-          return require('../assets/background-image.png');
+          source = require('../assets/background-image.png');
+          break;
         case 'background2':
-          return require('../assets/background-image.png');
+          source = require('../assets/background-image.png');
+          break;
         case 'background3':
-          return require('../assets/landing.png');
+          source = require('../assets/landing.png');
+          break;
         case 'fertilizers':
-          return require('../assets/fertilizers.png');
+          source = require('../assets/fertilizers.png');
+          break;
         case 'fungicides':
-          return require('../assets/fungicides.png');
+          source = require('../assets/fungicides.png');
+          break;
         case 'herbicides':
-          return require('../assets/herbicides.png');
+          source = require('../assets/herbicides.png');
+          break;
         case 'seeds':
-          return require('../assets/seeds.png');
+          source = require('../assets/seeds.png');
+          break;
         case 'nursery':
-          return require('../assets/nurserybed.png');
+          source = require('../assets/nurserybed.png');
+          break;
         case 'organic':
-          return require('../assets/organic_chemicals.png');
+          source = require('../assets/organic_chemicals.png');
+          break;
         case 'splash':
-          return require('../assets/splash.png');
+          source = require('../assets/splash.png');
+          break;
         case 'landing':
-          return require('../assets/landing.png');
+          source = require('../assets/landing.png');
+          break;
+        case 'ai':
+          console.log('🎯 Loading AI image...');
+          source = require('../assets/care.png'); // Using care.png as AI background
+          console.log('🎯 AI image source:', source);
+          break;
         default:
-          return require('../assets/welcome.png');
+          source = require('../assets/welcome.png');
       }
+      console.log('🖼️ Background source resolved:', source);
+      return source;
     } catch (error) {
-      console.log('Error loading background image:', bgName, error);
+      console.log('❌ Error loading background image:', bgName, error);
       return require('../assets/welcome.png');
     }
   };
@@ -46,10 +71,10 @@ const BackgroundImage = ({ children, overlayOpacity = 0.3, backgroundImage = 'we
         style={styles.backgroundImage}
         resizeMode="cover"
         onError={(error) => {
-          console.log('Image load error:', error.nativeEvent.error);
+          console.log('❌ Image load error for', backgroundImage, ':', error.nativeEvent.error);
         }}
         onLoad={() => {
-          console.log('Background image loaded successfully:', backgroundImage);
+          console.log('✅ Background image loaded successfully:', backgroundImage);
         }}
       />
       <View style={[styles.overlay, { backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})` }]}>

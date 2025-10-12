@@ -20,21 +20,30 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 120-150mls per 20ltrs of water
-**Application rate:** 1.2ltrs per acre
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 120-150mls per 20L of water
+- **Application rate**: 1.2L per acre
+- **Application method**: Systemic, selective post-emergence herbicide
+- **Target weeds**: Annual and perennial broad-leaved weeds
+- **Target crops**: Maize, Rice, wheat, sorghum, sugarcane, orchards, forestry and non-crop land
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Active ingredient**: Dimethyl Amine Salt of 2,4 D-Dichlorophenyl
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Systemic action**: Moves throughout the plant for complete control
+- **Selective control**: Targets weeds while protecting target crops
+- **Multi-crop use**: Suitable for maize, rice, wheat, sorghum, sugarcane, orchards, forestry and non-crop land
 
 ## Benefits
-Effective control of broad-leaved weeds
-Systemic action
-Selective action on target crops
-Cost-effective solution
-Easy to use
+- **Broad-leaved control**: Effective control of annual and perennial broad-leaved weeds
+- **Systemic action**: Moves throughout the plant for complete control
+- **Selective action**: Safe for maize, rice, wheat, sorghum, sugarcane, orchards, forestry and non-crop land
+- **Multi-crop use**: Suitable for various crop types and non-crop areas
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Reliable results**: Proven effectiveness against broad-leaved weeds
 
 ## Price Information
 Per 1L: UGX 18,150

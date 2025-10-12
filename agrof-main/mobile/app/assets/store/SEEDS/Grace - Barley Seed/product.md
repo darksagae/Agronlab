@@ -31,25 +31,31 @@ Water: Moderate irrigation needed
 Spacing: 20cm x 20cm between plants
 
 ## Usage Instructions
-Seed Preparation: No special treatment required
-Planting Depth: 2-3 cm deep
-Planting Time: Early spring or fall
-Germination: 7-10 days
-Direct seeding recommended
+- **Maturity**: 100 days
+- **Yield potential**: 1500 kg/ Acre
+- **Seed rate**: 50kgs/Acre
+- **Planting depth**: 2-3 cm deep
+- **Planting time**: Early spring or fall
+- **Germination**: 7-10 days
+- **Direct seeding**: Recommended for optimal results
+- **Special attributes**: Grace barley is a good yielding variety
 
 ## Application Method
-Direct Seeding: Plant directly in prepared soil
-Broadcast Seeding: For large areas
-Row Planting: For better management
-Spacing: Maintain 20cm x 20cm spacing between plants
+- **Method**: Direct seeding recommended
+- **Target**: High-quality barley variety for food production and animal feed
+- **Spacing**: Maintain proper spacing for optimal growth
+- **Broadcast seeding**: For large areas
+- **Row planting**: For better management
+- **Soil preparation**: Well-drained, fertile soil
 
 ## Benefits
-High Yield: Excellent production per plant
-Excellent Quality: High-quality grains
-Drought Tolerant: Survives dry conditions
-Easy Growing: Suitable for beginners
-Versatile Use: Food production and animal feed
-Disease Resistance: Reduces crop losses
+- **High yield potential**: 1500 kg/ Acre under good management
+- **Good yielding variety**: Grace barley is a good yielding variety
+- **Maturity**: 100 days to maturity
+- **Easy growing**: Suitable for beginners and experienced farmers
+- **Versatile use**: Food production and animal feed
+- **Disease resistance**: Reduces crop losses
+- **Cost-effective**: Good return on investment
 
 ## Price Information
 Per 1000 seeds: UGX 25,000

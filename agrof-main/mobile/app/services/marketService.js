@@ -47,13 +47,20 @@ class MarketService {
       return true;
     } catch (error) {
       console.error('Error loading market data:', error);
-      // Use mock data if API fails
-      this.loadMockMarketData();
+      // Return empty data instead of mock data for production
+      this.marketData = {
+        buyers: [],
+        sellers: [],
+        products: [],
+        prices: {},
+        transactions: []
+      };
       return false;
     }
   }
 
-  // Load mock market data for development
+  // DEPRECATED: Mock data removed for production
+  // Use Supabase queries instead
   loadMockMarketData() {
     this.marketData = {
       buyers: [

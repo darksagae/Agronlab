@@ -21,25 +21,31 @@ Easy to apply
 Wide application window
 
 ## Usage Instructions
-Mixing: Mix 100-150ml per 20 liters of water
-Application: Apply as a foliar spray or soil treatment
-Timing: Best applied pre-emergence or early post-emergence
-Avoid Drift: Do not apply when windy to prevent drift
-Re-entry Period: 12 hours after application
+- **Mixing ratio**: 100-150ml per 20L of water
+- **Application method**: Selective herbicide
+- **Target weeds**: Broadleaf weeds, some grasses
+- **Target crops**: Maize, soybeans, cotton, sugarcane crops
+- **Application timing**: Best applied pre-emergence or early post-emergence
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Avoid drift**: Do not apply when windy to prevent drift
+- **Re-entry period**: 12 hours after application
 
 ## Application Method
-Foliar Spray: Apply to weed foliage
-Soil Treatment: Apply to soil surface
-Boom Sprayer: For large areas
-Knapsack Sprayer: For small areas
+- **Pre-emergence**: Apply to soil surface before crop emergence
+- **Post-emergence**: Direct application to weed foliage
+- **Flexible timing**: Can be applied before or after weed emergence
+- **Equipment**: Boom sprayer for large areas, knapsack sprayer for small areas
+- **Selective control**: Targets weeds while protecting crops
 
 ## Benefits
-Selective Control: Kills broadleaf weeds, spares crops
-Pre-emergence: Controls weeds before they emerge
-Cost Effective: Reduces manual weeding
-Time Saving: Quick and efficient application
-Wide Application: Suitable for many crops
-Easy Use: Simple application method
+- **Broadleaf control**: Effective control of broadleaf weeds and some grasses
+- **Selective action**: Kills broadleaf weeds, spares crops
+- **Dual application**: Pre-emergence and post-emergence flexibility
+- **Multi-crop use**: Suitable for maize, soybeans, cotton, sugarcane crops
+- **Cost-effective**: Reduces manual weeding costs
+- **Time saving**: Quick and efficient application
+- **Easy application**: Simple mixing and spray application
+- **Reliable results**: Proven effectiveness in various crop systems
 
 ## Price Information
 Per 1L container: UGX 40,000

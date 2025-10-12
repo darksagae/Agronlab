@@ -20,19 +20,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 200mls per 20ltr
-**Application:** Apply as a systematic non-selective herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 200mls per 20L of water
+- **Application method**: Systematic non-selective herbicide
+- **Target weeds**: Grasses in land preparation
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Use areas**: Land preparation and non-crop areas
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to weed foliage
+- **Systematic action**: Moves throughout the plant for complete control
+- **Non-selective**: Controls all vegetation it contacts
+- **Land preparation**: Ideal for land preparation activities
 
 ## Benefits
-Effective control of grasses
-Systematic action
-Cost-effective solution
-Easy to use
+- **Grass control**: Effective control of grasses in land preparation
+- **Systematic action**: Moves throughout the plant for complete control
+- **Non-selective**: Controls all vegetation it contacts
+- **Cost-effective**: Single application for complete control
+- **Easy application**: Simple mixing and spray application
+- **Land preparation**: Ideal for land preparation activities
+- **Reliable results**: Proven effectiveness against grasses
 
 ## Price Information
 Per 1L: UGX 15,000

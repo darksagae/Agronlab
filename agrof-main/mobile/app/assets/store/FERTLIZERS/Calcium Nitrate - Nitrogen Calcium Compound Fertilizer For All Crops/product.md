@@ -4,13 +4,20 @@
 Uganda Crop Care Limited
 
 ## Overview
-Calcium Nitrate helps with cell formation but it also neutralizes acids to detoxify the plant. The nitrogen component is also responsible for fuelling protein production and essentially leafy growth.
+Calcium Nitrate helps with cell formation but it also neutralizes acids to detoxify the plant. The nitrogen component is also responsible for fuelling protein production and essentially leafy growth. Heat and moisture stress can cause calcium deficiencies in certain crops, like tomatoes. This is when to use calcium nitrate.
+
+Its combined nutrients can help cell growth stabilize and fuel leafy development.
+
+When applied early in fruit development, the calcium stabilizes cells so they don't collapse, causing blossom end rot. This enables you produce high quality fruits.
 
 ## Content/Composition
-Nitrogen (N): 15.5%, Nitrate Nitrogen (N): 14.4%, Ammonical Nitrogen (N): 1.1%, Calcium Oxide: 26%
+- Nitrogen (N): 15.5%
+- Nitrate Nitrogen (N): 14.4%
+- Ammonical Nitrogen (N): 1.1%
+- Calcium Oxide: 26%
 
 ## Price Information
-25 Kg: UGX 170,400
+- 25 Kg: UGX 170,400
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -19,16 +26,22 @@ Nitrogen (N): 15.5%, Nitrate Nitrogen (N): 14.4%, Ammonical Nitrogen (N): 1.1%, 
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application timing**: Apply during fruit development and stress periods
+- **Method**: Foliar spray or soil application
+- **Frequency**: Every 2-3 weeks during active growth
+- **Best time**: Early morning or late afternoon
+- **Target crops**: Especially beneficial for tomatoes, peppers, and fruit crops
+- **Stress conditions**: Apply during heat and moisture stress
+- **Early application**: Apply early in fruit development for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Prevents blossom end rot**: Stabilizes cell walls in developing fruits
+- **Cell formation**: Essential for proper cell wall development
+- **Acid neutralization**: Helps detoxify plants from soil acidity
+- **Protein production**: Nitrogen component fuels protein synthesis
+- **Leafy growth**: Promotes healthy vegetative development
+- **Fruit quality**: Improves fruit firmness and shelf life
+- **Stress resistance**: Helps plants cope with environmental stress
 
 ## Storage Instructions
 - Store in cool, dry place

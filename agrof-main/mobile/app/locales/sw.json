@@ -1,0 +1,230 @@
+{
+  "common": {
+    "loading": "Inapakia...",
+    "error": "Hitilafu",
+    "success": "Imefanikiwa",
+    "cancel": "Ghairi",
+    "ok": "Sawa",
+    "save": "Hifadhi",
+    "delete": "Futa",
+    "edit": "Hariri",
+    "back": "Rudi",
+    "next": "Ifuatayo",
+    "continue": "Endelea",
+    "close": "Funga",
+    "selectLanguage": "Chagua Lugha"
+  },
+  "navigation": {
+    "home": "Nyumbani",
+    "store": "Duka",
+    "care": "Utunzaji",
+    "plan": "Mpango",
+    "account": "Akaunti",
+    "cart": "Mkokoteni"
+  },
+  "welcome": {
+    "title": "AGROF",
+    "subtitle": "Msaidizi wako wa AI wa Afya ya Mazao",
+    "continueButton": "Endelea kwa AGROF →",
+    "watchIntro": "Tazama Utangulizi",
+    "startUsing": "Anza Kutumia"
+  },
+  "categories": {
+    "farmer": "Mkulima",
+    "researcher": "Mtafiti",
+    "farmerDescription": "Ninamazao na ninahitaji kugundua magonjwa",
+    "researcherDescription": "Ninafanya utafiti wa kilimo"
+  },
+  "diseaseDetection": {
+    "title": "Kugundua Magonjwa",
+    "takePhoto": "Piga au Chagua Picha",
+    "analyze": "Chambua",
+    "results": "Matokeo ya Uchambuzi",
+    "healthStatus": "Hali ya Afya",
+    "diseaseType": "Aina ya Ugonjwa",
+    "severity": "Ukali",
+    "confidence": "Kujiamini",
+    "treatment": "Mapendekezo ya Matibabu",
+    "prevention": "Vidokezo vya Kuzuia"
+  },
+  "store": {
+    "title": "Duka la AGROF",
+    "subtitle": "Bidhaa bora za kilimo kwa shamba lako",
+    "search": "Tafuta bidhaa...",
+    "categories": "Kategoria",
+    "featured": "Bidhaa Zinazopendwa",
+    "addToCart": "Ongeza kwenye Mkokoteni",
+    "price": "Bei",
+    "description": "Maelezo",
+    "specifications": "Vipimo",
+    "features": "Vipengele"
+  },
+  "cart": {
+    "title": "Mkokoteni wa Ununuzi",
+    "empty": "Mkokoteni wako ni tupu",
+    "total": "Jumla",
+    "checkout": "Maliza Ununuzi",
+    "remove": "Ondoa",
+    "quantity": "Kiasi"
+  },
+  "account": {
+    "title": "Akaunti Yangu",
+    "welcome": "Karibu tena!",
+    "balance": "Salio la AGROF",
+    "settings": "Mipangilio",
+    "help": "Msaada & Usaidizi",
+    "logout": "Ondoka"
+  },
+  "ai": {
+    "assistant": "Msaidizi wa AGROF AI",
+    "askQuestion": "Niulize chochote kuhusu kilimo...",
+    "send": "Tuma",
+    "clear": "Futa Mazungumzo"
+  },
+  "errors": {
+    "networkError": "Hitilafu ya mtandao",
+    "apiError": "Ombi la API limekosa",
+    "imageError": "Hitilafu ya kuchakata picha",
+    "generalError": "Kitu kimekosa"
+  },
+  "manual": {
+    "title": "Jinsi ya Kutumia AGROF AI",
+    "step1": "Piga au Chagua Picha",
+    "step1Description": "Utendaji wa kugundua magonjwa umefutwa kutoka programu hii",
+    "step2": "Uchambuzi wa AI",
+    "step2Description": "AI yetu itachambua picha na kutambua magonjwa au matatizo ya afya",
+    "step3": "Matokeo ya Kina",
+    "step3Description": "Pata taarifa kamili pamoja na utambuzi wa magonjwa, chaguzi za matibabu, na maagizo ya utunzaji",
+    "startUsing": "Anza Kutumia Programu"
+  },
+  "form": {
+    "cropType": "Aina ya Mazao (k.m. Mahindi, Kahawa)",
+    "area": "Eneo (ekari)",
+    "startDate": "Tarehe ya Kuanza (YYYY-MM-DD)",
+    "endDate": "Tarehe ya Kukamilika (YYYY-MM-DD)",
+    "notes": "Maelezo (si lazima)"
+  },
+  "analysis": {
+    "title": "Ripoti ya Uchambuzi wa Mazao wa AI",
+    "subtitle": "Uchunguzi wa Magonjwa na Mpango wa Matibabu",
+    "cropIdentification": "Utambuzi wa Mazao",
+    "healthStatus": "Hali ya Afya",
+    "diseaseDetection": "Uchunguzi wa Magonjwa",
+    "businessAnalysis": "Uchambuzi wa Biashara",
+    "economicImpact": "💰 Athari ya Kiuchumi",
+    "riskAssessment": "⚠️ Tathmini ya Hatari",
+    "immediateTreatments": "💊 Matibabu ya Haraka",
+    "businessRecommendations": "🏢 Mapendekezo ya Biashara",
+    "analysisDetails": "Maelezo ya Uchambuzi",
+    "aiAnalysisResults": "Matokeo ya Uchambuzi wa AI",
+    "symptoms": "🔍 Dalili",
+    "longTermStrategies": "🌱 Mikakati ya Muda Mrefu",
+    "prevention": "🛡️ Kinga",
+    "newAnalysis": "Uchambuzi Mpya",
+    "shareResults": "Shiriki Matokeo"
+  },
+  "care": {
+    "title": "AGROF AI",
+    "subtitle": "Usimamizi wa Mazao wa AI",
+    "smartFarming": "Kilimo cha Akili",
+    "smartFarmingSubtitle": "Usimamizi na ufuatiliaji wa mazao wa AI",
+    "diseaseDetection": "Uchunguzi wa Magonjwa",
+    "marketConnect": "Uunganisho wa Soko"
+  },
+  "plan": {
+    "title": "Mipango ya Shamba ya AI",
+    "subtitle": "Mipango ya kilimo ya AI",
+    "calendar": "Kalenda",
+    "rotation": "Mzunguko",
+    "budget": "Bajeti",
+    "cropCalendarPlanning": "Mipango ya Kalenda ya Mazao",
+    "addPlan": "Ongeza Mpango",
+    "noPlans": "Hakuna mipango ya mazao bado. Ongeza mpango wako wa kwanza!",
+    "cropRotationStrategy": "Mkakati wa Mzunguko wa Mazao",
+    "budgetPlanning": "Mipango ya Bajeti",
+    "totalPlanned": "Jumla ya Mipango",
+    "activePlans": "Mipango ya Kaimu"
+  },
+  "chatbot": {
+    "welcome": "Hujambo! Mimi ni AgrofBot. Ninaweza kusaidia kuhusu:\n\n• Magonjwa ya mazao\n• Vidokezo vya kilimo\n• Udhibiti wa wadudu\n• Ushauri wa hali ya hewa\n• Taarifa za soko\n\nUnahitaji nini?",
+    "greetings": [
+      "Hujambo! Ninaweza kukusaidiaje kuhusu kilimo chako leo?",
+      "Hujambo! Una swali gani la kilimo?",
+      "Karibu! Niko hapa kukusaidia kuhusu mazao na mahitaji yako ya kilimo.",
+      "Salamu! Tayari kukusaidia kukua mazao bora leo!"
+    ]
+  },
+  "productDetails": {
+    "title": "Maelezo ya Bidhaa",
+    "description": "Maelezo",
+    "specifications": "Vipimo",
+    "keyFeatures": "Vipengele Muhimu",
+    "availability": "Upatikanaji",
+    "inStock": "Ipo",
+    "outOfStock": "Haipo",
+    "viewPackages": "Ona Vifurushi na Bei",
+    "callForInquiry": "Piga Simu kwa Uchunguzi",
+    "addToCart": "Ongeza kwenye Rukwama",
+    "quantity": "Kiasi",
+    "price": "Bei",
+    "manufacturer": "Mtengenezaji",
+    "category": "Kategoria",
+    "usageInstructions": "Maagizo ya Matumizi",
+    "benefits": "Faida"
+  },
+  "cart": {
+    "fullName": "Jina Kamili",
+    "email": "Barua Pepe",
+    "phoneNumber": "Nambari ya Simu",
+    "deliveryAddress": "Anwani ya Kufikishia"
+  },
+  "search": {
+    "placeholder": "Tafuta bidhaa...",
+    "messagePlaceholder": "Andika ujumbe wako..."
+  },
+  "help": {
+    "regularMonitoring": "Ufuatiliaji wa Kawaida",
+    "regularMonitoringDesc": "Angalia mazao yako mara kwa mara kwa dalili za magonjwa mapema.",
+    "consultExperts": "Shauriana na Wataalamu",
+    "consultExpertsDesc": "Shauriana daima na wataalamu wa kilimo wa eneo lako kwa maamuzi ya matibabu.",
+    "keepRecords": "Hifadhi Rekodi",
+    "keepRecordsDesc": "Hifadhi rekodi za magonjwa yaliyogunduliwa na matibabu yaliyotumika."
+  },
+  "products": {
+    "categories": {
+      "cereals": "Nafaka",
+      "cash_crops": "Mazao ya Biashara",
+      "fruits": "Matunda",
+      "vegetables": "Mboga",
+      "legumes": "Mikunde",
+      "fertilizers": "Mboji",
+      "seeds": "Mbegu",
+      "fungicides": "Dawa za Magonjwa",
+      "herbicides": "Dawa za Magugu",
+      "nursery_bed": "Mahali pa Kukua",
+      "organic_chemicals": "Kemikali za Asili",
+      "pesticides": "Dawa za Wadudu",
+      "tools": "Vifaa na Vifaa"
+    },
+    "descriptions": {
+      "stapleCerealCrop": "Mazao ya msingi",
+      "premiumCoffeeBeans": "Kahawa ya hali ya juu",
+      "essentialGrainCrop": "Mazao ya msingi",
+      "nutritiousFruitCrop": "Mazao ya matunda yenye virutubisho",
+      "versatileVegetableCrop": "Mazao ya mboga yenye matumizi mengi",
+      "proteinRichLegume": "Mikunde yenye protini nyingi",
+      "healthyFruitCrop": "Mazao ya matunda yenye afya"
+    },
+    "names": {
+      "maize": "Mahindi",
+      "coffee": "Kahawa",
+      "rice": "Mchele",
+      "banana": "Ndizi",
+      "tomatoes": "Nyanya",
+      "beans": "Maharage",
+      "avocados": "Mipapai"
+    }
+  }
+}
+
+

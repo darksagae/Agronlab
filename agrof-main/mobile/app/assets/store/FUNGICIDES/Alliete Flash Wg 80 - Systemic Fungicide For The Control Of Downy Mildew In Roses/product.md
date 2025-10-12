@@ -20,25 +20,29 @@ Easy to mix and apply
 Long-lasting protection
 
 ## Usage Instructions
-**Roses (Foliar spray):**
-- Rate: 20-25g/20ltrs of water (2.0-2.5kg/Ha in 1200-2000ltrs of water)
-- Application: Apply as a foliar spray ensuring thorough coverage
-
-**Roses (Soil drench application):**
-- Rate: 5-6kg/Ha in 1000ltrs of water
-- Application interval: 2 weeks interval
-- Apply on moist soil around the plant base
+- **Roses (Foliar spray)**: 20-25g/20L of water (2.0-2.5kg/Ha in 1200-2000L of water)
+- **Roses (Soil drench application)**: 5-6kg/Ha in 1000L of water at a 2 weeks interval
+- **Application method**: Systemic fungicide for control of downy mildew
+- **Target diseases**: Downy mildew in Roses
+- **Application timing**: Can be applied as a preventive schedule or during early disease symptoms
+- **Active ingredient**: Fosetyl-Aluminium 800g/kg
+- **Formulation**: Water Dispersible Granules (WG)
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
-Soil Drenching: Application to soil around plant roots
+- **Foliar spray**: Direct application to plant foliage
+- **Soil drenching**: Application to soil around plant roots
+- **Systemic activity**: Absorbed by plant tissues and translocated throughout the plant
+- **Preventative action**: Can be applied before disease symptoms appear
+- **Curative action**: Effective during early disease symptoms
 
 ## Benefits
-Systemic protection throughout the plant
-Effective against downy mildew
-Preventative and curative action
-Long-lasting protection
-Easy to apply
+- **Downy mildew control**: Effective control of downy mildew in roses
+- **Systemic protection**: Absorbed by plant tissues and translocated throughout the plant
+- **Dual application**: Both foliar spray and soil drench application methods
+- **Preventative and curative**: Can be applied as preventive schedule or during early disease symptoms
+- **Long-lasting protection**: Provides extended disease control
+- **Easy application**: Water dispersible granules for easy mixing
+- **Cost-effective**: Single application for comprehensive downy mildew control
 
 ## Price Information
 Per 1kg: UGX 148,500

@@ -20,21 +20,28 @@ Easy to apply
 Long-lasting control
 
 ## Usage Instructions
-**Rate of use:** 3-3.5ltrs/Ha in 300-500ltrs of water (1-1.5ltrs/acre in 120-200ltrs of water)
-**Application:** Apply as a pre or post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application rate**: 3-3.5L/Ha in 300-500L of water (1-1.5L/acre in 120-200L of water)
+- **Application method**: Pre and post-emergence herbicide
+- **Target weeds**: Annual grasses and broad leaved weeds
+- **Target crops**: Pineapples, sugarcane, banana, cotton, maize, non-crop land
+- **Timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Flexibility**: Can be applied before or after weed emergence
 
-## Application Method
-Pre-emergence Spray: Apply to soil before crop emergence
-Post-emergence Spray: Direct application to weed foliage
+## Application Methods
+- **Pre-emergence**: Apply to soil before crop emergence
+- **Post-emergence**: Direct application to weed foliage
+- **Multi-crop use**: Suitable for various crop types
+- **Non-crop areas**: Can be used in non-crop land
 
 ## Benefits
-Effective control of annual grasses and broad leaved weeds
-Pre and post-emergence flexibility
-Suitable for multiple crops
-Cost-effective solution
-Easy to use
+- **Dual application**: Pre and post-emergence flexibility
+- **Broad spectrum**: Controls annual grasses and broad leaved weeds
+- **Multi-crop use**: Suitable for pineapples, sugarcane, banana, cotton, maize
+- **Cost-effective**: Single product for multiple applications
+- **Long-lasting control**: Provides extended weed control
+- **Easy application**: Simple spray application method
+- **Versatile use**: Can be used in crop and non-crop areas
 
 ## Price Information
 Per 500ml: UGX 14,800

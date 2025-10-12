@@ -20,24 +20,30 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Recommendations and rates of use:**
-- 0.6Ltrs/ha (from 2 – 5 leaves)
-- 0.75ltrs/ha (from 5 leaves - early tillering)
-- Rate: 1L/Ha, 100ml/20L
-
-**Application:** Apply as a post-emergence herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Application rates**: 0.6L/ha (from 2-5 leaves), 0.75L/ha (from 5 leaves - early tillering)
+- **Standard rate**: 1L/Ha, 100ml/20L
+- **Target weeds**: Wild oats, foxtail, and bird grass
+- **Application timing**: Between 2-leaf stage until end of tillering
+- **Weather conditions**: Optimum conditions increase effectiveness, dry/cold conditions decrease effect
+- **Rain protection**: Not adversely affected by precipitation 1-2 hours after application
+- **PHI**: 6 weeks after spraying
+- **Safety**: WHO classification - slightly hazardous
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence systemic herbicide
+- **Target**: Direct application to weed foliage
+- **Penetration**: Moves from leaves and stems into plant
+- **Symptoms**: Chlorosis and necrotic spots appear within 4-10 days
+- **Control**: Weed dies within 15-30 days
 
 ## Benefits
-Effective control of annual grasses
-Selective action on wheat and barley
-Systemic action
-Cost-effective solution
-Easy to use
+- **Grass weed control**: Effective against wild oats, foxtail, and bird grass
+- **Selective action**: Safe for wheat and barley varieties
+- **Systemic action**: Moves throughout the plant for complete control
+- **Flexible timing**: Can be used from 2-leaf stage to end of tillering
+- **Weather tolerance**: Not affected by precipitation after 1-2 hours
+- **Cost-effective**: Single application provides season-long control
+- **Crop safety**: No harmful effects on wheat and barley at recommended doses
 
 ## Price Information
 Per 5L: UGX 728,500

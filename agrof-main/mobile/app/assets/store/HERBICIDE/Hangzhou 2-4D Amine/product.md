@@ -18,18 +18,28 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Mixing:** 100mls/20ltr
-**Application:** Apply as directed on the label
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
+- **Mixing ratio**: 100mls/20L of water
+- **Application method**: Herbicide for broad leaved weeds
+- **Target weeds**: Broad leaved annual and perennial weeds
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Use areas**: Non-crop areas and land preparation
+- **Application**: Follow label directions carefully
 
 ## Application Method
-Post-emergence Spray: Direct application to weed foliage
+- **Method**: Post-emergence spray application
+- **Target**: Direct application to broad leaved weed foliage
+- **Selective control**: Targets broad leaved weeds specifically
+- **Timing**: Apply when weeds are actively growing
 
 ## Benefits
-Effective control of broad leaved weeds
-Cost-effective solution
-Easy to use
+- **Broad leaved control**: Effective against broad leaved annual and perennial weeds
+- **Selective action**: Targets broad leaved weeds specifically
+- **Cost-effective**: Single application for weed control
+- **Easy application**: Simple mixing and spray application
+- **Versatile use**: Suitable for non-crop areas and land preparation
+- **Reliable results**: Proven effectiveness against broad leaved weeds
+- **Long-lasting control**: Provides extended weed control
 
 ## Price Information
 Per 1L: UGX 16,000

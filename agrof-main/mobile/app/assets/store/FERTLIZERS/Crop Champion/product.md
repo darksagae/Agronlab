@@ -4,11 +4,17 @@
 Gold Lion Agriculture Group Company
 
 ## Overview
-Crop champion is a water soluble foliar fertilizer suitable for both indoor and out door plants , it is also cold and drought resistant. It contains all the essential nutrients required by all crops and at all the three stages of growth.
+Crop champion is a water soluble foliar fertilizer suitable for both indoor and out door plants, it is also cold and drought resistant. It contains all the essential nutrients required by all crops and at all the three stages of growth that is nursery bed, vegetative, fruiting and flowering. It increases yields, absorbed quickly and improves the quality of plant growth, improves on the utilization rate of Fertilizer and the effect is fast.
+
+## Formulation
+N:p:k ( 20:20:20) + 10Ca +TE
+
+## Direction of Use
+30g in 20 litres of water or 300g of crop champion in 200 litres of water on 1arce. Application interval: 2 weeks
 
 ## Price Information
-300g: UGX 13,000
-150kg: UGX 5,000
+- 300g: UGX 13,000
+- 150kg: UGX 5,000
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -17,16 +23,22 @@ Crop champion is a water soluble foliar fertilizer suitable for both indoor and 
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Foliar spray or soil application
+- **Dilution rate**: 30g in 20 liters water or 300g in 200 liters per acre
+- **Timing**: Apply during all growth stages (nursery, vegetative, flowering, fruiting)
+- **Frequency**: Every 2 weeks during growing season
+- **Best time**: Early morning or late afternoon
+- **Target crops**: Suitable for all crops, indoor and outdoor
+- **Resistance**: Cold and drought resistant
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Complete nutrition**: Contains all essential nutrients for all growth stages
+- **Quick absorption**: Rapid uptake and fast results
+- **Versatile application**: Works for indoor and outdoor plants
+- **Growth stage coverage**: Effective at nursery, vegetative, flowering, and fruiting stages
+- **Stress resistance**: Cold and drought resistant
+- **Yield improvement**: Significantly increases crop yields
+- **Quality enhancement**: Improves overall plant growth quality
 
 ## Storage Instructions
 - Store in cool, dry place

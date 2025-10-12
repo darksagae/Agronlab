@@ -4,10 +4,10 @@
 Mabugu Farm Supply
 
 ## Overview
-YaraBela SULFAN is a unique, high quality nitrate product with sulphur included during the production process. An excellent fertilizer for top dressing crops that need nitrate, but also benefit from the inclusion of sulphur.
+YaraBela SULFAN is a unique, high quality nitrate product with sulphur included during the production process. An excellent fertilizer for top dressing crops that need nitrate, but also benefit from the inclusion of sulphur. Every granule contains sulphur. It has a balanced nitrogen source : nitrate-N (12 NO3) and ammonium-N (12 NH4). A proportion of the nitrogen is in nitrate form and gives superior results in the crops when compared to pure ammonia or urea-based products. The products are easy to handle and can be applied to a wide range of crops.
 
 ## Price Information
-50kg: UGX 125,000
+- 50kg: UGX 125,000
 
 ## Key Features
 - High quality agricultural fertilizer

@@ -21,25 +21,33 @@ Compatible with most pesticides
 Cost-effective disease control
 
 ## Usage Instructions
-Mixing: Mix 20-30g per 20 liters of water
-Application: Apply as a foliar spray, ensuring thorough coverage
-Timing: Apply preventatively or at first sign of disease
-Frequency: Repeat every 7-14 days, depending on disease pressure
-Pre-Harvest Interval: 7 days for most crops
+- **Mixing ratio**: Mix 20-30g per 20L of water
+- **Application method**: Systemic and contact fungicide containing metalaxyl-M and mancozeb
+- **Target diseases**: Downy Mildew, Late Blight, Early Blight, Anthracnose
+- **Target crops**: Tomatoes, Potatoes, Onions, Cabbage, Grapes, Cucumbers
+- **Application timing**: Apply preventatively or at first sign of disease
+- **Frequency**: Repeat every 7-14 days, depending on disease pressure
+- **Pre-harvest interval**: 7 days for most crops
+- **Active ingredients**: Metalaxyl-M 4% + Mancozeb 64%
+- **Formulation**: Water Dispersible Granules (WG)
 
 ## Application Method
-Foliar Spray: Apply to all plant surfaces
-High Volume Spray: 200-400 liters per hectare
-Low Volume Spray: 50-100 liters per hectare
-Timing: Early morning or late evening for best results
+- **Method**: Foliar spray application
+- **Target**: Apply to all plant surfaces
+- **Systemic action**: Moves throughout the plant
+- **Contact action**: Protects plant surfaces
+- **High volume spray**: 200-400 liters per hectare
+- **Low volume spray**: 50-100 liters per hectare
+- **Timing**: Early morning or late evening for best results
 
 ## Benefits
-Systemic Action: Moves throughout the plant
-Contact Action: Protects plant surfaces
-Downy Mildew Control: Excellent efficacy
-Long-lasting: Provides extended protection
-Cost Effective: Reduces need for multiple applications
-Safe Use: Low toxicity to beneficial insects
+- **Downy mildew control**: Excellent control against downy mildew and other fungal diseases
+- **Dual action**: Systemic and contact fungicide containing metalaxyl-M and mancozeb
+- **Long-lasting protection**: Provides extended protection
+- **Multi-crop use**: Suitable for tomatoes, potatoes, onions, cabbage, grapes, cucumbers
+- **Rainfast**: Rainfast within 2 hours
+- **Cost-effective**: Reduces need for multiple applications
+- **Safe use**: Low toxicity to beneficial insects
 
 ## Price Information
 Per 100g pack: UGX 35,000

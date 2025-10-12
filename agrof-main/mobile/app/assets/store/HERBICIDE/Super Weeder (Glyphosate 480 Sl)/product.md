@@ -20,21 +20,29 @@ Cost-effective weed control
 Easy to apply
 
 ## Usage Instructions
-**Dosage:** 3-4 Litres per Ha
-**Application:** Apply as a leaf herbicide
-**Timing:** Apply when weeds are actively growing
-**Coverage:** Ensure thorough coverage of target weeds
-**Note:** Repeated applications will be necessary to maintain long-lasting weed control
+- **Application rate**: 3-4 Litres per hectare
+- **Application method**: Leaf herbicide (foliar spray)
+- **Target weeds**: Grass, sedges, broadleaf weeds and woody species
+- **Application timing**: Apply when weeds are actively growing
+- **Coverage**: Ensure thorough coverage of target weeds
+- **Repeated applications**: Necessary to maintain long-lasting weed control
+- **Use areas**: Cropland, industrial and non-cropped areas
 
 ## Application Method
-Foliar Spray: Direct application to weed foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to weed foliage
+- **Systemic action**: Absorbed through leaves and translocated throughout plant
+- **Complete control**: Kills weeds from roots to leaves
+- **Non-selective**: Controls all vegetation it contacts
 
 ## Benefits
-Long-lasting control of many weed types
-Effective against grass, sedges, broadleaf weeds and woody species
-Suitable for various areas
-Cost-effective solution
-Easy to use
+- **Long-lasting control**: Provides extended weed control with repeated applications
+- **Broad spectrum**: Effective against grass, sedges, broadleaf weeds and woody species
+- **Versatile use**: Suitable for cropland, industrial and non-cropped areas
+- **Systemic action**: Moves throughout the plant for complete control
+- **Cost-effective**: Single active ingredient for multiple weed types
+- **Easy application**: Simple foliar spray method
+- **Reliable results**: Proven effectiveness against various weed species
 
 ## Price Information
 Per 1L: UGX 20,000

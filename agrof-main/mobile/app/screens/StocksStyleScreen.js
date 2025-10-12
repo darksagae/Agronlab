@@ -13,6 +13,7 @@ import {
   Image,
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 
 const { width, height } = Dimensions.get('window');
 
@@ -477,12 +478,28 @@ const StocksStyleScreen = ({ navigation }) => {
   const [newsPanelHeight, setNewsPanelHeight] = useState(0);
   const [showWidget, setShowWidget] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [currentDate, setCurrentDate] = useState(new Date());
   
   const widgetScale = useRef(new Animated.Value(0)).current;
   const widgetOpacity = useRef(new Animated.Value(0)).current;
   const marqueeAnimation = useRef(new Animated.Value(0)).current;
 
   // Filter products based on search query
+  // Update date from internet/system settings every minute
+  useEffect(() => {
+    const updateDate = () => {
+      setCurrentDate(new Date());
+    };
+
+    // Update immediately
+    updateDate();
+
+    // Update every minute
+    const interval = setInterval(updateDate, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   useEffect(() => {
     if (searchQuery.trim() === '') {
       setFilteredProducts(agriculturalProducts);
@@ -668,8 +685,15 @@ const StocksStyleScreen = ({ navigation }) => {
       <View style={styles.header}>
         <View style={styles.headerTop}>
           <Text style={styles.appName}>AGROF</Text>
-          <Text style={styles.phoneNumber}>+256 700 000 000</Text>
-          <Text style={styles.date}>{new Date().toLocaleDateString()}</Text>
+          <Text style={styles.phoneNumber}>+256 705 223 777</Text>
+          <Text style={styles.date}>
+            {currentDate.toLocaleDateString('en-US', { 
+              weekday: 'short', 
+              year: 'numeric', 
+              month: 'short', 
+              day: 'numeric' 
+            })}
+          </Text>
         </View>
         
         {/* Search Bar */}
@@ -677,7 +701,7 @@ const StocksStyleScreen = ({ navigation }) => {
           <MaterialIcons name="search" size={20} color="#666" />
           <TextInput
             style={styles.searchInput}
-            placeholder="Search products..."
+            placeholder={t('search.placeholder')}
             value={searchQuery}
             onChangeText={setSearchQuery}
             placeholderTextColor="#666"

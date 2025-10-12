@@ -4,11 +4,11 @@
 Export Trading Group
 
 ## Overview
-NPK 10.25.10+ S-7%+Ca-4%+Mg-1%+Zn-0.51%. It is a high quality NPK blend, specifically designed for planting all types of crops.
+NPK 10.25.10+ S-7%+Ca-4%+Mg-1%+Zn-0.51%. It is a high quality NPK blend, specifically designed for planting all types of crops. The balanced nutrients mean the crop gets a good typical support for the germination, establishment & development phases. It has an ingredient called: Polysulphate that helps reduce the acidic conditions in the soil. Application rate: 50-100kg per acre depending on crop.
 
 ## Price Information
-50 Kg: UGX 160,000
-10 Kg: UGX 42,600
+- 50 Kg: UGX 160,000
+- 10 Kg: UGX 42,600
 
 ## Key Features
 - High quality agricultural fertilizer
@@ -17,16 +17,22 @@ NPK 10.25.10+ S-7%+Ca-4%+Mg-1%+Zn-0.51%. It is a high quality NPK blend, specifi
 - Proven results in crop yield improvement
 
 ## Usage Instructions
-- Follow recommended application rates
-- Apply at appropriate growth stages
-- Ensure proper soil conditions
-- Water after application for best results
+- **Application method**: Soil application at planting
+- **Application rate**: 50-100kg per acre depending on crop
+- **Timing**: Apply during planting and establishment phases
+- **Target stages**: Germination, establishment, and development
+- **Soil conditions**: Works well in acidic soils
+- **Method**: Broadcast or band application
+- **Water management**: Water after application for best results
 
 ## Benefits
-- Improved crop yield and quality
-- Enhanced plant growth and development
-- Better nutrient uptake and utilization
-- Cost-effective solution for farmers
+- **Balanced nutrition**: NPK 10:25:10 + sulfur, calcium, magnesium, zinc
+- **Planting support**: Specifically designed for planting all crop types
+- **Root development**: Promotes strong root development
+- **Soil improvement**: Polysulphate reduces soil acidity
+- **Trace elements**: Provides essential micronutrients
+- **Crop establishment**: Ensures good germination and establishment
+- **Versatile application**: Suitable for all types of crops
 
 ## Storage Instructions
 - Store in cool, dry place

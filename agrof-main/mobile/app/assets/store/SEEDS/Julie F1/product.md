@@ -31,30 +31,37 @@ Julie F1 is a premium hybrid watermelon variety known for its exceptional sweetn
 - **Spacing:** 2.5m x 2.5m between plants
 
 ## Planting Instructions
-1. **Seed Preparation:** Soak seeds in water for 24 hours
-2. **Planting Depth:** 2-3 cm deep
-3. **Planting Time:** After last frost, when soil temperature is 20°C+
-4. **Germination:** 7-10 days
-5. **Transplanting:** When seedlings have 2-3 true leaves
+- **Potential fruit weight**: 10-12kgs
+- **Yield potential**: 35-40 tons per acre
+- **Duration to maturity**: 85 days
+- **Seed rate**: 500 grams per acre
+- **Approximate seed count per gram**: 20 seeds
+- **Special attributes**: A very popular hybrid with oblong shaped fruit, Very sweet red flesh, Tolerant to fusarium wilt and anthracnose
+- **Planting depth**: 2-3 cm deep
+- **Planting time**: After last frost, when soil temperature is 20°C+
+- **Germination**: 7-10 days
 
 ## Care & Maintenance
-- **Watering:** Deep watering 2-3 times per week
-- **Fertilization:** Apply balanced fertilizer every 2 weeks
-- **Weeding:** Keep area weed-free
-- **Pest Control:** Monitor for aphids and cucumber beetles
-- **Disease Prevention:** Rotate crops and maintain good hygiene
+- **Watering**: Deep watering 2-3 times per week
+- **Fertilization**: Apply balanced fertilizer every 2 weeks
+- **Weeding**: Keep area weed-free
+- **Pest control**: Monitor for aphids and cucumber beetles
+- **Disease prevention**: Tolerant to fusarium wilt and anthracnose
+- **Spacing**: Maintain proper spacing for optimal growth
 
 ## Harvesting
-- **Harvest Time:** 80-90 days after planting
-- **Signs of Maturity:** Yellow spot on bottom, hollow sound when tapped
-- **Harvest Method:** Cut stem with sharp knife
-- **Storage:** Store in cool, dry place
+- **Harvest time**: 85 days after planting
+- **Signs of maturity**: Yellow spot on bottom, hollow sound when tapped
+- **Harvest method**: Cut stem with sharp knife
+- **Storage**: Store in cool, dry place
+- **Fruit characteristics**: Oblong shaped fruit with very sweet red flesh
 
 ## Yield Information
-- **Expected Yield:** 45-55 tons per hectare
-- **Fruits per Plant:** 2-3 fruits
-- **Market Demand:** High demand in local and export markets
-- **Profit Potential:** Excellent return on investment
+- **Expected yield**: 35-40 tons per acre
+- **Fruits per plant**: 2-3 fruits
+- **Market demand**: High demand due to sweet flesh and disease tolerance
+- **Profit potential**: Excellent return on investment
+- **Disease resistance**: Tolerant to fusarium wilt and anthracnose
 
 ## Price Information
 - **Per 1000 seeds:** UGX 30,000

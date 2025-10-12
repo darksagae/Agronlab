@@ -20,20 +20,30 @@ Effective against multiple diseases
 Cost-effective solution
 
 ## Usage Instructions
-**Application rate:** Mix 25-30ml of Harvestor XL in 20L of water and apply on crop to control fungal diseases
-**Application:** Apply as a foliar spray ensuring thorough coverage
-**Timing:** Apply at first sign of disease or preventatively
-**Coverage:** Ensure complete coverage of plant foliage
+- **Application rate**: Mix 25-30ml of Harvestor XL in 20L of water and apply on crop to control fungal diseases
+- **Application method**: Broadest spectrum antifungal with protective ability
+- **Target diseases**: Anthracnose, mildew, rots, blight, leaf spots, mold, rust
+- **Target crops**: Cereals, vines, rice, citrus, potatoes, tomatoes
+- **Application timing**: Apply at first sign of disease or preventatively
+- **Coverage**: Ensure complete coverage of plant foliage
+- **Formulation**: Not specified in details
 
 ## Application Method
-Foliar Spray: Direct application to plant foliage
+- **Method**: Foliar spray application
+- **Target**: Direct application to plant foliage
+- **Broadest spectrum**: Possesses the broadest spectrum of activity of all known antifungals
+- **Protective ability**: Only counteragent that has the ability to protect against the four big groups of fungal diseases
+- **Spore inhibition**: Inhibits spore germination and mycelial growth
+- **Worldwide use**: Has worldwide uses on cereals, vines, rice, citrus, potatoes and tomatoes
 
 ## Benefits
-Broadest spectrum of activity
-Protects against four big groups of fungal diseases
-Inhibits spore germination and mycelial growth
-Worldwide uses on various crops
-Effective against multiple diseases
+- **Broadest spectrum**: Possesses the broadest spectrum of activity of all known antifungals
+- **Four big groups protection**: Only counteragent that has the ability to protect against the four big groups of fungal diseases
+- **Spore inhibition**: Inhibits spore germination and mycelial growth
+- **Multi-disease control**: Effective against anthracnose, mildew, rots, blight, leaf spots, mold, rust
+- **Multi-crop use**: Worldwide uses on cereals, vines, rice, citrus, potatoes and tomatoes
+- **Cost-effective**: Single application for comprehensive disease control
+- **Easy application**: Simple mixing and spray application
 
 ## Price Information
 Per 100ml: UGX 9,000
