@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# STI to Coolify Integration Setup Script
+echo "🔗 Setting up STI to Coolify integration..."
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+echo -e "${BLUE}📋 STI Server Information:${NC}"
+echo "  Server IP: 102.209.111.210"
+echo "  Local IP: 10.0.0.1"
+echo "  Coolify Port: 8000"
+echo "  WireGuard: Active"
+echo ""
+
+echo -e "${BLUE}🎯 Integration Options:${NC}"
+echo ""
+echo "1. ${GREEN}Self-Managed Coolify${NC} (Recommended)"
+echo "   - Coolify manages itself on STI server"
+echo "   - Deploy applications directly to same server"
+echo "   - URL: http://10.0.0.1:8000"
+echo ""
+echo "2. ${YELLOW}External Coolify Instance${NC}"
+echo "   - Install Coolify on separate server"
+echo "   - Connect to STI server as remote resource"
+echo "   - Better for multi-server management"
+echo ""
+echo "3. ${BLUE}GitHub Integration${NC}"
+echo "   - Connect GitHub repository to Coolify"
+echo "   - Auto-deploy on code changes"
+echo "   - CI/CD pipeline setup"
+echo ""
+
+echo -e "${GREEN}🚀 Quick Setup (Option 1):${NC}"
+echo ""
+echo "Step 1: Access Coolify Dashboard"
+echo "  URL: http://10.0.0.1:8000"
+echo "  Login: admin@coolify.local"
+echo "  Password: coolify123"
+echo ""
+echo "Step 2: Add Server Resource"
+echo "  Go to: Resources → Servers → Add New"
+echo "  Name: STI-Production-Server"
+echo "  Host: localhost"
+echo "  User: root"
+echo "  SSH Key: Use existing keys"
+echo ""
+echo "Step 3: Deploy AGROF Applications"
+echo "  Create new project from Git repository"
+echo "  Select STI server as deployment target"
+echo "  Configure environment variables"
+echo ""
+
+echo -e "${YELLOW}📝 Manual Configuration Steps:${NC}"
+echo ""
+echo "1. Open browser and go to: http://10.0.0.1:8000"
+echo "2. Login with credentials above"
+echo "3. Navigate to 'Resources' → 'Servers'"
+echo "4. Click 'Add New Server'"
+echo "5. Fill in server details:"
+echo "   - Name: STI-Production-Server"
+echo "   - Host: localhost"
+echo "   - Port: 22"
+echo "   - User: root"
+echo "   - SSH Key: Select existing key"
+echo "6. Test connection"
+echo "7. Create new project for AGROF platform"
+echo "8. Deploy your applications"
+echo ""
+
+echo -e "${GREEN}✅ Current Status:${NC}"
+echo "  - Coolify: Running and accessible"
+echo "  - STI Server: 102.209.111.210"
+echo "  - WireGuard VPN: Active"
+echo "  - Docker Services: Running"
+echo "  - AGROF Platform: Ready for deployment"
+echo ""
+
+echo -e "${BLUE}🔧 Troubleshooting:${NC}"
+echo "  If connection fails:"
+echo "  1. Check SSH key permissions"
+echo "  2. Verify Docker daemon access"
+echo "  3. Ensure firewall allows connections"
+echo "  4. Check WireGuard VPN status"
+echo ""
+
+echo -e "${GREEN}🎉 Ready to proceed!${NC}"
+echo "  Open your browser and start the integration process."

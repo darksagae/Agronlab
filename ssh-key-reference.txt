@@ -1,0 +1,25 @@
+SSH KEY FOR STI IAM INTEGRATION
+================================
+
+URL: https://iam.sti.go.ug/settings/ssh-keys
+
+SSH Public Key:
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINORqX+3fh0eqy6lgDpxBwJacG03wanMa1eYC+INwn8d coolify-sti-integration
+
+Key Details:
+- Type: ED25519
+- Fingerprint: SHA256:0NzldvDjPpC1/fgTcz5xxZk0uJOl6ZJRMBkl9C+PoOA
+- Comment: coolify-sti-integration
+
+Steps:
+1. Go to https://iam.sti.go.ug/settings/ssh-keys
+2. Login with STI credentials
+3. Add new SSH key
+4. Paste the public key above
+5. Name it: Coolify-STI-Integration
+6. Save and test
+
+Server Details:
+- STI Server: 102.209.111.210
+- Coolify: http://10.0.0.1:8000
+- Login: admin@coolify.local / coolify123

@@ -1,0 +1,65 @@
+services:
+  # Python AI API Service
+  agrof-api:
+    build: ./agrof-main/src/api
+    container_name: agrof-api
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - FLASK_ENV=production
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-AIzaSyBE2b1nKpQd6LseRIVXfh10O_O3Pm0fvM0}
+    volumes:
+      - ./uploads:/app/uploads
+    networks:
+      - agrof-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Store Backend Service
+  agrof-store:
+    build: ./store-backend
+    container_name: agrof-store
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - ./store-backend/store.db:/app/store.db
+      - ./store-backend/uploads:/app/uploads
+    networks:
+      - agrof-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: agrof-postgres
+    environment:
+      - POSTGRES_DB=agrof_db
+      - POSTGRES_USER=agrof_user
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-agrof2024}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - agrof-network
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+
+networks:
+  agrof-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
