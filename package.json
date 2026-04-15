@@ -7,7 +7,10 @@
     "start": "cd agrof-main/mobile/app && npx expo start",
     "start:mobile": "cd agrof-main/mobile/app && npx expo start --port 8086",
     "start:backend": "cd agrof-main/src && python -m flask run --port 5000",
-    "start:store": "cd store-backend && npm start"
+    "start:store": "cd store-backend && npm start",
+    "sandbox": "npx ampx sandbox",
+    "sandbox:once": "npx ampx sandbox --once",
+    "amplify:copy-outputs": "sh -c 'test -f amplify_outputs.json && cp -f amplify_outputs.json agrof-main/mobile/app/amplify_outputs.json && echo Copied amplify_outputs.json to Expo app || echo \"No amplify_outputs.json at repo root — run npm run sandbox first\"'"
   },
   "keywords": [
     "agriculture",
@@ -20,5 +23,10 @@
   "dependencies": {
     "firebase": "^12.4.0",
     "firebase-admin": "^13.5.0"
+  },
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.19.0",
+    "@aws-amplify/backend-cli": "^1.8.1",
+    "typescript": "^5.9.0"
   }
 }

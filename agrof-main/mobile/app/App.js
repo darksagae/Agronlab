@@ -23,6 +23,9 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import { UserProvider } from './contexts/UserContext';
 import { cropProducts } from './data/cropProducts';
 import './i18n'; // Initialize i18n
+import { configureAmplify } from './config/amplifyConfig';
+
+configureAmplify();
 
 // Firebase imports
 import authService from './services/authService';
