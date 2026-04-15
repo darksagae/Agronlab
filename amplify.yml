@@ -1,0 +1,17 @@
+# AWS Amplify Hosting — Expo web export (see agrof-main/mobile/app/package.json)
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd agrof-main/mobile/app && npm ci
+    build:
+      commands:
+        - cd agrof-main/mobile/app && npm run build:web
+  artifacts:
+    baseDirectory: agrof-main/mobile/app/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - agrof-main/mobile/app/node_modules/**/*
