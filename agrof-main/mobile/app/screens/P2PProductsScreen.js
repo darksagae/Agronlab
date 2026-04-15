@@ -46,64 +46,83 @@ const cropImages = {
 };
 // TOTAL: 19 product names = 19 image files (100% match verified!)
 
+function describeFetchError(err) {
+  if (err == null) return 'Unknown error';
+  if (typeof err === 'string') return err;
+  if (err instanceof Error) return err.message || String(err);
+  if (typeof err === 'object' && typeof err.message === 'string') return err.message;
+  try {
+    return JSON.stringify(err);
+  } catch {
+    return String(err);
+  }
+}
+
+function isLikelyNetworkFailure(message) {
+  return /network request failed|failed to fetch|network error|load failed|timed out|timeout/i.test(
+    message || ''
+  );
+}
+
 const P2PProductsScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [products, setProducts] = useState([]);
+  /** null = OK or empty DB; 'network' = unreachable; 'other' = server/schema error */
+  const [fetchError, setFetchError] = useState(null);
 
   useEffect(() => {
     loadProducts();
   }, []);
 
   const loadProducts = async () => {
+    setFetchError(null);
     try {
-      console.log('📊 P2PProductsScreen: Starting to load products...');
-      console.log('🔍 Fetching from p2p_products table...');
-
-      // Get all P2P products
       const { data: productsData, error: productsError } = await supabase
         .from('p2p_products')
         .select('*')
         .order('name');
 
-      console.log('📦 Raw products data:', productsData);
-      console.log('❓ Products count:', productsData?.length || 0);
-
       if (productsError) {
-        console.error('❌ Supabase error:', productsError);
-        throw productsError;
-      }
-
-      if (!productsData || productsData.length === 0) {
-        console.warn('⚠️ No products found in database!');
-        console.warn('⚠️ Have you run update_p2p_products_with_crops.sql in Supabase?');
+        const msg = describeFetchError(productsError);
+        if (isLikelyNetworkFailure(msg)) {
+          console.warn('P2P products: cannot reach Supabase (network).', msg);
+          setFetchError('network');
+        } else {
+          console.warn('P2P products: Supabase error.', msg);
+          setFetchError('other');
+        }
         setProducts([]);
         return;
       }
 
-      console.log('✅ Products loaded:', productsData.map(p => p.name).join(', '));
+      if (!productsData || productsData.length === 0) {
+        console.warn('P2P products: table empty — seed p2p_products in Supabase if expected.');
+        setProducts([]);
+        return;
+      }
 
-      // For each product, count active sellers and buyers
-      console.log('🔢 Counting sellers for each product...');
       const productsWithCounts = await Promise.all(
         productsData.map(async (product) => {
-          // Count sellers with active listings for this product
-          const { count: sellersCount } = await supabase
-            .from('p2p_listings')
-            .select('*', { count: 'exact', head: true })
-            .eq('p2p_product_id', product.id)
-            .eq('is_active', true);
+          let sellersCount = 0;
+          try {
+            const { count } = await supabase
+              .from('p2p_listings')
+              .select('*', { count: 'exact', head: true })
+              .eq('p2p_product_id', product.id)
+              .eq('is_active', true);
+            sellersCount = count || 0;
+          } catch {
+            sellersCount = 0;
+          }
 
-          // For now, set buyers count to 0 (will be dynamic with inquiries)
           const buyersCount = 0;
-
-          // Get AGROF trend price
           const trendPrice = product.base_price || 0;
-          const trendChange = Math.random() * 5 - 2.5; // Random trend for demo
+          const trendChange = Math.random() * 5 - 2.5;
 
           return {
             ...product,
-            sellersCount: sellersCount || 0,
+            sellersCount,
             buyersCount,
             trendPrice,
             trendChange,
@@ -113,12 +132,18 @@ const P2PProductsScreen = ({ navigation }) => {
       );
 
       setProducts(productsWithCounts);
-      console.log('✅ Successfully loaded', productsWithCounts.length, 'P2P products with images!');
-      console.log('📊 Product names:', productsWithCounts.map(p => p.name).join(', '));
     } catch (error) {
-      console.error('❌ CRITICAL ERROR loading P2P products:', error);
-      console.error('❌ Error details:', error.message);
-      console.error('❌ Error stack:', error.stack);
+      const msg = describeFetchError(error);
+      if (isLikelyNetworkFailure(msg)) {
+        console.warn('P2P products: request failed (network).', msg);
+        setFetchError('network');
+      } else {
+        console.warn('P2P products: unexpected error.', msg);
+        if (error instanceof Error && error.stack) {
+          console.warn(error.stack);
+        }
+        setFetchError('other');
+      }
       setProducts([]);
     } finally {
       setLoading(false);
@@ -239,10 +264,16 @@ const P2PProductsScreen = ({ navigation }) => {
       </View>
 
       {/* Info Banner */}
-      <View style={styles.infoBanner}>
-        <MaterialIcons name="info" size={20} color="#2196F3" />
-        <Text style={styles.infoBannerText}>
-          Browse freely • Register to trade • Prices updated daily
+      <View style={[styles.infoBanner, fetchError === 'network' && styles.infoBannerWarning]}>
+        <MaterialIcons
+          name={fetchError === 'network' ? 'wifi-off' : 'info'}
+          size={20}
+          color={fetchError === 'network' ? '#E65100' : '#2196F3'}
+        />
+        <Text style={[styles.infoBannerText, fetchError === 'network' && styles.infoBannerTextWarning]}>
+          {fetchError === 'network'
+            ? 'No connection to the server. Check Wi-Fi or mobile data, then pull to refresh.'
+            : 'Browse freely • Register to trade • Prices updated daily'}
         </Text>
       </View>
 
@@ -250,23 +281,35 @@ const P2PProductsScreen = ({ navigation }) => {
       <FlatList
         data={products}
         renderItem={renderProductCard}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => String(item.id)}
         contentContainerStyle={styles.listContent}
         ListEmptyComponent={() => (
           <View style={styles.emptyContainer}>
-            <MaterialIcons name="grass" size={80} color="#CCC" />
-            <Text style={styles.emptyTitle}>No P2P Products Yet</Text>
+            <MaterialIcons
+              name={fetchError === 'network' ? 'cloud-off' : 'grass'}
+              size={80}
+              color="#CCC"
+            />
+            <Text style={styles.emptyTitle}>
+              {fetchError === 'network' ? 'Can’t load products' : 'No P2P Products Yet'}
+            </Text>
             <Text style={styles.emptyText}>
-              Products need to be added to the database.
+              {fetchError === 'network'
+                ? 'We couldn’t reach Supabase. Confirm internet access and that your Supabase URL/key in the app match your project.'
+                : fetchError === 'other'
+                  ? 'Something went wrong loading products. Try again in a moment.'
+                  : 'Products need to be added to the database.'}
             </Text>
-            <Text style={styles.emptyInstructions}>
-              📋 Run: update_p2p_products_with_crops.sql{'\n'}
-              📍 Location: Desktop/agrof-up/{'\n'}
-              🔧 In: Supabase SQL Editor
-            </Text>
+            {fetchError !== 'network' && fetchError !== 'other' ? (
+              <Text style={styles.emptyInstructions}>
+                Run: update_p2p_products_with_crops.sql in the Supabase SQL Editor (see project docs).
+              </Text>
+            ) : null}
             <TouchableOpacity style={styles.refreshButton} onPress={onRefresh}>
               <MaterialIcons name="refresh" size={20} color="white" />
-              <Text style={styles.refreshButtonText}>Refresh After Update</Text>
+              <Text style={styles.refreshButtonText}>
+                {fetchError === 'network' ? 'Retry' : 'Refresh'}
+              </Text>
             </TouchableOpacity>
           </View>
         )}
@@ -328,10 +371,16 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     gap: 10,
   },
+  infoBannerWarning: {
+    backgroundColor: '#FFF3E0',
+  },
   infoBannerText: {
     fontSize: 13,
     color: '#1976D2',
     flex: 1,
+  },
+  infoBannerTextWarning: {
+    color: '#BF360C',
   },
   listContent: {
     padding: 15,

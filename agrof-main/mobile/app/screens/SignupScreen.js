@@ -15,6 +15,7 @@ import {
   SafeAreaView
 } from 'react-native';
 import authService from '../services/authService';
+import { getEmailVerificationMode } from '../config/authConfig';
 
 const { width, height } = Dimensions.get('window');
 
@@ -110,33 +111,38 @@ const SignupScreen = ({ navigation }) => {
 
       if (result.success) {
         console.log('✅ Signup successful, user data saved');
-        
+
+        const registeredEmail = formData.email.trim().toLowerCase();
+
+        setFormData({
+          email: '',
+          phone: '',
+          password: '',
+          confirmPassword: '',
+          fullName: '',
+        });
+
+        if (getEmailVerificationMode() === 'code' && navigation.navigate) {
+          navigation.navigate('verification', { email: registeredEmail });
+          return;
+        }
+
         Alert.alert(
           '📧 Verify Your Email',
-          `A verification email has been sent to ${formData.email}\n\nPlease check your email and click the verification link, then come back to login.\n\n(Check spam folder if you don't see it!)`,
+          `A verification email has been sent to ${registeredEmail}\n\nPlease check your email and click the verification link, then come back to login.\n\n(Check spam folder if you don't see it!)`,
           [
             {
               text: 'Go to Login',
               onPress: () => {
-                // Clear form data
-                setFormData({
-                  email: '',
-                  phone: '',
-                  password: '',
-                  confirmPassword: '',
-                  fullName: ''
-                });
-                
-                // Navigate to login screen (not back, explicitly to login)
                 if (navigation.navigate) {
                   navigation.navigate('login');
                 } else if (navigation.goBack) {
                   navigation.goBack();
                 }
-              }
-            }
+              },
+            },
           ],
-          { cancelable: false } // Prevent dismissing without button press
+          { cancelable: false }
         );
       } else {
         console.error('❌ Signup failed:', result.error);

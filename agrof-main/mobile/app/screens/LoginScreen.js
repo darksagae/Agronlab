@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import authService from '../services/authService';
+import { getEmailVerificationMode } from '../config/authConfig';
 import { useUser } from '../contexts/UserContext';
 
 const { width, height } = Dimensions.get('window');
@@ -85,41 +86,64 @@ const LoginScreen = ({ navigation }) => {
         
         // Check if this is an email verification issue
         if (result.needsVerification) {
+          const isCode = getEmailVerificationMode() === 'code';
           Alert.alert(
             'Email Not Verified',
-            result.error + '\n\nWould you like us to resend the verification email?',
+            result.error +
+              (isCode
+                ? '\n\nYou can enter the code from your email or request a new one.'
+                : '\n\nWould you like us to resend the verification email?'),
             [
               {
                 text: 'Cancel',
                 style: 'cancel',
                 onPress: async () => {
-                  // Sign out the user when they cancel
                   await authService.signOut();
-                }
+                },
               },
+              ...(isCode && navigation.navigate
+                ? [
+                    {
+                      text: 'Enter code',
+                      onPress: async () => {
+                        await authService.signOut();
+                        navigation.navigate('verification', {
+                          email: result.userEmail || email,
+                        });
+                      },
+                    },
+                  ]
+                : []),
               {
-                text: 'Resend Email',
+                text: isCode ? 'Resend code' : 'Resend Email',
                 onPress: async () => {
                   try {
-                    const resendResult = await authService.resendVerificationEmail(email);
+                    const resendResult = await authService.resendVerificationEmail(
+                      result.userEmail || email
+                    );
                     if (resendResult.success) {
-                      Alert.alert('Success', 'Verification email sent! Please check your inbox and verify your email, then try logging in again.');
-                      // Sign out after resending
+                      Alert.alert(
+                        'Success',
+                        isCode
+                          ? 'A new verification code was sent. Check your email.'
+                          : 'Verification email sent! Please check your inbox, then try logging in again.'
+                      );
                       await authService.signOut();
-      } else {
-                      Alert.alert('Error', resendResult.error || 'Failed to resend verification email');
-                      // Sign out anyway
+                    } else {
+                      Alert.alert(
+                        'Error',
+                        resendResult.error || 'Failed to resend verification'
+                      );
                       await authService.signOut();
-      }
-    } catch (error) {
-                    Alert.alert('Error', 'Failed to resend verification email');
-                    // Sign out anyway
+                    }
+                  } catch (error) {
+                    Alert.alert('Error', 'Failed to resend verification');
                     await authService.signOut();
                   }
-                }
-              }
+                },
+              },
             ],
-            { cancelable: false } // Prevent dismissing without choosing
+            { cancelable: false }
           );
         } else {
           Alert.alert('Login Failed', result.error);
@@ -140,14 +164,15 @@ const LoginScreen = ({ navigation }) => {
     }
 
     try {
-      const result = await firebaseService.resetPassword(email);
+      const result = await authService.sendPasswordResetEmail(email);
       if (result.success) {
         Alert.alert(
           'Password Reset Sent',
-          'Check your email for password reset instructions'
+          result.message ||
+            'Check your email for reset instructions (link or code depending on your account).'
         );
       } else {
-        Alert.alert('Error', result.error);
+        Alert.alert('Error', result.error || 'Could not send reset email');
       }
     } catch (error) {
       Alert.alert('Error', 'Failed to send reset email');

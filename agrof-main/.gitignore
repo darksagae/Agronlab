@@ -153,6 +153,9 @@ jspm_packages/
 
 # Project data and artifacts (do not commit large datasets or model weights)
 data/
+# Exception: mobile app static data modules (paths relative to agrof-main/)
+!mobile/app/data/
+!mobile/app/data/**
 artifacts/
 *.pt
 *.pth

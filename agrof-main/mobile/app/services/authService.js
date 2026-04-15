@@ -2,11 +2,14 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendEmailVerification,
+  sendPasswordResetEmail,
   onAuthStateChanged, 
   signOut,
   updateProfile
 } from 'firebase/auth';
 import { auth } from '../config/firebaseConfig';
+import { isCognitoAuth } from '../config/authConfig';
+import * as cognitoAuthService from './cognitoAuthService';
 import supabaseService from './supabaseService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -70,13 +73,27 @@ class AuthService {
   // Initialize the service
   async initialize() {
     try {
-      console.log('🔥🟢 AGROF: Initializing Firebase Auth + Supabase service...');
-      
-      // Initialize Supabase first
       const supabaseSuccess = await supabaseService.initialize();
       if (!supabaseSuccess) {
-        console.log('⚠️ Supabase initialization failed, continuing with Firebase Auth + Local Storage');
+        console.log('⚠️ Supabase initialization failed, continuing with auth + local fallbacks');
       }
+
+      if (isCognitoAuth()) {
+        console.log('🔷 AGROF: Initializing Cognito + Supabase...');
+        const cognitoUser = await cognitoAuthService.getCurrentAuthenticatedUser();
+        if (cognitoUser) {
+          this.currentUser = cognitoUser;
+          await this.updateLastActive();
+          await this.loadUserDataFromSupabase(cognitoUser.uid);
+        } else {
+          this.currentUser = null;
+        }
+        this.isInitialized = true;
+        console.log('✅ AGROF: Cognito auth initialized');
+        return true;
+      }
+
+      console.log('🔥🟢 AGROF: Initializing Firebase Auth + Supabase service...');
       
       // Wait for Firebase Auth to determine auth state
       console.log('🔥 Waiting for Firebase Auth state...');
@@ -137,6 +154,46 @@ class AuthService {
   // Sign up with email and password
   async signUpWithEmail(email, password, userData = {}) {
     try {
+      if (isCognitoAuth()) {
+        console.log('🔷 AGROF: Cognito sign up');
+        const normalized = email.trim().toLowerCase();
+        const { userSub } = await cognitoAuthService.signUp(normalized, password, {
+          fullName: userData.fullName,
+          phone: userData.phone,
+        });
+
+        const completeUserData = {
+          uid: userSub,
+          email: normalized,
+          fullName: userData.fullName || normalized.split('@')[0],
+          username: userData.username || userData.fullName || normalized.split('@')[0],
+          phone: userData.phone || '',
+          emailVerified: false,
+          profilePhoto: null,
+          agrofBalance: 0,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          authProvider: 'cognito',
+          contactInfo: {
+            email: normalized,
+            phone: userData.phone || '',
+            fullName: userData.fullName || normalized.split('@')[0],
+          },
+        };
+
+        const saveResult = await supabaseService.saveUserData(userSub, completeUserData);
+        if (!saveResult.success) {
+          console.error('❌ Supabase save after Cognito sign up:', saveResult.error);
+        }
+
+        return {
+          success: true,
+          user: completeUserData,
+          needsEmailVerification: true,
+          authProvider: 'cognito',
+        };
+      }
+
       console.log('🔥 AGROF: Signing up with Firebase Auth');
       console.log('📧 Email:', email);
       
@@ -190,13 +247,75 @@ class AuthService {
       };
     } catch (error) {
       console.error('❌ AGROF: Sign up error:', error);
-      return { success: false, error: error.message };
+      const msg = isCognitoAuth()
+        ? cognitoAuthService.cognitoErrorMessage(error)
+        : error.message || String(error);
+      return { success: false, error: msg };
     }
   }
 
   // Sign in with email and password
   async signInWithEmail(email, password) {
     try {
+      if (isCognitoAuth()) {
+        console.log('🔷 AGROF: Cognito sign in');
+        const normalized = email.trim().toLowerCase();
+        let cognitoResult;
+        try {
+          cognitoResult = await cognitoAuthService.signIn(normalized, password);
+        } catch (e) {
+          const msg = cognitoAuthService.cognitoErrorMessage(e);
+          if (/UserNotConfirmedException|not\s*confirmed/i.test(msg)) {
+            return {
+              success: false,
+              error:
+                '📧 Account not verified\n\nEnter the verification code we emailed you, or resend the code from the verification screen.',
+              needsVerification: true,
+              userEmail: normalized,
+              authProvider: 'cognito',
+            };
+          }
+          return { success: false, error: msg };
+        }
+
+        const { user: cognitoUser } = cognitoResult;
+        this.currentUser = cognitoUser;
+
+        const userDataResult = await supabaseService.getUserData(cognitoUser.uid);
+        let userData;
+        if (userDataResult.success) {
+          userData = userDataResult.data;
+        } else {
+          userData = {
+            uid: cognitoUser.uid,
+            email: cognitoUser.email,
+            fullName: cognitoUser.displayName || normalized.split('@')[0],
+            username: cognitoUser.displayName || normalized.split('@')[0],
+            phone: '',
+            emailVerified: cognitoUser.emailVerified !== false,
+            profilePhoto: null,
+            agrofBalance: 0,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+            authProvider: 'cognito',
+            contactInfo: {
+              email: cognitoUser.email,
+              phone: '',
+              fullName: cognitoUser.displayName || normalized.split('@')[0],
+            },
+          };
+          await supabaseService.saveUserData(cognitoUser.uid, userData);
+        }
+
+        await this.updateLastActive();
+        return {
+          success: true,
+          user: { ...userData, emailVerified: cognitoUser.emailVerified !== false },
+          firebaseUser: cognitoUser,
+          authProvider: 'cognito',
+        };
+      }
+
       console.log('🔥 AGROF: Signing in with Firebase Auth');
       console.log('📧 Email:', email);
       
@@ -266,9 +385,34 @@ class AuthService {
     }
   }
 
+  /** Confirm sign-up with the verification code emailed by Cognito (or custom SES flow). */
+  async confirmSignUpWithCode(email, code) {
+    try {
+      if (!isCognitoAuth()) {
+        return {
+          success: false,
+          error: 'Code verification is only used with Cognito. Use the email link for Firebase.',
+        };
+      }
+      await cognitoAuthService.confirmSignUp(email.trim().toLowerCase(), code);
+      return { success: true };
+    } catch (error) {
+      return {
+        success: false,
+        error: cognitoAuthService.cognitoErrorMessage(error),
+      };
+    }
+  }
+
   // Resend verification email
   async resendVerificationEmail(email, password = null) {
     try {
+      if (isCognitoAuth()) {
+        console.log('🔷 Resending Cognito confirmation code to:', email);
+        await cognitoAuthService.resendConfirmationCode(email.trim().toLowerCase());
+        return { success: true };
+      }
+
       console.log('📧 Resending verification email to:', email);
       
       let user = auth.currentUser;
@@ -300,6 +444,15 @@ class AuthService {
   // Sign out
   async signOut() {
     try {
+      if (isCognitoAuth()) {
+        console.log('🔷 AGROF: Signing out from Cognito');
+        await cognitoAuthService.signOut();
+        this.currentUser = null;
+        await AsyncStorage.removeItem('agrof_users');
+        await this.clearSession();
+        return { success: true };
+      }
+
       console.log('🔥 AGROF: Signing out from Firebase Auth');
       await signOut(auth);
       this.currentUser = null;
@@ -320,6 +473,40 @@ class AuthService {
   // Get current user
   async getCurrentUser() {
     try {
+      if (isCognitoAuth()) {
+        const cognitoUser =
+          this.currentUser || (await cognitoAuthService.getCurrentAuthenticatedUser());
+        if (!cognitoUser) {
+          return { success: false, user: null };
+        }
+        this.currentUser = cognitoUser;
+        const userDataResult = await supabaseService.getUserData(cognitoUser.uid);
+        if (userDataResult.success) {
+          return {
+            success: true,
+            user: {
+              ...userDataResult.data,
+              uid: cognitoUser.uid,
+              email: cognitoUser.email,
+              emailVerified: cognitoUser.emailVerified,
+            },
+            firebaseUser: cognitoUser,
+            isVerified: cognitoUser.emailVerified,
+          };
+        }
+        return {
+          success: true,
+          user: {
+            uid: cognitoUser.uid,
+            email: cognitoUser.email,
+            fullName: cognitoUser.displayName,
+            emailVerified: cognitoUser.emailVerified,
+          },
+          firebaseUser: cognitoUser,
+          isVerified: cognitoUser.emailVerified,
+        };
+      }
+
       console.log('🔥🟢 AGROF: Getting current user');
       
       if (this.currentUser) {
@@ -426,6 +613,27 @@ class AuthService {
     } catch (error) {
       console.error('❌ AGROF: Error uploading profile photo:', error);
       return { success: false, error: error.message };
+    }
+  }
+
+  /** Password reset email (Firebase link or Cognito forgot-password code). */
+  async sendPasswordResetEmail(email) {
+    try {
+      const trimmed = (email || '').trim();
+      if (!trimmed) {
+        return { success: false, error: 'Email is required' };
+      }
+      if (isCognitoAuth()) {
+        await cognitoAuthService.forgotPassword(trimmed.toLowerCase());
+        return {
+          success: true,
+          message: 'If an account exists, a reset code was sent to your email.',
+        };
+      }
+      await sendPasswordResetEmail(auth, trimmed);
+      return { success: true };
+    } catch (error) {
+      return { success: false, error: error.message || String(error) };
     }
   }
 

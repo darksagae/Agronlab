@@ -69,6 +69,7 @@ export default function App() {
   
   // Authentication state
   const [showAuthScreen, setShowAuthScreen] = useState(null); // null, 'login', 'signup', 'verification'
+  const [authScreenParams, setAuthScreenParams] = useState({});
   
   // Chat state
   const [showChatScreen, setShowChatScreen] = useState(false);
@@ -2754,8 +2755,15 @@ export default function App() {
 
   // Prepare navigation for auth screens
   const authNavigation = {
-    navigate: (screen) => setShowAuthScreen(screen),
-    goBack: () => setShowAuthScreen(null),
+    navigate: (screen, params) => {
+      if (params) setAuthScreenParams(params);
+      else setAuthScreenParams({});
+      setShowAuthScreen(screen);
+    },
+    goBack: () => {
+      setAuthScreenParams({});
+      setShowAuthScreen(null);
+    },
     onAuthSuccess: handleAuthSuccess  // Pass auth success handler
   };
 
@@ -2768,7 +2776,12 @@ export default function App() {
         case 'signup':
           return <SignupScreen navigation={authNavigation} />;
         case 'verification':
-          return <EmailVerificationScreen navigation={authNavigation} />;
+          return (
+            <EmailVerificationScreen
+              navigation={authNavigation}
+              route={{ params: authScreenParams }}
+            />
+          );
         default:
           return null;
       }

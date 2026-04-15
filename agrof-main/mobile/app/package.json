@@ -33,6 +33,7 @@
     "@supabase/realtime-js": "^2.75.0",
     "@supabase/storage-js": "^2.75.0",
     "@supabase/supabase-js": "^2.75.0",
+    "amazon-cognito-identity-js": "^6.3.15",
     "axios": "^1.6.0",
     "crypto-js": "^4.2.0",
     "expo": "~54.0.0",
