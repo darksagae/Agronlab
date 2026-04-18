@@ -22,9 +22,9 @@
     "cart": "Cart"
   },
   "welcome": {
-    "title": "AGROF",
+    "title": "AGRON",
     "subtitle": "Your AI Powered Crop Health Companion",
-    "continueButton": "Continue to AGROF →",
+    "continueButton": "Continue to AGRON →",
     "watchIntro": "Watch Introduction",
     "startUsing": "Start Using App"
   },
@@ -49,7 +49,7 @@
     "prevention": "Prevention Tips"
   },
   "store": {
-    "title": "AGROF Store",
+    "title": "AGRON Store",
     "subtitle": "Quality agricultural products for your farm",
     "search": "Search products...",
     "categories": "Categories",
@@ -71,13 +71,13 @@
   "account": {
     "title": "My Account",
     "welcome": "Welcome back!",
-    "balance": "AGROF Balance",
+    "balance": "AGRON Balance",
     "settings": "Settings",
     "help": "Help & Support",
     "logout": "Logout"
   },
   "ai": {
-    "assistant": "AGROF AI Assistant",
+    "assistant": "AGRON AI Assistant",
     "askQuestion": "Ask me anything about farming...",
     "send": "Send",
     "clear": "Clear Chat"
@@ -92,7 +92,7 @@
     "generalError": "Something went wrong"
   },
   "manual": {
-    "title": "How to Use AGROF AI",
+    "title": "How to Use AGRON AI",
     "step1": "Take or Select Photo",
     "step1Description": "Disease detection functionality has been removed from this application",
     "step2": "AI Analysis",
@@ -128,7 +128,7 @@
     "shareResults": "Share Results"
   },
   "care": {
-    "title": "AGROF AI",
+    "title": "AGRON AI",
     "subtitle": "AI-Powered Crop Management",
     "smartFarming": "Smart Farming",
     "smartFarmingSubtitle": "AI-powered crop management and monitoring",

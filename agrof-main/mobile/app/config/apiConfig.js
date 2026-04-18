@@ -1,48 +1,60 @@
 /**
- * AGROF API Configuration
- * Centralized configuration for all API endpoints
- * Uses single consistent address: 192.168.0.107
+ * AGRON API Configuration
+ *
+ * Store API priority:
+ *  1. EXPO_PUBLIC_STORE_PORTAL_URL  — production portal (e.g. https://portal.agron.uk)
+ *  2. LAN discovery fallback        — local dev (192.168.1.15:3001)
  */
 
-// Base IP addresses for all services - with fallbacks
+// Portal URL takes priority when set (production or staging)
+const PORTAL_URL = process.env.EXPO_PUBLIC_STORE_PORTAL_URL || '';
+
+// LAN fallback IPs for local development when portal URL is not configured
 const BASE_IPS = [
-  '192.168.1.15',  // Current WiFi IP - UPDATED Oct 11, 2025
-  '10.0.0.1',      // VPN interface (wg0)
-  '192.168.0.108', // Previous WiFi IP
-  '192.168.0.113', // Older WiFi IP
-  '127.0.0.1',     // Localhost fallback
-  '10.0.2.2',      // Android emulator host
-  'localhost'      // Local fallback
+  '192.168.1.15',
+  '10.0.0.1',
+  '192.168.0.108',
+  '192.168.0.113',
+  '127.0.0.1',
+  '10.0.2.2',
+  'localhost',
 ];
 
-// Get the current base IP (will be dynamically determined)
-let BASE_IP = '192.168.1.15';  // WiFi IP - your phone can reach this!
+let BASE_IP = '192.168.1.15';
 
-// API Configuration
+// If the portal URL is configured, route store traffic through it
+const STORE_BASE = PORTAL_URL
+  ? `${PORTAL_URL}`
+  : `http://${BASE_IP}:3001`;
+
+const STORE_API = PORTAL_URL
+  ? `${PORTAL_URL}/api/store`
+  : `http://${BASE_IP}:3001/api`;
+
 export const API_CONFIG = {
-  // Store Backend API
+  // Store — via portal when EXPO_PUBLIC_STORE_PORTAL_URL is set, else direct LAN
   STORE: {
-    BASE_URL: `http://${BASE_IP}:3001`,
-    API_URL: `http://${BASE_IP}:3001/api`,
+    BASE_URL: STORE_BASE,
+    API_URL: STORE_API,
     ENDPOINTS: {
       PRODUCTS: '/products',
       CATEGORIES: '/categories',
       CART: '/cart',
       SEARCH: '/search',
       HEALTH: '/health',
-      IMAGES: '/images'
-    }
+      IMAGES: '/images',
+    },
   },
-  
-  // AI Backend API
+
+  // AI Backend (unchanged)
   AI: {
     BASE_URL: `http://${BASE_IP}:5000`,
     API_URL: `http://${BASE_IP}:5000/api`,
     ENDPOINTS: {
       ANALYZE_DISEASE: '/ai-analyze-disease',
-      HEALTH: '/health'
-    }
-  }
+      HEALTH: '/health',
+    },
+  },
 };
 
 // Timeout Configuration
@@ -108,22 +120,38 @@ export const getImageUrl = (imagePath) => {
   return `${API_CONFIG.STORE.BASE_URL}${imagePath}`;
 };
 
+/** RN fetch() ignores `timeout`; use AbortController. */
+async function fetchWithTimeout(url, ms) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), ms);
+  try {
+    return await fetch(url, {
+      method: 'GET',
+      signal: ctrl.signal,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+  } finally {
+    clearTimeout(t);
+  }
+}
+
 // Function to test API connectivity and find working endpoint
 export const findWorkingApiEndpoint = async () => {
+  if (process.env.EXPO_PUBLIC_DISABLE_LAN_API_PROBE === '1') {
+    console.log('🔕 LAN store API probe skipped (EXPO_PUBLIC_DISABLE_LAN_API_PROBE=1)');
+    return null;
+  }
+
   console.log('🔍 Testing API endpoints for connectivity...');
-  
+
   for (const ip of BASE_IPS) {
     try {
       console.log(`🌐 Testing endpoint: http://${ip}:3001/api/health`);
-      
-      const response = await fetch(`http://${ip}:3001/api/health`, {
-        method: 'GET',
-        timeout: 3000, // 3 second timeout
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        }
-      });
+
+      const response = await fetchWithTimeout(`http://${ip}:3001/api/health`, 2500);
       
       if (response.ok) {
         const data = await response.json();
@@ -141,7 +169,8 @@ export const findWorkingApiEndpoint = async () => {
         }
       }
     } catch (error) {
-      console.log(`❌ Failed to connect to http://${ip}:3001 - ${error.message}`);
+      const reason = error.name === 'AbortError' ? 'timed out' : error.message;
+      console.log(`❌ Failed to connect to http://${ip}:3001 - ${reason}`);
     }
   }
   

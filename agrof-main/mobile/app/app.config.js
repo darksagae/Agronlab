@@ -2,8 +2,8 @@ import { ExpoConfig, ConfigContext } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: "AGROF",
-  slug: "agrof-crop-health",
+  name: "AGRON",
+  slug: "agron",
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/robot-icon.png",
@@ -29,6 +29,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     favicon: "./assets/favicon.png"
   },
   plugins: [
-    "expo-localization"
-  ]
+    "expo-localization",
+    "expo-sqlite",
+  ],
 });

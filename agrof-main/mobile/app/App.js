@@ -1,3 +1,4 @@
+import './config/amplifyConfig';
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert, ScrollView, Dimensions, FlatList, Modal, TextInput, Platform, ActivityIndicator, Linking } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -21,14 +22,12 @@ import ProductRecommendationCards from './components/ProductRecommendationCards'
 import { CartProvider } from './contexts/CartContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { UserProvider } from './contexts/UserContext';
+import { SubscriptionProvider } from './contexts/SubscriptionContext';
+import { QueryProvider } from './providers/QueryProvider';
 import { cropProducts } from './data/cropProducts';
 import './i18n'; // Initialize i18n
-import { configureAmplify } from './config/amplifyConfig';
-
-configureAmplify();
-
-// Firebase imports
 import authService from './services/authService';
+import { ensureMerchantProfile } from './services/chatService';
 
 // Authentication imports
 import LoginScreen from './screens/LoginScreen';
@@ -47,6 +46,14 @@ import CreateBuyRequestScreen from './screens/CreateBuyRequestScreen';
 import BrowseBuyRequestsScreen from './screens/BrowseBuyRequestsScreen';
 import BuyRequestDetailsScreen from './screens/BuyRequestDetailsScreen';
 import ConversationScreen from './screens/ConversationScreen';
+import MessagesInboxScreen from './screens/MessagesInboxScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import SubscriptionStatusCard from './components/SubscriptionStatusCard';
+import StoreDirectoryLanding from './screens/StoreDirectoryLanding';
+import AgronStoreLanding from './screens/AgronStoreLanding';
+import AgronCategoryScreen from './screens/AgronCategoryScreen';
+import AgronProductScreen from './screens/AgronProductScreen';
+import RegisteredStoreScreen from './screens/RegisteredStoreScreen';
 
 
 const { width, height } = Dimensions.get('window');
@@ -67,7 +74,7 @@ export default function App() {
   const [currentTab, setCurrentTab] = useState('home');
   const [languageKey, setLanguageKey] = useState(0); // Force re-render key
   const [currentScreen, setCurrentScreen] = useState('disease-detection');
-  const [firebaseStatus, setFirebaseStatus] = useState('initializing');
+  const [systemStatus, setSystemStatus] = useState('initializing');
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   
   // Authentication state
@@ -86,8 +93,6 @@ export default function App() {
     phone: '',
     profilePhoto: null
   });
-  const [showPhoneVerification, setShowPhoneVerification] = useState(false);
-  const [verificationCode, setVerificationCode] = useState('');
   
   // All other state declarations
   const [navigationStack, setNavigationStack] = useState([]);
@@ -124,101 +129,54 @@ export default function App() {
   const [currentAccountScreen, setCurrentAccountScreen] = useState('main'); // main, about, help
   const [screenParams, setScreenParams] = useState(null); // For passing params between screens
   const [showChatbot, setShowChatbot] = useState(false); // For bot image chatbot
+
+  // Store tab sub-navigation
+  const [agronSubScreen, setAgronSubScreen] = useState(null); // null | 'agron-home' | 'category' | 'product' | 'merchant-store'
+  const [agronCategory, setAgronCategory] = useState(null);
+  const [agronProduct, setAgronProduct] = useState(null);
+  const [selectedMerchantStore, setSelectedMerchantStore] = useState(null);
+
+  // P2P (stocks) tab sub-navigation
+  const [p2pSubScreen, setP2pSubScreen] = useState(null); // null | 'inquiry'
+  const [p2pListing, setP2pListing] = useState(null);
   
-  // Initialize Firebase on app start
+  // Initialize auth on app start
   useEffect(() => {
-    const initializeFirebase = async () => {
-      console.log('🔥 Initializing Firebase...');
-      
-      // DEBUG: Check what's in AsyncStorage
-      try {
-        const AsyncStorage = require('@react-native-async-storage/async-storage').default;
-        
-        // Check all AsyncStorage keys
-        console.log('🔍 DEBUG: Checking AsyncStorage...');
-        const allKeys = await AsyncStorage.getAllKeys();
-        console.log('📋 All AsyncStorage keys:', allKeys);
-        
-        // Check for agrof_users
-        const agrofUsers = await AsyncStorage.getItem('agrof_users');
-        console.log('🔍 DEBUG: AsyncStorage agrof_users:', agrofUsers ? 'EXISTS' : 'EMPTY');
-        if (agrofUsers) {
-          const users = JSON.parse(agrofUsers);
-          const userIds = Object.keys(users);
-          console.log('🔍 DEBUG: Found', userIds.length, 'users in AsyncStorage');
-          userIds.forEach(uid => {
-            console.log('   📱 User Data:');
-            console.log('      - UID:', uid);
-            console.log('      - Email:', users[uid].email);
-            console.log('      - Phone:', users[uid].phone);
-            console.log('      - Full Name:', users[uid].fullName);
-            console.log('      - Username:', users[uid].username);
-            console.log('      - Profile Photo:', users[uid].profilePhoto ? 'YES' : 'NO');
-          });
-        } else {
-          console.log('⚠️ No user data in AsyncStorage - user needs to sign up');
-        }
-        
-        // Check for last active
-        const lastActive = await AsyncStorage.getItem('agrof_last_active');
-        console.log('⏰ Last active:', lastActive ? new Date(parseInt(lastActive)).toLocaleString() : 'Never');
-        
-      } catch (debugError) {
-        console.log('⚠️ Debug check failed:', debugError.message);
-      }
-      
+    const initializeAuth = async () => {
       try {
         const success = await authService.initialize();
         if (success) {
-          console.log('✅ Firebase Auth + Supabase initialized');
-          
-          // Check if user is already logged in and sync App.js state
           const authResult = await authService.getCurrentUser();
           if (authResult.success && authResult.user) {
-            console.log('✅ App.js: Syncing with logged-in user from UserContext');
             setIsAuthenticated(true);
             setIsEmailVerified(authResult.user.emailVerified);
             setCurrentUser(authResult.user);
             setEditableUserData({
-              username: authResult.user.username || authResult.user.fullName || 'AGROF User',
+              username: authResult.user.username || authResult.user.fullName || 'AGRON User',
               phone: authResult.user.phone || '',
               profilePhoto: authResult.user.profilePhoto || null
             });
-            console.log('✅ App.js state synchronized with user:', authResult.user.fullName);
-          } else {
-            console.log('ℹ️ App.js: No user logged in on startup');
           }
-          
-          // Test the connection
           const healthCheck = await authService.healthCheck();
-          console.log('🔥☁️ AGROF Health Check:', healthCheck);
-          
-          // Set status based on storage type
-          if (healthCheck.connected) {
-            setFirebaseStatus('connected');
-            console.log(`✅ AGROF System ready using ${healthCheck.storageType}`);
-            console.log('   Firebase Auth + Supabase integration active');
-            if (healthCheck.supabaseAvailable) {
-              console.log('☁️ Supabase is active - data will sync to cloud!');
-            } else {
-              console.log('💾 Using local storage fallback');
-            }
-          } else {
-            setFirebaseStatus('partial');
-            console.log('⚠️ System initializing');
-          }
+          setSystemStatus(healthCheck.connected ? 'connected' : 'partial');
         } else {
-          setFirebaseStatus('error');
-          console.log('❌ Firebase initialization failed');
+          setSystemStatus('error');
         }
       } catch (error) {
-        setFirebaseStatus('error');
-        console.error('❌ Firebase initialization error:', error);
+        setSystemStatus('error');
+        console.error('Auth initialization error:', error);
       }
     };
 
-    initializeFirebase();
+    initializeAuth();
   }, []);
+
+  // Register E2E encryption public key in MerchantProfile when user is available
+  useEffect(() => {
+    if (currentUser?.uid) {
+      ensureMerchantProfile(currentUser).catch(() => {});
+    }
+  }, [currentUser?.uid]);
 
   // Authentication helper functions
   const handleAuthSuccess = async () => {
@@ -235,7 +193,7 @@ export default function App() {
       setIsEmailVerified(authResult.isVerified || authResult.user.emailVerified);
       setCurrentUser(authResult.user);
       setEditableUserData({
-        username: authResult.user.username || authResult.user.fullName || 'AGROF User',
+        username: authResult.user.username || authResult.user.fullName || 'AGRON User',
         phone: authResult.user.phone || '',
         profilePhoto: authResult.user.profilePhoto || null
       });
@@ -314,7 +272,7 @@ export default function App() {
       const base64 = result.assets[0].base64;
       
       if (base64) {
-        // Convert to base64 data URI (persists in Supabase)
+        // Convert to base64 data URI (stored in local profile)
         const base64Image = `data:image/jpeg;base64,${base64}`;
         console.log('✅ Photo converted to base64, size:', Math.round(base64.length / 1024), 'KB');
         
@@ -365,38 +323,20 @@ export default function App() {
     console.log('Phone changed?', phoneChanged);
     
     if (phoneChanged) {
-      // Phone number requires email verification
-      Alert.alert(
-        'Verify Phone Change',
-        `We'll send a verification code to ${currentUser.email} to confirm this change.`,
-        [
-          { text: 'Cancel', style: 'cancel' },
-          { 
-            text: 'Send Code',
-            onPress: async () => {
-              setLoading(true);
-              const result = await firebaseService.sendPhoneChangeVerification(
-                currentUser.email,
-                editableUserData.phone
-              );
-              setLoading(false);
-              
-              if (result.success) {
-                setShowPhoneVerification(true);
-                // For development: show code in alert (remove in production)
-                Alert.alert(
-                  'Verification Code',
-                  `Your verification code is: ${result.code}\n\n(In production, this will be sent to your email)`,
-                  [{ text: 'OK' }]
-                );
-              } else {
-                Alert.alert('Error', result.error || 'Failed to send verification code');
-              }
-            }
-          }
-        ]
-      );
-      return;
+      // Update phone number directly via authService
+      setLoading(true);
+      try {
+        const result = await authService.updateUserData(currentUser.uid, { phone: editableUserData.phone });
+        setLoading(false);
+        if (!result.success) {
+          Alert.alert('Error', result.error || 'Failed to update phone number');
+          return;
+        }
+      } catch (e) {
+        setLoading(false);
+        Alert.alert('Error', 'Failed to update phone number');
+        return;
+      }
     }
 
     // Username and photo can be changed without verification
@@ -418,7 +358,7 @@ export default function App() {
 
       // Update username and photo (no verification needed)
       // Photo is already in correct format (base64 or URL)
-      console.log('💾 Updating user data in Firebase Auth + Supabase...');
+      console.log('💾 Updating user profile (Cognito + local storage)...');
       const updateData = {
         username: editableUserData.username,
         profilePhoto: photoURL  // Save base64 or URL directly
@@ -436,13 +376,13 @@ export default function App() {
         console.log('✅ Profile update API call succeeded!');
         console.log('📸 Verifying photo was actually saved...');
         
-        // Reload user data from Supabase to get latest
-        console.log('🔄 Refreshing user data from Supabase...');
+        // Reload user data from local profile
+        console.log('🔄 Refreshing user data from local profile...');
         const freshUserData = await authService.getCurrentUser();
         
         if (freshUserData.success && freshUserData.user) {
-          console.log('✅ Fresh data loaded from Supabase');
-          console.log('📸 VERIFICATION - Photo in Supabase:');
+          console.log('✅ Fresh data loaded from local profile');
+          console.log('📸 VERIFICATION - Photo in profile:');
           console.log('   - Has Photo:', freshUserData.user.profilePhoto ? 'YES ✅' : 'NO ❌');
           
           if (freshUserData.user.profilePhoto) {
@@ -450,14 +390,14 @@ export default function App() {
             console.log('   - Photo Size:', Math.round(freshUserData.user.profilePhoto.length / 1024), 'KB');
             console.log('   - Photo Preview:', freshUserData.user.profilePhoto.substring(0, 100) + '...');
           } else {
-            console.error('❌ PHOTO NOT SAVED TO SUPABASE!');
+            console.error('❌ PHOTO NOT SAVED TO LOCAL PROFILE!');
             console.error('   Photo was NOT saved - check updateUserData function');
           }
           
           // Update App.js state
           setCurrentUser(freshUserData.user);
           setEditableUserData({
-            username: freshUserData.user.username || freshUserData.user.fullName || 'AGROF User',
+            username: freshUserData.user.username || freshUserData.user.fullName || 'AGRON User',
             phone: freshUserData.user.phone || '',
             profilePhoto: freshUserData.user.profilePhoto || null
           });
@@ -472,7 +412,7 @@ export default function App() {
         setIsEditingProfile(false);
         Alert.alert(
           'Success', 
-          'Profile updated successfully!\n\nYour photo is saved to Supabase and will appear everywhere.\n\nNavigate to another tab and back to see changes in all components.',
+          'Profile updated successfully!\n\nYour photo is saved on this device and will appear in the app.\n\nNavigate to another tab and back to see changes in all components.',
           [{ text: 'OK' }]
         );
       } else {
@@ -487,44 +427,11 @@ export default function App() {
     }
   };
 
-  const handleVerifyPhoneChange = async () => {
-    if (!verificationCode.trim()) {
-      Alert.alert('Error', 'Please enter the verification code');
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const result = await firebaseService.verifyPhoneChange(
-        currentUser.uid,
-        verificationCode,
-        editableUserData.phone
-      );
-
-      if (result.success) {
-        setCurrentUser({
-          ...currentUser,
-          phone: editableUserData.phone
-        });
-        setShowPhoneVerification(false);
-        setVerificationCode('');
-        setIsEditingProfile(false);
-        Alert.alert('Success', 'Phone number updated successfully!');
-      } else {
-        Alert.alert('Error', result.error || 'Invalid verification code');
-      }
-    } catch (error) {
-      console.error('Error verifying phone change:', error);
-      Alert.alert('Error', 'Something went wrong. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleCancelEdit = () => {
     if (currentUser) {
       setEditableUserData({
-        username: currentUser.username || currentUser.fullName || 'AGROF User',
+        username: currentUser.username || currentUser.fullName || 'AGRON User',
         phone: currentUser.phone || '',
         profilePhoto: currentUser.profilePhoto || null
       });
@@ -562,16 +469,17 @@ export default function App() {
 
   // Camera permissions removed - camera functionality disabled
 
-  // Test backend connection on app start with dynamic endpoint discovery
+  // Optional LAN store-backend discovery (S3 catalog does not need this). Off by default to avoid timeouts/noise.
   useEffect(() => {
     const testBackendConnection = async () => {
+      if (process.env.EXPO_PUBLIC_ENABLE_LAN_STORE_PROBE !== '1') {
+        return;
+      }
       try {
         console.log('🔍 Testing backend connection with dynamic endpoint discovery...');
-        
-        // Import the dynamic endpoint discovery function
+
         const { findWorkingApiEndpoint, getCurrentApiConfig } = await import('./config/apiConfig');
-        
-        // Try to find a working endpoint
+
         const workingIp = await findWorkingApiEndpoint();
         
         if (workingIp) {
@@ -1146,31 +1054,31 @@ export default function App() {
         <View style={styles.header}>
           <View style={styles.headerTitleContainer}>
             <MaterialIcons name="eco" size={32} color="white" />
-            <Text style={styles.headerTitle}> AGROF AI</Text>
+            <Text style={styles.headerTitle}> AGRON AI</Text>
           </View>
                       <Text style={styles.headerSubtitle}>{t('care.subtitle')}</Text>
           
-          {/* Firebase Status Indicator */}
-          <View style={[styles.firebaseStatus, { 
-            backgroundColor: 
-              firebaseStatus === 'connected' ? '#4CAF50' : 
-              firebaseStatus === 'partial' ? '#2196F3' : 
-              firebaseStatus === 'error' ? '#f44336' : '#ff9800' 
+          {/* System Status Indicator */}
+          <View style={[styles.systemStatus, {
+            backgroundColor:
+              systemStatus === 'connected' ? '#4CAF50' :
+              systemStatus === 'partial' ? '#2196F3' :
+              systemStatus === 'error' ? '#f44336' : '#ff9800'
           }]}>
-            <MaterialIcons 
+            <MaterialIcons
               name={
-                firebaseStatus === 'connected' ? 'check-circle' : 
-                firebaseStatus === 'partial' ? 'sync' : 
-                firebaseStatus === 'error' ? 'error' : 'schedule'
-              } 
-              size={16} 
-              color="white" 
+                systemStatus === 'connected' ? 'check-circle' :
+                systemStatus === 'partial' ? 'sync' :
+                systemStatus === 'error' ? 'error' : 'schedule'
+              }
+              size={16}
+              color="white"
             />
-        <Text style={styles.firebaseStatusText}>
-          {firebaseStatus === 'connected' ? 'AGROF: Firebase Auth + Supabase' : 
-           firebaseStatus === 'partial' ? 'AGROF: Ready' : 
-           firebaseStatus === 'error' ? 'AGROF: Offline' : 'AGROF: Starting...'}
-        </Text>
+            <Text style={styles.systemStatusText}>
+              {systemStatus === 'connected' ? 'AGRON: Ready' :
+               systemStatus === 'partial' ? 'AGRON: Starting' :
+               systemStatus === 'error' ? 'AGRON: Offline' : 'AGRON: Starting...'}
+            </Text>
           </View>
         </View>
 
@@ -1837,7 +1745,7 @@ export default function App() {
           <MaterialIcons name="account-circle" size={28} color="white" />
           <Text style={styles.tabTitle}> My Account</Text>
         </View>
-        <Text style={styles.tabSubtitle}>Manage your AGROF account and profile</Text>
+        <Text style={styles.tabSubtitle}>Manage your AGRON account and profile</Text>
       </View>
       
       <ScrollView 
@@ -1950,7 +1858,7 @@ export default function App() {
             ) : (
               <View style={styles.profileInfoSection}>
                 {/* Full Name from Registration */}
-                <Text style={styles.welcomeTitle}>{currentUser?.fullName || 'AGROF User'}</Text>
+                <Text style={styles.welcomeTitle}>{currentUser?.fullName || 'AGRON User'}</Text>
                 
                 {/* Email */}
                 <View style={styles.profileInfoRow}>
@@ -1987,7 +1895,7 @@ export default function App() {
 
             {/* Balance Card */}
             <View style={styles.balanceCard}>
-              <Text style={styles.balanceLabel}>AGROF Balance</Text>
+              <Text style={styles.balanceLabel}>AGRON Balance</Text>
               <Text style={styles.balanceAmount}>UGX 0</Text>
             </View>
           </View>
@@ -2013,6 +1921,11 @@ export default function App() {
               </TouchableOpacity>
             </View>
           </View>
+        )}
+
+        {/* Subscription Status */}
+        {isAuthenticated && (
+          <SubscriptionStatusCard onSubscribe={() => setCurrentAccountScreen('Payment')} />
         )}
 
         {/* My Orders Section */}
@@ -2076,6 +1989,23 @@ export default function App() {
               <MaterialIcons name="chevron-right" size={20} color="#666" />
             </TouchableOpacity>
 
+            {/* Messages Inbox */}
+            <TouchableOpacity
+              style={styles.activityItem}
+              onPress={() => setCurrentAccountScreen('MessagesInbox')}
+            >
+              <View style={styles.activityIconContainer}>
+                <MaterialIcons name="chat" size={24} color="#7C4DFF" />
+              </View>
+              <View style={styles.activityContent}>
+                <Text style={styles.activityTitle}>Messages</Text>
+                <Text style={styles.activitySubtitle}>
+                  Encrypted conversations with buyers &amp; sellers
+                </Text>
+              </View>
+              <MaterialIcons name="chevron-right" size={20} color="#666" />
+            </TouchableOpacity>
+
             {/* Post Buy Request Button - For ALL users */}
             <TouchableOpacity
               style={styles.activityItem}
@@ -2116,7 +2046,7 @@ export default function App() {
 
         {/* Buyer/Seller Registration Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Join the AGROF Marketplace</Text>
+          <Text style={styles.sectionTitle}>Join the AGRON Marketplace</Text>
           
           <View style={styles.sellerCard}>
             <MaterialIcons name="store" size={40} color="#4CAF50" />
@@ -2129,7 +2059,7 @@ export default function App() {
               style={styles.sellerButton}
               onPress={() => {
                 Alert.alert(
-                  '👥 Join AGROF Marketplace',
+                  '👥 Join AGRON Marketplace',
                   'Choose how you want to participate:',
                   [
                     { 
@@ -2182,7 +2112,7 @@ export default function App() {
           <TouchableOpacity 
             style={styles.assistanceItem}
             onPress={() => {
-              Linking.openURL('mailto:support@agrof.farm?subject=AGROF Support Request');
+              Linking.openURL('mailto:support@agrof.farm?subject=AGRON Support Request');
             }}
           >
             <MaterialIcons name="email" size={24} color="#4CAF50" />
@@ -2255,60 +2185,10 @@ export default function App() {
         </View>
       </ScrollView>
 
-      {/* Phone Verification Modal */}
-      <Modal
-        visible={showPhoneVerification}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={() => setShowPhoneVerification(false)}
-      >
-        <View style={styles.verificationModalOverlay}>
-          <View style={styles.verificationModalContent}>
-            <MaterialIcons name="verified-user" size={50} color="#4CAF50" />
-            <Text style={styles.verificationModalTitle}>Verify Phone Change</Text>
-            <Text style={styles.verificationModalSubtitle}>
-              Enter the verification code sent to{'\n'}{currentUser?.email}
-            </Text>
-
-            <TextInput
-              style={styles.verificationCodeInput}
-              value={verificationCode}
-              onChangeText={setVerificationCode}
-              placeholder="Enter 6-digit code"
-              placeholderTextColor="#999"
-              keyboardType="number-pad"
-              maxLength={6}
-            />
-
-            <View style={styles.verificationModalButtons}>
-              <TouchableOpacity 
-                style={styles.verificationCancelButton}
-                onPress={() => {
-                  setShowPhoneVerification(false);
-                  setVerificationCode('');
-                }}
-              >
-                <Text style={styles.verificationCancelButtonText}>Cancel</Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={styles.verificationSubmitButton}
-                onPress={handleVerifyPhoneChange}
-                disabled={loading}
-              >
-                {loading ? (
-                  <ActivityIndicator color="white" size="small" />
-                ) : (
-                  <Text style={styles.verificationSubmitButtonText}>Verify</Text>
-                )}
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
     </View>
   );
 
-  // About AGROF screen
+  // About AGRON screen
   const renderAboutAgrofScreen = () => (
     <View style={styles.screen}>
       <View style={styles.tabHeader}>
@@ -2316,19 +2196,19 @@ export default function App() {
           <TouchableOpacity onPress={() => setCurrentAccountScreen('main')}>
             <MaterialIcons name="arrow-back" size={24} color="white" />
           </TouchableOpacity>
-          <Text style={styles.tabTitle}> About AGROF</Text>
+          <Text style={styles.tabTitle}> About AGRON</Text>
         </View>
-        <Text style={styles.tabSubtitle}>Learn about AGROF services and support</Text>
+        <Text style={styles.tabSubtitle}>Learn about AGRON services and support</Text>
       </View>
       
       <ScrollView style={styles.tabContent} showsVerticalScrollIndicator={false}>
-        {/* AGROF Services */}
+        {/* AGRON Services */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>AGROF Services</Text>
+          <Text style={styles.sectionTitle}>AGRON Services</Text>
           
           <TouchableOpacity style={styles.accountItem}>
             <MaterialIcons name="storefront" size={24} color="#4CAF50" />
-            <Text style={styles.accountItemText}>Sell on AGROF</Text>
+            <Text style={styles.accountItemText}>Sell on AGRON</Text>
             <MaterialIcons name="arrow-forward-ios" size={16} color="#666" />
           </TouchableOpacity>
 
@@ -2367,7 +2247,7 @@ export default function App() {
           </TouchableOpacity>
           <Text style={styles.tabTitle}> Help Center</Text>
         </View>
-        <Text style={styles.tabSubtitle}>Get help with your AGROF experience</Text>
+        <Text style={styles.tabSubtitle}>Get help with your AGRON experience</Text>
       </View>
       
       <ScrollView style={styles.tabContent} showsVerticalScrollIndicator={false}>
@@ -2442,7 +2322,7 @@ export default function App() {
 
           <TouchableOpacity style={styles.accountItem}>
             <MaterialIcons name="storefront" size={24} color="#4CAF50" />
-            <Text style={styles.accountItemText}>Sell on AGROF</Text>
+            <Text style={styles.accountItemText}>Sell on AGRON</Text>
             <MaterialIcons name="arrow-forward-ios" size={16} color="#666" />
           </TouchableOpacity>
 
@@ -2479,7 +2359,7 @@ export default function App() {
     </View>
   );
 
-  // Consult tab - AGROF Bot AI assistant removed
+  // Consult tab - AGRON Bot AI assistant removed
   const renderConsultScreen = () => (
     <View style={styles.screen}>
       <View style={styles.tabHeader}>
@@ -2490,7 +2370,7 @@ export default function App() {
         <Text style={styles.tabSubtitle}>Agricultural consultation services</Text>
       </View>
       
-      {/* AGROF Bot AI assistant dashboard removed */}
+      {/* AGRON Bot AI assistant dashboard removed */}
       <View style={styles.consultContent}>
         <Text style={styles.consultMessage}>
           Expert consultation services are currently being updated. 
@@ -2561,7 +2441,9 @@ export default function App() {
           style={[styles.tab, currentTab === 'stocks' && styles.activeTab]} 
           onPress={() => {
             console.log('Stocks tab pressed, current tab:', currentTab);
-            setNavigationStack([]); // Clear navigation stack
+            setNavigationStack([]);
+            setP2pSubScreen(null);
+            setP2pListing(null);
             setCurrentTab('stocks');
           }}
         >
@@ -2578,7 +2460,11 @@ export default function App() {
           style={[styles.tab, currentTab === 'store' && styles.activeTab]} 
           onPress={() => {
             console.log('Store tab pressed, current tab:', currentTab);
-            setNavigationStack([]); // Clear navigation stack
+            setNavigationStack([]);
+            setAgronSubScreen(null);
+            setAgronCategory(null);
+            setAgronProduct(null);
+            setSelectedMerchantStore(null);
             setCurrentTab('store');
           }}
         >
@@ -2688,12 +2574,92 @@ export default function App() {
       return <DiseaseDetectionScreen navigation={{ navigate: navigateToAuth, goBack: () => setCurrentTab('care') }} />;
     }
     if (currentTab === 'stocks') {
-      console.log('Rendering P2P Products screen (Blocker tab)');
-      return <P2PProductsScreen navigation={{ navigate }} />;
+      if (p2pSubScreen === 'inquiry' && p2pListing) {
+        return (
+          <InquiryFormScreen
+            navigation={{
+              goBack: () => { setP2pSubScreen(null); setP2pListing(null); },
+              navigate: (screen, params) => {
+                setScreenParams(params);
+                setCurrentAccountScreen(screen);
+                setCurrentTab('account');
+              },
+            }}
+            route={{
+              params: {
+                listing: p2pListing,
+                seller: {
+                  uid: p2pListing.sellerSub,
+                  id: p2pListing.sellerSub,
+                  fullName: p2pListing.sellerName || 'Farmer',
+                },
+                p2pProduct: { id: p2pListing.id, name: p2pListing.title },
+              },
+            }}
+          />
+        );
+      }
+      return (
+        <P2PProductsScreen
+          navigation={{
+            navigate: (screen, params) => {
+              if (screen === 'InquiryForm') {
+                setP2pListing(params?.listing ?? null);
+                setP2pSubScreen('inquiry');
+              } else if (screen === 'Payment') {
+                setCurrentTab('account');
+                setCurrentAccountScreen('Payment');
+              }
+            },
+          }}
+        />
+      );
     }
     if (currentTab === 'store') {
-      console.log('Rendering store screen');
-      return <StoreScreen />;
+      // Deep: product detail
+      if (agronSubScreen === 'product' && agronProduct) {
+        return (
+          <AgronProductScreen
+            product={agronProduct}
+            onBack={() => { setAgronSubScreen('category'); setAgronProduct(null); }}
+          />
+        );
+      }
+      // Deep: Agron category
+      if (agronSubScreen === 'category' && agronCategory) {
+        return (
+          <AgronCategoryScreen
+            categorySlug={agronCategory}
+            onBack={() => { setAgronSubScreen('agron-home'); setAgronCategory(null); }}
+            onProductPress={(product) => { setAgronProduct(product); setAgronSubScreen('product'); }}
+          />
+        );
+      }
+      // Agron store home (categories grid)
+      if (agronSubScreen === 'agron-home') {
+        return (
+          <AgronStoreLanding
+            onCategoryPress={(slug) => { setAgronCategory(slug); setAgronSubScreen('category'); }}
+            onBack={() => setAgronSubScreen(null)}
+          />
+        );
+      }
+      // Merchant (registered) store
+      if (agronSubScreen === 'merchant-store' && selectedMerchantStore) {
+        return (
+          <RegisteredStoreScreen
+            store={selectedMerchantStore}
+            onBack={() => { setAgronSubScreen(null); setSelectedMerchantStore(null); }}
+          />
+        );
+      }
+      // Default: multi-store directory
+      return (
+        <StoreDirectoryLanding
+          onAgronPress={() => setAgronSubScreen('agron-home')}
+          onMerchantStorePress={(store) => { setSelectedMerchantStore(store); setAgronSubScreen('merchant-store'); }}
+        />
+      );
     }
     if (currentTab === 'account') {
       console.log('Rendering account screen');
@@ -2711,11 +2677,13 @@ export default function App() {
            currentAccountScreen === 'SellerRequest' ? <SellerRequestScreen navigation={{ goBack: () => setCurrentAccountScreen('main'), navigate: (screen, params) => { setScreenParams(params); setCurrentAccountScreen(screen); } }} /> :
            currentAccountScreen === 'P2PMarketPanel' ? <P2PMarketPanel navigation={{ goBack: () => setCurrentAccountScreen('main'), navigate: (screen, params) => { setScreenParams(params); setCurrentAccountScreen(screen); } }} /> :
            currentAccountScreen === 'ProductSelection' ? <ProductSelectionScreen navigation={{ goBack: () => setCurrentAccountScreen('P2PMarketPanel'), navigate: (screen, params) => { console.log('📍 Navigating to:', screen, 'with params:', params); setScreenParams(params); setCurrentAccountScreen(screen); } }} route={{ params: screenParams }} /> :
-           currentAccountScreen === 'PriceQuantityInput' ? <PriceQuantityInputScreen navigation={{ goBack: () => setCurrentAccountScreen('ProductSelection'), navigate: (screen) => { setCurrentAccountScreen(screen); setScreenParams(null); } }} route={{ params: screenParams }} /> :
+           currentAccountScreen === 'PriceQuantityInput' ? <PriceQuantityInputScreen navigation={{ goBack: () => setCurrentAccountScreen('ProductSelection'), navigate: (screen, params) => { if (params) setScreenParams(params); setCurrentAccountScreen(screen); } }} route={{ params: screenParams }} /> :
            currentAccountScreen === 'CreateBuyRequest' ? <CreateBuyRequestScreen navigation={{ goBack: () => setCurrentAccountScreen('main'), navigate: (screen, params) => { setScreenParams(params); setCurrentAccountScreen(screen); } }} /> :
            currentAccountScreen === 'BrowseBuyRequests' ? <BrowseBuyRequestsScreen navigation={{ goBack: () => setCurrentAccountScreen('main'), navigate: (screen, params) => { setScreenParams(params); setCurrentAccountScreen(screen); } }} /> :
            currentAccountScreen === 'BuyRequestDetails' ? <BuyRequestDetailsScreen navigation={{ goBack: () => setCurrentAccountScreen('main'), navigate: (screen, params) => { setScreenParams(params); setCurrentAccountScreen(screen); } }} route={{ params: screenParams }} /> :
-           currentAccountScreen === 'Conversation' ? <ConversationScreen navigation={{ goBack: () => setCurrentAccountScreen('P2PMarketPanel'), navigate: (screen, params) => { setScreenParams(params); setCurrentAccountScreen(screen); } }} route={{ params: screenParams }} /> :
+           currentAccountScreen === 'Conversation' ? <ConversationScreen navigation={{ goBack: () => setCurrentAccountScreen('MessagesInbox'), navigate: (screen, params) => { setScreenParams(params); setCurrentAccountScreen(screen); } }} route={{ params: screenParams }} /> :
+           currentAccountScreen === 'MessagesInbox' ? <MessagesInboxScreen navigation={{ goBack: () => setCurrentAccountScreen('main'), navigate: (screen, params) => { setScreenParams(params); setCurrentAccountScreen(screen); } }} /> :
+           currentAccountScreen === 'Payment' ? <PaymentScreen navigation={{ goBack: () => setCurrentAccountScreen('main'), navigate: (screen, params) => { setScreenParams(params); setCurrentAccountScreen(screen); } }} /> :
            renderAccountScreen()}
         </AuthGate>
       );
@@ -2803,7 +2771,7 @@ export default function App() {
     return (
       <View style={{ flex: 1, backgroundColor: '#e8f5e9', justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" color="#4CAF50" />
-        <Text style={{ marginTop: 20, color: '#333', fontSize: 16 }}>Loading AGROF...</Text>
+        <Text style={{ marginTop: 20, color: '#333', fontSize: 16 }}>Loading AGRON...</Text>
       </View>
     );
   }
@@ -2816,7 +2784,9 @@ export default function App() {
   // Main app render
   return (
     <View style={{ flex: 1, backgroundColor: '#e8f5e9' }}>
+    <QueryProvider>
     <UserProvider>
+    <SubscriptionProvider>
     <LanguageProvider>
       <CartProvider key={languageKey}>
         <BackgroundImage overlayOpacity={0.4} backgroundImage={getBackgroundImage()}>
@@ -2860,7 +2830,7 @@ export default function App() {
                   >
                     <MaterialIcons name="close" size={24} color="white" />
                   </TouchableOpacity>
-                  <Text style={styles.chatbotTitle}>AGROF AI Assistant</Text>
+                  <Text style={styles.chatbotTitle}>AGRON AI Assistant</Text>
                 </View>
                 <ChatBot onShowTraining={() => setShowChatbot(false)} />
               </View>
@@ -2872,7 +2842,9 @@ export default function App() {
       </BackgroundImage>
       </CartProvider>
     </LanguageProvider>
+    </SubscriptionProvider>
     </UserProvider>
+    </QueryProvider>
     </View>
   );
 }
@@ -2884,7 +2856,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
   },
-  firebaseStatus: {
+  systemStatus: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -2893,7 +2865,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignSelf: 'center',
   },
-  firebaseStatusText: {
+  systemStatusText: {
     color: 'white',
     fontSize: 12,
     fontWeight: 'bold',

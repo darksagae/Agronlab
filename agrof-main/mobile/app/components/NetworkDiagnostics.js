@@ -93,7 +93,7 @@ const NetworkDiagnostics = ({ onClose }) => {
 
   const copyDiagnostics = () => {
     const diagnosticText = [
-      'AGROF Network Diagnostics Report',
+      'AGRON Network Diagnostics Report',
       '=====================================',
       `Timestamp: ${new Date().toISOString()}`,
       '',

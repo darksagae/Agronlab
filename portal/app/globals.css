@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --agron-green: #4CAF50;
+  --agron-dark: #2c5530;
+}
+
+@layer components {
+  .input {
+    @apply w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-agron-green resize-none;
+  }
+}

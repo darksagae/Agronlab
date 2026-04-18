@@ -1,5 +1,5 @@
 /**
- * AI Command Service for AGROF
+ * AI Command Service for AGRON
  * Receives AI commands and fetches specific products from store
  * Highly trained to pick the right products based on disease analysis
  */

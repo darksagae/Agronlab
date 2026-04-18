@@ -51,7 +51,7 @@ const MODEL_SOURCES = {
       'Provides scientific names',
       'Categorizes plants (vegetables, fruits, herbs, etc.)',
       'Gives care recommendations',
-      'Suggests AGROF products'
+      'Suggests AGRON products'
     ],
     plants: [
       'Vegetables (Tomato, Corn, Potato, Pepper, etc.)',

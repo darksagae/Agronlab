@@ -11,6 +11,8 @@ import CategoryProductsScreen from './CategoryProductsScreen';
 import CartScreen from './CartScreen';
 import ProductDetailScreen from './ProductDetailScreen';
 import { featuredProducts } from '../data/featuredProducts';
+import StoreIconGrid from '../components/StoreIconGrid';
+import storeRegistryService, { normaliseStoreProduct } from '../services/storeRegistryService';
 
 const StoreScreen = () => {
   const { t } = useSafeTranslation();
@@ -25,8 +27,16 @@ const StoreScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
-  
+
   const [backendStatus, setBackendStatus] = useState('checking');
+
+  // Multi-store: null = landing, 'agron' = AGRON global, storeId = company store
+  const [selectedStore, setSelectedStore] = useState(null);
+  const [registeredStores, setRegisteredStores] = useState([]);
+  const [storesLoading, setStoresLoading] = useState(true);
+  const [companyProducts, setCompanyProducts] = useState([]);
+  const [companyLoading, setCompanyLoading] = useState(false);
+  const [allStoreProducts, setAllStoreProducts] = useState([]);
   
   // Marquee animation
   const marqueeAnimation = useRef(new Animated.Value(0)).current;
@@ -53,15 +63,37 @@ const StoreScreen = () => {
     { id: 6, name: 'seeds', display_name: 'Seeds', image: require('../assets/seeds.png') },
   ], []);
 
-  // Featured products from API with fallback to static data
+  // Featured products from API with fallback to static data, merged with AppSync store products
   const extendedFeaturedProducts = useMemo(() => {
-    console.log('🔄 Featured products update:', {
-      apiProducts: apiFeaturedProducts.length,
-      staticProducts: featuredProducts.length,
-      usingApi: apiFeaturedProducts.length > 0
-    });
-    return apiFeaturedProducts.length > 0 ? apiFeaturedProducts : featuredProducts;
-  }, [apiFeaturedProducts]);
+    const base = apiFeaturedProducts.length > 0 ? apiFeaturedProducts : featuredProducts;
+    const extra = allStoreProducts.map(normaliseStoreProduct);
+    return [...base, ...extra];
+  }, [apiFeaturedProducts, allStoreProducts]);
+
+  // Load registered stores for the landing icon grid
+  useEffect(() => {
+    storeRegistryService.fetchRegisteredStores()
+      .then(data => setRegisteredStores(data))
+      .finally(() => setStoresLoading(false));
+  }, []);
+
+  // When AGRON store is selected, also load all AppSync store products to merge
+  useEffect(() => {
+    if (selectedStore === 'agron') {
+      storeRegistryService.fetchAllStoreProducts()
+        .then(data => setAllStoreProducts(data));
+    }
+  }, [selectedStore]);
+
+  // When a company store is selected, load its products
+  useEffect(() => {
+    if (selectedStore && selectedStore !== 'agron') {
+      setCompanyLoading(true);
+      storeRegistryService.fetchStoreProducts(selectedStore)
+        .then(data => setCompanyProducts(data))
+        .finally(() => setCompanyLoading(false));
+    }
+  }, [selectedStore]);
 
   // Load categories and featured products on mount
   useEffect(() => {
@@ -225,6 +257,98 @@ const StoreScreen = () => {
 
   // Duplicate getCategoryImage function removed - using the one declared earlier
 
+  // Store landing: show icon grid when no store is selected
+  if (selectedStore === null) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.headerTitleContainer}>
+            <MaterialIcons name="store" size={32} color="white" />
+            <Text style={styles.headerTitle}>{t('store.title')}</Text>
+            <TouchableOpacity style={styles.cartButton} onPress={() => setShowCart(true)}>
+              <MaterialIcons name="shopping-cart" size={24} color="white" />
+              {getTotalItems() > 0 && (
+                <View style={styles.cartBadge}>
+                  <Text style={styles.cartBadgeText}>{getTotalItems()}</Text>
+                </View>
+              )}
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.headerSubtitle}>Choose a store to browse</Text>
+        </View>
+        <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+          <StoreIconGrid
+            stores={registeredStores}
+            loading={storesLoading}
+            onSelect={store => setSelectedStore(store.id === 'agron' ? 'agron' : store.id)}
+          />
+        </ScrollView>
+      </View>
+    );
+  }
+
+  // Company store view — shows only that store's AppSync products
+  if (selectedStore !== 'agron') {
+    const storeInfo = registeredStores.find(s => s.id === selectedStore);
+    const storeName = storeInfo?.name ?? 'Store';
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.headerTitleContainer}>
+            <TouchableOpacity onPress={() => setSelectedStore(null)}>
+              <MaterialIcons name="arrow-back" size={28} color="white" />
+            </TouchableOpacity>
+            <Text style={[styles.headerTitle, { marginLeft: 10 }]}>{storeName}</Text>
+            <TouchableOpacity style={styles.cartButton} onPress={() => setShowCart(true)}>
+              <MaterialIcons name="shopping-cart" size={24} color="white" />
+              {getTotalItems() > 0 && (
+                <View style={styles.cartBadge}>
+                  <Text style={styles.cartBadgeText}>{getTotalItems()}</Text>
+                </View>
+              )}
+            </TouchableOpacity>
+          </View>
+          {storeInfo?.tagline ? (
+            <Text style={styles.headerSubtitle}>{storeInfo.tagline}</Text>
+          ) : null}
+        </View>
+        {companyLoading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#4CAF50" />
+          </View>
+        ) : companyProducts.length === 0 ? (
+          <View style={styles.loadingContainer}>
+            <MaterialIcons name="inventory" size={48} color="#ccc" />
+            <Text style={[styles.loadingText, { marginTop: 12 }]}>No products listed yet</Text>
+          </View>
+        ) : (
+          <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+            <View style={styles.companyProductsGrid}>
+              {companyProducts.map(p => (
+                <TouchableOpacity
+                  key={p.id}
+                  style={styles.companyProductCard}
+                  onPress={() => setSelectedProduct(normaliseStoreProduct(p))}
+                >
+                  <View style={styles.companyProductImage}>
+                    <MaterialIcons name="eco" size={36} color="#4CAF50" />
+                  </View>
+                  <Text style={styles.companyProductName} numberOfLines={2}>{p.name}</Text>
+                  <Text style={styles.companyProductPrice}>
+                    {p.priceLabel ?? (p.sellingPrice != null ? `UGX ${p.sellingPrice.toLocaleString()}` : '—')}
+                  </Text>
+                  {p.inStock === false && (
+                    <Text style={styles.outOfStock}>Out of stock</Text>
+                  )}
+                </TouchableOpacity>
+              ))}
+            </View>
+          </ScrollView>
+        )}
+      </View>
+    );
+  }
+
   // Show product detail screen if a product is selected
   if (selectedProduct) {
     return (
@@ -282,9 +406,12 @@ const StoreScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerTitleContainer}>
-          <MaterialIcons name="store" size={32} color="white" />
-            <Text style={styles.headerTitle}>{t('store.title')}</Text>
-          <TouchableOpacity 
+          <TouchableOpacity onPress={() => setSelectedStore(null)} style={{ marginRight: 6 }}>
+            <MaterialIcons name="arrow-back" size={26} color="white" />
+          </TouchableOpacity>
+          <MaterialIcons name="store" size={28} color="white" />
+          <Text style={styles.headerTitle}>{t('store.title')}</Text>
+          <TouchableOpacity
             style={styles.cartButton}
             onPress={() => setShowCart(true)}
           >
@@ -749,6 +876,48 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
     marginTop: 80,
+  },
+  companyProductsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    padding: 15,
+  },
+  companyProductCard: {
+    width: '48%',
+    backgroundColor: 'white',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 12,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 3,
+  },
+  companyProductImage: {
+    height: 80,
+    backgroundColor: '#f0f7f0',
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  companyProductName: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#2c5530',
+    marginBottom: 4,
+  },
+  companyProductPrice: {
+    fontSize: 13,
+    fontWeight: 'bold',
+    color: '#4CAF50',
+  },
+  outOfStock: {
+    fontSize: 11,
+    color: '#e53935',
+    marginTop: 2,
   },
 });
 

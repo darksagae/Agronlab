@@ -1,27 +1,37 @@
 /**
- * Auth provider selection (Firebase vs Amazon Cognito).
- *
- * Cognito + SES: verification codes are emailed; user enters the code in-app.
- * Firebase: link-based email verification (existing behaviour).
- *
- * Set in `.env` or `app.config.js` extra:
- *   EXPO_PUBLIC_AUTH_PROVIDER=cognito
- *   EXPO_PUBLIC_COGNITO_REGION=eu-west-1
- *   EXPO_PUBLIC_COGNITO_USER_POOL_ID=eu-west-1_xxxx
- *   EXPO_PUBLIC_COGNITO_CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxxxxx
+ * Auth: Amazon Cognito via Amplify (Gen 2 `amplify_outputs.json`).
+ * Optional overrides: EXPO_PUBLIC_COGNITO_* when not using amplify_outputs.
  */
 
-const provider = (process.env.EXPO_PUBLIC_AUTH_PROVIDER || 'firebase').toLowerCase();
+import amplifyOutputsJson from '../amplify_outputs.json';
 
-export const AUTH_PROVIDER = provider === 'cognito' ? 'cognito' : 'firebase';
+/** Same unwrap as amplifyConfig — Metro may nest JSON under `default`. */
+const amplifyOutputs = amplifyOutputsJson?.default ?? amplifyOutputsJson;
+
+const hasAmplifyAuth = Boolean(
+  amplifyOutputs?.auth?.user_pool_id && amplifyOutputs?.auth?.user_pool_client_id
+);
+
+export const AUTH_PROVIDER = 'cognito';
 
 export const cognitoConfig = {
-  region: process.env.EXPO_PUBLIC_COGNITO_REGION || '',
-  userPoolId: process.env.EXPO_PUBLIC_COGNITO_USER_POOL_ID || '',
-  clientId: process.env.EXPO_PUBLIC_COGNITO_CLIENT_ID || '',
+  region:
+    process.env.EXPO_PUBLIC_COGNITO_REGION ||
+    amplifyOutputs?.auth?.aws_region ||
+    amplifyOutputs?.storage?.aws_region ||
+    '',
+  userPoolId:
+    process.env.EXPO_PUBLIC_COGNITO_USER_POOL_ID ||
+    amplifyOutputs?.auth?.user_pool_id ||
+    '',
+  clientId:
+    process.env.EXPO_PUBLIC_COGNITO_CLIENT_ID ||
+    amplifyOutputs?.auth?.user_pool_client_id ||
+    '',
 };
 
 export function isCognitoConfigured() {
+  if (hasAmplifyAuth) return true;
   return Boolean(
     cognitoConfig.userPoolId &&
       cognitoConfig.clientId &&
@@ -29,7 +39,7 @@ export function isCognitoConfigured() {
   );
 }
 
-/** Use Cognito (code verification) when provider is cognito and pool/client are set */
+/** Cognito + Amplify when configured (default once amplify_outputs has auth) */
 export function isCognitoAuth() {
   return AUTH_PROVIDER === 'cognito' && isCognitoConfigured();
 }

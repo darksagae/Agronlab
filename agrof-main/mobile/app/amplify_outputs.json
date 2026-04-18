@@ -1,1 +1,77 @@
-{}
+{
+  "auth": {
+    "user_pool_id": "us-east-1_LQVX87SvN",
+    "aws_region": "us-east-1",
+    "user_pool_client_id": "6g2dd8k7217quhaev15hidbsrv",
+    "identity_pool_id": "us-east-1:6ca9c6a3-88c9-45d8-94b4-82af297aed04",
+    "mfa_methods": [],
+    "standard_required_attributes": [
+      "email"
+    ],
+    "username_attributes": [
+      "email"
+    ],
+    "user_verification_types": [
+      "email"
+    ],
+    "groups": [],
+    "mfa_configuration": "NONE",
+    "unauthenticated_identities_enabled": true
+  },
+  "storage": {
+    "aws_region": "us-east-1",
+    "bucket_name": "agron-uploads-fqcxx",
+    "buckets": [
+      {
+        "name": "agrofUploads",
+        "bucket_name": "agron-uploads-fqcxx",
+        "aws_region": "us-east-1",
+        "paths": {
+          "public/*": {
+            "guest": [
+              "get",
+              "list"
+            ],
+            "authenticated": [
+              "get",
+              "list",
+              "write",
+              "delete"
+            ]
+          },
+          "protected/${cognito-identity.amazonaws.com:sub}/*": {
+            "entityidentity": [
+              "get",
+              "list",
+              "write",
+              "delete"
+            ]
+          },
+          "uploads/*": {
+            "authenticated": [
+              "get",
+              "list",
+              "write",
+              "delete"
+            ]
+          },
+          "uploads/${cognito-identity.amazonaws.com:sub}/*": {
+            "entityidentity": [
+              "get",
+              "list",
+              "write",
+              "delete"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "data": {
+    "aws_region": "us-east-1",
+    "url": "https://fcxdjyopljbibipibk6vec6lrq.appsync-api.us-east-1.amazonaws.com/graphql",
+    "default_authorization_type": "AMAZON_COGNITO_USER_POOLS",
+    "authorization_types": ["AMAZON_COGNITO_USER_POOLS"]
+  },
+  "version": "1.4"
+}

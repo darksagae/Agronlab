@@ -60,7 +60,7 @@ class MarketService {
   }
 
   // DEPRECATED: Mock data removed for production
-  // Use Supabase queries instead
+  // Use Amplify Data / API when available
   loadMockMarketData() {
     this.marketData = {
       buyers: [

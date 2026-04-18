@@ -19,10 +19,12 @@ import { theme } from '../theme';
 import hybridAIService from '../services/hybridAIService';
 import ProductRecommendationCards from '../components/ProductRecommendationCards';
 import authService from '../services/authService';
+import { useSubscription } from '../contexts/SubscriptionContext';
 
 const { width, height } = Dimensions.get('window');
 
 const DiseaseDetectionScreen = ({ navigation }) => {
+  const { isSubscribed } = useSubscription();
   const [selectedImage, setSelectedImage] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState(null);
@@ -161,14 +163,37 @@ const DiseaseDetectionScreen = ({ navigation }) => {
       return;
     }
 
+    // Advanced AI (Gemini) requires subscription; offline/TF model is free
+    if (!isSubscribed && aiStatus?.isOnline) {
+      Alert.alert(
+        'Premium Feature',
+        'Advanced AI crop analysis uses Gemini AI and requires an AGRON subscription ($10/year). Free users get offline basic analysis.',
+        [
+          {
+            text: 'Subscribe for Advanced AI',
+            onPress: () => navigation?.navigate?.('Payment'),
+          },
+          {
+            text: 'Use Basic Analysis (Free)',
+            onPress: () => runAnalysis(true),
+          },
+          { text: 'Cancel', style: 'cancel' },
+        ]
+      );
+      return;
+    }
+
+    runAnalysis(false);
+  };
+
+  const runAnalysis = async (forceOffline = false) => {
     setIsAnalyzing(true);
     setError(null);
 
     try {
-      console.log('🔍 Starting hybrid AI analysis...');
-      
-      // Use hybrid AI service (automatically switches between Gemini and TensorFlow)
-      const result = await hybridAIService.analyzeDisease(selectedImage.uri);
+      console.log('🔍 Starting hybrid AI analysis... forceOffline:', forceOffline);
+
+      const result = await hybridAIService.analyzeDisease(selectedImage.uri, { forceOffline });
 
       console.log('✅ Analysis complete:', result);
 

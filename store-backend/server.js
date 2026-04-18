@@ -691,6 +691,85 @@ app.get('/api/products/:id', async (req, res) => {
   }
 });
 
+// Create product (portal admin only)
+app.post('/api/products', (req, res) => {
+  const {
+    name, category_id, description = '', price = '', selling_price = 0, cost_price = 0,
+    quantity_in_stock = 0, unit_of_measure = 'bags', minimum_stock_level = 10,
+    specifications = '', features = '', usage_instructions = '', safety_info = '',
+    storage_instructions = '', supplier_name = '', availability = 'In Stock',
+  } = req.body || {};
+
+  if (!name || !category_id) {
+    return res.status(400).json({ error: 'name and category_id are required' });
+  }
+
+  const sql = `
+    INSERT INTO products
+      (name, category_id, description, price, selling_price, cost_price,
+       quantity_in_stock, unit_of_measure, minimum_stock_level, specifications,
+       features, usage_instructions, safety_info, storage_instructions,
+       supplier_name, availability, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+  `;
+  db.run(sql,
+    [name, category_id, description, price, selling_price, cost_price,
+     quantity_in_stock, unit_of_measure, minimum_stock_level, specifications,
+     features, usage_instructions, safety_info, storage_instructions,
+     supplier_name, availability],
+    function (err) {
+      if (err) return res.status(500).json({ error: err.message });
+      db.get('SELECT * FROM products WHERE id = ?', [this.lastID], (e, row) => {
+        if (e) return res.status(500).json({ error: e.message });
+        res.status(201).json(row);
+      });
+    }
+  );
+});
+
+// Update product (portal admin only)
+app.put('/api/products/:id', (req, res) => {
+  const { id } = req.params;
+  const allowed = [
+    'name', 'category_id', 'description', 'price', 'selling_price', 'cost_price',
+    'quantity_in_stock', 'unit_of_measure', 'minimum_stock_level', 'maximum_stock_level',
+    'specifications', 'features', 'usage_instructions', 'safety_info',
+    'storage_instructions', 'supplier_name', 'supplier_contact', 'availability',
+    'image_url', 'expiry_date', 'batch_number', 'location',
+  ];
+  const fields = Object.keys(req.body || {}).filter(k => allowed.includes(k));
+  if (fields.length === 0) return res.status(400).json({ error: 'No valid fields to update' });
+
+  const sets = fields.map(f => `${f} = ?`).join(', ');
+  const values = fields.map(f => (req.body)[f]);
+  db.run(
+    `UPDATE products SET ${sets}, updated_at = CURRENT_TIMESTAMP WHERE id = ?`,
+    [...values, id],
+    function (err) {
+      if (err) return res.status(500).json({ error: err.message });
+      if (this.changes === 0) return res.status(404).json({ error: 'Product not found' });
+      db.get('SELECT * FROM products WHERE id = ?', [id], (e, row) => {
+        if (e) return res.status(500).json({ error: e.message });
+        res.json(row);
+      });
+    }
+  );
+});
+
+// Soft-delete product (portal admin only) — sets availability = Discontinued
+app.delete('/api/products/:id', (req, res) => {
+  const { id } = req.params;
+  db.run(
+    `UPDATE products SET availability = 'Discontinued', updated_at = CURRENT_TIMESTAMP WHERE id = ?`,
+    [id],
+    function (err) {
+      if (err) return res.status(500).json({ error: err.message });
+      if (this.changes === 0) return res.status(404).json({ error: 'Product not found' });
+      res.json({ success: true, id: Number(id) });
+    }
+  );
+});
+
 // Search products
 app.get('/api/search', (req, res) => {
   const { q, category } = req.query;
@@ -1332,6 +1411,85 @@ app.get('/api/inventory/export/:type', async (req, res) => {
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
+});
+
+// ── Flutterwave Mobile Money Payment Endpoints ──────────────────────
+// Requires env: FLUTTERWAVE_SECRET_KEY
+const FLW_SECRET = process.env.FLUTTERWAVE_SECRET_KEY;
+
+app.post('/api/payment/initiate-subscription', async (req, res) => {
+  const { userSub, phone, network, txRef, amount, currency, email, name } = req.body;
+  if (!userSub || !phone || !network || !txRef) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+
+  if (!FLW_SECRET) {
+    // Dev fallback: auto-approve for testing
+    console.warn('[Payment] FLUTTERWAVE_SECRET_KEY not set — using test mode');
+    return res.json({ status: 'success', chargeInitiated: true, txRef, testMode: true });
+  }
+
+  try {
+    const payload = {
+      tx_ref: txRef,
+      amount: amount || 37000,
+      currency: currency || 'UGX',
+      network: network === 'MTN' ? 'MTN' : 'AIRTEL',
+      email,
+      fullname: name,
+      phone_number: phone,
+      meta: { userSub },
+    };
+
+    const response = await fetch('https://api.flutterwave.com/v3/charges?type=mobile_money_uganda', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${FLW_SECRET}`,
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await response.json();
+    if (data.status === 'success') {
+      return res.json({ status: 'success', chargeInitiated: true, txRef });
+    }
+    return res.status(400).json({ status: 'error', message: data.message });
+  } catch (err) {
+    console.error('[Payment] Flutterwave error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/payment/verify-subscription', async (req, res) => {
+  const { txRef } = req.query;
+  if (!txRef) return res.status(400).json({ error: 'txRef required' });
+
+  if (!FLW_SECRET) {
+    // Dev fallback: return successful
+    return res.json({ status: 'successful', amount: 37000, currency: 'UGX', txRef, testMode: true });
+  }
+
+  try {
+    const response = await fetch(
+      `https://api.flutterwave.com/v3/transactions/verify_by_reference?tx_ref=${txRef}`,
+      { headers: { Authorization: `Bearer ${FLW_SECRET}` } }
+    );
+    const data = await response.json();
+    if (data.status === 'success') {
+      const tx = data.data;
+      return res.json({
+        status: tx.status,
+        amount: tx.amount,
+        currency: tx.currency,
+        txRef: tx.tx_ref,
+      });
+    }
+    return res.json({ status: 'pending', message: data.message });
+  } catch (err) {
+    console.error('[Payment] verify error:', err);
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // 404 handler

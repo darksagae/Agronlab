@@ -1,7 +1,7 @@
 {
   "name": "agrof-main",
   "version": "1.0.0",
-  "description": "AGROF AI - Agricultural Disease Detection Platform",
+  "description": "AGRON - Agricultural Disease Detection Platform",
   "main": "index.js",
   "scripts": {
     "start": "cd mobile/app && npm start",
@@ -18,7 +18,7 @@
     "crop-analysis",
     "machine-learning"
   ],
-  "author": "AGROF Team",
+  "author": "AGRON Team",
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 // Expo Config module
 export default {
   expo: {
-    name: "AGROF",
+    name: "AGRON",
     slug: "agrof-crop-health",
     version: "1.0.0",
     orientation: "portrait",

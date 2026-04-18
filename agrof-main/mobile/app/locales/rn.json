@@ -23,9 +23,9 @@
     "cart": "Ekikopo"
   },
   "welcome": {
-    "title": "AGROF",
+    "title": "AGRON",
     "subtitle": "Omukwano gwawe gw'omurimi",
-    "continueButton": "Wendaho ku AGROF →",
+    "continueButton": "Wendaho ku AGRON →",
     "watchIntro": "Rora Ebyokutandikaho",
     "startUsing": "Tandika Okukozesa"
   },
@@ -48,7 +48,7 @@
     "prevention": "Okutangira"
   },
   "store": {
-    "title": "Eduka rya AGROF",
+    "title": "Eduka rya AGRON",
     "subtitle": "Ebintu ebirungi by'obulimi bya shamba ryawe",
     "search": "Noonya ebintu...",
     "categories": "Ebika",
@@ -70,13 +70,13 @@
   "account": {
     "title": "Akanti yawe",
     "welcome": "Tukusanyukire okukulaba!",
-    "balance": "Ensimbi za AGROF",
+    "balance": "Ensimbi za AGRON",
     "settings": "Entegeka",
     "help": "Obuyambi",
     "logout": "Fuuma"
   },
   "ai": {
-    "assistant": "Omuyambi wa AGROF AI",
+    "assistant": "Omuyambi wa AGRON AI",
     "askQuestion": "Buuza kyona kyona ku bulimi...",
     "send": "Tuma",
     "clear": "Sanguraho Amakuru"
@@ -88,7 +88,7 @@
     "generalError": "Ekintu kyakujire"
   },
   "manual": {
-    "title": "Okukozesa AGROF AI",
+    "title": "Okukozesa AGRON AI",
     "step1": "Twara oba Hitamo Ekifananyi",
     "step1Description": "Okurora endwara kwakujire mu pulogulamu eno",
     "step2": "Okurora kwa AI",
@@ -124,7 +124,7 @@
     "shareResults": "Sangula Ebyafunirwe"
   },
   "care": {
-    "title": "AGROF AI",
+    "title": "AGRON AI",
     "subtitle": "Okukuza Emmere mu AI",
     "smartFarming": "Obulimi bw'Obukugu",
     "smartFarmingSubtitle": "Okukuza emmere n'okurora mu AI",

@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useUser } from '../contexts/UserContext';
-import { supabase } from '../config/supabaseConfig';
 
 const CreateBuyRequestScreen = ({ navigation }) => {
   const { user } = useUser();
@@ -40,13 +39,7 @@ const CreateBuyRequestScreen = ({ navigation }) => {
 
   const loadP2PProducts = async () => {
     try {
-      const { data, error } = await supabase
-        .from('p2p_products')
-        .select('*')
-        .order('name');
-
-      if (error) throw error;
-      setProducts(data || []);
+      setProducts([]);
     } catch (error) {
       console.error('Error loading products:', error);
     }
@@ -75,29 +68,9 @@ const CreateBuyRequestScreen = ({ navigation }) => {
     setLoading(true);
 
     try {
-      const { data, error } = await supabase
-        .from('buy_requests')
-        .insert([{
-          buyer_id: user.uid,
-          p2p_product_id: formData.p2pProductId,
-          title: formData.title,
-          description: formData.description,
-          quantity_needed: parseInt(formData.quantityNeeded),
-          target_price: formData.targetPrice ? parseFloat(formData.targetPrice) : null,
-          max_price: formData.maxPrice ? parseFloat(formData.maxPrice) : null,
-          location: formData.location,
-          delivery_needed: formData.deliveryNeeded,
-          urgency: formData.urgency,
-          status: 'active',
-          is_active: true,
-        }])
-        .select();
-
-      if (error) throw error;
-
       Alert.alert(
-        '✅ Buy Request Posted!',
-        `Your request for ${formData.productName} has been posted!\n\nSellers can now see your request and send you offers.`,
+        '✅ Buy Request Saved Locally',
+        `Your request for ${formData.productName} was not synced (Supabase removed).\n\nShared buy requests will return when Amplify Data is connected.`,
         [
           {
             text: 'View My Requests',

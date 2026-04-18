@@ -1,17 +1,58 @@
-# AWS Amplify Hosting — Expo web export (see agrof-main/mobile/app/package.json)
+# Amplify Hosting — Gen 2 fullstack (production).
+# Two frontend apps share one backend deployment:
+#   1. Expo web app  (agrof-main/mobile/app)
+#   2. Merchant portal (portal/)
+# Configure each as a separate Amplify Hosting app in the Console, both connected to this repo.
 version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - cd agrof-main/mobile/app && npm ci
-    build:
-      commands:
-        - cd agrof-main/mobile/app && npm run build:web
-  artifacts:
-    baseDirectory: agrof-main/mobile/app/dist
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - agrof-main/mobile/app/node_modules/**/*
+applications:
+  # ── Expo web app ──────────────────────────────────────────────────────────
+  - appRoot: agrof-main/mobile/app
+    backend:
+      phases:
+        build:
+          commands:
+            - cd ../../.. && npm install --no-audit --no-fund --cache .npm --prefer-offline
+            - export CI=1
+            - cd ../../.. && npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - test -f ../../../amplify_outputs.json && cp -f ../../../amplify_outputs.json amplify_outputs.json || echo "No amplify_outputs.json yet"
+            - npm ci
+        build:
+          commands:
+            - npm run build:web
+      artifacts:
+        baseDirectory: dist
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+          - ../../../.npm/**/*
+
+  # ── Merchant portal (Next.js) ────────────────────────────────────────────
+  - appRoot: portal
+    backend:
+      phases:
+        build:
+          commands:
+            # Backend already deployed by first app — reuse outputs
+            - echo "Reusing backend outputs from Expo app build"
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - test -f ../amplify_outputs.json && cp -f ../amplify_outputs.json amplify_outputs.json || echo "No amplify_outputs.json yet"
+            - npm ci
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: .next
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*

@@ -1,212 +1,237 @@
 /**
- * Amazon Cognito User Pools — sign-up, email code confirmation, sign-in.
- * Configure via config/authConfig.js (EXPO_PUBLIC_* env vars).
+ * Amazon Cognito via AWS Amplify v6 (aligned with Gen 2 amplify_outputs.json).
  */
 
 import {
-  AuthenticationDetails,
-  CognitoUser,
-  CognitoUserAttribute,
-  CognitoUserPool,
-} from 'amazon-cognito-identity-js';
-import { cognitoConfig, isCognitoConfigured } from '../config/authConfig';
+  signUp as amplifySignUp,
+  signIn as amplifySignIn,
+  signOut as amplifySignOut,
+  confirmSignUp as amplifyConfirmSignUp,
+  resendSignUpCode,
+  resetPassword,
+  getCurrentUser,
+  fetchAuthSession,
+} from 'aws-amplify/auth';
+import { isCognitoConfigured } from '../config/authConfig';
 
-let userPool = null;
-
-function getPool() {
+function requireConfigured() {
   if (!isCognitoConfigured()) {
-    return null;
+    throw new Error(
+      'Cognito is not configured. Deploy Amplify sandbox and ensure amplify_outputs.json is present.'
+    );
   }
-  if (!userPool) {
-    userPool = new CognitoUserPool({
-      UserPoolId: cognitoConfig.userPoolId,
-      ClientId: cognitoConfig.clientId,
-    });
-  }
-  return userPool;
 }
 
-function buildCognitoUser(email) {
-  const pool = getPool();
-  if (!pool) return null;
-  return new CognitoUser({
-    Username: email.trim().toLowerCase(),
-    Pool: pool,
-  });
-}
-
-/** Normalize phone to E.164 if possible; omit attribute if invalid */
-function phoneAttributes(phone) {
+function phoneAttribute(phone) {
   const raw = (phone || '').replace(/\s/g, '');
-  if (!raw) return [];
+  if (!raw) return undefined;
   let e164 = raw;
   if (/^\d{9,12}$/.test(raw)) {
     e164 = `+256${raw.replace(/^0+/, '')}`;
   }
-  if (!/^\+[1-9]\d{6,14}$/.test(e164)) {
-    return [];
-  }
-  return [new CognitoUserAttribute({ Name: 'phone_number', Value: e164 })];
+  if (!/^\+[1-9]\d{6,14}$/.test(e164)) return undefined;
+  return e164;
 }
 
 export async function signUp(email, password, { fullName = '', phone = '' } = {}) {
-  const pool = getPool();
-  if (!pool) {
-    throw new Error('Cognito User Pool is not configured. Set EXPO_PUBLIC_COGNITO_* env vars.');
-  }
-  // Username is the email; do not duplicate `email` in attributes when email is the sign-in username.
-  const attributeList = [
-    new CognitoUserAttribute({ Name: 'name', Value: fullName || email.split('@')[0] }),
-    ...phoneAttributes(phone),
-  ];
+  requireConfigured();
+  const normalized = email.trim().toLowerCase();
+  const attrs = {
+    email: normalized,
+  };
+  if (fullName) attrs.name = fullName;
+  const tel = phoneAttribute(phone);
+  if (tel) attrs.phone_number = tel;
 
-  return new Promise((resolve, reject) => {
-    pool.signUp(
-      email.trim().toLowerCase(),
-      password,
-      attributeList,
-      null,
-      (err, result) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-        resolve({
-          userSub: result.userSub,
-          userConfirmed: result.userConfirmed,
-        });
-      }
-    );
+  const result = await amplifySignUp({
+    username: normalized,
+    password,
+    options: { userAttributes: attrs },
   });
+
+  return {
+    userSub: result.userId,
+    userConfirmed: result.isSignUpComplete === true,
+  };
 }
 
 export async function confirmSignUp(email, code) {
-  const cognitoUser = buildCognitoUser(email);
-  if (!cognitoUser) {
-    throw new Error('Cognito is not configured');
-  }
+  requireConfigured();
+  const normalized = email.trim().toLowerCase();
   const trimmed = (code || '').replace(/\s/g, '');
-  return new Promise((resolve, reject) => {
-    cognitoUser.confirmRegistration(trimmed, true, (err, result) => {
-      if (err) reject(err);
-      else resolve(result);
-    });
+  await amplifyConfirmSignUp({
+    username: normalized,
+    confirmationCode: trimmed,
   });
 }
 
 export async function resendConfirmationCode(email) {
-  const cognitoUser = buildCognitoUser(email);
-  if (!cognitoUser) {
-    throw new Error('Cognito is not configured');
-  }
-  return new Promise((resolve, reject) => {
-    cognitoUser.resendConfirmationCode((err, result) => {
-      if (err) reject(err);
-      else resolve(result);
-    });
-  });
+  requireConfigured();
+  await resendSignUpCode({ username: email.trim().toLowerCase() });
 }
 
-function sessionToUser(session) {
-  const idToken = session.getIdToken();
-  const payload = idToken.decodePayload();
-  const sub = payload.sub;
-  const email = payload.email || payload['cognito:username'] || '';
+function mapSessionToUser(payload, amplifyUser) {
+  const sub = payload?.sub || amplifyUser?.userId;
+  const email =
+    payload?.email ||
+    payload?.['cognito:username'] ||
+    amplifyUser?.signInDetails?.loginId ||
+    amplifyUser?.username ||
+    '';
   const emailVerified =
-    payload.email_verified === true ||
-    payload.email_verified === 'true' ||
-    payload.email_verified === 'True';
+    payload?.email_verified === true ||
+    payload?.email_verified === 'true' ||
+    payload?.email_verified === 'True';
 
   return {
     uid: sub,
     email,
     emailVerified,
-    displayName: payload.name || email.split('@')[0],
+    displayName: payload?.name || (email ? email.split('@')[0] : ''),
     cognito: true,
-    getIdToken: () => session.getIdToken().getJwtToken(),
+    getIdToken: async () => {
+      const session = await fetchAuthSession();
+      return session.tokens?.idToken?.toString?.() ?? null;
+    },
   };
 }
 
 export async function signIn(email, password) {
-  const cognitoUser = buildCognitoUser(email);
-  if (!cognitoUser) {
-    throw new Error('Cognito is not configured');
-  }
-  const authDetails = new AuthenticationDetails({
-    Username: email.trim().toLowerCase(),
-    Password: password,
-  });
+  requireConfigured();
+  const normalized = email.trim().toLowerCase();
 
-  return new Promise((resolve, reject) => {
-    cognitoUser.authenticateUser(authDetails, {
-      onSuccess(session) {
-        try {
-          resolve({ session, user: sessionToUser(session) });
-        } catch (e) {
-          reject(e);
-        }
-      },
-      onFailure(err) {
-        reject(err);
-      },
-    });
-  });
+  async function attemptSignIn(authFlowType) {
+    const params = { username: normalized, password };
+    if (authFlowType) params.options = { authFlowType };
+    return amplifySignIn(params);
+  }
+
+  // Prefer USER_PASSWORD_AUTH (Expo Go). Falls back to SRP if the client disallows it.
+  let result;
+  try {
+    result = await attemptSignIn('USER_PASSWORD_AUTH');
+  } catch (e) {
+    const msg = String(e?.message || '');
+    if (e?.name === 'UserAlreadyAuthenticatedException') {
+      // Stale session — clear it and retry.
+      await amplifySignOut();
+      result = await attemptSignIn('USER_PASSWORD_AUTH');
+    } else if (
+      e?.name === 'InvalidParameterException' &&
+      /USER_PASSWORD_AUTH|not enabled|not allowed/i.test(msg)
+    ) {
+      result = await attemptSignIn(null);
+    } else {
+      throw e;
+    }
+  }
+
+  if (!result?.isSignedIn) {
+    const step = result?.nextStep?.signInStep;
+    if (step === 'CONFIRM_SIGN_UP') {
+      const err = new Error('Account not confirmed');
+      err.name = 'UserNotConfirmedException';
+      throw err;
+    }
+    throw new Error(`Sign-in incomplete: ${step || 'unknown step'}`);
+  }
+
+  const session = await fetchAuthSession();
+  const payload = session.tokens?.idToken?.payload;
+  if (!payload) {
+    throw new Error('Signed in but no ID token payload — check Amplify configuration');
+  }
+  const user = await getCurrentUser();
+  return {
+    session,
+    user: mapSessionToUser(payload, user),
+  };
 }
 
 export async function forgotPassword(email) {
-  const cognitoUser = buildCognitoUser(email);
-  if (!cognitoUser) {
-    throw new Error('Cognito is not configured');
-  }
-  return new Promise((resolve, reject) => {
-    cognitoUser.forgotPassword({
-      onSuccess: (data) => resolve(data),
-      onFailure: (err) => reject(err),
-    });
-  });
+  requireConfigured();
+  await resetPassword({ username: email.trim().toLowerCase() });
 }
 
 export async function signOut() {
-  const pool = getPool();
-  if (!pool) return;
-  const cognitoUser = pool.getCurrentUser();
-  if (cognitoUser) {
-    cognitoUser.signOut();
+  try {
+    await amplifySignOut();
+  } catch {
+    // ignore if already signed out
+  }
+}
+
+export async function getCurrentAuthenticatedUser() {
+  if (!isCognitoConfigured()) return null;
+  try {
+    const session = await fetchAuthSession();
+    const payload = session.tokens?.idToken?.payload;
+    if (!payload) return null;
+    const user = await getCurrentUser();
+    return mapSessionToUser(payload, user);
+  } catch {
+    return null;
   }
 }
 
 /**
- * Restore session from pool storage (in-memory on RN unless you add persistent Storage).
+ * Map Cognito / Amplify Auth errors to short, actionable copy.
+ * Amplify v6 often wraps SDK errors; check name, message, and nested cause.
  */
-export async function getCurrentAuthenticatedUser() {
-  const pool = getPool();
-  if (!pool) return null;
-
-  return new Promise((resolve) => {
-    const cognitoUser = pool.getCurrentUser();
-    if (!cognitoUser) {
-      resolve(null);
-      return;
-    }
-    cognitoUser.getSession((err, session) => {
-      if (err || !session || !session.isValid()) {
-        resolve(null);
-        return;
-      }
-      try {
-        resolve(sessionToUser(session));
-      } catch {
-        resolve(null);
-      }
-    });
-  });
-}
-
 export function cognitoErrorMessage(err) {
   if (!err) return 'Unknown error';
   if (typeof err === 'string') return err;
-  if (err.message) return err.message;
-  if (err.code && err.message) return `${err.code}: ${err.message}`;
+
+  const name = String(err.name || err.code || err.__type || '');
+  const rawMsg = String(err.message || err.msg || '');
+  const lower = rawMsg.toLowerCase();
+  const cause = err.cause || err.underlyingError;
+  const causeMsg = cause ? String(cause.message || '') : '';
+  const combined = `${name} ${rawMsg} ${causeMsg}`.toLowerCase();
+
+  if (
+    name === 'UserNotConfirmedException' ||
+    combined.includes('user_not_confirmed') ||
+    combined.includes('not confirmed') ||
+    (combined.includes('verification') && !combined.includes('incorrect'))
+  ) {
+    return 'Your email is not verified yet. Enter the code we sent you, or use “Resend code” on the verification screen.';
+  }
+  // Wrong credentials — Cognito often says "Incorrect username or password" (contains "password": do not treat as policy error).
+  if (
+    name === 'NotAuthorizedException' ||
+    name === 'UserNotFoundException' ||
+    /not\s*authorized|incorrect\s+(username|email)\s+or\s+password|invalid\s+credentials|authentication failed/i.test(
+      combined
+    )
+  ) {
+    return 'Incorrect email or password. Check your details and try again.';
+  }
+  if (name === 'TooManyRequestsException' || combined.includes('too many')) {
+    return 'Too many attempts. Wait a few minutes and try again.';
+  }
+  if (name === 'PasswordResetRequiredException') {
+    return 'You must reset your password before signing in. Use Forgot password.';
+  }
+  // Real password-policy errors (sign-up / change password), not "incorrect password" on sign-in.
+  if (
+    name === 'InvalidPasswordException' ||
+    (name === 'InvalidParameterException' &&
+      /policy|conform|at least|symbol|uppercase|lowercase|length|requirements|history/i.test(combined) &&
+      !/incorrect|not authorized|authenticate/i.test(combined))
+  ) {
+    return 'Password does not meet the requirements for this account.';
+  }
+
+  if (rawMsg && rawMsg !== 'An unknown error has occurred.') {
+    return name ? `${name}: ${rawMsg}` : rawMsg;
+  }
+  if (causeMsg) {
+    return cognitoErrorMessage(cause);
+  }
+  if (name) {
+    return `${name}: Sign-in failed. If you just registered, confirm your email with the code we sent first.`;
+  }
   try {
     return JSON.stringify(err);
   } catch {

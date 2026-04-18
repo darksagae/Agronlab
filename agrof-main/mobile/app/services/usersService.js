@@ -1,9 +1,8 @@
 /**
- * Users Service - Fetch all registered users from Supabase
- * Used to display real buyers and sellers in the marketplace
+ * Users registered on this device (AsyncStorage). No Supabase.
  */
 
-import supabaseService from './supabaseService';
+import userProfileService from './userProfileService';
 
 class UsersService {
   constructor() {
@@ -13,12 +12,12 @@ class UsersService {
   }
 
   /**
-   * Fetch all users from Supabase
+   * Fetch all users stored locally on this device
    * Returns array of user objects with profile data
    */
   async getAllUsers() {
     try {
-      console.log('👥 UsersService: Fetching all users from Supabase...');
+      console.log('👥 UsersService: Fetching locally stored users...');
       
       // Check cache first
       if (this.cachedUsers.length > 0 && this.lastFetch) {
@@ -29,11 +28,10 @@ class UsersService {
         }
       }
 
-      // Fetch all users from Supabase
-      const result = await supabaseService.getAllUsers();
+      const result = await userProfileService.getAllUsers();
       
       if (result.success && result.users) {
-        console.log('✅ Loaded', result.users.length, 'users from Supabase');
+        console.log('✅ Loaded', result.users.length, 'local user profiles');
         
         // Cache the users
         this.cachedUsers = result.users;
@@ -42,7 +40,7 @@ class UsersService {
         return { success: true, users: result.users };
       }
       
-      throw new Error('Failed to fetch users from Supabase');
+      throw new Error('Failed to fetch local users');
     } catch (error) {
       console.error('❌ UsersService: Error fetching users:', error);
       return { success: false, error: error.message, users: [] };

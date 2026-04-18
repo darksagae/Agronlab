@@ -9,14 +9,14 @@ export default function FuturisticTechShowcase() {
   // Simple animation values
   const agrofFallAnim = useRef(new Animated.Value(-200)).current; // Start closer for normal fall
   const agrofOpacityAnim = useRef(new Animated.Value(0)).current; // Start invisible
-  // Leaf animation removed - only AGROF word will fall
+  // Leaf animation removed - only AGRON word will fall
 
   useEffect(() => {
     startAnimations();
   }, []);
 
   const startAnimations = () => {
-    // AGROF falls to center with normal fall effect
+    // AGRON falls to center with normal fall effect
     Animated.parallel([
       Animated.timing(agrofFallAnim, {
         toValue: 0,
@@ -31,7 +31,7 @@ export default function FuturisticTechShowcase() {
         useNativeDriver: false,
       })
     ]).start(() => {
-      // AGROF animation complete - no leaf animation
+      // AGRON animation complete - no leaf animation
     });
   };
 
@@ -46,7 +46,7 @@ export default function FuturisticTechShowcase() {
         loading="eager"
       />
       <View style={styles.content}>
-        {/* AGROF falling to center */}
+        {/* AGRON falling to center */}
         <Animated.View style={[
           styles.agrofContainer,
           {
@@ -56,15 +56,15 @@ export default function FuturisticTechShowcase() {
             opacity: agrofOpacityAnim
           }
         ]}>
-          <Text style={styles.agrofTitle}>AGROF</Text>
+          <Text style={styles.agrofTitle}>AGRON</Text>
           <View style={styles.agrofGlow} />
         </Animated.View>
 
-        {/* Leaf animation removed - only AGROF word falls */}
+        {/* Leaf animation removed - only AGRON word falls */}
 
         {/* Welcome message at the top */}
         <View style={styles.welcomeSection}>
-          <Text style={styles.welcomeTitle}>AGROF</Text>
+          <Text style={styles.welcomeTitle}>AGRON</Text>
           <Text style={styles.welcomeSubtitle}>Your AI Powered Crop Health Companion</Text>
         </View>
       </View>

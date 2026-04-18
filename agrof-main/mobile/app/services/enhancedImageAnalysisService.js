@@ -1,6 +1,6 @@
 /**
- * Enhanced Image Analysis Service for AGROF
- * Multi-model AI integration with AGROF store products
+ * Enhanced Image Analysis Service for AGRON
+ * Multi-model AI integration with AGRON store products
  */
 
 import { AI_BASE_URL } from '../config/apiConfig';
@@ -161,13 +161,13 @@ class EnhancedImageAnalysisService {
   }
 
   /**
-   * Get AGROF store products for disease treatment
+   * Get AGRON store products for disease treatment
    * @param {string} disease - Disease name
    * @returns {Promise<Object>} Store products
    */
   async getStoreProducts(disease = '') {
     try {
-      console.log(`🛒 Getting AGROF store products for: ${disease}`);
+      console.log(`🛒 Getting AGRON store products for: ${disease}`);
       
       const url = disease 
         ? `${this.apiUrl}/api/store-products?disease=${encodeURIComponent(disease)}`
@@ -210,12 +210,12 @@ class EnhancedImageAnalysisService {
   }
 
   /**
-   * Get available disease treatments from AGROF store
+   * Get available disease treatments from AGRON store
    * @returns {Promise<Object>} Disease treatments
    */
   async getDiseaseTreatments() {
     try {
-      console.log('🔬 Getting AGROF disease treatments...');
+      console.log('🔬 Getting AGRON disease treatments...');
       
       const response = await fetch(`${this.apiUrl}/api/disease-treatments`, {
         method: 'GET',

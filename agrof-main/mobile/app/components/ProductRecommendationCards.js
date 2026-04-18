@@ -802,7 +802,7 @@ const ProductRecommendationCards = ({ diseaseType, symptoms, cropType, onProduct
       <Card.Content>
         <Title style={styles.cardTitle}>Recommended Products</Title>
         <Paragraph style={styles.cardSubtitle}>
-          Products from AGROF Store for treating {diseaseType}
+          Products from AGRON Store for treating {diseaseType}
         </Paragraph>
         <Text style={styles.debugText}>
           Showing {recommendedProducts.length} products

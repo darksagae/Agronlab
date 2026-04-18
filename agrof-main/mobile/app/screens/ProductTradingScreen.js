@@ -18,11 +18,11 @@ import {
 import { MaterialIcons } from '@expo/vector-icons';
 import { useSafeTranslation } from '../i18n';
 import { useUser } from '../contexts/UserContext';
-import { supabase } from '../config/supabaseConfig';
+import usersService from '../services/usersService';
 
 const { width, height } = Dimensions.get('window');
 
-// Price history data will come from Supabase price_history table
+// Price history: stub / future Amplify Data
 // For now, empty until real data exists
 
 const ProductTradingScreen = ({ route, navigation }) => {
@@ -36,7 +36,7 @@ const ProductTradingScreen = ({ route, navigation }) => {
   const [chatMessage, setChatMessage] = useState('');
   const [chatMessages, setChatMessages] = useState([]);
   
-  // Get current user from UserContext (real data from Firebase/Supabase)
+  // Get current user from UserContext (Cognito + local profile)
   const { user: currentUser, isAuthenticated, refreshUserData } = useUser();
   const [realBuyers, setRealBuyers] = useState([]);
   const [realSellers, setRealSellers] = useState([]);
@@ -49,160 +49,63 @@ const ProductTradingScreen = ({ route, navigation }) => {
   
   const loadRealUsers = async () => {
     setLoadingUsers(true);
-    
+
     try {
-      console.log('👥 ProductTradingScreen: Fetching real buyers and sellers from Supabase...');
-      
-      // Fetch real BUYERS from Supabase
-      const { data: buyersData, error: buyersError } = await supabase
-        .from('buyers')
-        .select(`
-          id,
-          location,
-          users!inner (
-            id,
-            full_name,
-            phone,
-            email,
-            profile_photo,
-            user_type
-          )
-        `)
-        .in('users.user_type', ['buyer', 'both']);
-      
-      // Fetch real SELLERS from Supabase  
-      const { data: sellersData, error: sellersError } = await supabase
-        .from('sellers')
-        .select(`
-          id,
-          business_name,
-          rating,
-          total_sales,
-          users!inner (
-            id,
-            full_name,
-            phone,
-            email,
-            profile_photo,
-            user_type
-          )
-        `)
-        .in('users.user_type', ['seller', 'both']);
-      
-      if (buyersError) {
-        console.error('❌ Error fetching buyers:', buyersError);
-      }
-      
-      if (sellersError) {
-        console.error('❌ Error fetching sellers:', sellersError);
-      }
-      
-      // Process BUYERS
-      const buyers = (buyersData || []).map((buyer) => ({
-        id: buyer.users.id,
-        name: buyer.users.full_name || buyer.users.email,
-        location: buyer.location || 'Uganda',
-        price: 0, // Will be set based on actual orders
-        quantity: 0, // Will be set based on actual orders
-        rating: 0, // Buyers don't have ratings yet
-        avatar: buyer.users.profile_photo,
-        phone: buyer.users.phone,
-        email: buyer.users.email,
-        uid: buyer.users.id,
-        isCurrentUser: buyer.users.id === currentUser?.uid,
-        userType: 'buyer'
-      }));
-      
-      // Process SELLERS with their P2P listings
-      console.log('💰 Fetching P2P listings for sellers...');
-      
-      // If we're coming from P2P Market with a specific product, filter by that product
+      console.log('👥 ProductTradingScreen: Loading users from local profiles (no Supabase)...');
+
       const isP2PFiltered = fromP2PMarket && p2pProduct;
-      console.log('🔍 P2P Product Filter:', isP2PFiltered ? p2pProduct.name : 'None (showing all)');
-      
-      const sellersWithListings = await Promise.all(
-        (sellersData || []).map(async (seller) => {
-          // Fetch P2P listings for this seller
-          let query = supabase
-            .from('p2p_listings')
-            .select(`
-              id,
-              asking_price,
-              quantity_available,
-              minimum_order_quantity,
-              location,
-              p2p_product_id,
-              p2p_products (
-                id,
-                name,
-                unit_of_measure
-              )
-            `)
-            .eq('seller_id', seller.id)
-            .eq('is_active', true);
-          
-          // Filter by specific P2P product if provided
-          if (isP2PFiltered) {
-            query = query.eq('p2p_product_id', p2pProduct.id);
-          }
-          
-          const { data: listings } = await query;
 
-          console.log(`   Seller ${seller.business_name || seller.users.full_name}:`, listings?.length || 0, 'listings');
+      const { success, users } = await usersService.getAllUsers();
+      const list = success && Array.isArray(users) ? users : [];
 
-          return {
-        id: seller.users.id,
-        name: seller.business_name || seller.users.full_name || seller.users.email,
-            location: listings?.[0]?.location || 'Uganda',
-            price: listings?.[0]?.asking_price || 0,
-            quantity: listings?.[0]?.quantity_available || 0,
-        rating: parseFloat(seller.rating) || 0,
-        avatar: seller.users.profile_photo,
-        phone: seller.users.phone,
-        email: seller.users.email,
-        uid: seller.users.id,
-        isCurrentUser: seller.users.id === currentUser?.uid,
-        userType: 'seller',
-            totalSales: seller.total_sales || 0,
-            listings: listings || [],
-            listingCount: listings?.length || 0,
-            productName: listings?.[0]?.p2p_products?.name || 'No products listed',
-            unit: listings?.[0]?.p2p_products?.unit_of_measure || ''
-          };
-        })
-      );
+      const buyers = list
+        .filter((u) => u.user_type === 'buyer' || u.user_type === 'both')
+        .map((u) => ({
+          id: u.uid,
+          name: u.fullName || u.username || u.email,
+          location: u.buyerProfile?.shipping_address?.city || 'Uganda',
+          price: 0,
+          quantity: 0,
+          rating: 0,
+          avatar: u.profilePhoto,
+          phone: u.phone,
+          email: u.email,
+          uid: u.uid,
+          isCurrentUser: u.uid === currentUser?.uid,
+          userType: 'buyer',
+        }));
 
-      // Filter out sellers with no listings (important when filtering by product)
-      const sellers = sellersWithListings.filter(seller => seller.listingCount > 0);
-      
-      console.log('✅ Real data loaded from Supabase:');
-      console.log('   Buyers:', buyers.length);
-      console.log('   Sellers:', sellers.length);
-      if (isP2PFiltered) {
-        console.log(`   📌 Filtered to sellers with ${p2pProduct.name} only`);
-      }
-      
-      if (buyers.length === 0) {
-        console.log('📭 No buyers in database yet');
-      } else {
-        console.log('   Buyer names:', buyers.map(b => b.name));
-      }
-      
-      if (sellers.length === 0) {
-        console.log('📭 No sellers in database yet');
-      } else {
-        console.log('   Seller names:', sellers.map(s => s.name));
-      }
-      
-      // Set state
+      const sellersWithListings = list
+        .filter((u) => u.user_type === 'seller' || u.user_type === 'both')
+        .map((u) => ({
+          id: u.uid,
+          name: u.businessName || u.fullName || u.username || u.email,
+          location: u.location || 'Uganda',
+          price: 0,
+          quantity: 0,
+          rating: 0,
+          avatar: u.profilePhoto,
+          phone: u.phone,
+          email: u.email,
+          uid: u.uid,
+          isCurrentUser: u.uid === currentUser?.uid,
+          userType: 'seller',
+          totalSales: 0,
+          listings: [],
+          listingCount: 0,
+          productName: 'No P2P listings (cloud disabled)',
+          unit: '',
+        }));
+
+      const sellers = isP2PFiltered
+        ? sellersWithListings.filter((s) => s.listingCount > 0)
+        : sellersWithListings;
+
       setRealBuyers(buyers);
       setRealSellers(sellers);
-      
-      console.log('✅ Marketplace data set successfully!');
-      
+      console.log('✅ Marketplace data:', buyers.length, 'buyers,', sellers.length, 'sellers');
     } catch (error) {
       console.error('❌ Error loading marketplace users:', error);
-      // Set empty lists on error
       setRealBuyers([]);
       setRealSellers([]);
     } finally {
@@ -219,7 +122,7 @@ const ProductTradingScreen = ({ route, navigation }) => {
   const renderTraderCard = (trader, type) => (
     <View key={trader.id} style={styles.traderCard}>
       <View style={styles.traderHeader}>
-        {/* Profile Photo - Real from Supabase or Emoji Fallback */}
+        {/* Profile Photo - URI or emoji fallback */}
         {trader.avatar && (trader.avatar.startsWith('http') || trader.avatar.startsWith('data:')) ? (
           <Image 
             source={{ uri: trader.avatar }}

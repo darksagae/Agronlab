@@ -2,7 +2,7 @@ import { productsApi, categoriesApi, healthCheck } from './storeApi';
 import { STORE_BASE_URL, AI_BASE_URL, AI_TIMEOUT } from '../config/apiConfig';
 
 /**
- * Advanced Product Service for AGROF Store
+ * Advanced Product Service for AGRON Store
  * Handles comprehensive product fetching, training data preparation, and AI integration
  */
 class AdvancedProductService {

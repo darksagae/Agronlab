@@ -128,6 +128,11 @@ class StoreImageService {
       category_name: product.category_name
     });
 
+    // 0. S3 catalog presigned URL (from storeApi + enrichProductsWithResolvedImages)
+    if (product.resolvedImageUri && product.resolvedImageUri.startsWith('http')) {
+      sources.push({ uri: product.resolvedImageUri });
+    }
+
     // 1. Direct HTTP URL if available
     if (product.image_url && product.image_url.startsWith('http')) {
       console.log('✅ Using direct HTTP URL:', product.image_url);

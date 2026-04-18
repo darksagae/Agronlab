@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "categories": [
+    { "id": 1, "name": "fertilizers", "display_name": "Fertilizers" },
+    { "id": 2, "name": "seeds", "display_name": "Seeds" }
+  ],
+  "products": [
+    {
+      "id": 1001,
+      "name": "Example NPK 50kg",
+      "price": "UGX 165,000",
+      "category_name": "fertilizers",
+      "category_display_name": "Fertilizers",
+      "availability": "In Stock",
+      "description": "Replace with real copy. Images: use imageKey pointing to S3 under store/catalog/images/",
+      "imageKey": "store/catalog/images/example-npk.jpg"
+    }
+  ]
+}

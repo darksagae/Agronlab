@@ -1,0 +1,14 @@
+  
+  Amplify Sandbox
+  
+  Identifier: 	agron-final
+  Stack: 	amplify-agronproject-agronfinal-sandbox-ee4c6a37c0
+  Region: 	us-east-1
+
+8:30:35 AM Synthesizing backend...
+8:30:41 AM WARNING: owners may reassign ownership for the following model(s) and role(s): SyncedRecord: [owner], MerchantProfile: [owner], MarketListing: [owner], UserSubscription: [owner], RegisteredStore: [owner], StoreProduct: [owner], ChatMessage: [owner]. If this is not intentional, you may want to apply field-level authorization rules to these fields. To read more: https://docs.amplify.aws/cli/graphql/authorization-rules/#per-user--owner-based-data-access.
+8:30:41 AM 
+8:30:42 AM ✔ Backend synthesized in 6.97 seconds
+8:30:42 AM Running type checks...
+8:31:06 AM ✔ Type checks completed in 23.88 seconds
+8:31:06 AM Building and publishing assets...

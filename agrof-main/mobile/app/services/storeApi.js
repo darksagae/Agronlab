@@ -1,6 +1,10 @@
-// AGROF Store API Service  
-// Fetches products from SQLite backend at http://192.168.1.15:3001/api
+// AGRON Store — catalog JSON on S3 first (light app), then legacy HTTP, then bundled fallback.
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  fetchCatalogJsonFromS3,
+  enrichProductsWithResolvedImages,
+} from './s3CatalogService';
+import { getFallbackCatalog } from '../data/catalogFallback';
 import { 
   STORE_API_URL, 
   CACHE_DURATION, 
@@ -10,12 +14,10 @@ import {
   API_CONFIG 
 } from '../config/apiConfig';
 
-// Backend API configuration - Dynamic endpoint discovery
-let API_BASE_URL = 'http://192.168.1.15:3001/api'; // Store backend API - WiFi IP for phone access
+// Store API base URL — portal URL when configured, else LAN discovery fallback
+let API_BASE_URL = API_CONFIG.STORE.API_URL;
 let currentApiUrl = API_BASE_URL;
 let endpointTested = false;
-
-console.log('🔍 Current API_BASE_URL:', API_BASE_URL);
 
 // Cache management
 const cache = new Map();
@@ -58,27 +60,32 @@ const testApiConnection = async (baseUrl) => {
   }
 };
 
-// Health check
+// Health check (optional LAN store — catalog may come from S3 only)
 export const healthCheck = async () => {
   try {
-    console.log('🏥 Health check:', API_BASE_URL);
+    const controller = new AbortController();
+    const t = setTimeout(() => controller.abort(), 5000);
     const response = await fetch(`${API_BASE_URL}/health`, {
       method: 'GET',
+      signal: controller.signal,
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
       },
     });
-    
+    clearTimeout(t);
+
     if (response.ok) {
       const data = await response.json();
       console.log('✅ Backend health:', data);
       return data;
     }
-    
+
     return { status: 'ERROR', message: 'Backend not responding' };
   } catch (error) {
-    console.error('❌ Health check failed:', error);
-    return { status: 'ERROR', message: error.message };
+    const msg =
+      error.name === 'AbortError' ? 'Network request timed out' : error.message;
+    console.warn('🏥 Store backend health skipped (offline or no LAN server):', msg);
+    return { status: 'OFFLINE', message: msg };
   }
 };
 
@@ -95,6 +102,13 @@ export const categoriesApi = {
     }
     
     try {
+      const s3 = await fetchCatalogJsonFromS3();
+      if (s3?.categories?.length) {
+        console.log('📂 Categories from S3 catalog.json:', s3.categories.length);
+        setCachedData(cacheKey, s3.categories);
+        return s3.categories;
+      }
+
       console.log('📂 Fetching categories from backend...');
       console.log('   URL:', `${API_BASE_URL}/categories?language=${language}`);
       
@@ -123,7 +137,8 @@ export const categoriesApi = {
       return categories;
     } catch (error) {
       console.error('❌ Failed to fetch categories:', error);
-      return [];
+      const fb = getFallbackCatalog();
+      return fb.categories || [];
     }
   }
 };
@@ -142,6 +157,23 @@ export const productsApi = {
     }
     
     try {
+      const s3 = await fetchCatalogJsonFromS3();
+      if (s3?.products?.length) {
+        let list = [...s3.products];
+        if (category) {
+          list = list.filter(
+            (p) => p.category_name === category || p.category === category
+          );
+        }
+        if (limit && list.length > limit) {
+          list = list.slice(0, limit);
+        }
+        list = await enrichProductsWithResolvedImages(list);
+        console.log('🛍️ Products from S3 catalog.json:', list.length);
+        setCachedData(cacheKey, list);
+        return list;
+      }
+
       let url = `${API_BASE_URL}/products?language=${language}&limit=${limit}`;
       if (category) {
         url += `&category=${category}`;
@@ -175,7 +207,15 @@ export const productsApi = {
       return products;
     } catch (error) {
       console.error('❌ Failed to fetch products:', error);
-      return [];
+      const fb = getFallbackCatalog();
+      let list = fb.products || [];
+      if (category) {
+        list = list.filter(
+          (p) => p.category_name === category || p.category === category
+        );
+      }
+      if (limit && list.length > limit) list = list.slice(0, limit);
+      return list;
     }
   },
   
@@ -195,6 +235,14 @@ export const productsApi = {
   search: async (query, language = 'en') => {
     try {
       console.log('🔍 Searching products:', query);
+      const s3 = await fetchCatalogJsonFromS3();
+      if (s3?.products?.length) {
+        const q = (query || '').toLowerCase();
+        const filtered = s3.products.filter((p) =>
+          (p.name || '').toLowerCase().includes(q)
+        );
+        return enrichProductsWithResolvedImages(filtered);
+      }
       const url = `${API_BASE_URL}/search?query=${encodeURIComponent(query)}&language=${language}`;
       
       const response = await fetch(url, {
@@ -220,6 +268,16 @@ export const productsApi = {
   getById: async (id) => {
     try {
       console.log('🔍 Fetching product by ID:', id);
+      const s3 = await fetchCatalogJsonFromS3();
+      if (s3?.products?.length) {
+        const found = s3.products.find(
+          (p) => String(p.id) === String(id)
+        );
+        if (found) {
+          const [one] = await enrichProductsWithResolvedImages([found]);
+          return one;
+        }
+      }
       const url = `${API_BASE_URL}/products/${id}`;
       
       const response = await fetch(url, {
@@ -251,7 +309,7 @@ export const getProduct = productsApi.getById;
 export const getProductsByCategory = productsApi.getByCategory;
 export const searchProducts = productsApi.search;
 
-// Cart API (uses local AsyncStorage for now, will use Supabase cartService later)
+// Cart API (simple AsyncStorage list — cartService uses per-user rich cart)
 export const cartApi = {
   getItems: async () => {
     try {

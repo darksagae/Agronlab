@@ -100,7 +100,7 @@ const SellerRequestScreen = ({ navigation }) => {
         {/* Info Card */}
         <View style={styles.infoCard}>
           <MaterialIcons name="store" size={48} color="#4CAF50" />
-          <Text style={styles.infoTitle}>Become an AGROF Seller</Text>
+          <Text style={styles.infoTitle}>Become an AGRON Seller</Text>
           <Text style={styles.infoText}>
             Register as a seller to list your agricultural products and reach thousands of farmers across Uganda!
           </Text>

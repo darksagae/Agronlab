@@ -1,0 +1,34 @@
+AGRON — post–Amplify migration roadmap (working app checklist)
+==============================================================
+
+1. Deploy & outputs
+   - From repo root: npm run sandbox:once (with .env: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION)
+   - npm run amplify:copy-outputs → agrof-main/mobile/app/amplify_outputs.json
+   - Upload store/catalog/catalog.json + product images to S3 keys referenced by imageKey (see store/catalog/catalog.example.json)
+
+2. Store tab
+   - Primary: s3CatalogService + storeApi (S3 JSON catalog, images via resolvedImageUri / storeImageService)
+   - Fallback: bundled catalog (data/catalogFallback.js) + legacy HTTP if configured
+   - Verify: categories load, search, product detail images (expo-image / CachedListingImage), cart still uses auth user id
+
+3. Home tab
+   - ShaderPlayground / entry: AGRON branding
+   - Confirm deep links and any Firebase reads still work with Cognito-only auth (getCachedUserId)
+
+4. AI Plan / AI Care / disease flows
+   - enhancedImageAnalysisService + Railway/backend URLs in config — confirm EXPO_PUBLIC_* URLs for your deployed APIs
+   - Product cross-sells: align with S3 store catalog product ids where possible
+
+5. Blocker / messaging
+   - Still mixed Firebase/Supabase in places — decide single source; sync auth uid across services
+
+6. Account
+   - Cognito sign-in/up, profile: Supabase or Firestore user rows must match Cognito sub/email
+   - AsyncStorage keys remain agrof_* for migration safety (optional rename with migration script)
+
+7. Legacy backends (optional)
+   - store-backend/, Firebase functions: still say AGROF in logs/barcode prefix; change to AGRON only if you accept new barcode format and redeploy
+
+8. Quality gates
+   - npx expo start — clear Metro errors
+   - Smoke: login → Store → add to cart → Account sign-out

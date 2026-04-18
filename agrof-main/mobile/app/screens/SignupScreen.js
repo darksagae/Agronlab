@@ -68,8 +68,11 @@ const SignupScreen = ({ navigation }) => {
       return false;
     }
 
-    if (password.length < 6) {
-      Alert.alert('Error', 'Password must be at least 6 characters');
+    if (password.length < 8) {
+      Alert.alert(
+        'Error',
+        'Password must be at least 8 characters and include upper, lower, number, and symbol (same rules as Cognito).'
+      );
       return false;
     }
 
@@ -178,7 +181,7 @@ const SignupScreen = ({ navigation }) => {
 
           {/* Header */}
           <Text style={styles.title}>Create an Account</Text>
-          <Text style={styles.subtitle}>Create your AGROF farming account</Text>
+          <Text style={styles.subtitle}>Create your AGRON farming account</Text>
 
           {/* Form */}
           <View style={styles.form}>

@@ -23,9 +23,9 @@
     "cart": "Mkokoteni"
   },
   "welcome": {
-    "title": "AGROF",
+    "title": "AGRON",
     "subtitle": "Msaidizi wako wa AI wa Afya ya Mazao",
-    "continueButton": "Endelea kwa AGROF →",
+    "continueButton": "Endelea kwa AGRON →",
     "watchIntro": "Tazama Utangulizi",
     "startUsing": "Anza Kutumia"
   },
@@ -48,7 +48,7 @@
     "prevention": "Vidokezo vya Kuzuia"
   },
   "store": {
-    "title": "Duka la AGROF",
+    "title": "Duka la AGRON",
     "subtitle": "Bidhaa bora za kilimo kwa shamba lako",
     "search": "Tafuta bidhaa...",
     "categories": "Kategoria",
@@ -70,13 +70,13 @@
   "account": {
     "title": "Akaunti Yangu",
     "welcome": "Karibu tena!",
-    "balance": "Salio la AGROF",
+    "balance": "Salio la AGRON",
     "settings": "Mipangilio",
     "help": "Msaada & Usaidizi",
     "logout": "Ondoka"
   },
   "ai": {
-    "assistant": "Msaidizi wa AGROF AI",
+    "assistant": "Msaidizi wa AGRON AI",
     "askQuestion": "Niulize chochote kuhusu kilimo...",
     "send": "Tuma",
     "clear": "Futa Mazungumzo"
@@ -88,7 +88,7 @@
     "generalError": "Kitu kimekosa"
   },
   "manual": {
-    "title": "Jinsi ya Kutumia AGROF AI",
+    "title": "Jinsi ya Kutumia AGRON AI",
     "step1": "Piga au Chagua Picha",
     "step1Description": "Utendaji wa kugundua magonjwa umefutwa kutoka programu hii",
     "step2": "Uchambuzi wa AI",
@@ -124,7 +124,7 @@
     "shareResults": "Shiriki Matokeo"
   },
   "care": {
-    "title": "AGROF AI",
+    "title": "AGRON AI",
     "subtitle": "Usimamizi wa Mazao wa AI",
     "smartFarming": "Kilimo cha Akili",
     "smartFarmingSubtitle": "Usimamizi na ufuatiliaji wa mazao wa AI",

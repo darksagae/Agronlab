@@ -1,48 +1,50 @@
-import { supabase } from '../config/supabaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { productsApi, categoriesApi } from './storeApi';
 
 /**
- * Products Service
- * Fetches products, categories, and store data from Supabase
- * Replaces the old storeApi.js that connected to SQLite backend
  */
-
 class ProductsService {
   constructor() {
     this.cacheKey = 'agrof_products_cache';
     this.categoriesKey = 'agrof_categories_cache';
-    this.cacheDuration = 5 * 60 * 1000; // 5 minutes
+    this.cacheDuration = 5 * 60 * 1000;
   }
 
-  /**
-   * Get all categories
-   */
+  _normalizeProduct(p) {
+    if (!p) return p;
+    const cat = p.categories;
+    const categoryName = p.category_name || p.category || cat?.display_name || cat?.name;
+    return {
+      ...p,
+      is_active: p.is_active !== false,
+      categories: Array.isArray(cat)
+        ? cat
+        : categoryName
+          ? { id: p.category_id, name: categoryName, display_name: categoryName }
+          : p.categories,
+      sellers: p.sellers || {
+        id: p.seller_id,
+        business_name: p.seller_name || p.business_name || 'Store',
+        store_logo: p.store_logo,
+        rating: p.rating,
+        total_sales: p.total_sales,
+      },
+    };
+  }
+
   async getCategories() {
     try {
-      console.log('📂 Fetching categories from Supabase...');
-
-      const { data: categories, error } = await supabase
-        .from('categories')
-        .select('*')
-        .order('display_name');
-
-      if (error) {
-        console.error('❌ Error fetching categories:', error);
-        return await this.getCachedCategories();
-      }
-
-      console.log('✅ Categories loaded:', categories.length);
-      await this.cacheCategories(categories);
-      return { success: true, categories };
+      console.log('📂 Fetching categories (store API / S3)...');
+      const categories = await categoriesApi.getAll('en');
+      const list = Array.isArray(categories) ? categories : [];
+      await this.cacheCategories(list);
+      return { success: true, categories: list };
     } catch (error) {
       console.error('❌ Error fetching categories:', error);
       return await this.getCachedCategories();
     }
   }
 
-  /**
-   * Get all active products
-   */
   async getProducts(options = {}) {
     try {
       const {
@@ -50,192 +52,95 @@ class ProductsService {
         limit = 100,
         offset = 0,
         searchQuery = null,
-        featured = null
+        featured = null,
       } = options;
 
-      console.log('🛍️ Fetching products from Supabase...');
+      console.log('🛍️ Fetching products (store API / S3)...');
 
-      let query = supabase
-        .from('products')
-        .select(`
-          *,
-          categories (
-            id,
-            name,
-            display_name
-          ),
-          sellers (
-            id,
-            business_name,
-            store_logo,
-            rating
-          )
-        `)
-        .eq('is_active', true);
-
-      // Filter by category
-      if (category) {
-        query = query.eq('category_id', category);
-      }
-
-      // Filter featured products
-      if (featured !== null) {
-        query = query.eq('is_featured', featured);
-      }
-
-      // Search by name
+      let products;
       if (searchQuery) {
-        query = query.ilike('name', `%${searchQuery}%`);
+        products = await productsApi.search(searchQuery, 'en');
+      } else if (featured) {
+        products = await productsApi.getFeatured({ limit: limit || 20, language: 'en' });
+      } else {
+        products = await productsApi.getAll({
+          category: category || undefined,
+          limit,
+          language: 'en',
+        });
       }
 
-      // Pagination
-      query = query
-        .range(offset, offset + limit - 1)
-        .order('created_at', { ascending: false });
-
-      const { data: products, error } = await query;
-
-      if (error) {
-        console.error('❌ Error fetching products:', error);
-        return await this.getCachedProducts();
+      let list = Array.isArray(products) ? products.map((p) => this._normalizeProduct(p)) : [];
+      if (offset > 0) {
+        list = list.slice(offset, offset + limit);
+      } else if (list.length > limit) {
+        list = list.slice(0, limit);
       }
 
-      console.log('✅ Products loaded:', products.length);
-      await this.cacheProducts(products);
-      return { success: true, products };
+      await this.cacheProducts(list);
+      return { success: true, products: list };
     } catch (error) {
       console.error('❌ Error fetching products:', error);
       return await this.getCachedProducts();
     }
   }
 
-  /**
-   * Get featured products
-   */
   async getFeaturedProducts(limit = 6) {
     return await this.getProducts({ featured: true, limit });
   }
 
-  /**
-   * Get product by ID
-   */
   async getProduct(productId) {
     try {
       console.log('🔍 Fetching product:', productId);
-
-      const { data: product, error } = await supabase
-        .from('products')
-        .select(`
-          *,
-          categories (
-            id,
-            name,
-            display_name
-          ),
-          sellers (
-            id,
-            business_name,
-            store_logo,
-            store_description,
-            rating,
-            total_sales
-          ),
-          product_reviews (
-            id,
-            rating,
-            review,
-            title,
-            created_at,
-            users (
-              id,
-              full_name,
-              profile_photo
-            )
-          )
-        `)
-        .eq('id', productId)
-        .single();
-
-      if (error) {
-        console.error('❌ Error fetching product:', error);
-        return { success: false, error: error.message };
+      const product = await productsApi.getById(productId);
+      if (!product) {
+        return { success: false, error: 'Product not found' };
       }
-
-      console.log('✅ Product loaded:', product.name);
-      return { success: true, product };
+      return { success: true, product: this._normalizeProduct(product) };
     } catch (error) {
       console.error('❌ Error fetching product:', error);
       return { success: false, error: error.message };
     }
   }
 
-  /**
-   * Get products by category
-   */
   async getProductsByCategory(categoryId, limit = 20) {
     return await this.getProducts({ category: categoryId, limit });
   }
 
-  /**
-   * Search products
-   */
   async searchProducts(query, limit = 20) {
     return await this.getProducts({ searchQuery: query, limit });
   }
 
-  /**
-   * Get products by seller
-   */
   async getProductsBySeller(sellerId, limit = 20) {
     try {
-      console.log('🏪 Fetching products for seller:', sellerId);
-
-      const { data: products, error } = await supabase
-        .from('products')
-        .select(`
-          *,
-          categories (
-            id,
-            name,
-            display_name
-          )
-        `)
-        .eq('seller_id', sellerId)
-        .eq('is_active', true)
-        .limit(limit)
-        .order('created_at', { ascending: false });
-
-      if (error) {
-        console.error('❌ Error fetching seller products:', error);
-        return { success: false, error: error.message };
+      console.log('🏪 Fetching products for seller (local filter):', sellerId);
+      const { success, products } = await this.getProducts({ limit: 200 });
+      if (!success || !products) {
+        return { success: true, products: [] };
       }
-
-      console.log('✅ Seller products loaded:', products.length);
-      return { success: true, products };
+      const filtered = products
+        .filter(
+          (p) =>
+            String(p.seller_id) === String(sellerId) ||
+            String(p.sellers?.id) === String(sellerId)
+        )
+        .slice(0, limit);
+      return { success: true, products: filtered };
     } catch (error) {
       console.error('❌ Error fetching seller products:', error);
       return { success: false, error: error.message };
     }
   }
 
-  /**
-   * Cache products locally
-   */
   async cacheProducts(products) {
     try {
-      const cacheData = {
-        products,
-        timestamp: Date.now()
-      };
+      const cacheData = { products, timestamp: Date.now() };
       await AsyncStorage.setItem(this.cacheKey, JSON.stringify(cacheData));
     } catch (error) {
       console.error('❌ Error caching products:', error);
     }
   }
 
-  /**
-   * Get cached products
-   */
   async getCachedProducts() {
     try {
       const cached = await AsyncStorage.getItem(this.cacheKey);
@@ -254,24 +159,15 @@ class ProductsService {
     }
   }
 
-  /**
-   * Cache categories locally
-   */
   async cacheCategories(categories) {
     try {
-      const cacheData = {
-        categories,
-        timestamp: Date.now()
-      };
+      const cacheData = { categories, timestamp: Date.now() };
       await AsyncStorage.setItem(this.categoriesKey, JSON.stringify(cacheData));
     } catch (error) {
       console.error('❌ Error caching categories:', error);
     }
   }
 
-  /**
-   * Get cached categories
-   */
   async getCachedCategories() {
     try {
       const cached = await AsyncStorage.getItem(this.categoriesKey);
@@ -290,9 +186,6 @@ class ProductsService {
     }
   }
 
-  /**
-   * Clear all caches
-   */
   async clearCache() {
     try {
       await AsyncStorage.removeItem(this.cacheKey);
@@ -305,7 +198,3 @@ class ProductsService {
 }
 
 export default new ProductsService();
-
-
-
-

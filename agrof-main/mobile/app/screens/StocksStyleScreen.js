@@ -391,84 +391,84 @@ const agriculturalNews = [
     title: 'Uganda Agricultural Sector Shows Strong Growth in Q4 2024',
     summary: 'The agricultural sector in Uganda has demonstrated remarkable resilience with a 15% increase in productivity compared to the previous quarter.',
     timestamp: '2 hours ago',
-    source: 'AGROF News'
+    source: 'AGRON News'
   },
   {
     id: 2,
     title: 'New Hybrid Seed Varieties Boost Crop Yields',
-    summary: 'Farmers report 30% increase in yields after adopting new hybrid seed varieties available through AGROF platform.',
+    summary: 'Farmers report 30% increase in yields after adopting new hybrid seed varieties available through AGRON platform.',
     timestamp: '4 hours ago',
-    source: 'AGROF Research'
+    source: 'AGRON Research'
   },
   {
     id: 3,
     title: 'Organic Fertilizer Demand Surges in Eastern Uganda',
     summary: 'Growing demand for organic fertilizers as farmers shift towards sustainable farming practices.',
     timestamp: '6 hours ago',
-    source: 'AGROF Market'
+    source: 'AGRON Market'
   },
   {
     id: 4,
     title: 'Maize Prices Hit Record High in Central Region',
     summary: 'Maize prices have reached UGX 1,200 per kilogram in the central region due to increased demand and supply constraints.',
     timestamp: '8 hours ago',
-    source: 'AGROF Market'
+    source: 'AGRON Market'
   },
   {
     id: 5,
     title: 'Coffee Export Revenue Increases by 25%',
     summary: 'Uganda coffee exports have generated $1.2 billion in revenue this quarter, marking a significant improvement from last year.',
     timestamp: '10 hours ago',
-    source: 'AGROF Export'
+    source: 'AGRON Export'
   },
   {
     id: 6,
     title: 'New Irrigation Technology Adopted by 500+ Farmers',
     summary: 'Smart irrigation systems are helping farmers reduce water usage by 40% while increasing crop yields by 20%.',
     timestamp: '12 hours ago',
-    source: 'AGROF Tech'
+    source: 'AGRON Tech'
   },
   {
     id: 7,
     title: 'Beans Production Up 18% in Northern Uganda',
     summary: 'Northern region farmers report excellent bean harvests with improved varieties showing drought resistance.',
     timestamp: '14 hours ago',
-    source: 'AGROF Regional'
+    source: 'AGRON Regional'
   },
   {
     id: 8,
     title: 'Government Announces New Agricultural Subsidies',
     summary: 'New subsidy program will provide 50% discount on fertilizers and seeds for small-scale farmers across Uganda.',
     timestamp: '16 hours ago',
-    source: 'AGROF Policy'
+    source: 'AGRON Policy'
   },
   {
     id: 9,
     title: 'Soya Beans Market Shows Bullish Trend',
     summary: 'Soya beans prices continue to rise with strong demand from both local and international markets.',
     timestamp: '18 hours ago',
-    source: 'AGROF Trading'
+    source: 'AGRON Trading'
   },
   {
     id: 10,
     title: 'Millet Harvest Exceeds Expectations',
     summary: 'Millet farmers in the eastern region report bumper harvests with yields 35% above projections.',
     timestamp: '20 hours ago',
-    source: 'AGROF Harvest'
+    source: 'AGRON Harvest'
   },
   {
     id: 11,
     title: 'Digital Farming Tools Gain Popularity',
     summary: 'Mobile apps and digital platforms are helping farmers make data-driven decisions about planting and harvesting.',
     timestamp: '22 hours ago',
-    source: 'AGROF Digital'
+    source: 'AGRON Digital'
   },
   {
     id: 12,
     title: 'Climate-Smart Agriculture Practices Expand',
     summary: 'Over 1,000 farmers have adopted climate-smart techniques to combat changing weather patterns.',
     timestamp: '1 day ago',
-    source: 'AGROF Climate'
+    source: 'AGRON Climate'
   }
 ];
 
@@ -684,7 +684,7 @@ const StocksStyleScreen = ({ navigation }) => {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerTop}>
-          <Text style={styles.appName}>AGROF</Text>
+          <Text style={styles.appName}>AGRON</Text>
           <Text style={styles.phoneNumber}>+256 705 223 777</Text>
           <Text style={styles.date}>
             {currentDate.toLocaleDateString('en-US', { 

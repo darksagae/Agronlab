@@ -1,87 +1,73 @@
-import { supabase } from '../config/supabaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { auth } from '../config/firebaseConfig';
+import authService from './authService';
+import { productsApi } from './storeApi';
 
+function cartStorageKey(userId) {
+  return `agrof_user_cart_${userId}`;
+}
+
+function emptyCart(userId) {
+  return {
+    id: `local-${userId}`,
+    user_id: userId,
+    status: 'active',
+    subtotal: 0,
+    tax: 0,
+    shipping_cost: 0,
+    total: 0,
+    cart_items: [],
+  };
+}
+
+function recalcTotals(cart) {
+  let subtotal = 0;
+  for (const item of cart.cart_items || []) {
+    subtotal += Number(item.subtotal || 0);
+  }
+  cart.subtotal = subtotal;
+  cart.total = subtotal + Number(cart.tax || 0) + Number(cart.shipping_cost || 0);
+  return cart;
+}
+
+/**
+ */
 class CartService {
-  constructor() {
-    this.localCartKey = 'agrof_cart';
+  async _readCart(userId) {
+    const raw = await AsyncStorage.getItem(cartStorageKey(userId));
+    if (!raw) return emptyCart(userId);
+    try {
+      const cart = JSON.parse(raw);
+      if (!cart.cart_items) cart.cart_items = [];
+      return recalcTotals(cart);
+    } catch {
+      return emptyCart(userId);
+    }
   }
 
-  // Get current user ID from Firebase
+  async _writeCart(userId, cart) {
+    await AsyncStorage.setItem(cartStorageKey(userId), JSON.stringify(recalcTotals(cart)));
+  }
+
   getCurrentUserId() {
-    return auth.currentUser?.uid || null;
+    return authService.getCachedUserId();
   }
 
-  // Get or create user's active cart
   async getOrCreateCart() {
     try {
       const userId = this.getCurrentUserId();
       if (!userId) {
         return { success: false, error: 'User not authenticated' };
       }
-
-      console.log('🛒 Getting cart for user:', userId);
-
-      // Try Supabase first
-      let { data: cart, error } = await supabase
-        .from('carts')
-        .select(`
-          *,
-          cart_items (
-            *,
-            products (
-              id,
-              name,
-              price,
-              images,
-              quantity_in_stock,
-              seller_id,
-              sellers (
-                business_name
-              )
-            )
-          )
-        `)
-        .eq('user_id', userId)
-        .eq('status', 'active')
-        .single();
-
-      if (error && error.code !== 'PGRST116') {
-        console.error('❌ Supabase cart error:', error);
-        return await this.getLocalCart();
-      }
-
-      // Create cart if doesn't exist
-      if (!cart) {
-        console.log('📝 Creating new cart');
-        const { data: newCart, error: createError } = await supabase
-          .from('carts')
-          .insert({
-            user_id: userId,
-            status: 'active'
-          })
-          .select()
-          .single();
-
-        if (createError) {
-          return await this.getLocalCart();
-        }
-
-        cart = { ...newCart, cart_items: [] };
-      }
-
-      // Cache locally
-      await this.saveLocalCart(cart);
-
+      console.log('🛒 Getting local cart for user:', userId);
+      const cart = await this._readCart(userId);
       console.log('✅ Cart loaded:', cart.cart_items?.length || 0, 'items');
       return { success: true, cart };
     } catch (error) {
       console.error('❌ Error getting cart:', error);
-      return await this.getLocalCart();
+      return { success: false, error: error.message };
     }
   }
 
-  // Add item to cart
   async addToCart(productId, quantity = 1) {
     try {
       const userId = this.getCurrentUserId();
@@ -91,67 +77,53 @@ class CartService {
 
       console.log('➕ Adding to cart:', productId, 'qty:', quantity);
 
-      // Get product details
-      const { data: product, error: productError } = await supabase
-        .from('products')
-        .select('id, name, price, seller_id, quantity_in_stock')
-        .eq('id', productId)
-        .single();
-
-      if (productError || !product) {
+      const product = await productsApi.getById(productId);
+      if (!product) {
         return { success: false, error: 'Product not found' };
       }
 
-      // Check stock
-      if (product.quantity_in_stock < quantity) {
+      const price = Number(product.price ?? product.unit_price ?? 0);
+      const stock = product.quantity_in_stock;
+      if (stock != null && stock < quantity) {
         return { success: false, error: 'Insufficient stock' };
       }
 
-      // Get or create cart
-      const cartResult = await this.getOrCreateCart();
-      if (!cartResult.success) {
-        return cartResult;
-      }
+      const sellerId = product.seller_id ?? product.sellers?.id ?? 'local';
+      const cart = await this._readCart(userId);
+      const items = cart.cart_items || [];
+      const existing = items.find((i) => String(i.product_id) === String(productId));
 
-      const cart = cartResult.cart;
+      const embedded = {
+        id: product.id,
+        name: product.name,
+        price,
+        images: product.images || (product.image ? [product.image] : []),
+        quantity_in_stock: product.quantity_in_stock,
+        seller_id: sellerId,
+        sellers: product.sellers || { business_name: product.seller_name || 'Store' },
+        description: product.description,
+        sku: product.sku,
+      };
 
-      // Check if item already in cart
-      const existingItem = cart.cart_items?.find(item => item.product_id === productId);
-
-      if (existingItem) {
-        // Update quantity
-        const newQuantity = existingItem.quantity + quantity;
-        const { error: updateError } = await supabase
-          .from('cart_items')
-          .update({
-            quantity: newQuantity,
-            subtotal: product.price * newQuantity
-          })
-          .eq('id', existingItem.id);
-
-        if (updateError) {
-          console.error('❌ Error updating cart item:', updateError);
-          return { success: false, error: updateError.message };
-        }
+      if (existing) {
+        existing.quantity += quantity;
+        existing.unit_price = price;
+        existing.subtotal = price * existing.quantity;
+        existing.products = embedded;
       } else {
-        // Add new item
-        const { error: insertError } = await supabase
-          .from('cart_items')
-          .insert({
-            cart_id: cart.id,
-            product_id: productId,
-            seller_id: product.seller_id,
-            quantity,
-            unit_price: product.price,
-            subtotal: product.price * quantity
-          });
-
-        if (insertError) {
-          console.error('❌ Error adding cart item:', insertError);
-          return { success: false, error: insertError.message };
-        }
+        items.push({
+          id: `ci-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`,
+          product_id: productId,
+          seller_id: sellerId,
+          quantity,
+          unit_price: price,
+          subtotal: price * quantity,
+          products: embedded,
+        });
       }
 
+      cart.cart_items = items;
+      await this._writeCart(userId, cart);
       console.log('✅ Item added to cart');
       return { success: true };
     } catch (error) {
@@ -160,21 +132,16 @@ class CartService {
     }
   }
 
-  // Remove item from cart
   async removeFromCart(cartItemId) {
     try {
-      console.log('➖ Removing from cart:', cartItemId);
-
-      const { error } = await supabase
-        .from('cart_items')
-        .delete()
-        .eq('id', cartItemId);
-
-      if (error) {
-        console.error('❌ Error removing cart item:', error);
-        return { success: false, error: error.message };
+      const userId = this.getCurrentUserId();
+      if (!userId) {
+        return { success: false, error: 'User not authenticated' };
       }
-
+      console.log('➖ Removing from cart:', cartItemId);
+      const cart = await this._readCart(userId);
+      cart.cart_items = (cart.cart_items || []).filter((i) => i.id !== cartItemId);
+      await this._writeCart(userId, cart);
       console.log('✅ Item removed from cart');
       return { success: true };
     } catch (error) {
@@ -183,35 +150,21 @@ class CartService {
     }
   }
 
-  // Update cart item quantity
   async updateCartItemQuantity(cartItemId, quantity) {
     try {
+      const userId = this.getCurrentUserId();
+      if (!userId) {
+        return { success: false, error: 'User not authenticated' };
+      }
       console.log('📝 Updating cart item:', cartItemId, 'qty:', quantity);
-
-      // Get cart item to calculate new subtotal
-      const { data: cartItem } = await supabase
-        .from('cart_items')
-        .select('unit_price')
-        .eq('id', cartItemId)
-        .single();
-
-      if (!cartItem) {
+      const cart = await this._readCart(userId);
+      const item = (cart.cart_items || []).find((i) => i.id === cartItemId);
+      if (!item) {
         return { success: false, error: 'Cart item not found' };
       }
-
-      const { error } = await supabase
-        .from('cart_items')
-        .update({
-          quantity,
-          subtotal: cartItem.unit_price * quantity
-        })
-        .eq('id', cartItemId);
-
-      if (error) {
-        console.error('❌ Error updating cart item:', error);
-        return { success: false, error: error.message };
-      }
-
+      item.quantity = quantity;
+      item.subtotal = item.unit_price * quantity;
+      await this._writeCart(userId, cart);
       console.log('✅ Cart item updated');
       return { success: true };
     } catch (error) {
@@ -220,35 +173,14 @@ class CartService {
     }
   }
 
-  // Clear cart
   async clearCart() {
     try {
       const userId = this.getCurrentUserId();
       if (!userId) {
         return { success: false, error: 'User not authenticated' };
       }
-
       console.log('🗑️ Clearing cart');
-
-      const { error } = await supabase
-        .from('cart_items')
-        .delete()
-        .in('cart_id', 
-          supabase
-            .from('carts')
-            .select('id')
-            .eq('user_id', userId)
-            .eq('status', 'active')
-        );
-
-      if (error) {
-        console.error('❌ Error clearing cart:', error);
-        return { success: false, error: error.message };
-      }
-
-      // Clear local cart
-      await AsyncStorage.removeItem(this.localCartKey);
-
+      await AsyncStorage.removeItem(cartStorageKey(userId));
       console.log('✅ Cart cleared');
       return { success: true };
     } catch (error) {
@@ -256,30 +188,6 @@ class CartService {
       return { success: false, error: error.message };
     }
   }
-
-  // Local cart fallback
-  async getLocalCart() {
-    try {
-      const cartData = await AsyncStorage.getItem(this.localCartKey);
-      const cart = cartData ? JSON.parse(cartData) : { cart_items: [] };
-      return { success: true, cart };
-    } catch (error) {
-      console.error('❌ Error getting local cart:', error);
-      return { success: true, cart: { cart_items: [] } };
-    }
-  }
-
-  async saveLocalCart(cart) {
-    try {
-      await AsyncStorage.setItem(this.localCartKey, JSON.stringify(cart));
-    } catch (error) {
-      console.error('❌ Error saving local cart:', error);
-    }
-  }
 }
 
 export default new CartService();
-
-
-
-

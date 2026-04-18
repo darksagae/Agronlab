@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useUser } from '../contexts/UserContext';
-import { supabase } from '../config/supabaseConfig';
+import userProfileService from '../services/userProfileService';
 
 const BuyerRequestScreen = ({ navigation }) => {
   const { user } = useUser();
@@ -42,65 +42,36 @@ const BuyerRequestScreen = ({ navigation }) => {
     setLoading(true);
 
     try {
-      console.log('🛒 Creating buyer profile for:', user.uid);
+      console.log('🛒 Saving buyer profile locally for:', user.uid);
 
-      // Create buyer entry in Supabase
-      const { data, error } = await supabase
-        .from('buyers')
-        .insert({
-          id: user.uid,  // Same as user ID
+      const existing = await userProfileService.getUserData(user.uid);
+      const prev = existing.success ? existing.data : {};
+      const prevType = prev.user_type;
+      const newUserType = prevType === 'seller' ? 'both' : 'buyer';
+
+      await userProfileService.saveUserData(user.uid, {
+        ...prev,
+        uid: user.uid,
+        user_type: newUserType,
+        buyerProfile: {
           shipping_address: {
             street: formData.shippingAddress,
             city: formData.city,
             district: formData.district,
             location: formData.location,
-            country: 'Uganda'
+            country: 'Uganda',
           },
           billing_address: {
             street: formData.shippingAddress,
             city: formData.city,
             district: formData.district,
-            country: 'Uganda'
+            country: 'Uganda',
           },
           default_payment_method: formData.preferredPaymentMethod,
-          total_orders: 0,
-          total_spent: 0,
-          loyalty_points: 0,
-          preferences: {
-            special_requests: formData.specialRequests
-          }
-        })
-        .select()
-        .single();
-
-      if (error) {
-        if (error.code === '23505') {
-          // Already exists
-          Alert.alert(
-            'Already Registered',
-            'You are already registered as a buyer!',
-            [{ text: 'OK', onPress: () => navigation.goBack() }]
-          );
-          return;
-        }
-        throw error;
-      }
-
-      console.log('✅ Buyer profile created:', data);
-
-      // Update user_type to buyer or both
-      const { data: currentUserData } = await supabase
-        .from('users')
-        .select('user_type')
-        .eq('id', user.uid)
-        .single();
-
-      const newUserType = currentUserData?.user_type === 'seller' ? 'both' : 'buyer';
-      
-      await supabase
-        .from('users')
-        .update({ user_type: newUserType })
-        .eq('id', user.uid);
+          preferences: { special_requests: formData.specialRequests },
+        },
+        updatedAt: new Date().toISOString(),
+      });
 
       console.log('✅ User type updated to:', newUserType);
 
@@ -133,7 +104,7 @@ const BuyerRequestScreen = ({ navigation }) => {
         {/* Info Card */}
         <View style={styles.infoCard}>
           <MaterialIcons name="shopping-cart" size={48} color="#4CAF50" />
-          <Text style={styles.infoTitle}>Become an AGROF Buyer</Text>
+          <Text style={styles.infoTitle}>Become an AGRON Buyer</Text>
           <Text style={styles.infoText}>
             Register as a buyer to access our full marketplace, track orders, and enjoy exclusive benefits!
           </Text>

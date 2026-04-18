@@ -202,7 +202,7 @@ const LoginScreen = ({ navigation }) => {
 
           {/* Header */}
           <Text style={styles.title}>Welcome Back</Text>
-          <Text style={styles.subtitle}>Sign in to your AGROF account</Text>
+          <Text style={styles.subtitle}>Sign in to your AGRON account</Text>
 
           {/* Form */}
           <View style={styles.form}>

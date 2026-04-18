@@ -1,14 +1,30 @@
-import { supabase } from '../config/supabaseConfig';
-import { auth } from '../config/firebaseConfig';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import authService from './authService';
 import cartService from './cartService';
 
+const ORDERS_KEY = 'agrof_local_orders';
+
+async function readAllOrders() {
+  const raw = await AsyncStorage.getItem(ORDERS_KEY);
+  if (!raw) return {};
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return {};
+  }
+}
+
+async function writeAllOrders(map) {
+  await AsyncStorage.setItem(ORDERS_KEY, JSON.stringify(map));
+}
+
+/**
+ */
 class OrderService {
-  // Get current user ID from Firebase
   getCurrentUserId() {
-    return auth.currentUser?.uid || null;
+    return authService.getCachedUserId();
   }
 
-  // Create order from cart
   async createOrder(shippingAddress, paymentMethod = 'mobile_money', customerNotes = '') {
     try {
       const userId = this.getCurrentUserId();
@@ -16,78 +32,69 @@ class OrderService {
         return { success: false, error: 'User not authenticated' };
       }
 
-      console.log('📦 Creating order for user:', userId);
+      console.log('📦 Creating local order for user:', userId);
 
-      // Get active cart with items
       const cartResult = await cartService.getOrCreateCart();
       if (!cartResult.success || !cartResult.cart) {
         return { success: false, error: 'Cart not found' };
       }
 
       const cart = cartResult.cart;
-
       if (!cart.cart_items || cart.cart_items.length === 0) {
         return { success: false, error: 'Cart is empty' };
       }
 
-      // Create order
-      const { data: order, error: orderError } = await supabase
-        .from('orders')
-        .insert({
-          user_id: userId,
-          buyer_id: userId,
-          status: 'pending',
-          payment_status: 'pending',
-          payment_method: paymentMethod,
-          subtotal: cart.subtotal || 0,
-          tax: cart.tax || 0,
-          shipping_cost: cart.shipping_cost || 0,
-          total_amount: cart.total || 0,
-          currency: 'UGX',
-          shipping_address: shippingAddress,
-          customer_email: auth.currentUser?.email,
-          customer_phone: shippingAddress.phone,
-          customer_notes: customerNotes
-        })
-        .select()
-        .single();
+      const orderId = `ord-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+      const orderNumber = `AGR-${Date.now()}`;
 
-      if (orderError) {
-        console.error('❌ Error creating order:', orderError);
-        return { success: false, error: orderError.message };
-      }
+      let subtotal = 0;
+      const orderItems = cart.cart_items.map((item) => {
+        const p = item.products || {};
+        subtotal += Number(item.subtotal || 0);
+        return {
+          id: `oi-${item.id}`,
+          product_id: item.product_id,
+          seller_id: item.seller_id,
+          product_name: p.name || 'Product',
+          product_description: p.description,
+          product_image: p.images?.[0],
+          sku: p.sku,
+          quantity: item.quantity,
+          unit_price: item.unit_price,
+          subtotal: item.subtotal,
+          total: item.subtotal,
+          products: p,
+        };
+      });
 
-      // Copy cart items to order items
-      const orderItems = cart.cart_items.map(item => ({
-        order_id: order.id,
-        product_id: item.product_id,
-        seller_id: item.seller_id,
-        product_name: item.products?.name || 'Unknown Product',
-        product_description: item.products?.description,
-        product_image: item.products?.images?.[0],
-        sku: item.products?.sku,
-        quantity: item.quantity,
-        unit_price: item.unit_price,
-        subtotal: item.subtotal,
-        total: item.subtotal
-      }));
+      const order = {
+        id: orderId,
+        order_number: orderNumber,
+        user_id: userId,
+        buyer_id: userId,
+        status: 'pending',
+        payment_status: 'pending',
+        payment_method: paymentMethod,
+        subtotal,
+        tax: cart.tax || 0,
+        shipping_cost: cart.shipping_cost || 0,
+        total_amount: subtotal + Number(cart.tax || 0) + Number(cart.shipping_cost || 0),
+        currency: 'UGX',
+        shipping_address: shippingAddress,
+        customer_email: authService.getCachedUserEmail(),
+        customer_phone: shippingAddress?.phone,
+        customer_notes: customerNotes,
+        created_at: new Date().toISOString(),
+        order_items: orderItems,
+      };
 
-      const { error: itemsError } = await supabase
-        .from('order_items')
-        .insert(orderItems);
+      const all = await readAllOrders();
+      const list = Array.isArray(all[userId]) ? all[userId] : [];
+      list.unshift(order);
+      all[userId] = list;
+      await writeAllOrders(all);
 
-      if (itemsError) {
-        console.error('❌ Error creating order items:', itemsError);
-        // Rollback order
-        await supabase.from('orders').delete().eq('id', order.id);
-        return { success: false, error: itemsError.message };
-      }
-
-      // Mark cart as converted
-      await supabase
-        .from('carts')
-        .update({ status: 'converted' })
-        .eq('id', cart.id);
+      await cartService.clearCart();
 
       console.log('✅ Order created:', order.order_number);
       return { success: true, order };
@@ -97,7 +104,6 @@ class OrderService {
     }
   }
 
-  // Get user's orders
   async getOrders(status = null, limit = 20) {
     try {
       const userId = this.getCurrentUserId();
@@ -105,34 +111,12 @@ class OrderService {
         return { success: false, error: 'User not authenticated' };
       }
 
-      console.log('📋 Getting orders for user:', userId);
-
-      let query = supabase
-        .from('orders')
-        .select(`
-          *,
-          order_items (
-            *,
-            products (
-              name,
-              images
-            )
-          )
-        `)
-        .eq('user_id', userId)
-        .order('created_at', { ascending: false })
-        .limit(limit);
-
+      const all = await readAllOrders();
+      let orders = Array.isArray(all[userId]) ? [...all[userId]] : [];
       if (status) {
-        query = query.eq('status', status);
+        orders = orders.filter((o) => o.status === status);
       }
-
-      const { data: orders, error } = await query;
-
-      if (error) {
-        console.error('❌ Error getting orders:', error);
-        return { success: false, error: error.message };
-      }
+      orders = orders.slice(0, limit);
 
       console.log('✅ Orders loaded:', orders.length);
       return { success: true, orders };
@@ -142,35 +126,18 @@ class OrderService {
     }
   }
 
-  // Get order by ID
   async getOrder(orderId) {
     try {
-      console.log('📦 Getting order:', orderId);
-
-      const { data: order, error } = await supabase
-        .from('orders')
-        .select(`
-          *,
-          order_items (
-            *,
-            products (
-              *,
-              sellers (
-                business_name,
-                business_address
-              )
-            )
-          )
-        `)
-        .eq('id', orderId)
-        .single();
-
-      if (error) {
-        console.error('❌ Error getting order:', error);
-        return { success: false, error: error.message };
+      const userId = this.getCurrentUserId();
+      if (!userId) {
+        return { success: false, error: 'User not authenticated' };
       }
-
-      console.log('✅ Order loaded:', order.order_number);
+      const all = await readAllOrders();
+      const orders = all[userId] || [];
+      const order = orders.find((o) => o.id === orderId || o.order_number === orderId);
+      if (!order) {
+        return { success: false, error: 'Order not found' };
+      }
       return { success: true, order };
     } catch (error) {
       console.error('❌ Error getting order:', error);
@@ -178,26 +145,26 @@ class OrderService {
     }
   }
 
-  // Cancel order
   async cancelOrder(orderId, reason = '') {
     try {
-      console.log('❌ Cancelling order:', orderId);
-
-      const { error } = await supabase
-        .from('orders')
-        .update({
-          status: 'cancelled',
-          cancelled_at: new Date().toISOString(),
-          admin_notes: reason
-        })
-        .eq('id', orderId);
-
-      if (error) {
-        console.error('❌ Error cancelling order:', error);
-        return { success: false, error: error.message };
+      const userId = this.getCurrentUserId();
+      if (!userId) {
+        return { success: false, error: 'User not authenticated' };
       }
-
-      console.log('✅ Order cancelled');
+      const all = await readAllOrders();
+      const orders = all[userId] || [];
+      const idx = orders.findIndex((o) => o.id === orderId);
+      if (idx < 0) {
+        return { success: false, error: 'Order not found' };
+      }
+      orders[idx] = {
+        ...orders[idx],
+        status: 'cancelled',
+        cancelled_at: new Date().toISOString(),
+        admin_notes: reason,
+      };
+      all[userId] = orders;
+      await writeAllOrders(all);
       return { success: true };
     } catch (error) {
       console.error('❌ Error cancelling order:', error);
@@ -205,14 +172,19 @@ class OrderService {
     }
   }
 
-  // Update order status (for admins/sellers)
   async updateOrderStatus(orderId, status) {
     try {
-      console.log('📝 Updating order status:', orderId, status);
-
-      const updateData = { status };
-
-      // Set timestamps based on status
+      const userId = this.getCurrentUserId();
+      if (!userId) {
+        return { success: false, error: 'User not authenticated' };
+      }
+      const all = await readAllOrders();
+      const orders = all[userId] || [];
+      const idx = orders.findIndex((o) => o.id === orderId);
+      if (idx < 0) {
+        return { success: false, error: 'Order not found' };
+      }
+      const updateData = { ...orders[idx], status };
       if (status === 'confirmed') {
         updateData.confirmed_at = new Date().toISOString();
         updateData.payment_status = 'paid';
@@ -223,18 +195,9 @@ class OrderService {
       } else if (status === 'cancelled') {
         updateData.cancelled_at = new Date().toISOString();
       }
-
-      const { error } = await supabase
-        .from('orders')
-        .update(updateData)
-        .eq('id', orderId);
-
-      if (error) {
-        console.error('❌ Error updating order status:', error);
-        return { success: false, error: error.message };
-      }
-
-      console.log('✅ Order status updated');
+      orders[idx] = updateData;
+      all[userId] = orders;
+      await writeAllOrders(all);
       return { success: true };
     } catch (error) {
       console.error('❌ Error updating order status:', error);
@@ -244,7 +207,3 @@ class OrderService {
 }
 
 export default new OrderService();
-
-
-
-

@@ -128,7 +128,7 @@ const FuturisticDemo = () => {
           Powered by Advanced Neural Networks & Quantum Computing
         </Text>
         <Text style={styles.footerSubtext}>
-          AGROF AI System v2.0 - The Future is Now
+          AGRON AI System v2.0 - The Future is Now
         </Text>
       </View>
     </View>
