@@ -131,6 +131,7 @@ class AuthService {
         fullName: userData.fullName || normalized.split('@')[0],
         username: userData.username || userData.fullName || normalized.split('@')[0],
         phone: userData.phone || '',
+        country: userData.country || '',
         emailVerified: false,
         profilePhoto: null,
         agrofBalance: 0,
@@ -263,7 +264,7 @@ class AuthService {
       console.log('AGRON: Signing out from Cognito');
       await cognitoAuthService.signOut();
       this.currentUser = null;
-      await AsyncStorage.removeItem('agrof_users');
+      // Keep agrof_users so profile data (photos, prefs) survive across sessions
       await this.clearSession();
       return { success: true };
     } catch (error) {

@@ -36,6 +36,7 @@ const schema = a.schema({
       role: a.enum(['BUYER', 'SELLER', 'BOTH']),
       publicKey: a.string(), // TweetNaCl X25519 public key, base64
       userSub: a.string(),   // Cognito sub — used to look up public keys by sub
+      country: a.string(),   // ISO country code e.g. "UG", "KE", "TZ"
       // Seller approval workflow
       approvalStatus: a.enum(['PENDING_REVIEW', 'APPROVED', 'REJECTED']),
       sellerRequestJson: a.string(), // JSON blob of submitted seller request data

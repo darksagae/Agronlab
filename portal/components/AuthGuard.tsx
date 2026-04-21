@@ -17,18 +17,35 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const check = async () => {
       try {
-        const user = await getCurrentUser();
+        await getCurrentUser();
 
-        // Ensure merchant has an encryption keypair
+        // Ensure user has an encryption keypair
         const privateKey = loadPrivateKey();
         if (!privateKey) {
           const { publicKey, privateKey: sk } = generateKeypair();
           storePrivateKey(sk);
-          // Push public key to MerchantProfile
           const profile = await getMyProfile();
           if (!profile?.publicKey) {
             await upsertProfile({ publicKey });
           }
+        }
+
+        // Pick up pending role/country from signup flow
+        const pendingRole = localStorage.getItem('pendingRole') as 'SELLER' | 'SHOP_OWNER' | null;
+        const pendingCountry = localStorage.getItem('pendingCountry');
+        const pendingBusinessName = localStorage.getItem('pendingBusinessName');
+
+        if (pendingRole) {
+          // Map SHOP_OWNER → BOTH (has both store and market access); SELLER → SELLER
+          const amplifyRole = pendingRole === 'SHOP_OWNER' ? 'BOTH' : 'SELLER';
+          await upsertProfile({
+            role: amplifyRole,
+            ...(pendingCountry ? { country: pendingCountry } : {}),
+            ...(pendingBusinessName ? { businessName: pendingBusinessName } : {}),
+          });
+          localStorage.removeItem('pendingRole');
+          localStorage.removeItem('pendingCountry');
+          localStorage.removeItem('pendingBusinessName');
         }
 
         setReady(true);
@@ -42,7 +59,12 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   if (!ready) {
     return (
       <div className="min-h-screen bg-agron-light flex items-center justify-center">
-        <div className="text-agron-green text-lg font-medium animate-pulse">Loading AGRON Portal…</div>
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-10 h-10 bg-agron-green rounded-full flex items-center justify-center animate-pulse">
+            <span className="text-white font-bold text-xl">A</span>
+          </div>
+          <div className="text-agron-green text-sm font-medium animate-pulse">Loading AGRON Portal…</div>
+        </div>
       </div>
     );
   }
