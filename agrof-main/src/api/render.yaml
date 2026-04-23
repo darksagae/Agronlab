@@ -10,7 +10,7 @@ services:
       - key: FLASK_ENV
         value: production
       - key: GEMINI_API_KEY
-        value: AIzaSyDUMB5H8bzSIbaECO2CmVk3hfoNj7zfU60
+        value: AIzaSyC7h_gTWPpM7xgoZxZ9gkqODNsn4KSerX8
       - key: GOOGLE_VISION_API_KEY
         value: AIzaSyD3vGEfsbn5Copz13NVNc7wB8EnSHGJysY
       - key: USE_GEMINI
