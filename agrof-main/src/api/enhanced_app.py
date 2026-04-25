@@ -32,7 +32,7 @@ def health_check():
         'timestamp': datetime.now().isoformat(),
         'ai_models': {
             'gemini': 'Active',
-            'google_vision': 'Active' if os.getenv('GOOGLE_VISION_API_KEY') or 'AIzaSyD3vGEfsbn5Copz13NVNc7wB8EnSHGJysY' else 'Inactive',
+            'google_vision': 'Active' if os.getenv('GOOGLE_VISION_API_KEY') else 'Inactive',
             'tensorflow_hub': 'Active',
             'pytorch_vision': 'Active'
         },
@@ -243,8 +243,8 @@ def get_ai_models_status():
                     'api_key': 'configured' if disease_detector.gemini_api_key else 'missing'
                 },
                 'google_vision': {
-                    'status': 'active' if os.getenv('GOOGLE_VISION_API_KEY') or 'AIzaSyD3vGEfsbn5Copz13NVNc7wB8EnSHGJysY' else 'inactive',
-                    'api_key': 'configured' if os.getenv('GOOGLE_VISION_API_KEY') or 'AIzaSyD3vGEfsbn5Copz13NVNc7wB8EnSHGJysY' else 'missing'
+                    'status': 'active' if os.getenv('GOOGLE_VISION_API_KEY') else 'inactive',
+                    'api_key': 'configured' if os.getenv('GOOGLE_VISION_API_KEY') else 'missing'
                 },
                 'tensorflow_hub': {
                     'status': 'active' if disease_detector.tensorflow_hub.model else 'inactive',

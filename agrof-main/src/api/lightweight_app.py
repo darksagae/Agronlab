@@ -22,8 +22,8 @@ app = Flask(__name__)
 CORS(app, origins=['*'], methods=['GET', 'POST', 'OPTIONS'], allow_headers=['Content-Type', 'Authorization'])
 
 # API Configuration
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', 'AIzaSyDUMB5H8bzSIbaECO2CmVk3hfoNj7zfU60')
-GOOGLE_VISION_API_KEY = os.getenv('GOOGLE_VISION_API_KEY', 'AIzaSyD3vGEfsbn5Copz13NVNc7wB8EnSHGJysY')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
+GOOGLE_VISION_API_KEY = os.getenv('GOOGLE_VISION_API_KEY', '')
 
 @app.route('/health', methods=['GET'])
 def health():
@@ -169,6 +169,67 @@ def get_chatbot_response(message):
     except Exception as e:
         logger.error(f"Chatbot error: {str(e)}")
         return "I'm experiencing technical difficulties. Please try again later."
+
+@app.route('/api/plan/recommend', methods=['POST'])
+def plan_recommend():
+    """Generate AI-powered crop plan recommendations using Gemini."""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({'status': 'error', 'message': 'Request body required'}), 400
+
+        crop = data.get('crop', 'Unknown crop')
+        area = data.get('area', '1')
+        start_date = data.get('startDate', 'Not specified')
+        end_date = data.get('endDate', 'Not specified')
+        notes = data.get('notes', '')
+
+        prompt = (
+            "You are AGRON, an expert agricultural AI assistant for East African (Uganda) smallholder farmers.\n\n"
+            f"Provide a detailed farming plan recommendation for:\n"
+            f"- Crop: {crop}\n"
+            f"- Farm Area: {area} acres\n"
+            f"- Planting Date: {start_date}\n"
+            f"- Expected Harvest: {end_date}\n"
+        )
+        if notes:
+            prompt += f"- Farmer Notes: {notes}\n"
+
+        prompt += (
+            "\nPlease give practical recommendations covering:\n"
+            "1. Soil Preparation — what to do before planting\n"
+            "2. Planting Tips — spacing, seed treatment, depth\n"
+            "3. Fertilizer Schedule — type, timing, application rates per acre\n"
+            "4. Irrigation & Water Management — frequency and method\n"
+            "5. Pest & Disease Watch — common threats and early warning signs\n"
+            "6. Key Growth Milestones — what to expect week by week\n"
+            "7. Harvest Indicators — how to know when crop is ready\n"
+            "8. Expected Yield — realistic range in kg/acre for Uganda conditions\n\n"
+            "Write in plain language a smallholder farmer can act on. Be specific and practical."
+        )
+
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+        payload = {"contents": [{"parts": [{"text": prompt}]}]}
+        response = requests.post(url, json=payload, headers={"Content-Type": "application/json"}, timeout=30)
+
+        if response.status_code == 200:
+            result = response.json()
+            if 'candidates' in result and result['candidates']:
+                text = result['candidates'][0]['content']['parts'][0]['text']
+                return jsonify({
+                    'status': 'success',
+                    'recommendation': text,
+                    'crop': crop,
+                    'timestamp': datetime.now().isoformat()
+                })
+
+        logger.error(f"Gemini plan recommend error: {response.status_code}")
+        return jsonify({'status': 'error', 'message': 'AI service temporarily unavailable'}), 500
+
+    except Exception as e:
+        logger.error(f"Plan recommend error: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

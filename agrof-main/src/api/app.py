@@ -14,6 +14,16 @@ from datetime import datetime
 from advanced_training_api import init_advanced_training
 from ai_command_api import setup_ai_command_routes
 
+# Point agron_context at the store DB — resolve path relative to this file
+import os as _os
+if not _os.environ.get('STORE_DB_PATH'):
+    _os.environ['STORE_DB_PATH'] = _os.path.abspath(
+        _os.path.join(_os.path.dirname(__file__), '../../../../store-backend/store.db')
+    )
+
+from agron_context import build_system_prompt
+from diagnosis_kb import save_premium_diagnosis, find_kb_match, increment_free_served, get_kb_stats
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -22,12 +32,13 @@ app = Flask(__name__)
 CORS(app, origins=['*'], methods=['GET', 'POST', 'OPTIONS'], allow_headers=['Content-Type', 'Authorization'])
 
 # Gemini API Configuration
-GEMINI_API_KEY = "AIzaSyBE2b1nKpQd6LseRIVXfh10O_O3Pm0fvM0"
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
 
-def analyze_plant_disease_with_gemini(image_data):
+def analyze_plant_disease_with_gemini(image_data, user_context=None):
     """
-    Analyze plant disease using Gemini AI
+    Analyze plant disease using Gemini AI.
+    user_context: optional plain-text personal farmer context injected before the image.
     """
     try:
         # Convert image to base64
@@ -35,31 +46,31 @@ def analyze_plant_disease_with_gemini(image_data):
             image_base64 = base64.b64encode(image_data.read()).decode('utf-8')
         else:
             image_base64 = base64.b64encode(image_data).decode('utf-8')
-        
-        # Prepare prompt for Gemini
-        prompt = """
-        Analyze this plant image for disease detection. Provide a detailed analysis including:
-        1. Health status (healthy/diseased)
-        2. Disease type if any
-        3. Severity level (low/medium/high)
-        4. Symptoms observed
-        5. Treatment recommendations
-        6. Prevention strategies
-        
-        Format your response as JSON with these fields:
-        - health_status: "healthy" or "diseased"
-        - disease_type: specific disease name or "none"
-        - severity_level: "low", "medium", or "high"
-        - symptoms: list of observed symptoms
-        - recommendations: list of treatment recommendations
-        - confidence: confidence score (0.0 to 1.0)
-        """
-        
-        # Prepare Gemini API request
+
+        # Build AGRON-aware prompt (fetches live store data)
+        base_prompt = build_system_prompt(task="disease_detection")
+
+        # Prepend personal farmer context so the AI reasons from personal data first
+        if user_context and user_context.strip():
+            prompt = (
+                f"{user_context.strip()}\n\n"
+                f"Use the farmer context above as your PRIMARY reference when analysing the image. "
+                f"If the farmer grows maize, treat the crop as maize unless the image clearly shows otherwise. "
+                f"Be consistent with past diagnoses listed above.\n\n"
+                f"{base_prompt}"
+            )
+            logger.info("🧠 Personalized context injected into Gemini prompt")
+        else:
+            prompt = base_prompt
+
+        # Prepare Gemini API request with system prompt + image
         payload = {
+            "system_instruction": {
+                "parts": [{"text": prompt}]
+            },
             "contents": [{
                 "parts": [
-                    {"text": prompt},
+                    {"text": "Analyze this crop image and return a JSON diagnosis."},
                     {
                         "inline_data": {
                             "mime_type": "image/jpeg",
@@ -137,77 +148,134 @@ def health_check():
 
 @app.route('/api/analyze', methods=['POST'])
 def analyze_image():
-    """Image analysis endpoint with Gemini AI integration"""
+    """
+    Image analysis endpoint.
+
+    Premium subscribers  → full Gemini AI analysis → result saved to knowledge base
+    Free users          → check knowledge base first → if match found, serve it
+                          (free user gets real diagnosis from community learning)
+                          if no match → basic result + upgrade prompt
+    """
     try:
-        logger.info("🔍 Received analysis request with Gemini AI")
-        
-        # Check if image is provided
         if 'image' not in request.files:
-            return jsonify({
-                'status': 'error',
-                'message': 'No image provided'
-            }), 400
-        
+            return jsonify({'status': 'error', 'message': 'No image provided'}), 400
+
         image_file = request.files['image']
         if image_file.filename == '':
+            return jsonify({'status': 'error', 'message': 'No image selected'}), 400
+
+        # Read subscription tier from request (mobile app sends this)
+        is_premium = request.form.get('is_premium', 'false').lower() in ('true', '1', 'yes')
+        crop_hint = request.form.get('crop_type', '').strip()
+        user_context = request.form.get('user_context', '').strip()
+        logger.info(f"📸 Analysis request — premium={is_premium}, crop_hint={crop_hint or 'none'}, has_context={bool(user_context)}")
+
+        # ── PREMIUM PATH ──────────────────────────────────────────────────────
+        if is_premium:
+            try:
+                gemini_analysis = analyze_plant_disease_with_gemini(image_file, user_context=user_context)
+
+                # Save to knowledge base so free users benefit later
+                saved = save_premium_diagnosis(gemini_analysis)
+                logger.info(f"💾 KB save: {'✅' if saved else '⏭ skipped (low confidence or healthy)'}")
+
+                return jsonify({
+                    'status': 'success',
+                    'source': 'gemini_ai',
+                    'message': 'Full AI diagnosis completed',
+                    'timestamp': datetime.now().isoformat(),
+                    'analysis': {
+                        **gemini_analysis,
+                        'detection_method': 'gemini_premium',
+                        'kb_contribution': saved,  # tells the app "your scan helped the community"
+                    }
+                })
+            except Exception as ai_error:
+                logger.error(f"❌ Gemini AI failed for premium user: {ai_error}")
+                return jsonify({'status': 'error', 'message': f'AI analysis failed: {str(ai_error)}'}), 500
+
+        # ── FREE PATH: check knowledge base ───────────────────────────────────
+        # Run a lightweight Gemini call (text only, no image) to identify the crop
+        # from any hint the user gave, then look up the KB
+        kb_result = find_kb_match(crop_type=crop_hint)
+
+        if kb_result:
+            increment_free_served()
+            stats = get_kb_stats()
+            logger.info(f"📚 Serving KB match to free user: {kb_result['crop_type']} / {kb_result['disease_type']}")
             return jsonify({
-                'status': 'error',
-                'message': 'No image selected'
-            }), 400
-        
-        logger.info("📸 Processing image with Gemini AI...")
-        
-        # Analyze with Gemini AI
-        try:
-            gemini_analysis = analyze_plant_disease_with_gemini(image_file)
-            
-            # Format response
-            response = {
                 'status': 'success',
-                'message': 'Disease analysis completed using Gemini AI',
+                'source': 'community_knowledge',
+                'message': (
+                    f"This diagnosis comes from AGRON's community knowledge base — "
+                    f"learned from {kb_result['times_confirmed']} real premium subscriber scan(s). "
+                    f"Upgrade to Premium for a live AI scan of your exact plant."
+                ),
                 'timestamp': datetime.now().isoformat(),
                 'analysis': {
-                    'health_status': gemini_analysis.get('health_status', 'unknown'),
-                    'disease_type': gemini_analysis.get('disease_type', 'none'),
-                    'severity_level': gemini_analysis.get('severity_level', 'unknown'),
-                    'symptoms': gemini_analysis.get('symptoms', []),
-                    'recommendations': gemini_analysis.get('recommendations', []),
-                    'confidence': gemini_analysis.get('confidence', 0.0),
-                    'detection_method': 'gemini_ai',
-                    'api_source': 'google_gemini'
-                },
-                'business_insights': {
-                    'economic_impact': 'AI analysis provided',
-                    'recommendations': gemini_analysis.get('recommendations', []),
-                    'market_value': 'Based on AI assessment'
+                    **kb_result,
+                    'detection_method': 'community_kb',
+                    'kb_stats': {
+                        'diseases_in_database': stats.get('diseases_in_kb', 0),
+                        'crops_in_database': stats.get('crops_in_kb', 0),
+                    }
+                }
+            })
+
+        # No KB match — return basic result with upgrade prompt
+        logger.info("ℹ️ No KB match for free user — returning basic result")
+        kb_stats = get_kb_stats()
+        return jsonify({
+            'status': 'success',
+            'source': 'basic_free',
+            'message': 'Basic analysis only. Upgrade to Premium for full AI diagnosis.',
+            'timestamp': datetime.now().isoformat(),
+            'analysis': {
+                'health_status': 'unknown',
+                'disease_type': 'Inspection Required',
+                'severity_level': 'unknown',
+                'confidence': 0,
+                'symptoms': [],
+                'recommendations': [
+                    'Check leaves for spots, yellowing, or wilting',
+                    'Look under leaves for pests or eggs',
+                    'Check stems for lesions or unusual discolouration',
+                    'Ensure soil is not waterlogged or too dry',
+                    'Apply a general preventive fungicide if spots are present',
+                ],
+                'products_to_use': [],
+                'prevention': 'Maintain good field hygiene and monitor crops weekly.',
+                'detection_method': 'basic_free',
+                'upgrade_prompt': {
+                    'title': 'Get a precise AI diagnosis',
+                    'body': (
+                        f"AGRON Premium gives you instant Gemini AI analysis for your exact plant. "
+                        f"Our community knowledge base already has {kb_stats.get('diseases_in_kb', 0)} diseases "
+                        f"across {kb_stats.get('crops_in_kb', 0)} crops — your scan will add to it too."
+                    ),
+                    'price': 'UGX 37,000/year (~$10)',
                 }
             }
-            
-            logger.info("✅ Gemini AI analysis completed successfully")
-            return jsonify(response)
-            
-        except Exception as ai_error:
-            logger.error(f"❌ Gemini AI analysis failed: {ai_error}")
-            return jsonify({
-                'status': 'error',
-                'message': f'AI analysis failed: {str(ai_error)}'
-            }), 500
-        
+        })
     except Exception as e:
-        logger.error(f"❌ Request processing failed: {e}")
-        return jsonify({
-            'status': 'error',
-            'message': f'Request processing failed: {str(e)}'
-        }), 500
+        logger.error(f"❌ Unexpected error in analyze_image: {e}")
+        return jsonify({'status': 'error', 'message': f'Internal server error: {str(e)}'}), 500
+
+@app.route('/api/kb/stats', methods=['GET'])
+def kb_stats():
+    """Return knowledge base stats — used by app to show community learning progress."""
+    stats = get_kb_stats()
+    return jsonify({'status': 'success', 'kb': stats, 'timestamp': datetime.now().isoformat()})
 
 @app.route('/api/test', methods=['GET'])
 def test_endpoint():
     """Test endpoint"""
+    stats = get_kb_stats()
     return jsonify({
-        'message': 'AGROF Backend is working!',
+        'message': 'AGRON AI Backend is running',
         'timestamp': datetime.now().isoformat(),
         'status': 'success',
-        'ai_status': 'AI services removed'
+        'knowledge_base': stats,
     })
 
 @app.route('/api/connection-test', methods=['GET', 'POST', 'OPTIONS'])

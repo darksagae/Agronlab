@@ -129,7 +129,7 @@ class GoogleVisionAPI:
     """Google Vision API integration for image analysis"""
     
     def __init__(self):
-        self.api_key = os.getenv('GOOGLE_VISION_API_KEY', 'AIzaSyD3vGEfsbn5Copz13NVNc7wB8EnSHGJysY')
+        self.api_key = os.getenv('GOOGLE_VISION_API_KEY', '')
         self.base_url = "https://vision.googleapis.com/v1/images:annotate"
     
     def analyze_image(self, image_data: bytes) -> Dict:
@@ -336,7 +336,7 @@ class EnhancedDiseaseDetector:
         self.pytorch_vision = PyTorchVisionAPI()
         
         # Gemini API configuration
-        self.gemini_api_key = os.getenv('GEMINI_API_KEY', 'AIzaSyDUMB5H8bzSIbaECO2CmVk3hfoNj7zfU60')
+        self.gemini_api_key = os.getenv('GEMINI_API_KEY', '')
         self.gemini_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={self.gemini_api_key}"
     
     def analyze_disease(self, image_data: bytes, image_path: str = None, crop_type: str = None) -> DiseaseAnalysis:

@@ -10,6 +10,13 @@ import os
 import logging
 import requests
 from datetime import datetime
+import os as _os
+if not _os.environ.get('STORE_DB_PATH'):
+    _os.environ['STORE_DB_PATH'] = _os.path.abspath(
+        _os.path.join(_os.path.dirname(__file__), '../../../../store-backend/store.db')
+    )
+
+from agron_context import build_system_prompt
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -19,7 +26,7 @@ app = Flask(__name__)
 CORS(app, origins=['*'], methods=['GET', 'POST', 'OPTIONS'], allow_headers=['Content-Type', 'Authorization'])
 
 # Chatbot API Configuration
-CHATBOT_API_KEY = "AIzaSyDUMB5H8bzSIbaECO2CmVk3hfoNj7zfU60"
+CHATBOT_API_KEY = os.environ.get('GEMINI_API_KEY', '')
 CHATBOT_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={CHATBOT_API_KEY}"
 
 @app.route('/api/chatbot/health', methods=['GET'])
@@ -114,44 +121,29 @@ def test_chatbot():
         }), 500
 
 def create_enhanced_prompt(message, context):
-    """Create enhanced prompt with agricultural context"""
-    base_prompt = f"""You are AgrofBot, an expert AI agricultural assistant for the AGROF platform. You help farmers with:
-
-🌱 Crop disease identification and treatment
-💊 Agricultural advice and best practices
-🌾 Farming techniques and methods
-🌿 Pest control and management
-📚 General agricultural knowledge
-🌤️ Weather-based farming advice
-💰 Market insights and pricing
-🏪 AGROF store product recommendations
-
-You have access to AGROF's comprehensive agricultural database including:
-- 102 fungicide products for disease treatment
-- 119 seed varieties for different crops
-- 50+ fertilizer products for crop nutrition
-- 156 herbicide products for weed control
-- 94 organic chemical products
-
-Context: {context or 'General agricultural inquiry'}
-
-User Message: {message}
-
-Please provide a helpful, accurate, and detailed response. If recommending products, mention they're available in the AGROF store. Use emojis to make your response engaging and easy to read. Keep responses concise but informative."""
-
-    return base_prompt
+    """Build AGRON-aware chatbot prompt with live store data injected."""
+    system = build_system_prompt(task="chatbot")
+    extra = f"\nAdditional context from user session: {context}" if context and context != 'test' else ""
+    return f"{system}{extra}\n\nUser: {message}"
 
 def call_gemini_chatbot(prompt):
-    """Call Gemini API for chatbot response"""
+    """Call Gemini API for chatbot response using system_instruction for proper context."""
     try:
+        # Split system context from user message (separated by "\n\nUser: ")
+        if "\n\nUser: " in prompt:
+            system_part, user_part = prompt.rsplit("\n\nUser: ", 1)
+        else:
+            system_part, user_part = "", prompt
+
         payload = {
+            "system_instruction": {
+                "parts": [{"text": system_part}]
+            },
             "contents": [{
-                "parts": [{
-                    "text": prompt
-                }]
+                "parts": [{"text": user_part}]
             }]
         }
-        
+
         response = requests.post(
             CHATBOT_API_URL,
             json=payload,
