@@ -4,13 +4,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sprout, ScanLine, Handshake, ShoppingBag, User } from 'lucide-react';
+import { Sprout, ScanLine, Handshake, ShoppingBag, User, Sparkles } from 'lucide-react';
 import clsx from 'clsx';
 import { WebChatbot } from './WebChatbot';
 
 const tabs = [
   { id: 'home',    icon: Sprout,      label: 'Home',    href: '/' },
   { id: 'care',    icon: ScanLine,    label: 'AI Care', href: '/care' },
+  { id: 'plan',    icon: Sparkles,    label: 'AI Plan', href: '/plan' },
   { id: 'market',  icon: Handshake,   label: 'Market',  href: '/market' },
   { id: 'store',   icon: ShoppingBag, label: 'Store',   href: '/store' },
   { id: 'account', icon: User,        label: 'Account', href: '/account' },

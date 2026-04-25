@@ -2,10 +2,10 @@
 
 import { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ScanLine, Upload, Camera, Leaf, AlertTriangle, CheckCircle, Loader2, Lock, Sparkles } from 'lucide-react';
+import { ScanLine, Upload, Camera, Leaf, AlertTriangle, CheckCircle, Loader2, Lock, Sparkles, ShoppingBag, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 import { analyzeDisease, type DiagnosisResult } from '@/lib/api';
 import { useAuth } from '@/contexts/AuthContext';
-import Link from 'next/link';
 
 const CROPS = ['Cassava','Maize','Tomato','Bean','Banana','Sweet Potato','Sorghum','Groundnut','Coffee','Tea','Rice','Wheat'];
 
@@ -388,6 +388,49 @@ export default function CarePage() {
                     ))}
                   </ol>
                 </div>
+              )}
+
+              {/* Product recommendations */}
+              {result.products_to_use && result.products_to_use.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="glass rounded-2xl p-5"
+                  style={{ border: '1px solid rgba(0,232,122,0.1)' }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <ShoppingBag size={13} style={{ color: '#00E87A' }} />
+                      <span className="text-sm font-bold" style={{ color: '#DCF5E2' }}>Recommended products</span>
+                    </div>
+                    <Link href="/store">
+                      <button className="flex items-center gap-1 text-xs font-semibold" style={{ color: '#00E87A' }}>
+                        Shop <ChevronRight size={11} />
+                      </button>
+                    </Link>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {result.products_to_use.map((p, i) => (
+                      <Link key={i} href={`/store?search=${encodeURIComponent(p)}`}>
+                        <motion.span
+                          whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer"
+                          style={{ background: 'rgba(0,232,122,0.06)', border: '1px solid rgba(0,232,122,0.15)', color: '#7CB87E' }}
+                        >
+                          <ShoppingBag size={10} style={{ color: '#00E87A' }} />
+                          {p}
+                        </motion.span>
+                      </Link>
+                    ))}
+                  </div>
+                  {result.application_method && (
+                    <p className="text-xs mt-3 leading-relaxed" style={{ color: '#3D6645' }}>
+                      <span className="font-semibold" style={{ color: '#7CB87E' }}>Application: </span>
+                      {result.application_method}
+                    </p>
+                  )}
+                </motion.div>
               )}
 
               {/* Upgrade prompt */}
